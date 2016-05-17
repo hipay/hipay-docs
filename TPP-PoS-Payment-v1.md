@@ -1,4 +1,6 @@
-![alt header][images/header.jpg]
+![alt text][logo]
+
+[logo]: https://github.com/hipay/hipay-docs/blob/develop/images/header.jpg "logo header"
 
 # Pos Payment HiPay
 
