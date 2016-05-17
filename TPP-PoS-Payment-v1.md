@@ -1,4 +1,4 @@
-[[images/header.jpg]]
+![alt header][images/header.jpg]
 
 # Pos Payment HiPay
 
@@ -17,7 +17,8 @@ HiPay Fullservice met à disposition une API permettant d'interfacer un site mar
 
 Pour utiliser cette API, vous devez au préalable obtenir une Apikey auprès de HiPay.
 
-------------------------------------
+------
+
 ## Sommaire
 
 ### 1 Introduction
@@ -46,8 +47,8 @@ Pour utiliser cette API, vous devez au préalable obtenir une Apikey auprès de 
 ##### 5.2 Identification avec la méthode cURL
 ##### 5.3 Exemple requête / réponse avec l'API
 ##### 5.4 Règles sur les transaction en attente de paiement
-###
-------------------------------------
+
+------
 
 ## 1 - Introduction
 
@@ -80,7 +81,8 @@ Pour que chaque fonctionnalité marche, il faut des pré-requis :
 5. une borne permettant de passer commande ou un site e-commerce
 6. Vos identifiants API (apiKey, login, password, ...)
 7. Le module HiPay installé sur le CMS et configuré avec les informations ci-dessus
-------------------------------------
+
+------
 
 ## 2 - Profil Web-to-Store
 
@@ -99,7 +101,7 @@ Lorsque sa commande est prête sur le lieu du point de vente, alors le client se
 
 ### 2.5 - Description technique
 
-------------------------------------
+------
 
 ## 3 - Profil Web-to-Store
 
@@ -117,4 +119,4 @@ Le client valide sa commande en choisissant le paiement en point de vente. Pour 
 
 ### 3.5 - Description technique
 
-------------------------------------
+------
