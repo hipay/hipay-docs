@@ -99,13 +99,11 @@ Lorsque sa commande est prête sur le lieu du point de vente, alors le client se
 
 [img1]: https://github.com/hipay/hipay-docs/blob/develop/images/dat-web-to-store.png "Architecture technique Web-to-Store"
 
-### 2.2 - Cas d'utilisation
+### 2.2 - Diagramme de séquence
 
-### 2.3 - Diagramme de séquence
+### 2.3 - Mockups Front Office
 
-### 2.4 - Mockups Front Office
-
-### 2.5 - Description technique
+### 2.4 - Description technique
 
 ------
 
@@ -121,12 +119,10 @@ Le client valide sa commande en choisissant le paiement en point de vente. Pour 
 
 [img2]: https://github.com/hipay/hipay-docs/blob/develop/images/dat-store-to-web.png "Architecture technique Store-to-Web"
 
-### 3.2 - Cas d'utilisation
+### 3.2 - Diagramme de séquence
 
-### 3.3 - Diagramme de séquence
+### 3.3 - Mockups Front Office
 
-### 3.4 - Mockups Front Office
-
-### 3.5 - Description technique
+### 3.4 - Description technique
 
 ------
