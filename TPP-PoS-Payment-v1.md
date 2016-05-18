@@ -107,7 +107,7 @@ Lorsque sa commande est prête sur le lieu du point de vente, alors le client se
 
 ![alt text][img23a]
 
-[img23a]: https://github.com/hipay/hipay-docs/blob/develop/images/dat-store-to-web.png "Architecture technique Store-to-Web"
+[img23a]: https://github.com/hipay/hipay-docs/blob/develop/images/mockup-fo-web-to-store.png "Mockup Front Office Web-to-Store"
 
 ### 2.4 - Description technique
 
