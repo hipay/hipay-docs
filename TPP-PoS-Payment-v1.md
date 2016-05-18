@@ -65,7 +65,9 @@ Le CMS ou SDK devra, au moment de l’achat du client, proposer une méthode de 
 En cas de succès et d’échec, le CMS ou SDK devra retourner une page de succès ou une page “Failure” expliquant la raison de l’échec.
 
 ### 1.2 - Différents acteurs
+
 Voici les différents acteurs touchant au système en front office et back office :
+
 1. Le marchand : mise en place du module dans son CMS et configuration du module avec son contrat VAD
 2. Le client : Celui qui passe commande et qui utilisera le TPE avec sa carte et son PIN
 3. HiPay : L'établissement de paiement faisant la relation entre le TPE, le client et le marchand
@@ -73,7 +75,9 @@ Voici les différents acteurs touchant au système en front office et back offic
 5. Acquéreur : L'organisme permettant de faire de la réconsiliation
 
 ### 1.3 - Ressources techniques
+
 Pour que chaque fonctionnalité marche, il faut des pré-requis :
+
 1. Être à jour avec le CMS / framework utilisé 
 2. cURL installé sur l'hébergement
 3. Avoir les permissions d'accès dans les deux sens entre le CMS et l'API (callback par exemple)
