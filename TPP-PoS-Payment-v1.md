@@ -95,6 +95,10 @@ Lorsque sa commande est prête sur le lieu du point de vente, alors le client se
 
 ### 2.1 - Architecture technique
 
+![alt text][logo]
+
+[logo]: https://github.com/hipay/hipay-docs/blob/develop/images/dat-web-to-store.png "Architecture technique Web-to-Store"
+
 ### 2.2 - Cas d'utilisation
 
 ### 2.3 - Diagramme de séquence
@@ -112,6 +116,10 @@ Le client navigue sur une borne ayant accès sur le site e-commerce.
 Le client valide sa commande en choisissant le paiement en point de vente. Pour information, le client procède à une livraison de son choix. Une page d'attente de paiement s'affiche et indique au client de payer par CB sur le TPE physique dans la boutique. La commande est terminée.
 
 ### 3.1 - Architecture technique
+
+![alt text][logo]
+
+[logo]: https://github.com/hipay/hipay-docs/blob/develop/images/dat-store-to-web.png "Architecture technique Store-to-Web"
 
 ### 3.2 - Cas d'utilisation
 
