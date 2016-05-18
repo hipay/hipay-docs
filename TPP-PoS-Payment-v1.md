@@ -29,16 +29,14 @@ Pour utiliser cette API, vous devez au préalable obtenir une Apikey auprès de 
 ##### 1.3 Ressources techniques
 ### 2 Profil Web-to-Store
 ##### 2.1 Architecture technique
-##### 2.2 Cas d'utilisation
-##### 2.3 Diagramme de séquence
-##### 2.4 Mockups Front Office
-##### 2.5 Description technique
+##### 2.2 Diagramme de séquence
+##### 2.3 Mockups Front Office
+##### 2.4 Description technique
 ### 3 Profil Store-to-Web
 ##### 3.1 Architecture technique
-##### 3.2 Cas d'utilisation
-##### 3.3 Diagramme de séquence
-##### 3.4 Mockups Front Office
-##### 3.5 Description technique
+##### 3.2 Diagramme de séquence
+##### 3.3 Mockups Front Office
+##### 3.4 Description technique
 ### 4 Configuration Magento Back office
 ##### 4.1 Mockups Point de vente
 ##### 4.2 Mockups TPE
