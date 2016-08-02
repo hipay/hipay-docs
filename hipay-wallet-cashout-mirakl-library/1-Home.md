@@ -1,5 +1,3 @@
-[[images/header.jpg]]
-
 # HiPay Wallet cash-out library for Mirakl
 
 ## Preamble
@@ -15,13 +13,10 @@ As stated in the previous section, this library needs to be integrated. In most 
 This library is an implementation of both the HiPay and the Mirakl APIs. It allows you to retrieve payment operations from Mirakl, to transfer funds and to perform withdrawals to bank accounts by using the relevant HiPay Wallet API. In other words, this library allows you to perform withdrawals corresponding to Mirakl's payment operations by leveraging the HiPay Wallet payment solution.
 
 ## Table of contents
-1. [[Home]]
-2. [[Disclaimer]]
-3. [[Prerequisites and recommendations]]
-4. [[Installation]]
-5. [[Usage]]
-6. [[Tests]]
-7. [[Versioning]]
-8. [[Appendix]]
-
-[repo-integration]: https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
+1. [Disclaimer](#disclaimer)
+2. [Prerequisites and recommendations](#prerequisites-and-recommendations)
+3. [Installation](#installation)
+4. [Usage](#general-usage)
+5. [Tests](#tests)
+6. [Versioning](#versioning)
+7. [Appendix](#appendix)

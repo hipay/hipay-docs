@@ -1,3 +1,5 @@
+# Tests
+
 Do not hesitate to run the unit tests to ensure that everything is running smoothly. Before running the tests, ensure that all dependencies are met. To do so, run the following command:
 
     $ composer install --dev

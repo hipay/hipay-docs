@@ -1,4 +1,4 @@
-# Preamble
+# Update
 
 This section is useful if you already have the HiPay Wallet cash-out integration for Mirakl installed on your server and want to update it.
 
@@ -6,7 +6,7 @@ Remember: the project HiPay Wallet cash-out **integration** for Mirakl relies on
 
 Both procedures are documented below:
 
-# Core library update procedure (common use case)
+## Core library update procedure (common use case)
 
 Go in the root directory of the project (where `composer.json` is) and type the following command:
 
@@ -23,15 +23,15 @@ Updating dependencies (including require-dev)
     Checking out 2f7f50131839e6c568b9a903ba7e31c6c5fc8847
 ```
 
-# Full project update procedure
+## Full project update procedure
 
-## 1. Backup
+### 1. Backup
 
 Make sure you have a backup before upgrading the full project. You may copy the full project directory if you're not sure. For example, if your project directory is named `hipay_mirakl`:
 
 	$ cp -R hipay_mirakl hipay_mirakl_backup
 
-## 2. Check if Git is initialized
+### 2. Check if Git is initialized
 
 Go in the root directory of the project (where `composer.json` is) and check if there is a `.git` directory by typing the following command:
 
@@ -57,7 +57,7 @@ If you get an error message like `ls: cannot access .git: No such file or direct
 	git init
 	git remote add origin https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
 
-## 3. Update the project
+### 3. Update the project
 
 First, fetch the new tags available:
 
@@ -74,7 +74,7 @@ When you figured out the version number to which you want to upgrade, type the f
 
 For example, if you want to update to version 2.1.0, you will have `tags/2.1.0`.
 
-## 4. Install the dependencies
+### 4. Install the dependencies
 
 Finally, install the dependencies using Composer:
 

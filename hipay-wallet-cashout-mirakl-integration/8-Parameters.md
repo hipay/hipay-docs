@@ -1,6 +1,6 @@
-The following table describes the data in `parameters.yml`. The user you run the commands with should have write access to all the paths you use in this file.
+# Parameters
 
-# Parameter categories
+The following table describes the data in `parameters.yml`. The user you run the commands with should have write access to all the paths you use in this file.
 
 ## Mirakl web service
 
@@ -106,7 +106,7 @@ You can either provide the `tls` or `ssl` values for the `mail.security` paramet
 | `log.file.path`               | String	                    |/var/log/hipay.log               	                | Path to the log file
 | `cashout.transactionFilterRegex`               | String	                    | null | Used to filter cash-out transactions. Let it `null` if you don't know what to do with it.
 
-# Labels
+## Labels
 
 Labels give a description of the transaction (transfer or withdrawal) and appear on the account statement.
 For label parameters (label.public, label.private, label.withdraw), the following placeholder strings can be used, which will be replaced before sending the data to HiPay.

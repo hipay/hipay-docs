@@ -1,12 +1,14 @@
+# Module configuration
+
 ## Access to configuration
 
 To configure your HiPay Fullservice module, click on "_Modules -> Modules_” in your PrestaShop back office, then on "_Configure_":
 
-[[images/module-configure.png]]
+![legend](images/module-configure.png)
 
 ## Configuration of your HiPay Fullservice account 
 
-[[images/module-configuration.png]]
+![legend](images/module-configuration.png)
 
 **Notification URL:** 
 
@@ -18,7 +20,7 @@ Here you can see the IP address of your server, which must be authorized in your
 
 You can find your HiPay Fullservice API credentials in your HiPay Fullservice back office (https://merchant.hipay-tpp.com), under "_Integration -> Security Settings -> Api credentials_".
 
-### Configuration parameters
+## Configuration parameters
 
 | Name               | Description |
 |:------------|:------------|
@@ -64,6 +66,3 @@ If you have configured multiple local payment methods in your HiPay Fullservice 
 > 
 > Local payment methods will only be showed if your customer makes a purchase in the available currency for each payment method.
 >
-
-# Next step
-When you're done with this part, go to the next section: [[Payment configuration]].

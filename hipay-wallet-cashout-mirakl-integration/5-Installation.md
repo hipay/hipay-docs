@@ -1,8 +1,10 @@
+# Installation
+
 Before starting the installation, please read all instructions and make sure you've gone through the [[Prerequisites and recommendations]] and [[Mirakl account configuration]] sections. 
 
 Be aware that **all relative paths are relative to the root directory of the installation**.
 
-# Application deployment
+## Application deployment
 
 This section describes how to install the **HiPay Wallet cash-out integration for Mirakl** using Git and [Composer](https://getcomposer.org/), the PHP package manager. The software being installed is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/).
 
@@ -28,7 +30,7 @@ This section describes how to install the **HiPay Wallet cash-out integration fo
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay Wallet account credentials and your Mirakl API credentials. Please go to the [[Prerequisites and recommendations]] section if you need more information about these parameters.
 
-# HiPay cash-out notifications
+## HiPay cash-out notifications
 
 This section describes how to provide HiPay with information on how to reach your server in order to automatically inform your application upon transaction status update (for example, when a withdrawal has been validated). HiPay notifies your application through HTTP requests.
 
@@ -36,7 +38,7 @@ This section describes how to provide HiPay with information on how to reach you
 
 2. Note the URL from which the `web/index.php` is reachable (example: `https://cashout.merchant-example.com/index.php`). Then, [contact HiPay's Business IT Services](http://help.hipay.com/) to configure this URL as your marketplace notification URL.
 
-# Initialization and final check
+## Initialization and final check
 
 Go in the project directory: 
 
@@ -48,7 +50,7 @@ Run the following command:
 
 This command will initialize the database with the needed tables. You should get this database schema:
 	
-## Vendors
+### Vendors
 
 | Field    | Type         | Null | Key | Default | Extra          |
 |----------|--------------|------|-----|---------|----------------|
@@ -57,7 +59,7 @@ This command will initialize the database with the needed tables. You should get
 | email    | varchar(255) | NO   | UNI | NULL    |                |
 | hipayId  | int(11)      | NO   | UNI | NULL    |                |
 
-## Operations
+### Operations
 
 | Field          | Type         | Null | Key | Default | Extra          |
 |----------------|--------------|------|-----|---------|----------------|
@@ -74,6 +76,3 @@ This command will initialize the database with the needed tables. You should get
 
 
 To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php`). **A white page with the "*Hello World*" text message should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.
-
-# Next step
-Once your application is properly installed, go to the next section: [[Usage]].

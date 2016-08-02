@@ -1,3 +1,4 @@
+# Platform configuration
 
 ## Allow the IP addresses of your servers
 
@@ -9,7 +10,7 @@ To do this, you must log in your HiPay Fullservice back office (https://merchant
 >
 > When changing your IP addresses, make sure that all the new ones are configured for your account. If not, your server requests will be rejected.
 
-[[images/ip-restriction.png]]
+![legend](images/ip-restriction.png)
 
 ## Configure redirect URLs
 
@@ -30,7 +31,3 @@ Click on the "_Integration_" tab, then on "_Notifications_"
 - I want to be notified for the following transaction statuses: ALL
 
 Don’t forget to replace {your-domain.com} by your own domain.
-
-
-### Next step
-When you're done with this part, go to the next section: [[Module installation]].
