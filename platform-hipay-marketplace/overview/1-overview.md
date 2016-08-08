@@ -101,7 +101,7 @@ between all the stakeholders.
 
 This is exactly what HiPay Marketplace is designed for.
 
-![HiPay Marketpladce schema](HiPay-Marketplace-APIs-overview/media/image4.jpeg)
+![HiPay Marketpladce schema](images/image4.jpeg)
 
 
 # The functionalities of HiPay Marketplace are fully adapted to the intermediation model
@@ -138,14 +138,14 @@ This is exactly what HiPay Marketplace is designed for.
 -   Optimized customer experience
 -   Recurring and 1-click payments, seamless payments on mobile devices
 
-![HiPay Marketplace reconciliation](HiPay-Marketplace-APIs-overview/media/image5.png)
+![HiPay Marketplace reconciliation](images/image5.png)
 
 
 #How / When to use our APIs?
 
 The implementation of HiPay Marketplace involves establishing connections between your marketplace platform and HiPay based on a simple integration through a set of APIs.
 
-![HiPay Marketplace Cash-in transactions](HiPay-Marketplace-APIs-overview/media/image6.jpeg)
+![HiPay Marketplace Cash-in transactions](images/image6.jpeg)
 *Cash-in transactions: here is a brief recap of APIs for HiPay Fullservice TPP*
   
 ##API Description
@@ -167,7 +167,7 @@ Provides information on an already effected transaction
 
 Please refer to technical documentation *HiPay Fullservice TPP - Payment Gateway - API Integration Guide (Chapter 3. REST API Resources)* for further details.
 
-![Cash-out transactions](HiPay-Marketplace-APIs-overview/media/image7.jpeg)
+![Cash-out transactions](images/image7.jpeg)
 *Cash-out transactions: here is a detailed description of APIs for
 HiPay Wallet*
 
@@ -293,7 +293,7 @@ notifications on your server to HiPay technical support.
 
 ## Cash-in Server-to-Server notifications
 
-![Cash-in Server-to-Server notifications](HiPay-Marketplace-APIs-overview/media/image8.png)
+![Cash-in Server-to-Server notifications](images/image8.png)
 
 Please refer to technical documentation *HiPay Fullservice TPP - Payment Gateway - API Integration Guide (Chapter 6. Server-to-Server Notifications)* for further details.
 

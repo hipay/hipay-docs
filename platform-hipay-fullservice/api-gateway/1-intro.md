@@ -178,7 +178,7 @@ Proceed as follow to carry out a transaction:
 
 ### Workflow overview
 
-![](HiPayTPP-GatewayAPI-v2.4.13/media/image1.png)
+![](images/media/image1.png)
 
 ##Authentication Results
 
@@ -301,7 +301,7 @@ The life cycle of a transaction processed by the HiPay TPP Payment Service is ch
 ####Diagram   
 
 Figure 1: Typical Transaction Flow
-![](HiPayTPP-GatewayAPI-v2.4.13/media/image4.png)
+![](images/media/image4.png)
 
 ####Electronic Commerce Indicator
 
