@@ -1,4 +1,4 @@
-# HiPay Fullservice SDK for iOS
+# HiPay Fullservice SDK for iOS [dev version = WIP]
 
 ## Preamble
 The **HiPay Fullservice SDK for iOS** is a library that allows you to **accept payments in your iOS application** by leveraging the HiPay Fullservice payment platform. The library is written in Objective-C and is based on Cocoa Touch. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.

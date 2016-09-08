@@ -1,5 +1,5 @@
 
-#HiPay FullService - Gateway API
+#HiPay Fullservice - Gateway API
 
 #About this Guide 
 

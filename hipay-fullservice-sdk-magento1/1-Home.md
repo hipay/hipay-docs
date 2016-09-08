@@ -1,4 +1,4 @@
-#HiPay FullService Magento 1 - Integration guide
+#HiPay Fullservice Magento 1 - Integration guide
 
 **DISCLAIMER:**
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay.
@@ -183,11 +183,11 @@ To use the HiPay Fullservice TPP module, you need to configure the
 redirection URLs in your HiPay Fullservice TPP back office under
 “*Integration -&gt; Redirect Pages*”.
 
--   Accept Page: http://www.{your-domain.com}/index.php/hipay/cc/accept/
--   Decline Page: http://www.{your-domain.com}/index.php/hipay/cc/decline/
--   Pending Page: http://www.{your-domain.com}/index.php/hipay/cc/pending/
--   Cancel Page: http://www.{your-domain.com}/index.php/hipay/cc/cancel/
--   Exception Page: Empty
+-   Accept Page: `http://www.{your-domain.com}/index.php/hipay/cc/accept/`
+-   Decline Page: `http://www.{your-domain.com}/index.php/hipay/cc/decline/`
+-   Pending Page: `http://www.{your-domain.com}/index.php/hipay/cc/pending/`
+-   Cancel Page: `http://www.{your-domain.com}/index.php/hipay/cc/cancel/`
+-   Exception Page: `Empty`
 
 Also check the box "*Feedback Parameters*" and apply the changes.
 
