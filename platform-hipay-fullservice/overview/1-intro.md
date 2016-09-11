@@ -1,5 +1,5 @@
 
-# HiPay Fullservice - Overview
+# HiPay Fullservice Platform Overview
 
 # About this Guide 
 
