@@ -1,4 +1,4 @@
-#HiPay Fullservice Demandware Cartridge
+#HiPay Fullservice Cartridge for Demandware
 
 #General information
 
