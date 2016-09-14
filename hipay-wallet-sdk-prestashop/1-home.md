@@ -1,15 +1,15 @@
-# Guide de configuration du module HiPay Direct pour Prestashop
+# Guide de configuration du module HiPay Direct pour PrestaShop
 
 
 #Introduction
 
-Dans ce document, nous décrivons la méthode pour activer et utiliser le module Hipay pour Prestashop. Nous listons également les différents points de blocages qui peuvent survenir ainsi que leurs solutions.
+Dans ce document, nous décrivons la méthode pour activer et utiliser le module Hipay pour PrestaShop. Nous listons également les différents points de blocages qui peuvent survenir ainsi que leurs solutions.
 
 **A savoir :**
 
--   Le module Hipay est présent en natif sur le CMS Prestashop. Il n’est
+-   Le module Hipay est présent en natif sur le CMS PrestaShop. Il n’est
     donc pas nécessaire de le télécharger à part, il suffit de l’activer
-    sur votre backoffice Prestashop, dans la rubrique « Modules »
+    sur votre backoffice PrestaShop, dans la rubrique « Modules »
 
 -   Il est possible de télécharger le module en cas de réinstallation ou
     de mise à jour à cette adresse :
@@ -54,7 +54,7 @@ Entrez le nom de votre site, l’URL, le thème principal et secondaire,le mot d
 Vous pouvez également insérer un CSS (Cascading Style Sheet) pour
 personnaliser votre page de paiement Hipay (elle doit être validée par nos techniciens avant son activation).
 
-Il n’est pas nécessaire de créer un bouton de paiement pour utiliser Hipay sur Prestashop. Vous pouvez donc revenir sur la liste de vos sites une fois votre site inscrit.
+Il n’est pas nécessaire de créer un bouton de paiement pour utiliser Hipay sur PrestaShop. Vous pouvez donc revenir sur la liste de vos sites une fois votre site inscrit.
   
 
 #Installation et configuration
@@ -62,7 +62,7 @@ Il n’est pas nécessaire de créer un bouton de paiement pour utiliser Hipay s
 ##Configuration du compte
 
 Une fois votre site inscrit, rendez-vous sur votre backoffice
-Prestashop.
+PrestaShop.
 
 Cliquez sur « Modules » et sur « Paiement ». Au niveau du module Hipay,cliquez sur « Installer » :
 
@@ -138,7 +138,7 @@ Choisissez les zones dans lesquelles vous souhaitez proposer Hipay et validez.
 
 -   L’id de la catégorie sélectionné n’est pas correcte. Peut arriver
     suite à une modification des catégories sur votre compte Hipay.
-    Recommencez la configuration sur votre backoffice Prestashop pour
+    Recommencez la configuration sur votre backoffice PrestaShop pour
     obtenir ou renouveler les catégories. Si deux catégories « Autres »
     apparaissent, choisissez la deuxième et validez.
 
