@@ -1,7 +1,7 @@
 # HiPay Marketplace integration for Izberg
 
 ## Preamble
-HiPay is fully integrated into Izberg, allowing you to manage both cash-in and cash-out operations automatically. To do so, you just need to create a HiPay account and provide the Izberg back office with your HiPay account information. By doing so, HiPay will take care of processing payments of your end customers and will also transfer funds to to your vendors' bank account. The whole solution is turnkey and fully compliant with European regulations.
+HiPay is fully integrated into Izberg, allowing you to manage both cash-in and cash-out operations automatically. To do so, you just need to create a HiPay account and provide the Izberg back office with your HiPay account information. By doing so, HiPay will take care of processing payments of your end customers, will transfer funds to to your vendors' bank account and will also transfer commissions to the operator's bank account. This turnkey solution is fully compliant with European regulations.
 
 # Prerequisites
 
@@ -77,16 +77,64 @@ All these information should have been provided to you beforehand by HiPay. If y
 
 ## 5. Cash-in
 
+### HiPay Fullservice back office
+
 Sign in to your [HiPay Fullservice merchant back office](https://merchant.hipay-tpp.com).
 
 Once logged in to HiPay Fullservice, go to the "**Integration**" section:
 
-![Izberg back office - Payment config - Cash-out](images/bo_hipay_integration.png)
+![HiPay back office - Integration](images/bo_hipay_integration.png)
 
 Then, go to the "**security settings**" section:
 
-![Izberg back office - Payment config - Cash-out](images/bo_hipay_security.png)
+![HiPay back office - Security settings](images/bo_hipay_security.png)
 
-If the *Secret Passphrase* field is empty, choose one by typing a something 
+### REST API passphrase
 
+On the HiPay Fullservice back office, if the *Secret Passphrase* field is empty, choose one by typing a secret string here. If the passphrase is already defined, do not modify it (unless it's not already in use). Here is an example of passphrase:
 
+![HiPay back office - Passphrase](images/bo_hipay_passphrase.png)
+
+Then, copy and paste this secret passphrase into the *REST API passphrase* field on the Izberg operator back office:
+
+![Izberg back office - Payment config - Passphrase](images/bo_passphrase.png)
+
+### REST API login and password
+
+On your HiPay Fullservice back office, find the API credentials section (still in *Security settings*):
+
+![HiPay back office - Credentials](images/bo_hipay_credentials.png)
+
+Choose the credentials you want to use for cash-in management in Izberg. You may select an existing set of credentials or generate a new one. In any case, make sure they are granted for each API action. If you are not sure, click on the edit icon and verify that all boxes are checked.
+
+Then copy and paste the *Username* value into the *REST API Login* field and copy and paste the *Password* value into the *REST API Password* field in the Izberg back office:
+
+![Izberg back office - Payment config - Passphrase](images/bo_rest_api_credentials.png)
+
+## 6. Payment form
+
+### Payment form style and integration
+
+![Izberg back office - Payment config - Payment form style](images/bo_izberg_payment_form_style.png)
+
+You may customize the cash-in payment page by uploading your own CSS (cascading style sheet) file. For more information, refer to the [HiPay Fullservice platform documentation](/getting-started/platform-hipay-fullservice/overview/).
+
+The *Payment Form Template* option allows you to choose whether you want the end user to be fully redirected to our payment page or if you want the payment form to be integrated into the checkout.
+
+You can also choose whether you want the payment methods list to be displayed on the payment page. If you have many payment methods (not only credit or debit cards), you should check this box.
+
+### Redirect URLs
+
+In the Redirect URL fields, make sure to insert your proper Izberg marketplace shop URLs:
+
+![Izberg back office - Payment config - Redirect URLs](images/bo_redirect_url.png)
+
+If you are not sure of what to insert in the fields above, contact the Izberg support.
+
+## 7. Saving changes
+
+Finally, save the changes:
+
+![Izberg back office - Payment config - Save](images/bo_save.png)
+
+That's it. Your Izberg payment configuration is all set up. Test your integration to make sure everything is OK.
