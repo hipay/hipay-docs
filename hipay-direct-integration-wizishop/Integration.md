@@ -45,3 +45,32 @@ On the HiPay Direct back office, click on the API link of the Integration menu:
 
 ![HiPay Direct back office - API](images/hipay_api.png)
 
+Then, find your credentials:
+
+![HiPay Direct back office - API](images/hipay_credentials.png)
+
+Copy and paste the login and password into WiziShop, like this:
+
+![WiziShop back office - HiPay credentials](images/wizishop_credentials.png)
+
+## 5. Website information
+
+In your HiPay Direct back office, go in the websites section:
+
+![HiPay Direct back office - Websites](images/hipay_websites.png)
+
+Then, find your website ID, like this:
+
+![HiPay Direct back office - Website ID](images/hipay_website_id.png)
+
+Finally, copy and paste this website ID into WiziShop:
+
+![WiziShop back office - HiPay website ID](images/wizishop_website_id.png)
+
+Do not forget to choose a category of product when the category selector appears below the website ID field.
+
+## 6. Payment workflow customization (optional)
+
+Optionally, you can customize the payment workflow by clicking on the link allowing you to do so on the WiziShop back office. For example, these options allow you to change the payment logo as well as its label.
+
+That's it! Your payment workflow is all set up on your WiziShop store. Make a test order on your shop in order to confirm that everything works well.
