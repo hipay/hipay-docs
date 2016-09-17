@@ -71,6 +71,10 @@ Do not forget to choose a category of product when the category selector appears
 
 ## 6. Payment workflow customization (optional)
 
-Optionally, you can customize the payment workflow by clicking on the link allowing you to do so on the WiziShop back office. For example, these options allow you to change the payment logo as well as its label.
+Optionally, you can customize the payment workflow by clicking on the link allowing you to do so on the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Save" button.
+
+## 7. Save
+
+When your integration is configured, click on the "Save" button at the bottom of the page.
 
 That's it! Your payment workflow is all set up on your WiziShop store. Make a test order on your shop in order to confirm that everything works well.
