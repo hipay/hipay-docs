@@ -33,7 +33,9 @@ Dans ce document, nous décrivons la méthode pour activer et utiliser le module
 
 ##Inscription d’un compte marchand
 
-Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. Rendez vous sur [*www.hipaydirect.com*](http://www.hipaydirect.com), cliquez sur « Ouvrir un compte » et suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
+Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. 
+
+Rendez vous sur http://www.hipaydirect.com, cliquez sur « Ouvrir un compte » et suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
 
 ![HiPay Direct Dashboard](images/media/dashboard.png) 
 
