@@ -1,59 +1,204 @@
-# HiPay Fullservice - Javascript SDK (Direct Post)
+# HiPay Fullservice SDK for Javascript (Direct Post)
 
-##Payment Gateway Direct Post Integration Guide
+The HiPay Fullservice SDK for JavaScript allows you to tokenize credit or debit cards against the HiPay Fullservice payment platform, directly from the web browser. This method (called Direct Post in the PCI council terminology) allows you to offer a unfied payment workflow to your customers while remaining PCI compliant.
 
-## HTML-based integration
-This integration will merge with your existing HTML in a page using a payment form from which data will be used by the HiPay’s JavaScript Direct Post library.
+# Security principle
 
-This document is designed to give you details on how to integrate your business to the HiPay Fullservice Payment Gateway using a “direct post” method. It provides step-by-step instructions on how to simply and quickly get up and running with our services, as well as detailed reference material.
+The payment data (card number, card verification code and so on) will never hit your server, they will remain in the browser and will be sent directly yo the HiPay Fullservice's Secure Vault. This method is called "Direct Post". That way, you can create your own payment form, hosted on your server. Once the user validates the form, payment data are sent to the HiPay Fullservice platform through the HiPay Fullservice SDK for Javascript which returns a token. Then, you can process payments with the token on the server side.
 
-**Disclamer**
-While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes               no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
+# Installation
 
-**Technical support**
-If you need any complementary information concerning the technical implementation of HiPay Fullservice, don’t hesitate to contact our Business IT Services:- Web: http://help.hipay.com - Email: support.tpp@hipay.com- Telephone: +33 (0)1 82 88 68 68
+### Using Bower
 
-##HTML Form Example
+The easiest way to use the SDK is to install it using [Bower](http://bower.io). To do so, type the following into a terminal window:
+
+```sh
+$ bower install hipay-fullservice-sdk-js
+```
+
+### Cloning the repository
+
+You can clone the repository by typing the following command into a terminal window:
+
+```sh
+$ git clone git://github.com/hipay/hipay-fullservice-sdk-js
+```
+
+### Downloading archive
+
+You can also download the source code in ZIP format.
+
+# Example app
+
+## Scope
+
+You can test our example app which is available in the `example` directory. This app leverages both the HiPay's JavaScript SDK and PHP SDK in order to tokenize the card number (in the browser, using the JavaScript SDK) and make a transaction with this token on the server side using the PHP SDK.
+
+![HiPay Fullservice Direct Post Simulator](images/screenshot.png)
+
+## Setup
+
+### Prerequisites
+
+The example app is plug and play with Docker. This procedure assumes that Docker is installed on your machine.
+
+### Procedure
+
+In order to test the example app, open a terminal and go to the `example` directory. Then, type the following command:
+
+	$ docker-compose up -d
+
+Once the Docker container is up and running, type the following command:
+
+	$ docker-compose run web /bin/bash example/setup.sh
+
+Then, you need to open the following file: `example/credentials.php` to put your own HiPay Fullservice credentials. Follow the instructions inserted in PHP comments.
+
+Finally, open your web browser and go to: http://localhost:8080/example/  
+You should see the form presented in the screenshot above.
+
+# Integration guide
+
+The integration guide below describes step by step how to use the HiPay Fullservice SDK for JavaScript. The implementation can also be found in the example app (see the previous section).
+
+## Import the JavaScript SDK
+
+To use the SDK, you need to add the following script tag to your HTML pages:
+
+    <script type="text/javascript" src="dist/hipay-fullservice-sdk.js"></script>
+
+For better performance, you can use the minified version:
+
+    <script type="text/javascript" src="dist/hipay-fullservice-sdk.min.js"></script>
+
+## HTML-side integration
+Then, you need to add a payment form to your checkout. Here is a basic HTML example:
 
 ```html
-<form method="POST" action="#" id="hipay-direct-post">	<select name="cc_type" id="cc_type"> <!— Card brand —->        	   <option value="cb">Carte Bancaire</option>        	   <option value="visa">Visa</option>        	   <option value="mastercard">MasterCard</option>        	   <option value="american-express">American Express</option>      	</select>      	<label for="cc_number">Card Number</label>      	<input type="text" name="cc_number" id="cc_number" placeholder="XXXX XXXX XXXX XXXX" maxlength="20" size="20" autocomplete="off" >      	<label for="cc_exp_month">Expiration Month</label>      	<input type="text" name="cc_exp_month" id="cc_exp_month" placeholder="00" autocomplete="off">      	<label for="cc_exp_year">Expiration Year</label>      	<input type="text" name="cc_exp_year" id="cc_exp_year" placeholder="00" autocomplete="off">      	<label for="cc_name">Cardholder's Name</label>      	<input type="text" name="cc_name" id="cc_name" placeholder="John Doe" autocomplete="off">      	<label for="cc_cvc">Card Validation Code</label>      	<input type="text" name="cc_cvc" id="cc_cvc" placeholder="123" maxlength="4" size="3" autocomplete="off">    	<input type="submit" value="Pay" /></form>```
+<div id="form" class="col-md-5">
+  
+  <div class="details">Enter your payment details:</div>
+  
+  <div>
+      <div class="input-group" id="card-number">
+          <span class="input-group-addon"></span>
+          <input id="input-card" type="number" placeholder="Card number" maxlength="16">
+      </div>
+      <div class="input-group" id="name">
+          <span class="input-group-addon"></span>
+          <input id="input-name" type="text" placeholder="Cardholder">
+      </div>
+  </div>
+  
+  <div>
+      <div class="input-group" id="date">
+          <span class="input-group-addon"></span>
+          <input id="input-month" type="number" placeholder="Month" maxlength="2">
+          <input id="input-year" type="number" placeholder="Year" maxlength="4">
+      </div>
+  <div>
+      <div class="input-group col-md-6" id="cvv">
+          <span class="input-group-addon"></span>
+          <input id="input-cvv" type="number" placeholder="CVV" maxlength="3">
+      </div>
+      <div id="cvv-button" class="col-md-6">
+          <button type="button" data-toggle="modal" data-target="#cvv-modal">?</button>
+      </div>
+  </div>
 
-##JavaScript
-With the above HTML template, you must include the HiPay JavaScript library.
+  </div>
 
-###JavaScript: Include this example
-`<script type="text/javascript" src="javascripts/token-2.1.1.min.js"></script>`
+  <div id="submit-zone">
+      <div id="error"></div>
+      <button type="button" data-toggle="modal" data-target="#other-method-modal" id="pay-button">Tokenize</button>
+  </div>
+</div>```
 
-You must also add JavaScript instructions so that no card data is sent to your server unencrypted.
+## JavaScript processing
+Once the user validates the form, you must use the JavaScript SDK in order to tokenize the card. Here is an example using *jQuery*:
 
-###JavaScript request parameters
+```js
+$("#pay-button").click(function() {
+
+  $("#form :input").prop("disabled", true);
+  $("#form :button").prop("disabled", true);
+  $("#error").text("");
+
+  $("#pay-button").text("Loading…");
+
+  var params = {
+    card_number: $('#input-card')[0].value,
+    cvc: $('#input-cvv')[0].value,
+    card_expiry_month: $('#input-month')[0].value,
+    card_expiry_year: $('#input-year')[0].value,
+    card_holder: $('#input-name')[0].value,
+    multi_use: '0'
+  };
+
+
+  HiPay.setTarget('stage'); // default is production/live
+  HiPay.setCredentials('<?php echo $credentials['public']['username']; ?>', '<?php echo $credentials['public']['password']; ?>');
+
+  HiPay.create(params,
+    
+    function(result) {
+
+      token = result.token;
+
+      $("#pay-button").text("Tokenize");
+      $("#order").text("The token has been created using the JavaScript SDK (client side).");
+
+      $('#code').text(JSON.stringify(result, null, 4));
+      $('#link').text('');
+
+      $("#charge-button").show();
+
+    }, 
+
+    function (errors) {
+      $("#pay-button").text("Tokenize");
+      $("#form :input").prop("disabled", false);
+      $("#form :button").prop("disabled", false);
+
+      if (typeof errors.message != "undefined") {
+        $("#error").text("Error: " + errors.message);
+      } else {
+        $("#error").text("An error occurred with the request.");
+      }
+    }
+  );
+
+  return false;
+});
+```
+
+Once the token is retrieved, you can process a payment on the server side. Check out the example app's source code for more information.
+
+# SDK reference
+
+You will find below the methods and parameters made available by the SDK.
+
+## Basic methods and request parameters
 
 | Field name   |      Format      |  Description |
-|----------|:-------------:|------:|
-| setTarget |  AN | If you are testing in your stage or production account, you can choose the following targets:<br/>- test<br/>- live
-| setCredentials |  AN | Your direct post API credentials. *Be careful*! Do not use classic API credentials but public API credentials created on the HiPay Fullservice back office.
-| create |  - | Credit card information. Please refer to the “Create token request parameters” table below.
+|----------|:-------------:|------|
+| `setTarget` |  AN | If you are testing in your stage or production account, you can choose the following targets:<br/>- `stage`<br/>- `production`
+| `setCredentials` |  AN | Your direct post API credentials. **Be careful! Do not use classic API credentials but public API credentials created on the HiPay Fullservice back office.**
+| `create` |  - | Credit card information. Please refer to the “Create token request parameters” table below.
 
-###Create token request parameters
+## Create token request parameters
 
 | Field name   |  Format |  Length |   Req. |  Description |
-|----------|:-------------:|------:|------:|------:|
-| card_number |  N | 19 |  M | The card number. The length is from 12 to 19 digits.
-| card_expiry_month |  N | 2|  M | The card expiry month. Expressed with two digits (e.g.: 01).
-| card_expiry_year |  N | 4|  M | The card expiry year. Expressed with four digits (e.g.: 2014).
-| card_holder |  AN | 25|  - | The cardholder’s name as it appears on the card (up to 25 characters).
-| cvc |  N | 4|  - | The 3- or 4- digit security code (called CVC2, CVV2 or CID depending on the card brand) that appears on the credit card.
-| multi_use |  N | 1|  - | Indicates if the token should be generated either for a single-use or a multi-use.<br/>Possible values:<br/>1 = Generate a multi-use token<br/>0 = Generate a single-use token.<br/>While a single-use token is typically generated for a short time and for processing a single transaction, multi-use tokens are generally generated for recurrent payments.
- ###JavaScript response parameters
+|----------|:-------------:|:------:|:------:|------|
+| `card_number` |  N | 19 |  M | The card number. The length is from 12 to 19 digits.
+| `card_expiry_month` |  N | 2|  M | The card expiry month. Expressed with two digits (e.g.: 01).
+| `card_expiry_year` |  N | 4|  M | The card expiry year. Expressed with four digits (e.g.: 2014).
+| `card_holder` |  AN | 25|  - | The cardholder’s name as it appears on the card (up to 25 characters).
+| `cvc` |  N | 4|  - | The 3- or 4- digit security code (called CVC2, CVV2 or CID depending on the card brand) that appears on the credit card.
+| `multi_use` |  N | 1|  - | Indicates if the token should be generated either for a single-use or a multi-use.<br/>Possible values:<br/>1 = Generate a multi-use token<br/>0 = Generate a single-use token.<br/>While a single-use token is typically generated for a short time and for processing a single transaction, multi-use tokens are generally generated for recurrent payments.
+ ## Create token response parameters
 The following table lists and describes the response fields.
 
 | Field name   |      Description     |
-|----------|:------------:|
-|token| Token that was created. ||request_id| The request ID linked to the token. ||brand| Card brand. (e.g.: Visa, MasterCard, American Express, JCB, Discover, Diners Club, Solo, Laser, Maestro) ||pan| Card number (up to 19 characters). Please note: due to PCI DSS security standards, our system has to mask credit card numbers in any output (e.g.: 549619******4769).||card_holder| Cardholder’s name. ||card_expiry_month| Card expiry month (2 digits) ||card_expiry_year| Card expiry year (4 digits) ||issuer| Card-issuing bank’s name<br/>Do not rely on this value to remain static over time. Bank names may change over time due to acquisitions and mergers.||country| Bank country code where the card was issued. This two-letter country code complies with ISO 3166-1 (alpha 2).||card_type| Card type (if applicable, e.g.: “DEBIT, CREDIT”). ||card_category| Card category (if applicable, e.g.: “PLATINUM”). |
-
-##JavaScript direct post Example
-
-```js
-<script type="text/javascript">    $(document).ready(function(){        $("#pay").click(function() {        TPP.setTarget('test');        TPP.setCredentials('12345.stage-secure-gateway.hipay-tpp.com', ' Test_YhghjTrfdErthIo');        TPP.create({          card_number:  document.getElementById("cc_number").value,          cvc: document.getElementById("cc_cvc").value,          card_expiry_month:document.getElementById("cc_exp_month").value,          card_expiry_year: document.getElementById("cc_exp_year").value,          card_holder: document.getElementById("cc_name").value,          multi_use: '0'        },          function(result) {            var dump = document.getElementById('dump');            var payment = document.getElementById('paymentlink');            var type = document.getElementById("cc_type").options[document.getElementById("cc_type").selectedIndex].value;            var out = '';		            for (var i in result) {                out += i + ": " + result[i] + "\n";                if (i == "token") {                 	payment.href = 'hipay/order.php?type='+type+'&token=' + result[i]; document.getElementById('usetoken').style = 'display:inherit;';                 }            }            dump.value = out;          },          function(result) {            var dump = document.getElementById('dump');            var out = '';
-                        for (var i in result) {                out += i + ": " + result[i] + "\n";            }            dump.value = out;         }        );                return false;    });    });    </script>
-```
+|----------|------------|
+|`token`| Token that was created. ||`request_id`| The request ID linked to the token. ||`brand`| Card brand. (e.g.: Visa, MasterCard, American Express, JCB, Discover, Diners Club, Solo, Laser, Maestro) ||`pan`| Card number (up to 19 characters). Please note: due to PCI DSS security standards, our system has to mask credit card numbers in any output (e.g.: 549619******4769).||`card_holder`| Cardholder’s name. ||`card_expiry_month`| Card expiry month (2 digits) ||`card_expiry_year`| Card expiry year (4 digits) ||`issuer`| Card-issuing bank’s name<br/>Do not rely on this value to remain static over time. Bank names may change over time due to acquisitions and mergers.||`country`| Bank country code where the card was issued. This two-letter country code complies with ISO 3166-1 (alpha 2).||`card_type`| Card type (if applicable, e.g.: “DEBIT, CREDIT”). ||`card_category`| Card category (if applicable, e.g.: “PLATINUM”). |
