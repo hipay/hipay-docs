@@ -65,11 +65,14 @@ The integration guide below describes step by step how to use the HiPay Fullserv
 
 To use the SDK, you need to add the following script tag to your HTML pages:
 
-    <script type="text/javascript" src="dist/hipay-fullservice-sdk.js"></script>
-
+```html
+<script type="text/javascript" src="dist/hipay-fullservice-sdk.js"></script>
+```
 For better performance, you can use the minified version:
 
-    <script type="text/javascript" src="dist/hipay-fullservice-sdk.min.js"></script>
+```html
+<script type="text/javascript" src="dist/hipay-fullservice-sdk.min.js"></script>
+```
 
 ## HTML-side integration
 Then, you need to add a payment form to your checkout. Here is a basic HTML example:
