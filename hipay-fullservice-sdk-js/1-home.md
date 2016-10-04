@@ -123,12 +123,6 @@ Once the user validates the form, you must use the JavaScript SDK in order to to
 ```js
 $("#pay-button").click(function() {
 
-  $("#form :input").prop("disabled", true);
-  $("#form :button").prop("disabled", true);
-  $("#error").text("");
-
-  $("#pay-button").text("Loading…");
-
   var params = {
     card_number: $('#input-card')[0].value,
     cvc: $('#input-cvv')[0].value,
@@ -147,24 +141,17 @@ $("#pay-button").click(function() {
   HiPay.create(params,
     
     function(result) {
-
-      token = result.token;
-
-      $("#pay-button").text("Tokenize");
-      $("#order").text("The token has been created using the JavaScript SDK (client side).");
-
-      $('#code').text(JSON.stringify(result, null, 4));
-      $('#link').text('');
-
-      $("#charge-button").show();
+	   
+		// The card has successfully been tokenized
+			   	
+		token = result.token;
 
     }, 
 
     function (errors) {
-      $("#pay-button").text("Tokenize");
-      $("#form :input").prop("disabled", false);
-      $("#form :button").prop("disabled", false);
-
+    	
+      // An error occurred
+      	
       if (typeof errors.message != "undefined") {
         $("#error").text("Error: " + errors.message);
       } else {
