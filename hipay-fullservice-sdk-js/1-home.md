@@ -137,7 +137,9 @@ $("#pay-button").click(function() {
 
 
   HiPay.setTarget('stage'); // default is production/live
-  HiPay.setCredentials('<?php echo $credentials['public']['username']; ?>', '<?php echo $credentials['public']['password']; ?>');
+  
+  // These are fake credentials, put your own credentials here (HiPay Fullservice back office > Integration > Security settings and create credentials with public visibility)
+  HiPay.setCredentials('11111111.stage-secure-gateway.hipay-tpp.com', 'Test_pMAjfghBqya7TA9jqhYah56');
 
   HiPay.create(params,
     
