@@ -1,4 +1,4 @@
-# HiPay MP alors c'est ok ?
+# HiPay Wallet cash-out library for Mirakl
 
 ## Preamble
 The **HiPay Wallet cash-out library for Mirakl** intends to facilitate cash-out operations between HiPay and the Mirakl marketplace solution. This library needs to be integrated in order to have a comprehensive cash-out workflow. Unless you want to integrate this library yourself, please check out the **[HiPay Wallet cash-out integration for Mirakl][repo-integration]**, which is a software that does integrate this library.
