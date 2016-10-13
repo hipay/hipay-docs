@@ -1,8 +1,8 @@
 # Update
 
-This section is useful if you already have the HiPay Wallet cash-out integration for Mirakl installed on your server and want to update it.
+This section is useful if you already have the HiPay Marketplace cash-out integration for Mirakl installed on your server and want to update it.
 
-Remember: the project HiPay Wallet cash-out **integration** for Mirakl relies on a ***core library*** which is named [HiPay Wallet cash-out **library** for Mirakl](https://github.com/hipay/hipay-wallet-cashout-mirakl-library). You can either update the full project or the core library only. In most cases, you will only need to update the core library. Update the full project only if new versions contain features you need or if the HiPay's Business IT Services recommended you to do it.
+Remember: the project HiPay Marketplace cash-out **integration** for Mirakl relies on a ***core library*** which is named [HiPay Marketplace cash-out **library** for Mirakl](https://github.com/hipay/hipay-wallet-cashout-mirakl-library). You can either update the full project or the core library only. In most cases, you will only need to update the core library. Update the full project only if new versions contain features you need or if the HiPay's Business IT Services recommended you to do it.
 
 Both procedures are documented below:
 
@@ -12,7 +12,7 @@ Go in the root directory of the project (where `composer.json` is) and type the 
 
 	$ composer update hipay/hipay-wallet-cashout-mirakl-library
 
-This will install the new version of the HiPay Wallet cash-out integration for Mirakl and its core library.
+This will install the new version of the HiPay Marketplace cash-out integration for Mirakl and its core library.
 
 The output should look like:
 

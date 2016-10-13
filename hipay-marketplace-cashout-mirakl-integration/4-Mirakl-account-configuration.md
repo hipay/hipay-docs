@@ -6,7 +6,7 @@ Before starting the installation, please read all instructions and make sure you
 
 In order for us to validate the HiPay Wallet accounts, the connector needs to upload documents allowing us to identify your merchants.
 
-Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your shops. Then, these documents will be retrieved by the HiPay Wallet cash-out integration for Mirakl and sent to the HiPay Wallet platform.
+Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your shops. Then, these documents will be retrieved by the HiPay Marketplace cash-out integration for Mirakl and sent to the HiPay Wallet platform.
 
 ## Configuration
 
