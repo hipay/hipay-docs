@@ -2,7 +2,7 @@
 
 ## Objective
 
-This integration intends to facilitate cash-out operations between HiPay and Mirakl. This software is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/) and integrates the [HiPay Wallet cash-out connector for Mirakl][repo-lib] PHP library.
+This integration intends to facilitate cash-out operations between HiPay and Mirakl. This software is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/) and integrates the [HiPay Marketplace cash-out connector for Mirakl][repo-lib] PHP library.
 
 ## Stakeholders
 

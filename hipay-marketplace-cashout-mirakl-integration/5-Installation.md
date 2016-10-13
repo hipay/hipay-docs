@@ -6,7 +6,7 @@ Be aware that **all relative paths are relative to the root directory of the ins
 
 ## Application deployment
 
-This section describes how to install the **HiPay Wallet cash-out integration for Mirakl** using Git and [Composer](https://getcomposer.org/), the PHP package manager. The software being installed is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/).
+This section describes how to install the **HiPay Marketplace cash-out integration for Mirakl** using Git and [Composer](https://getcomposer.org/), the PHP package manager. The software being installed is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/).
 
 1. Connect to your web server using SSH
 

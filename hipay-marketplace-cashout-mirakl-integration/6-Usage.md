@@ -1,6 +1,6 @@
 # General usage
 
-The HiPay Wallet cash-out integration for Mirakl is intended to be used with a *cron*, but can be used directly from the command line. In fact, this software is supposed to execute tasks automatically, which is why you need to configure *cron* jobs (or any other alternative) that will execute commands at the appropriate time automatically.
+The HiPay Marketplace cash-out integration for Mirakl is intended to be used with a *cron*, but can be used directly from the command line. In fact, this software is supposed to execute tasks automatically, which is why you need to configure *cron* jobs (or any other alternative) that will execute commands at the appropriate time automatically.
 
 Please note that default values for command line arguments/parameters are defined in the `parameters.yml`.
 
@@ -35,7 +35,7 @@ In some cases, the HiPay Wallet integration for Mirakl can encounter errors or i
 5. Adds the bank information on the HiPay Wallet account if not already done or checks HiPay’s bank information against the data from Mirakl to make sure they match.
 If these are not the same, an error notification is sent.
 
-**Once the HiPay Wallet cash-out integration for Mirakl is installed, you may call this method without the `lastUpdate` argument**, just as below:
+**Once the HiPay Marketplace cash-out integration for Mirakl is installed, you may call this method without the `lastUpdate` argument**, just as below:
 
 	$ php bin/console vendor:process
 
