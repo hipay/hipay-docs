@@ -1,4 +1,4 @@
-# HiPay Fullservice PHP SDK
+# HiPay Fullservice SDK for PHP
 
 # Preamble
 
