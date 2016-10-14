@@ -1,4 +1,4 @@
-# HiPay Fullservice SDK for Javascript (Direct Post)
+# HiPay Fullservice SDK for JavaScript (Direct Post)
 
 The HiPay Fullservice SDK for JavaScript allows you to tokenize credit or debit cards against the HiPay Fullservice payment platform, directly from the web browser. This method (called Direct Post in the PCI council terminology) allows you to offer a unfied payment workflow to your customers while remaining PCI compliant.
 
@@ -115,7 +115,8 @@ Then, you need to add a payment form to your checkout. Here is a basic HTML exam
       <div id="error"></div>
       <button type="button" data-toggle="modal" data-target="#other-method-modal" id="pay-button">Tokenize</button>
   </div>
-</div>```
+</div>
+```
 
 ## JavaScript processing
 Once the user validates the form, you must use the JavaScript SDK in order to tokenize the card. Here is an example using *jQuery*:
@@ -188,9 +189,20 @@ You will find below the methods and parameters made available by the SDK.
 | `card_holder` |  AN | 25|  - | The cardholder’s name as it appears on the card (up to 25 characters).
 | `cvc` |  N | 4|  - | The 3- or 4- digit security code (called CVC2, CVV2 or CID depending on the card brand) that appears on the credit card.
 | `multi_use` |  N | 1|  - | Indicates if the token should be generated either for a single-use or a multi-use.<br/>Possible values:<br/>1 = Generate a multi-use token<br/>0 = Generate a single-use token.<br/>While a single-use token is typically generated for a short time and for processing a single transaction, multi-use tokens are generally generated for recurrent payments.
- ## Create token response parameters
+ 
+## Create token response parameters
 The following table lists and describes the response fields.
 
 | Field name   |      Description     |
 |----------|------------|
-|`token`| Token that was created. ||`request_id`| The request ID linked to the token. ||`brand`| Card brand. (e.g.: Visa, MasterCard, American Express, JCB, Discover, Diners Club, Solo, Laser, Maestro) ||`pan`| Card number (up to 19 characters). Please note: due to PCI DSS security standards, our system has to mask credit card numbers in any output (e.g.: 549619******4769).||`card_holder`| Cardholder’s name. ||`card_expiry_month`| Card expiry month (2 digits) ||`card_expiry_year`| Card expiry year (4 digits) ||`issuer`| Card-issuing bank’s name<br/>Do not rely on this value to remain static over time. Bank names may change over time due to acquisitions and mergers.||`country`| Bank country code where the card was issued. This two-letter country code complies with ISO 3166-1 (alpha 2).||`card_type`| Card type (if applicable, e.g.: “DEBIT, CREDIT”). ||`card_category`| Card category (if applicable, e.g.: “PLATINUM”). |
+|`token`| Token that was created. |
+|`request_id`| The request ID linked to the token. |
+|`brand`| Card brand. (e.g.: Visa, MasterCard, American Express, JCB, Discover, Diners Club, Solo, Laser, Maestro) |
+|`pan`| Card number (up to 19 characters). Please note: due to PCI DSS security standards, our system has to mask credit card numbers in any output (e.g.: 549619******4769).|
+|`card_holder`| Cardholder’s name. |
+|`card_expiry_month`| Card expiry month (2 digits) |
+|`card_expiry_year`| Card expiry year (4 digits) |
+|`issuer`| Card-issuing bank’s name<br/>Do not rely on this value to remain static over time. Bank names may change over time due to acquisitions and mergers.|
+|`country`| Bank country code where the card was issued. This two-letter country code complies with ISO 3166-1 (alpha 2).|
+|`card_type`| Card type (if applicable, e.g.: “DEBIT, CREDIT”). |
+|`card_category`| Card category (if applicable, e.g.: “PLATINUM”). |
