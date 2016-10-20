@@ -9,7 +9,7 @@ It's recommended to use *Gradle* to install the HiPay Fullservice SDK for Androi
 Add this line to your project's `build.gradle`:
 
 	dependencies { 
-		compile 'com.hipay.fullservice.api:hipayfullservice:1+'
+		compile 'com.hipay.fullservice:hipayfullservice:1+'
 	}
 
 And then synchronize the project with Gradle files. This will install the core wrapper components as well as the built-in payment screen and other utility components.
