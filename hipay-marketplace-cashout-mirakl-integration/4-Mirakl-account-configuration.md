@@ -13,8 +13,8 @@ Thus, you need to configure your Mirakl back office in order to be able to uploa
 Go in the **Manage Document Types** section by following these steps:
 
 - Log in to your Mirakl operator account
-- In the **Settings** tab, click on **Document Types**
-- Click on **Store Documents**
+- In the **Settings** tab, click on **Stores** (in the "Advanced parameters" column)
+- Click on **Documents**
 
 You need to provide the following list of document types by clicking on *Add a document type*:
 
