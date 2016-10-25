@@ -26,7 +26,7 @@ concepts.
 The following acronyms and abbreviations are used in this guide.
 
 | Acronym   |      Full Name    |
-|----------|:-------------:|
+|----------|-------------|
 | BIN |  Bank Identification Number
 | PAN |  Primary Account Number
 | PCI DSS |  Payment Card Industry Data Security Standards
