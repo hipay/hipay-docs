@@ -5,7 +5,7 @@
 
 ## Purpose
 
-This document is designed to provide you with details on how to integrate your business with the HiPay Fullservice payment gateway. This document provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
+This document is designed to provide you with details on how to integrate your business with the HiPay Fullservice payment gateway. It provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
 
 Where applicable, this document refers to the related documentation with further details.
 
@@ -14,8 +14,8 @@ Where applicable, this document refers to the related documentation with further
 The intended audience is the merchant's technical staff or the
 merchant's system integrator.
 
-Because almost all communication between the merchant's system and the
-REST API is realized through predefined XML or JSON messages over the
+Because almost all communications between the merchant's system and the
+REST API are done through predefined XML or JSON messages over the
 Internet using standard protocols, you will need basic XML/JSON
 programming skills and knowledge of HTTP(S). Furthermore, it is
 recommended that you are familiar with the basics of tokenization
@@ -25,7 +25,7 @@ concepts.
 
 The following acronyms and abbreviations are used in this guide.
 
-| Acronym   |      Full Name    |
+| Acronym   |      Full name    |
 |----------|-------------|
 | BIN |  Bank Identification Number
 | PAN |  Primary Account Number
@@ -35,7 +35,7 @@ The following acronyms and abbreviations are used in this guide.
 
 # Technical integration
 
-In order for you to accept payment through the HiPay Fullservice platform, you need to integrate our APIs. HiPay proposes a wide variety of turnkey integrations for industry-standard e-commerce platforms and other SDKs and libraries. **[You can find all the HiPay Fullservice integrations here.](/fullservice)**
+In order for you to accept payment through the HiPay Fullservice platform, you need to integrate our APIs. HiPay offers a wide variety of turnkey integrations for industry-standard e-commerce platforms and other SDKs and libraries. **[You can find all the HiPay Fullservice integrations here.](/fullservice)**
 
 You may also integrate our REST API if you have specific technical needs. To this end, please check the next chapter of this guide: *API Overview*.
 
@@ -43,140 +43,140 @@ You may also integrate our REST API if you have specific technical needs. To thi
 
 The APIs are based on REST principles. Thus, it is very easy to write and test applications.
 
-HiPay Fullservice exposes three main APIs, allowing you **manage payment data**, **get paid** and dealing you **finance operations**. The detailed documentation and reference of these APIs, including web service URLs and parameter information, are provided in interactive documentation tools, see below for more information.
+HiPay Fullservice provides you with three main APIs, allowing you to **manage payment data**, **get paid** and **handle financial operations**. Detailed documentation and references for these APIs, including web service URLs and parameter information, are provided in interactive documentation tools. Please see below for more information.
 
 ## Gateway API
 
-The Gateway API allows you to get paid and manage orders and transactions. By leveraging this API, you will be able to present payment pages to your customer.
+The Gateway API allows you to get paid as well as to manage orders and transactions. By leveraging this API, you will be able to present payment pages to your customers.
 
-**[Click here to access the full interactive documentation and live testing tools of the HiPay Fullservice Gateway API](/doc-api/fullservice/gateway/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Gateway API](/doc-api/fullservice/gateway/).**
 
 ## Tokenization API
 
-The Tokenization (Secure Vault) API allows merchants to retrieve and update data associated with their customers' payment information stored in the HiPay Fullservice Secure Vault. Using the Tokenization API, merchants eliminate the risk, liability and cost of storing sensitive data on their local servers and storage devices. The Tokenization API aims to be used alongside the Gateway API. 
+The Tokenization (Secure Vault) API allows merchants to retrieve and update data associated with their customers' payment information stored in the HiPay Fullservice Secure Vault. Using the Tokenization API, merchants eliminate the risk, liability and cost of storing sensitive data on their local servers and storage devices. The Tokenization API is to be used alongside the Gateway API. 
 
-**[Click here to access the full interactive documentation and live testing tools of the HiPay Fullservice Tokenization API](/doc-api/fullservice/token/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Tokenization API](/doc-api/fullservice/token/).**
 
 ## Finance API
 
-When using HiPay Fullservice, all your sales are consolidated and settled (transferred to your bank account). The Finance API allows you to get all the details about settlements executed for your merchant account.
+When using HiPay Fullservice, all your sales are consolidated and settled (transferred to your bank account). The Finance API allows you to get all the details about settlements relating to your merchant account.
 
-**[Click here to access the full interactive documentation and live testing tools of the HiPay Fullservice Finance API](/doc-api/fullservice/settlement/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Finance API](/doc-api/fullservice/settlement/).**
 
 # Security Considerations
 
-The HiPay Fullservice platform is protected:
+The HiPay Fullservice platform is protected to:
 
--   To ensure that only authorized merchants use it,
--   To prevent payment information from being compromised.
+-   Ensure that only authorized merchants use it,
+-   Prevent payment information from being compromised.
 
 ## PCI DSS Requirements
 
 **Description**:
-HiPay Fullservice allows sending payment data, that means that the system will be transmitting, and possibly storing card data.
+HiPay Fullservice allows sending payment data, which means that the system will be transmitting, and possibly storing, card data.
 
 **Storage (SAD) information**:
-The Card Schemes, American Express, Discover Financial Services, JCB International, MasterCard Worldwide and Visa Inc. have never permitted the storage of sensitive data (track data and/or CVV2). It is prohibited under "Requirement 3" of the Payment Card Industry Data Security Standard (PCI DSS).
+The Card Schemes (American Express, Discover Financial Services, JCB International, MasterCard Worldwide and Visa Inc.) have never permitted the storage of sensitive data (track data and/or CVV2). It is prohibited under "Requirement 3" of the Payment Card Industry Data Security Standard (PCI DSS).
 
 **Warning**:
 Merchants who store Sensitive Authentication Data (SAD) are exposed to fines from the Card Schemes.
 
-**Security management data**: If the Tokenization API is used, the merchant demonstrates that the system can handle this data securely and that he is taking full responsibility for his PCI DSS compliance.
+**Data secure management**: If the Tokenization API is used, merchants must demonstrate that the system can handle these data securely and that they are taking full responsibility for their PCI DSS compliance.
 
 **Contact**
 For further information on PCI security standards, please visit [www.pcisecuritystandards.org](www.pcisecuritystandards.org).
 
 ## Encrypted Communication
 
-**Description**: HiPay Fullservice provides all REST API methods over SSL (Secure Sockets Layer).
+**Description**: HiPay Fullservice provides all REST API methods over TLS (Transport Layer Security).
 
-**Guarantees**: All data transmitted between HiPay Fullservice and the Merchant system is encrypted (256-bit encryption using a DigiCert certificate).
+**Guarantees**: All data transmitted between HiPay Fullservice and the merchant's system are encrypted (256-bit encryption using a DigiCert certificate).
 
 ## IP Restriction
 
 **Description**: When a request is sent to the platform, the IP address or IP address range from where the connection was made is verified.
 
-If it matches with the IP address supplied by the Merchant at a previous stage (in the Merchant Interface: Technical Integration Section), the request will be processed.
+If it matches with the IP address supplied by the merchant at a previous stage (in the HiPay Fullservice back office: Integration Section), the request will be processed.
 
-In the case of missing or incorrect information, the server will respond with an appropriate error message, indicating the error in the request.
+In case of missing or incorrect information, the server will respond with an appropriate error message, indicating the error in the request.
 
 **Important**: When your IP address is changed, do not forget to ensure that all new IP addresses are configured for your account. If not, your server requests will be rejected.
   
 ## Authentication
 
-Only authenticated users and system components are allowed to access to the Secure Gateway API.
+Only authenticated users and system components are allowed to access the Gateway API.
 
 # 3-D Secure Integration
 
 ## Introduction
 
-**Overview**: This chapter describes how you should implement 3-D Secure Authentication.
+**Overview**: This chapter describes how to implement 3-D Secure authentication.
 
-**Description**: This process involves redirecting the shopper to an authentication page. This page is provided and hosted by the shopper's Card Issuer. As this page is hosted by the shopper’s card issuing bank, we have no control over its appearance or functionality.
+**Description**: This process involves redirecting the shopper to an authentication page. This page is provided and hosted by the shopper's card issuer. As this page is hosted by the shopper’s card issuing bank, we have no control over its appearance or functionality.
 
 ## About 3-D Secure
 
-**3-D Secure History**: In early 2001, VISA introduced a security protocol called 3-D Secure to improve online transaction performance and to accelerate the growth of electronic commerce through increased consumer confidence. 
+**3-D Secure history**: In early 2001, VISA introduced a security protocol called 3-D Secure to improve online transaction performance and to accelerate the growth of electronic commerce through increased consumer confidence. 
 
-**Objective of 3-D Secure**: The objective of 3-D Secure was to provide Issuers with the ability to actually authenticate cardholders during an online purchase, to reduce the likelihood of fraudulent usage of payment cards and to improve transaction performance to benefit merchants, consumers and acquirers.
-VISA’s branded 3-D Secure Program is commonly known as Verified By VISA (VbV). Services based on the protocol have been also been adopted by MasterCard, under the name MasterCard SecureCode™ (MSC).
+**Objective of 3-D Secure**: 3-D Secure aims to provide issuers with the ability to actually authenticate cardholders during online purchases, to reduce the likelihood of fraudulent usage of payment cards and to improve transaction performance to benefit merchants, consumers and acquirers.
+VISA’s branded 3-D Secure program is commonly known as Verified By VISA (VbV). Services based on the protocol have also been adopted by MasterCard, under the name MasterCard SecureCode™ (MSC).
 
-## Merchant Benefits
+## Benefits for merchants
 
-**3-D Secure Benefits**: The benefits of the 3-D Secure Process are the enhanced security available when performing an authenticated transaction as well as the shift of liability in the event of fraudulent transactions. Authentication should strengthen your existing anti-fraud strategy and help protect your business, but bare in mind that coverage of authentication programs is currently limited to Internet transactions. 
+**3-D Secure benefits**: The 3-D Secure process provides enhanced security when performing an authenticated transaction as well as a shift of liability in the event of fraudulent transactions. Authentication should strengthen your existing anti-fraud strategy and help protect your business, but bear in mind that coverage of authentication programs is currently limited to Internet transactions. 
 
-**Restriction**: This means that authentication programs do not cover fax, mail, or phone orders (MO/TO), nor do they cover all card types.The additional security benefits and liability shifts of authenticated transactions are currently only supported by Visa and MasterCard.
+**Restriction**: This means that authentication programs do not cover fax, mail, or phone orders (MO/TO), nor do they cover all card types. The additional security benefits and liability shift of authenticated transactions are currently only supported by Visa and MasterCard.
 
 ## Transaction Flow
 
 ### Procedure
 
-Proceed as follow to carry out a transaction:
+Proceed as follows to carry out a transaction:
 
-1. Merchant calls the HiPay Fullservice API with the `authentication_indicator` value of `1` or `2` (or the Fraud Protection System (FPS) system asks for 3-D Secure).
-2. To complete the purchase; the cardholder clicks the **Pay** button after filling payment card details in payment page: This activates the Merchant Plug-In (MPI) and initiates a transaction.    
-3. The MPI identifies the card number and sends it to the Directory Server to determine whether the card is in a participating card range.
-4. If the Issuer is participating for the card range, the Directory sends a Verify Enrollment Request message to the Issuer *ACS* to determine whether authentication is available for the account number.
-5. The *ACS* returns a Verify Enrollment Response to the Directory Server 
-	- If authentication is available for this card number, then the response provides the URL of the *ACS* where the cardholder can be authenticated.
-If the payment is in a hosted payment page, the redirection to *ACS* will be done automatically.
-	- If authentication is not available, then the HiPay server receives a *Cardholder Not Enrolled* or *Authentication Not Available* message and proceeds depending on `authentication_indicator` value:
-		- `1`: Proceed with a standard transaction processing (skip to step 13).
-		- `2`: Transaction is refused.
+1. The merchant calls the HiPay Fullservice API with an `authentication_indicator` value of `1` or `2` (or the Fraud Protection Service (FPS) asks for 3-D Secure).
+2. To complete the purchase, the cardholder clicks on the **Pay** button after filling payment card details on the payment page: this activates the Merchant Plug-In (MPI) and initiates a transaction.    
+3. The MPI identifies the card number and sends it to the Directory Server to determine if the card is in a participating card range.
+4. If the issuer is participating for the card range, the Directory sends a Verify Enrollment Request message to the issuer's *ACS* (Access Control Server) to determine if authentication is available for the account number.
+5. The *ACS* returns a Verify Enrollment Response to the Directory Server. 
+	- If authentication is available for this card number, the response then provides the URL of the *ACS* where the cardholder can be authenticated.
+If the payment is on a hosted payment page, the redirection to the *ACS* will be done automatically.
+	- If authentication is not available, the HiPay server then receives a *Cardholder Not Enrolled* or *Authentication Not Available* message and proceeds depending on  the`authentication_indicator` value:
+		- `1`: Proceeds with a standard transaction processing (skip to step 13).
+		- `2`: The transaction is refused.
 6. The Directory Server forwards the *ACS* response to the MPI.
 7. The MPI sends an Authentication Request message to the cardholder’s browser for routing to the *ACS*.
 8. The cardholder’s browser passes the Authentication Request to the *ACS*.
 9. The *ACS* authenticates the cardholder.
-10. The *ACS* creates, digitally signs, and sends an *Authentication Response* to HiPay via the cardholder’s browser. The *ACS* also sends transaction record to the Authentication History Server for storage.
+10. The *ACS* creates, digitally signs, and sends an *Authentication Response* to HiPay via the cardholder’s browser. The *ACS* also sends a transaction record to the Authentication History Server for storage.
 11. The browser routes the Authentication Response back to the MPI.
-12. The MPI validates the digital signature in the response, verifying that it is from a valid participating Issuer.
-13. HiPay formats and sends to its Acquirer an Authorization Request message, which includes information from the Issuer’s Authentication Response — including the CVV and the ECI. The Acquirer passes the Authorization Request to the Card Network and the transaction completes through standard processing.
-14. HiPay sends a notification with transaction status and 3-D Secure authentication result. *Refer to Authentication Results section*.
+12. The MPI validates the digital signature in the response, verifying that it is from a valid participating issuer.
+13. HiPay formats and sends to its acquirer an Authorization Request message, which includes information from the issuer’s Authentication Response — including the CVV and the ECI. The acquirer passes the Authorization Request to the card network and the transaction completes through standard processing.
+14. HiPay sends a notification with the transaction status and 3-D Secure authentication result. *Please refer to the Authentication Results section*.
 
-### Workflow overview
+### Workflow Overview
 
 ![3-D Secure transaction workflow overview](images/media/image1.png)
 
 ## Authentication Results
 
-The following table lists the enrollment message and status:
+The following table lists the enrollment messages and statuses:
 
-| Status   | Enrollment Message | 3-D Secure Available? | ECI | Description |
+| Status   | Enrollment message | Is 3-D Secure available? | ECI | Description |
 |----------|:-------------:|----------|:-------------:|----------|:-------------:|
-| `Y` | Authentication Available | Yes | - | Card is enrolled in the 3-D Secure program and the payer is eligible for authentication processing.
-| `N` | Cardholder Not Enrolled | No | `6` | Card is not enrolled in 3-D Secure program. **Chargeback Liability Shift**: If the cardholder later disputes the purchase, the issuer may not submit a chargeback to the merchant.
-| `U` | Unable to Authenticate | No | `7` | The card associations were unable to verify if the cardholder is enrolled in the 3-D Secure program. Merchants can choose to accept the card nonetheless and proceed the purchase as non-authenticated when submitting the authorization. **Chargeback Liability Shift**: The Acquirer/Merchant retains liability if the cardholder later disputes making the purchase.
+| `Y` | Authentication Available | Yes | - | The card is enrolled in the 3-D Secure program and the payer is eligible for authentication processing.
+| `N` | Cardholder Not Enrolled | No | `6` | The card is not enrolled in the 3-D Secure program. **Chargeback Liability Shift**: If the cardholder later disputes the purchase, the issuer may not submit a chargeback to the merchant.
+| `U` | Unable to Authenticate | No | `7` | The card associations were unable to verify if the cardholder is enrolled in the 3-D Secure program. Merchants can choose to accept the card nonetheless and process the purchase as non-authenticated when submitting the authorization. **Chargeback Liability Shift**: The acquirer/merchant retains liability if the cardholder later disputes making the purchase.
 | `E` | Any error message here | No | `7` | An error occurred during the enrollment verification process. **Chargeback Liability Shift**: The card can be accepted for authorization processing, yet the merchant may not claim a liability shift on this transaction in case of a dispute with the cardholder.
 
-The following table lists the Authentication message and status:
+The following table lists the authentication messages and statuses:
 
-| Status   | Authentication Message | ECI | Description |
+| Status   | Authentication message | ECI | Description |
 |----------|-------------|----------|-------------|
-| `Y` | Authentication Successful | `5` | Cardholder was successfully authenticated.The Issuer has authenticated the cardholder by verifying the identity information or password.
+| `Y` | Authentication Successful | `5` | The cardholder was successfully authenticated. The issuer has authenticated the cardholder by verifying the identity information or password.
 | `A` | Authentication Attempted | `6` | Authentication could not be performed but a proof of authentication attempt was provided.
-| `U` | Authentication Could Not Be Performed | `7` | The Issuer is not able to complete the authentication request due to a technical error or other problem. Possible reasons include:Invalid type of card such as a Commercial Card or any anonymous Prepaid Card.Unable to establish an SSL session with cardholder browser.
-| `N` | Authentication Failed | - | The cardholder did not complete authentication and the card should not be accepted for payment. The following are reasons to fail an authentication: Cardholder fails to correctly enter the authentication information; Cardholder cancels the authentication process. An authentication failure may be a possible indication of a fraudulent user. **Authorization request should not be submitted.**
-| `E` | Any error message here | - | An error occurred during the authentication process. **Authorization request should not be submitted.**
+| `U` | Authentication Could Not Be Performed | `7` | The issuer is not able to complete the authentication request due to a technical error or another problem. Possible reasons include: invalid type of card such as a commercial card or any anonymous prepaid card. Unable to establish an SSL session with the cardholder's browser.
+| `N` | Authentication Failed | - | The cardholder did not complete authentication and the card should not be accepted for payment. The following are reasons to fail an authentication: the cardholder fails to correctly enter the authentication information; the cardholder cancels the authentication process. An authentication failure may be a possible indication of a fraudulent user. **The authorization request should not be submitted.**
+| `E` | Any error message here | - | An error occurred during the authentication process. **The authorization request should not be submitted.**
 
 # Redirect Pages
 
@@ -188,75 +188,75 @@ The following table lists the Authentication message and status:
 
 ## Redirect pages setup
 
-**Description**: You can find redirect pages configuration over *Integration -> Redirect Pages* on your HiPay Fullservice back office.
+**Description**: You can configure redirect pages in the *Integration -> Redirect Pages* section of your HiPay Fullservice back office.
                 
 You can overwrite the default redirect pages by sending custom URLs along with the order details in your requests to the payment gateway. Please refer to the [HiPay Fullservice Gateway API documentation](/doc-api/fullservice/gateway/).
 
 ## Default redirect pages
   
-| Field Name   |      Description    |
+| Field name   |      Description    |
 |----------|-------------|
-| Accept page |  Page to redirect your customer if transaction was successful.
-| Decline page |  Page to redirect your customer if transaction was refused.
-| Pending page |  Page to redirect your customer if transaction is pending.
-| Cancel page |  Page to redirect your customer if transaction was cancelled.
-| Exception page |  Page to which the customer's browser is redirected after a system failure or when the payment gateway is temporarily unavailable. If page is not defined, the default page for exceptions is displayed by the payment gateway.
+| Accept page |  Page where to redirect your customer if the transaction was successful.
+| Decline page |  Page where to redirect your customer if the transaction was refused.
+| Pending page |  Page where to redirect your customer if the transaction is pending.
+| Cancel page |  Page where to redirect your customer if the transaction was cancelled.
+| Exception page |  Page where to redirect the customer's browser after a system failure or when the payment gateway is temporarily unavailable. If the page is not defined, the default page for exceptions is displayed by the payment gateway.
 
 ## Feedback Parameters
 
-**Description**: Select this option in your HiPay Fullservice back office if you want that HiPay Fullservice sends back the transaction parameters to your redirect pages for further processing within your own website.
+**Description**: Select this option in your HiPay Fullservice back office if you want HiPay Fullservice to send back transaction parameters to your redirect pages for further processing within your own website.
 
-**Procedure**: To activate this option you “MUST” specify at least an “Accept Page” URL. Sent parameters are included in your redirect pages on HTTP GET.
+**Procedure**: To activate this option, you “MUST” specify at least an “Accept page” URL. Sent parameters are included in your redirect pages on HTTP GET.
   
 ##  Fields sent 
 
 The following table lists and describes the fields sent to your redirect pages.
 
-| Field Name | Description
+| Field name | Description
 | ---- | ---- |
-| `orderid` | Unique identifier of the order as provided by Merchant. 
-| `cid` | Unique identifier of the customer as provided by Merchant.
-| `state` | Transaction state. Value must be a member of the following list: `completed`, `pending`, `declined` or `error`.
+| `orderid` | Unique identifier of the order as provided by the merchant 
+| `cid` | Unique identifier of the customer as provided by the merchant
+| `state` | Transaction state. The value must be from the following list: `completed`, `pending`, `declined` or `error`.
 | `status` | Transaction status. A list of available statuses can be found in the appendices.
-| `test` | `1` if the transaction is a testing transaction, otherwise `0`.
-| `reference` | The unique identifier of the transaction.
-| `approval` | An authorization code (up to 35 characters) generated for each approved or pending transaction by the acquiring provider.
-| `authorized` | Time when transaction was authorized.
-| `ip` | The IP address of the customer making the purchase.
-| `country` | Country code associated to the customer's IP address.
-| `lang` | Language code of the customer.
-| `email` | Email address of the customer.
-| `cdata1` `cdata2` … `cdata10` | Custom data.
-| `score` | Total score assigned to the transaction (main risk indicator).
-| `fraud` | The overall result of risk assessment returned by the Payment Gateway. Value must be a member of the following list: **`pending`** (rules were not checked), **`accepted`** (transaction accepted), **`blocked`** (transaction rejected due to review system rules), **`challenged`** (transaction has been marked for review)
-| `review` | The decision made when the overall risk result returns challenged. An empty value means no review is required. Value must be a member of the following list: **`pending`** (a decision to release or cancel the transaction is pending), **`allowed`** (the transaction has been released for processing), **`denied`** (the transaction has been cancelled).
-| `avscheck` | Result of the Address Verification Service (AVS). Possible result codes can be found in the appendices
-| `cvccheck` | Result of the CVC (Card Verification Code) check. Possible result codes can be found in the appendices
+| `test` | `1` if the transaction is a test transaction; otherwise `0`.
+| `reference` | Unique identifier of the transaction
+| `approval` | Authorization code (up to 35 characters) generated for each approved or pending transaction by the acquiring provider
+| `authorized` | Time when the transaction was authorized
+| `ip` | IP address of the customer making the purchase
+| `country` | Country code associated to the customer's IP address
+| `lang` | Language code of the customer
+| `email` | Email address of the customer
+| `cdata1` `cdata2` … `cdata10` | Custom data
+| `score` | Total score assigned to the transaction (main risk indicator)
+| `fraud` | Overall result of risk assessment returned by the payment gateway. The value must be from the following list: **`pending`** (rules were not checked), **`accepted`** (transaction accepted), **`blocked`** (transaction rejected due to review system rules), **`challenged`** (transaction has been flagged for review)
+| `review` | Decision made when the overall risk result returns challenged. An empty value means no review is required. The value must be from the following list: **`pending`** (a decision to release or cancel the transaction is pending), **`allowed`** (the transaction has been released for processing), **`denied`** (the transaction has been cancelled).
+| `avscheck` | Result of the Address Verification Service (AVS). Possible result codes can be found in the appendices.
+| `cvccheck` | Result of the CVC (Card Verification Code) check. Possible result codes can be found in the appendices.
 | `pp` | Payment product used to complete the transaction. Informs about the payment_method section type.
-| `eci3ds` | The 3-D Secure (3DS) electronic commerce indicator
-| `veres` | The 3-D Secure (3DS) enrollment status.
-| `pares` | The 3-D Secure (3DS) authentication status. This field is only included if payment authentication was attempted and a value was received.
-| `cardtoken` | Card token.
-| `cardbrand` | Card brand. (e.g., VISA, MASTERCARD, AMERICANEXPRESS, MAESTRO).
-| `cardpan` | Card number (up to 19 characters). Note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., ************4769).
-| `cardexpiry` | Card expiry year and month (YYYYMM).
-| `cardcountry` | Bank country code where card was issued. This two-letter country code complies with *ISO 3166-1* (alpha 2).
+| `eci3ds` | 3-D Secure (3DS) electronic commerce indicator
+| `veres` | 3-D Secure (3DS) enrollment status
+| `pares` | 3-D Secure (3DS) authentication status. This field is only included if payment authentication was attempted and a value was received.
+| `cardtoken` | Card token
+| `cardbrand` | Card brand (e.g.: VISA, MASTERCARD, AMERICAN EXPRESS, MAESTRO)
+| `cardpan` | Card number (up to 19 characters). Note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g.: ************4769).
+| `cardexpiry` | Card expiry year and month (YYYYMM)
+| `cardcountry` | Bank country code where the card was issued. This two-letter country code complies with *ISO 3166-1* (alpha 2).
 
 # Server-to-Server Notifications
 
-## What is a Server-to-Server Notification?
+## What is a server-to-server notification?
 
-**Description**: In order to notify events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Fullservice platform can send to your application a Server-to-Server notification.
+**Description**: In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Fullservice platform can send your application a server-to-server notification.
  
 ## Setup
 
-**Procedure**: To set your Notification URL you must login into your HiPay Fullservice back office and go to “*Integration -> Notifications*”.
+**Procedure**: To set your Notification URL, you must login into your HiPay Fullservice back office and go to “*Integration -> Notifications*”.
 
 ![Notifications configuration](images/media/image2.png)
  
 ## Configuration Parameters
 
-| Field Name   |      Description    |
+| Field name   |      Description    |
 |----------|-------------|
 | Notification URL |  The URL or IP on which you want to receive server-to-server notifications.
 | Request method |  The method you wish to receive the requests: XML / HTTP POST 
