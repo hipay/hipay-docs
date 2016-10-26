@@ -64,9 +64,11 @@ You may choose a secret pass phrase if you don't have one already. This pass phr
 ## Mobile app implementation
 
 The iOS SDK needs to use the signature in order to perform transactions.  
+
 Below is an iOS code example querying the merchant server (yours) to get the signature and then, initializing the SDK's payment page with the signature.
 
-```Objective-C
+
+```objectivec
 - (void) requestSignature {
 
     NSString *orderId = @"TEST_89897";
@@ -119,6 +121,7 @@ Below is an iOS code example querying the merchant server (yours) to get the sig
 
 }
 ```
+
 
 For the sake of this example, we assume that the response is in JSON format.
 Once you get the signature, you can create a `HPFPaymentPageRequest` with the necessary parameters and then present the `HPFPaymentScreenViewController` screen. You will get more details about the *payment screen* in the next sections.
