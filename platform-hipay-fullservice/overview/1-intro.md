@@ -1,7 +1,7 @@
 
-# HiPay Fullservice Platform Overview
+# HiPay Fullservice platform overview
 
-# About this Guide 
+# About this guide 
 
 ## Purpose
 
@@ -9,7 +9,7 @@ This document is designed to provide you with details on how to integrate your b
 
 Where applicable, this document refers to the related documentation with further details.
 
-## Intended Audience
+## Intended audience
 
 The intended audience is the merchant's technical staff or the
 merchant's system integrator.
@@ -21,7 +21,7 @@ programming skills and knowledge of HTTP(S). Furthermore, it is
 recommended that you are familiar with the basics of tokenization
 concepts.
 
-# Acronyms and Abbreviations
+# Acronyms and abbreviations
 
 The following acronyms and abbreviations are used in this guide.
 
@@ -39,7 +39,7 @@ In order for you to accept payment through the HiPay Fullservice platform, you n
 
 You may also integrate our REST API if you have specific technical needs. To this end, please check the next chapter of this guide: *API Overview*.
 
-# API Overview
+# API overview
 
 The APIs are based on REST principles. Thus, it is very easy to write and test applications.
 
@@ -63,14 +63,14 @@ When using HiPay Fullservice, all your sales are consolidated and settled (trans
 
 **[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Finance API](/doc-api/fullservice/settlement/).**
 
-# Security Considerations
+# Security considerations
 
 The HiPay Fullservice platform is protected to:
 
 -   Ensure that only authorized merchants use it,
 -   Prevent payment information from being compromised.
 
-## PCI DSS Requirements
+## PCI DSS requirements
 
 **Description**:
 HiPay Fullservice allows sending payment data, which means that the system will be transmitting, and possibly storing, card data.
@@ -86,13 +86,13 @@ Merchants who store Sensitive Authentication Data (SAD) are exposed to fines fro
 **Contact**
 For further information on PCI security standards, please visit [www.pcisecuritystandards.org](www.pcisecuritystandards.org).
 
-## Encrypted Communication
+## Encrypted communication
 
 **Description**: HiPay Fullservice provides all REST API methods over TLS (Transport Layer Security).
 
 **Guarantees**: All data transmitted between HiPay Fullservice and the merchant's system are encrypted (256-bit encryption using a DigiCert certificate).
 
-## IP Restriction
+## IP restriction
 
 **Description**: When a request is sent to the platform, the IP address or IP address range from where the connection was made is verified.
 
@@ -106,7 +106,7 @@ In case of missing or incorrect information, the server will respond with an app
 
 Only authenticated users and system components are allowed to access the Gateway API.
 
-# 3-D Secure Integration
+# 3-D Secure integration
 
 ## Introduction
 
@@ -127,21 +127,21 @@ VISA’s branded 3-D Secure program is commonly known as Verified By VISA (VbV).
 
 **Restriction**: This means that authentication programs do not cover fax, mail, or phone orders (MO/TO), nor do they cover all card types. The additional security benefits and liability shift of authenticated transactions are currently only supported by Visa and MasterCard.
 
-## Transaction Flow
+## Transaction flow
 
 ### Procedure
 
 Proceed as follows to carry out a transaction:
 
 1. The merchant calls the HiPay Fullservice API with an `authentication_indicator` value of `1` or `2` (or the Fraud Protection Service (FPS) asks for 3-D Secure).
-2. To complete the purchase, the cardholder clicks on the **Pay** button after filling payment card details on the payment page: this activates the Merchant Plug-In (MPI) and initiates a transaction.    
+2. To complete the purchase, the cardholder clicks on the **Pay** button after filling in payment card details on the payment page: this activates the Merchant Plug-In (MPI) and initiates a transaction.    
 3. The MPI identifies the card number and sends it to the Directory Server to determine if the card is in a participating card range.
 4. If the issuer is participating for the card range, the Directory sends a Verify Enrollment Request message to the issuer's *ACS* (Access Control Server) to determine if authentication is available for the account number.
 5. The *ACS* returns a Verify Enrollment Response to the Directory Server. 
 	- If authentication is available for this card number, the response then provides the URL of the *ACS* where the cardholder can be authenticated.
 If the payment is on a hosted payment page, the redirection to the *ACS* will be done automatically.
 	- If authentication is not available, the HiPay server then receives a *Cardholder Not Enrolled* or *Authentication Not Available* message and proceeds depending on  the`authentication_indicator` value:
-		- `1`: Proceeds with a standard transaction processing (skip to step 13).
+		- `1`: Proceed with a standard transaction processing (skip to step 13).
 		- `2`: The transaction is refused.
 6. The Directory Server forwards the *ACS* response to the MPI.
 7. The MPI sends an Authentication Request message to the cardholder’s browser for routing to the *ACS*.
@@ -153,11 +153,11 @@ If the payment is on a hosted payment page, the redirection to the *ACS* will be
 13. HiPay formats and sends to its acquirer an Authorization Request message, which includes information from the issuer’s Authentication Response — including the CVV and the ECI. The acquirer passes the Authorization Request to the card network and the transaction completes through standard processing.
 14. HiPay sends a notification with the transaction status and 3-D Secure authentication result. *Please refer to the Authentication Results section*.
 
-### Workflow Overview
+### Workflow overview
 
 ![3-D Secure transaction workflow overview](images/media/image1.png)
 
-## Authentication Results
+## Authentication results
 
 The following table lists the enrollment messages and statuses:
 
@@ -178,11 +178,11 @@ The following table lists the authentication messages and statuses:
 | `N` | Authentication Failed | - | The cardholder did not complete authentication and the card should not be accepted for payment. The following are reasons to fail an authentication: the cardholder fails to correctly enter the authentication information; the cardholder cancels the authentication process. An authentication failure may be a possible indication of a fraudulent user. **The authorization request should not be submitted.**
 | `E` | Any error message here | - | An error occurred during the authentication process. **The authorization request should not be submitted.**
 
-# Redirect Pages
+# Redirect pages
 
 ## Redirect your customer to a page of your choice
 
-**Description**: The redirect pages are pages to which HiPay Fullservice redirects your customer's browser after the transaction is processed if it was made out of your website (hosted payment page, local payments, 3-D Secure authentication, etc.).
+**Description**: The redirect pages are pages to which HiPay Fullservice redirects your customer's browser after the transaction is processed if it was made outside of your website (hosted payment page, local payments, 3-D Secure authentication, etc.).
 
 **Objective**: Typically, this is a secure page on your site. The main purpose is to redirect your customers back to your website once they have completed a payment.
 
@@ -202,13 +202,13 @@ You can overwrite the default redirect pages by sending custom URLs along with t
 | Cancel page |  Page where to redirect your customer if the transaction was cancelled.
 | Exception page |  Page where to redirect the customer's browser after a system failure or when the payment gateway is temporarily unavailable. If the page is not defined, the default page for exceptions is displayed by the payment gateway.
 
-## Feedback Parameters
+## Feedback parameters
 
 **Description**: Select this option in your HiPay Fullservice back office if you want HiPay Fullservice to send back transaction parameters to your redirect pages for further processing within your own website.
 
 **Procedure**: To activate this option, you “MUST” specify at least an “Accept page” URL. Sent parameters are included in your redirect pages on HTTP GET.
   
-##  Fields sent 
+##  Sent fields 
 
 The following table lists and describes the fields sent to your redirect pages.
 
@@ -228,7 +228,7 @@ The following table lists and describes the fields sent to your redirect pages.
 | `email` | Email address of the customer
 | `cdata1` `cdata2` … `cdata10` | Custom data
 | `score` | Total score assigned to the transaction (main risk indicator)
-| `fraud` | Overall result of risk assessment returned by the payment gateway. The value must be from the following list: **`pending`** (rules were not checked), **`accepted`** (transaction accepted), **`blocked`** (transaction rejected due to review system rules), **`challenged`** (transaction has been flagged for review)
+| `fraud` | Overall result of risk assessment returned by the payment gateway. The value must be from the following list: **`pending`** (rules have not been checked), **`accepted`** (transaction has been accepted), **`blocked`** (transaction has been rejected due to reviewing system rules), **`challenged`** (transaction has been flagged for review)
 | `review` | Decision made when the overall risk result returns challenged. An empty value means no review is required. The value must be from the following list: **`pending`** (a decision to release or cancel the transaction is pending), **`allowed`** (the transaction has been released for processing), **`denied`** (the transaction has been cancelled).
 | `avscheck` | Result of the Address Verification Service (AVS). Possible result codes can be found in the appendices.
 | `cvccheck` | Result of the CVC (Card Verification Code) check. Possible result codes can be found in the appendices.
@@ -242,7 +242,7 @@ The following table lists and describes the fields sent to your redirect pages.
 | `cardexpiry` | Card expiry year and month (YYYYMM)
 | `cardcountry` | Bank country code where the card was issued. This two-letter country code complies with *ISO 3166-1* (alpha 2).
 
-# Server-to-Server Notifications
+# Server-to-server notifications
 
 ## What is a server-to-server notification?
 
@@ -254,81 +254,82 @@ The following table lists and describes the fields sent to your redirect pages.
 
 ![Notifications configuration](images/media/image2.png)
  
-## Configuration Parameters
+## Configuration parameters
 
 | Field name   |      Description    |
 |----------|-------------|
-| Notification URL |  The URL or IP on which you want to receive server-to-server notifications.
-| Request method |  The method you wish to receive the requests: XML / HTTP POST 
-| Desired notifications |  Here you can define what notifications you want to receive based on transaction status. Refer to the appendices — "Appendix B. Payment definitions” — for the full list of available transaction statuses.
+| Notification URL |  The URL or IP address on which you want to receive server-to-server notifications.
+| Request method |  The method with which you want to receive requests: XML / HTTP POST 
+| Desired notifications |  Here you can define which notifications you want to receive based on the transaction status. Please refer to "Appendix B. Payment definitions” for the full list of available transaction statuses.
 
-##Response Fields
+## Response fields
 The following table lists and describes the response fields received on the notification call.
 
-| Field Name   |      Description    |
+| Field name   |      Description    |
 |----------|:-------------:|
-|`state`|Transaction state.Value must be a member of the following list.<br/>- `completed`<br/>- `pending`<br/>- `declined`<br/>- `error`<br/>Please report to the following section below — Transaction Workflow — for further details.
-|`reason` <br/>- `code` <br/>- `message`|Optional element. Reason why transaction was declined.<br/>- code : Decline reason code.<br/>- message: Decline reason description.
-|`test`|True if the transaction is a testing transaction, otherwise false.
-|`mid`|Your merchant account number (issued to you by HiPay TPP).
-|`attempt_id`|Attempt id of the payment.
-|`authorization_code`|An authorization code (up to 35 characters) generated for each approved or pending transaction by the acquiring provider.
-|`transaction_reference`|The unique identifier of the transaction.
-|`date_created`|Date when transaction was created.
-|`date_updated`|Date when transaction was last updated.
-|`date_authorized`|Date when transaction was authorized.
+|`state`|Transaction state. The value must be from the following list: <br/>- `completed`<br/>- `pending`<br/>- `declined`<br/>- `error`<br/> For further details, please refer to the following section — Transaction Workflow —.
+|`reason` <br/>- `code` <br/>- `message`|Optional element. Reason why the transaction was declined.<br/>- code : Decline reason code <br/>- message: Decline reason description
+|`test`|True if the transaction is a test transaction; otherwise false
+|`mid`|Your merchant account number (issued to you by HiPay Fullservice)
+|`attempt_id`|Attempt ID of the payment
+|`authorization_code`|Authorization code (up to 35 characters) generated for each approved or pending transaction by the acquiring provider
+|`transaction_reference`|Unique identifier of the transaction
+|`date_created`|Date when the transaction was created
+|`date_updated`|Date when the transaction was last updated
+|`date_authorized`|Date when the transaction was authorized
 |`status`|Transaction status. A list of available statuses can be found in the appendices – Appendix B “Payment Status Definitions”.
-|`message`|Transaction message.
-|`authorized_amount`|The transaction amount.
-|`captured_amount`|Captured amount.
-|`refunded_amount`|Refunded amount.
-|`decimals`|Decimal precision of transaction amount.
-|`currency`|Base currency for this transaction.<br/>This three-character currency code complies with ISO 4217.
-|`ip_address`|The IP address of the customer making the purchase.
-|`ip_country`|Country code associated to the customer's IP address.
-|`device_id`|Unique identifier assigned to device (the customer's browser) by HiPay.
-|`cdata1` <br/>- `cdata2`<br/>- `...` <br/>- `cdata10`|Custom data.
-|`avs_result`|Result of the Address Verification Service (AVS). Possible result codes can be found in the appendices
-|`cvc_result`|Result of the CVC (Card Verification Code) check. Possible result codes can be found in the appendices
-|`eci`|Electronic Commerce Indicator (ECI).
+|`message`|Transaction message
+|`authorized_amount`|Transaction amount
+|`captured_amount`|Captured amount
+|`refunded_amount`|Refunded amount
+|`decimals`|Decimal precision of transaction amount
+|`currency`|Base currency for the transaction.<br/>This three-character currency code complies with ISO 4217.
+|`ip_address`|IP address of the customer making the purchase
+|`ip_country`|Country code associated to the customer's IP address
+|`device_id`|Unique identifier assigned to the device (the customer's browser) by HiPay
+|`cdata1` <br/>- `cdata2`<br/>- `...` <br/>- `cdata10`|Custom data
+|`avs_result`|Result of the Address Verification Service (AVS). Possible result codes can be found in the appendices.
+|`cvc_result`|Result of the CVC (Card Verification Code) check. Possible result codes can be found in the appendices.
+|`eci`|Electronic Commerce Indicator (ECI)
 |`payment_product`|Payment product used to complete the transaction. Informs about the payment_method section type.
-|`payment_method`|See tables below for further details.
-|`three_d_secure`<br/>- `eci`<br/>- `enrollment_status` <br/>- `enrollment_status` <br/>- `authentication_status`<br/>- `authentication_message`<br/>- `authentication_token`<br/>- `xid`|Optional element. Result of the 3-D Secure Authentication.<br/>- The 3-D Secure (3DS) electronic commerce indicator.<br/>- The enrollment status.<br/>- The enrollment message.<br/>- The authentication status.<br/>- This field is only included if payment authentication was attempted and a value was received.<br/>- The authentication message. This field is only included if payment authentication was attempted and a value was received.<br/>- This is a value generated by the card issuer as a token to prove that the cardholder was successfully authenticated.<br/>- a unique transaction identifier that is generated by the payment server on behalf of the merchant to identify the 3-D Secure transaction.
-|`fraud_screening`<br/>- `scoring`<br/>- `result`<br/>- `review`|Result of the fraud screening.<br/>Total score assigned to the transaction (main risk indicator).<br/><br/>The overall result of risk assessment returned by the Payment Gateway.<br/>Value must be a member of the following list.<br/>- `pending` :rules were not checked.<br/>- `accepted`: transaction accepted.<br/>- `blocked`: transaction rejected due to system rules.<br/>- `challenged`: transaction has been marked for review.<br/><br/>The decision made when the overall risk result returns challenged.<br/>An empty value means no review is required.<br/>Value must be a member of the following list.<br/>- pending: a decision to release or cancel the transaction is pending.<br/>allowed: the transaction has been released for processing.<br/>- denied: the transaction has been cancelled.
-|`order`<br/>- `Id`<br/>- `dateCreated` <br/>- `attempts`<br/>- `amount`<br/>- `shipping`<br/>- `tax`<br/>- `decimals`<br/>- `currency`<br/>- `customer_id`<br/>- `language`<br/>- `email`|Information about the customer and his order.<br/>- Unique identifier of the order as provided by Merchant.<br/>- Time when order was created.<br/>- Indicates how many payment attempts have been made for this order.<br/>- The total order amount (e.g., 150.00). It should be calculated as a sum of the items purchased, plus the shipping fee (if present), plus the tax fee (if present).<br/>- The order shipping fee.<br/>- The order tax fee.<br/>- Decimal precision of the order amount.<br/>- Base currency for this order. This three-character currency code complies with ISO 4217<br/>- Unique identifier of the customer as provided by Merchant.<br/>- Language code of the customer.<br/>- Email address of the customer.
-|`operation`<br/>- `type`<br/>- `id`<br/>- `reference`<br/>- `amount`<br/>- `currency`<br/>- `date`|If a maintenance operation was requested and an operation_id value was sent.<br/>- Type of last operation.<br/>- Operation ID sent in maintenance operation.<br/>- HiPay Operation reference.<br/>- Operation amount.<br/>- Operation currency.<br/>- Operation date.
+|`payment_method`|Please see the tables below for further details.
+|`three_d_secure`<br/>- `eci`<br/>- `enrollment_status` <br/>- `enrollment_message` <br/>- `authentication_status`<br/>- `authentication_message`<br/>- `authentication_token`<br/>- `xid`|Optional element. Result of the 3-D Secure Authentication.<br/>- 3-D Secure (3DS) Electronic Commerce Indicator<br/>- Enrollment status<br/>- Enrollment message<br/>- Authentication status<br/>- This field is only included if payment authentication was attempted and a value was received.<br/>- Authentication message. This field is only included if payment authentication was attempted and a value was received.<br/>- This is a value generated by the card issuer as a token to prove that the cardholder was successfully authenticated.<br/>- Unique transaction identifier generated by the payment server on behalf of the merchant to identify the 3-D Secure transaction.
+|`fraud_screening`<br/>- `scoring`<br/>- `result`<br/>- `review`| Fraud screening result.<br/>Total score assigned to the transaction (main risk indicator).<br/><br/>Overall result of risk assessment returned by the payment gateway.<br/>The value must be from the following list.<br/>- `pending`: rules have not been checked.<br/>- `accepted`: the transaction has been accepted.<br/>- `blocked`: the transaction has been rejected due to system rules.<br/>- `challenged`: the transaction has been flagged for review.<br/><br/>Decision made when the overall risk result returns challenged.<br/>An empty value means that no review is required.<br/>The value must be from the following list.<br/>- pending: a decision to release or cancel the transaction is pending.<br/>- allowed: the transaction has been released for processing.<br/>- denied: the transaction has been cancelled.
+|`order`<br/>- `Id`<br/>- `dateCreated` <br/>- `attempts`<br/>- `amount`<br/>- `shipping`<br/>- `tax`<br/>- `decimals`<br/>- `currency`<br/>- `customer_id`<br/>- `language`<br/>- `email`|Information about the customer and their order.<br/>- Unique identifier of the order as provided by the merchant<br/>- Time when the order was created<br/>- Indicates how many payment attempts have been made for this order<br/>- Total order amount (e.g.: 150.00). It should be calculated as the sum of purchased items, plus shipping fees (if present) and tax (if present).<br/>- Order shipping fees<br/>- Order tax amount<br/>- Decimal precision of the order amount<br/>- Base currency for this order. This three-character currency code complies with ISO 4217.<br/>- Unique identifier of the customer as provided by the merchant.<br/>- Language code of the customer<br/>- Email address of the customer
+|`operation`<br/>- `type`<br/>- `id`<br/>- `reference`<br/>- `amount`<br/>- `currency`<br/>- `date`|If a maintenance operation was requested and an operation_id value was sent.<br/>- Type of last operation<br/>- Operation ID sent in maintenance operation<br/>- HiPay's Operation reference<br/>- Operation amount<br/>- Operation currency<br/>- Operation date
 
-##Response fields specific to the payment product
+## Response fields specific to the payment product
 
-**Credit Card payments**: The following table lists and describes the response fields returned for transactions by credit/debit card.
+**Credit card payments**: The following table lists and describes the response fields returned for transactions by credit/debit card.
 
-| Field Name   |      Description    |
-|----------|:-------------:|
-|`token`|Card token. |`brand`|Card brand. (e.g., VISA, MASTERCARD, AMERICANEXPRESS, MAESTRO).|`pan`| Card number (up to 19 characters).<br/>Note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., 549619******4769).|`card_holder`|Cardholder name.|`card_expiry_month`|Card expiry month (2 digits).|`card_expiry_year`|Card expiry year (4 digits).|`issuer`|Card issuing bank name.<br/>Do not rely on this value to remain static over time. Bank names may change over time due to acquisitions and mergers.|`country`|Bank country code where card was issued.<br/>This two-letter country code complies with ISO 3166-1 (alpha 2).
+| Field name   |      Description    |
+|----------|:------------:|
+|`token`|Card token |`brand`|Card brand (e.g., VISA, MASTERCARD, AMERICAN EXPRESS, MAESTRO).|`pan`| Card number (up to 19 characters).<br/>Please note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., 549619******4769).|`card_holder`|Cardholder's name|`card_expiry_month`|Card expiry month (2 digits)|`card_expiry_year`|Card expiry year (4 digits)|`issuer`|Card issuing bank name.<br/>Do not rely on this value to remain static over time. Bank names may change due to acquisitions and mergers.|`country`|Bank country code where the card was issued.<br/>This two-letter country code complies with ISO 3166-1 (alpha 2).
 **QIWI payments**: The following table lists and describes the response fields returned for transactions by VISA QIWI Wallet.
 
-| Field Name   |      Description    |
+| Field name   |      Description    |
 |----------|:-------------:|
-|`user`|The Qiwi user's ID, to whom the invoice is issued.<br/>It is the user's phone number, in international format. Example: +79263745223
+|`user`|QIWI user ID, to whom the invoice is issued.<br/>It is the user's phone number, in international format. Example: +79263745223
 
-## Transaction Workflow
+## Transaction workflow
 
-**Description**: The HiPay Fullservice payment gateway can process transactions through many different acquirers using different payment methods and involving some anti-fraud checks. All these aspects change the transaction processing flow significantly for you.
+**Description**: The HiPay Fullservice payment gateway can process transactions through many different acquirers using different payment methods and involving anti-fraud checks. All these aspects change the transaction processing flow significantly for you.
 
-When you activate a server-to-server notification on HiPay Fullservice, you receive a response describing the transaction state. Depending on the transaction state there are five options to action:
+When you activate a server-to-server notification on HiPay Fullservice, you receive a response describing the transaction state. Depending on the transaction state, there are five possible values:
 
 | Transaction state   |      Description    |
 |----------|-------------|
-| completed |  If the transaction state is completed you are done. This is the most common case for credit card transaction processing. Almost all credit card acquirers works in that way. Then you have to look into the status field of the response to know the exact transaction status.
-| pending |  Transaction request was submitted to the acquirer but response is not yet available.
-| declined |  Transaction was processed and was declined by gateway.
-| error |  Transaction was not processed due to some reasons.
+| completed |  If the transaction state is “completed”, you are done. This is the most common case for credit card transaction processing. Almost all credit card acquirers work that way. Then, you have to look into the status field of the response to know the exact transaction status.
+| forwarding | If the transaction state is “forwarding”, you have to redirect your customer         to a URL provided in the forward_url field of the response. In that case, the transaction processing is not finished yet. You have to wait until the customer returns to your website after doing all redirects.
+| pending |  The transaction request was submitted to the acquirer but the response is not  available yet.
+| declined |  The transaction was processed and declined by the gateway.
+| error |  The transaction was not processed for some reason.
 
-##Examles
+## Examples
 
-The following are examples XML and HTTP Post responses.
+The following are XML and HTTP Post response examples.
 
-*XML Response Example*:
+*XML response example*:
 
 ```xml
 	<?xml version="1.0" encoding="UTF-8"?>
@@ -340,9 +341,9 @@ The following are examples XML and HTTP Post responses.
 	  <attempt_id>1</attempt_id>
 	  <authorization_code>test123</authorization_code>
 	  <transaction_reference>388997073285</transaction_reference>
-	  <date_created>2012-10-14T12:29:51+0000</date_created>
-	  <date_updated>2012-10-14T12:29:55+0000</date_updated>
-	  <date_authorized>2012-10-14T12:29:54+0000</date_authorized>
+	  <date_created>2016-10-14T12:29:51+0000</date_created>
+	  <date_updated>2016-10-14T12:29:55+0000</date_updated>
+	  <date_authorized>2016-10-14T12:29:54+0000</date_authorized>
 	  <status>117</status>
 	  <message>Capture Requested</message>
 	  <authorized_amount>5.00</authorized_amount>
@@ -365,9 +366,9 @@ The following are examples XML and HTTP Post responses.
 	    <token>ce5x096fx6xx05989x170x7x96f94432600491xx</token>
 	    <brand>VISA</brand>
 	    <pan>400000******0000</pan>
-	    <card_holder>Jhon Doe</card_holder>
+	    <card_holder>John Doe</card_holder>
 	    <card_expiry_month>07</card_expiry_month>
-	    <card_expiry_year>2015</card_expiry_year>
+	    <card_expiry_year>2018</card_expiry_year>
 	    <issuer>MY BANK</issuer>
 	    <country>FR</country>
 	  </payment_method>
@@ -387,7 +388,7 @@ The following are examples XML and HTTP Post responses.
 	  </fraud_screening>
 	  <order>
 	    <id>1381753783</id>
-	    <date_created>2012-10-14T12:29:51+0000</date_created>
+	    <date_created>2016-10-14T12:29:51+0000</date_created>
 	    <attempts>1</attempts>
 	    <amount>5.00</amount>
 	    <shipping>10.00</shipping>
@@ -401,7 +402,7 @@ The following are examples XML and HTTP Post responses.
 	</notification>
 ```
 
-*HTTP POST Response Example*:
+*HTTP POST response example*:
 
 ```xml
    	state = completed
@@ -411,9 +412,9 @@ The following are examples XML and HTTP Post responses.
    	attempt_id = 1
    	authorization_code = test123
    	transaction_reference = 781357613392
-   	date_created = 2012-10-14T13:10:36+0000
-   	date_updated = 2012-10-14T13:10:38+0000
-   	date_authorized = 2012-10-14T13:10:38+0000
+   	date_created = 2016-10-14T13:10:36+0000
+   	date_updated = 2016-10-14T13:10:38+0000
+   	date_authorized = 2016-10-14T13:10:38+0000
    	status = 116
    	message = Authorized
    	authorized_amount = 5.00
@@ -435,9 +436,9 @@ The following are examples XML and HTTP Post responses.
    	payment_method[token] = ce5x096fx6xx05989x170x7x96f94432600491xx
    	payment_method[brand] = VISA
    	payment_method[pan] = 400000******0000
-   	payment_method[card_holder] = Jhon Doe
+   	payment_method[card_holder] = John Doe
    	payment_method[card_expiry_month] = 07
-   	payment_method[card_expiry_year] = 2015
+   	payment_method[card_expiry_year] = 2018
    	payment_method[issuer] = MYBANK 
    	payment_method[country] = FR 
    	three_d_secure[eci] = 5
@@ -451,7 +452,7 @@ The following are examples XML and HTTP Post responses.
    	fraud_screening[result] = accepted
    	fraud_screening[review] = 
    	order[id] = 1381756231
-   	order[date_created] = 2013-10-14T13:10:36+0000
+   	order[date_created] = 2016-10-14T13:10:36+0000
    	order[attempts] = 1
    	order[amount] = 5.00
    	order[shipping] = 10.00
@@ -463,45 +464,45 @@ The following are examples XML and HTTP Post responses.
    	order[email] = customer@mail.com
 ```
 
-#Signature verification
+# Signature verification
 
 ## Introduction
 
 **Directive**: It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection made to your servers. This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.
 
-A unique signature is sent each time that HiPay contact any merchant URL, notification or redirection.
+A unique signature is sent each time HiPay contacts any merchant's URL, notification or redirection.
         
 ## Setup
 
-First of all you need to set a Secret Passphrase in your HiPay Fullservice back office under “*Integration -> Security Settings -> Secret Passphrase*”.
+First of all, you need to set a secret passphrase in your HiPay Fullservice back office under “*Integration -> Security Settings -> Secret Passphrase*”.
 
 ![](images/media/image3.jpeg)
 
-**Secret passphrase**: The secret passphrase is used to generate a unique character string (signature) hashed with SHA algorithm. The security level of the password depends on the length of the password. A long password is more secured.
+**Secret passphrase**: The secret passphrase is used to generate a unique character string (signature) hashed with SHA algorithm. The security level of the password depends on the length of the password. A long password is more secure.
 
 ## Verification
 
-**URL Notification**: For the URL notification, the signature is sent on the HTTP header under the `HTTP_X_ALLOPASS_SIGNATURE` parameter. To check this point, you just need to concatenate the passphrase with the POST content of the query. Algorithm: SHA Signature = SHA1(Raw POST Data + Secret Passphrase)
+**URL notification**: For the URL notification, the signature is sent on the HTTP header under the `HTTP_X_ALLOPASS_SIGNATURE` parameter. To check this point, you just need to concatenate the passphrase with the POST content of the query. Algorithm: SHA signature = SHA1(Raw POST Data + Secret Passphrase)
 
-**URL Redirection**: For each redirection page (accept page, decline page, etc.) the signature is sent under the “hash” parameter. To check this point, you must concatenate the parameters, the values of each and the passphrase under the following conditions:
-1. The parameter must be predefined.
-2. The value can’t be empty.
+**URL redirection**: For each redirection page (accept page, decline page, etc.), the signature is sent under the “hash” parameter. To check this point, you must concatenate the parameters, the values of each of them and the passphrase under the following conditions:
+1. The parameter must be predefined,
+2. The value can’t be empty,
 3. The parameter must be sorted in alphabetical order.
 
 - Algorithm:	- a.	paramC = val3
 	- paramA = val1
 	- paramB = val2
-	- SHA Signature = `SHA1(paramAval1<passphrase>paramBval2<passphrase>paramCval3<passphrase>)`
+	- SHA signature = `SHA1(paramAval1<passphrase>paramBval2<passphrase>paramCval3<passphrase>)`
 
-*PHP Signature Validation*:
+*PHP signature validation*:
 
 ```php
-   	$secretPassphrase = 'mypassphrasse';       	
+   	$secretPassphrase = 'mypassphrase';       	
    	//Secret Passphrase 
    	$string2compute = '';
    	
    	if (isset($_GET['hash'])) {   		
-   		// If is a redirection URL
+   		// If it is a redirection URL
    		$signature = $_GET['hash'];
    		$parameters = $_GET;
    		unset($parameters['hash']);
@@ -513,7 +514,7 @@ First of all you need to set a Secret Passphrase in your HiPay Fullservice back 
    		}
    	}
    	else {				
-   		// If is a Notification
+   		// If it is a notification
    		$signature = $_SERVER['HTTP_X_ALLOPASS_SIGNATURE'];
    		$string2compute = $HTTP_RAW_POST_DATA . $secretPassphrase;
    	}
@@ -527,41 +528,41 @@ First of all you need to set a Secret Passphrase in your HiPay Fullservice back 
    	    $message = 'KO';27   	}
 ```
 
-#Device Fingerprint Integration
+# Device fingerprint integration
 
 ## Overview
 
-The device fingerprint identifies devices through information collected by a client run on an end user’s computer. This client generates a black box that contains all device information available.
+The device fingerprint identifies devices through information collected by a client run on an end user’s computer. This client generates a black box that contains all the available device information.
 
 Web applications obtain device information by sourcing dynamically generated JavaScript from HiPay Fullservice. The JavaScript determines what information is available and generates a black box from all available sources.
 
 A black box will typically:
 
 - Range up to 4,000 bytes (the average length being just under 1,000 bytes)
-- Contain alphanumeric values and the special characters: + / ; =
+- Contain alphanumeric values and the following special characters: + / ; =
 - Begin with 0200, 0400, 0500 or 0600
 
 ## Generate black box content
-To integrate the client you must specify a hidden field that the JavaScript will populate. This adds the black box as another field to be submitted along the other details in the form.
+To integrate the client, you must specify a hidden field that the JavaScript will populate. This adds the black box as another field to be submitted along the other details in the form.
 
-**You MUST :**
+**You MUST:**
 
 1.	Include a hidden form field with an ID “ioBB” that will be populated with the value.
 2.	Call the HiPay Fullservice fingerprint JavaScript function to obtain the black box content: https://secure-gateway.hipay-tpp.com/gateway/toolbox/fingerprint
 
-**You MUST NOT**
+**You MUST NOT:**
 
 1.	DO NOT call HiPay Fullservice fingerprint JavaScript BEFORE including the hidden “ioBB” form field.
 2.	DO NOT cache or use local copies of the JavaScript (JavaScript is dynamically generated for each customer and so caching of the script may cause unrelated devices to be identified as the same computer. The script also uses domain cookies to identify devices across subscribers.) 
 
-#Settlements 
+# Settlements 
 
 If you need an overview of your settlements or get operations list
 included in one of them, check out [the HiPay Fullservice Finance API interactive documentation](/doc-api/fullservice/settlement/).
 
-##Settlement File Transfer
+## Settlement file transfer
 
-###What is a file transfer?
+### What is a file transfer?
 
 **Description**:   In order to notify financial events related to your payment system, such as a new settlement file created, the HiPay platform can send your application a settlement file by FTP/SFTP.
 
@@ -570,7 +571,7 @@ included in one of them, check out [the HiPay Fullservice Finance API interactiv
 *Configuration Screen*  
 ![](images/media/image4.jpg)
 
-###Configuration parameters
+### Configuration parameters
 
 | Field name   |      Description    |
 |----------|-------------|
@@ -581,12 +582,12 @@ included in one of them, check out [the HiPay Fullservice Finance API interactiv
 |Password   |     The password to log in your server.
 |Desired files |  Files you want to receive.
 
-###Settlement file data
+### Settlement file data
 
 To get a list of fields included in settlement files, please refer to
 the [the HiPay Fullservice Finance API interactive documentation](/doc-api/fullservice/settlement/).
 
-##Settlement file fields
+## Settlement file fields
 
 The following table lists and describes all the fields included in each
 settlement file.
@@ -617,7 +618,7 @@ settlement file.
 |Customer ID          |    Unique identifier of the customer as provided by the merchant
 |Merchant operation ID|    Operation ID sent in maintenance operation
 
-##Operation types
+## Operation types
 
 Here are the different operation types that can appear on a list of
 operations.
@@ -653,24 +654,24 @@ operations.
 |**Transferred to merchant**  |              Transfer sent from a HiPay Fullservice account to another HiPay Fullservice account(between accounts of a same merchant).This operation is displayed on the receiving account’s operations.
 |**Variable**       |                        Commission based on a percentage and calculated on amounts collected on the HiPay Fullservice account.
 
-##Settlement notifications
+## Settlement notifications
 
 This document is designed to provide you with details on how to integrate your business to the HiPay Fullservice Financial Gateway Notifications. It gives step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
 
-##Settlement server-to-server notifications
+## Settlement server-to-server notifications
 
-###What is a server-to-server notification?
+### What is a server-to-server notification?
 
 **Description**: In order to notify financial events related to your payment system, such as a new settlement file created, the HiPay platform can send to your application a server-to-server notification.
 
-###Setup
+### Setup
 
 **Procedure** To set up your Financial Feedback Notification URL, you must login into your HiPay Fullservice back office and go to *“Integration -> Notifications -> Financial Feedback*”.
 
 *Configuration Screen*   
 ![](images/media/image5.jpg)
 
-###Configuration parameters
+### Configuration parameters
 
 | Field name   |      Description    |
 |----------|-------------|
@@ -681,7 +682,7 @@ This document is designed to provide you with details on how to integrate your b
 |Desired notifications|   Financial notifications you want to receive.
 
 
-###Response fields
+### Response fields
 
 The following table lists and describes the response fields.
 
@@ -699,7 +700,7 @@ The following table lists and describes the response fields.
 |`amount`         |          Settlement amount
 |`currency`        |         Settlement currency
 
-###Examples
+### Examples
 
 The following examples are XML, JSON and HTTP Post responses.
 
@@ -743,13 +744,13 @@ Response in HTTP POST Format
 notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=0&fees=90&chargeback=0&rolling=0&other=2748.040&amount=0.000&currency=EUR
 ```
 
-#SEPA Direct Debit (SDD)
+# SEPA Direct Debit (SDD)
 
-##API Reference
+## API reference
 
 This payment product can be used using the HiPay Fullservice Gateway API. **[Click here to access the full interactive documentation and live testing tools of the HiPay Fullservice Gateway API](/doc-api/fullservice/gateway/).**
 
-##Recurring payment request with client authentication
+## Recurring payment request with client authentication
 
 To initiate a SEPA mandate for a recurring payment with client
 authentication, here are the parameters to add to a basic payment
@@ -797,14 +798,14 @@ registration.
 | `iban` | `DE23100000001234567890`
 | `bank_name` | `Deutsche Bank`
 
-##Recurring payment response
+## Recurring payment response
 
 See below the received response. Please pay attention to the field `debit_agreement_id`, which is the most important here.
 
 Merchants must save its value to make more transactions on the same
 mandate.
 
-##Response in XML format using Order service
+## Response in XML format using order service
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -827,7 +828,7 @@ mandate.
 
 
 
-##Response in XML format using Hpayment service
+## Response in XML format using Hpayment service
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -860,7 +861,7 @@ After completing the registration, the customer is redirected to the success pag
                                                                                                                              
 The transaction status will change to `Authenticated`, then to `Authorization requested`. A few days later (approximately 5 bank working days), the transaction status will change from `Authorization requested` to `Captured` directly (due to the lack of information about the status change between the transmission and the receipt of the payment).
 
-##Notification response in XML format
+## Notification response in XML format
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -881,7 +882,7 @@ The transaction status will change to `Authenticated`, then to `Authorization re
 ```
 
 
-#Initiating a transaction on an existing mandate
+# Initiating a transaction on an existing mandate
 
 When a merchant wants to make a payment on an existing mandate, the bank
 account owner doesn’t need to be present.
@@ -889,7 +890,7 @@ account owner doesn’t need to be present.
 To proceed, the merchant has to send the value of the aforementioned
 field `debit_agreement_id` to HiPay.
 
-##Specific required fields:
+## Specific required fields:
 
 | Parameter name | Value |
 | --- | --- |
@@ -899,13 +900,13 @@ field `debit_agreement_id` to HiPay.
 | recurring_payment | `1`
 
 
-##Response
+## Response
 
 See below the received response. This time, the transaction status is
 set to `Authorization requested` directly, as a confirmation is not
 required to make another payment on an existing mandate.
 
-###Response in XML format
+### Response in XML format
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -933,7 +934,7 @@ required to make another payment on an existing mandate.
 ```
 
 
-#Debit agreement statuses
+# Debit agreement statuses
   
 | **Status**   |      **Description**    |
 |----------|-------------|
@@ -943,16 +944,16 @@ required to make another payment on an existing mandate.
 | `suspended` |  The agreement was suspended by the customer
 | `error` |  An error occurred on agreement creation
 
-##Creating a mandate without transaction
+## Creating a mandate without transaction
 
 This is intended for merchants who want to create a debit agreement
 without any first payment for further recurring payments.
 
-###Endpoint:
+### Endpoint
 
 **Production**: [https://secure-gateway.hipay-tpp.com/rest/v2/debit-agreement](https://secure-gateway.hipay-tpp.com/rest/v2/debit-agreement)
 
-###Specific required fields:
+### Specific required fields
 
 | Parameter name | Value/Example value/info
 |----------|-------------|
@@ -968,7 +969,7 @@ without any first payment for further recurring payments.
 | agreement_reference | `4465545` (this field is not mandatory; it is used to import an old mandate reference)
 
 
-###Example response in XML format
+### Example response in XML format
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
