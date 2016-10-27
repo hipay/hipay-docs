@@ -12,10 +12,10 @@ For more information: https://getcomposer.org/doc/01-basic-usage.md#autoloading
 
 You need to instantiate 4 objects to make a request:  
 
-- A configuration object which implements [ConfigurationInterface](../blob/master/lib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
-- A client provider inherited from abstract class [\HiPay\Fullservice\HTTP\ClientProvider](../blob/master/lib/HiPay/Fullservice/HTTP/ClientProvider.php)
-- A [Secure Vault](../blob/master/lib/HiPay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](../blob/master/lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client
-- An [order request](../blob/master/lib/HiPay/Fullservice/Gateway/Request/Order/OrderRequest.php)
+- A configuration object which implements [ConfigurationInterface](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
+- A client provider inherited from abstract class [\HiPay\Fullservice\HTTP\ClientProvider](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/HTTP/ClientProvider.php)
+- A [Secure Vault](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client
+- An [order request](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/Gateway/Request/Order/OrderRequest.php)
 
 #### Gateway example:
 
