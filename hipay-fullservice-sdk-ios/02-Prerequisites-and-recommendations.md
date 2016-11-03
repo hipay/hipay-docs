@@ -36,7 +36,7 @@ When you redirect users to the HiPay iOS SDK's payment page, the SDK will proces
 
 However, credentials are not sufficient. For each order processed by the iOS SDK, the HiPay Fullservice platform must authenticate the call and validate that the merchant has allowed it. To do so, HiPay Fullservice leverages a signature mechanism. Once your app needs to process a payment, it must contact your own server in order to get a signature, specific to the order to be processed.
 
-To know how to generate a signature on the server side, please refer to the ["Generating a signature" section](#generating-a-signature-server-side).
+To know how to generate a signature on the server side, please refer to the ["Generating a server-side signature"](#generating-a-server-side-signature) section.
 
 Please refer to the diagram below (Mobile checkout workflow) to know when the signature should be generated in the checkout workflow.
 
@@ -50,6 +50,6 @@ Please refer to the diagram below (Mobile checkout workflow) to see when the ser
 
 ### Mobile checkout workflow
 
-Please find below a diagram describing the integration scope of the Mobile SDK and the necessary server parts.
+Please find below a diagram describing the integration scope of the Mobile SDK and the roles of the server.
 
 ![HiPay Fullservice Mobile SDK checkout workflow](images/prerequisites/workflow.png)

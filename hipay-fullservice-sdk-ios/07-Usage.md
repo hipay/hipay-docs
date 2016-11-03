@@ -3,13 +3,13 @@
 Basically, there are two ways to make payments:
 
 - With the built-in native payment screen (easiest integration),
-- With a custom integration using the *core wrapper* (hardest integration).
+- With a custom integration using the *core wrapper* (advanced integration).
 
 The first integration is the easiest one, allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
 However, you can integrate the *core wrapper* yourself. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
-The easiest integration (built-in native payment screen) is described below. The hardest one (customized integration) is described in the next section.
+The easiest integration (built-in native payment screen) is described below. The advanced one (customized integration) is described in the next section.
 
 ## Built-in native payment screen (easiest integration)
 
@@ -45,7 +45,7 @@ Please find below the full code example. Details can be found in comments as wel
  * is really up to you. */
 @implementation DemoViewController
 
-/* We assume that you have defined a button in a XIB with
+/* We assume that you have defined a button in an XIB with
  * the method "payButtonTouched" as touch callback. */
 - (IBAction)payButtonTouched {
     
@@ -150,7 +150,7 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature section](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
 
 This example will present the built-in payment screen to your users when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol methods will be called. 
 
@@ -165,7 +165,7 @@ As mentioned in the comments, some parameters are optional. However, we strongly
 Not all the parameters have been set in the example of the payment page request definition above. There are many properties that you can use in order to provide more details about the order, for instance: 
 
 - `multiUse` to tell the Secure Vault that you may re-use the credit card token in the future for recurring payments; 
-- `paymentProductCategoryList` to tell categories of payment products which should appear on the payment screen; 
+- `paymentProductCategoryList` to tell which categories of payment products should appear on the payment screen; 
 - `paymentProductList` to configure precisely the payment methods which should appear on the payment screen;
 - `customData` to send additional data alongside the transaction which you can get back later.
 

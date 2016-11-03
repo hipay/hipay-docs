@@ -53,7 +53,7 @@ You can also update a token by using the *Secure Vault* method named `updatePaym
 
 To get information about a token previously generated, use the Secure Vault method named `lookupPaymentCardWithToken:requestID:completionHandler:`.
 
-### Request a new order (make payments)
+### Requesting a new order (making payments)
 
 You can make payments using the *Gateway Client* and its *requestNewOrder* method. This request will both create a new order based on the information you provided and process the payment simultaneously.
 
@@ -136,13 +136,13 @@ HPFGatewayClient.sharedClient()
 
 ### Implementation note 
 The signature parameter is needed for security purposes.  
-Please refer to the [Generating a server-side signature](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a-server-side-signature)  section for details.
 
 When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes][apple-scheme] (e.g.: `myapp://order-result`).
 
-### Get the payment products enabled on your account
+### Getting the payment products enabled on your account
 
-In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest:withCompletionHandler:` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using a , because the list of payment products may change depending on order-related information (i.e. the currency)). 
+In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest:withCompletionHandler:` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using  `HPFPaymentPageRequest` because the list of payment products may change depending on order-related information (i.e. the currency)). 
 
 #### Objective-C
 ```Objective-C
@@ -181,7 +181,7 @@ HPFGatewayClient.sharedClient()
 }
 ```
 
-### Requesting information about a transaction (check transaction state)
+### Requesting information about a transaction (checking transaction state)
 
 You can get the transactions related to an order or get information about a specific transaction by using the following methods: 
 
@@ -212,6 +212,6 @@ HPFGatewayClient.sharedClient()
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature](#generating-a-signature-server-side) section for details.
+Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899
