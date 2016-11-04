@@ -1,6 +1,6 @@
 #Payment Gateway - Direct Post Integration Guide
 
-This document is designed to give you details on how to integrate your business to the HiPay Fullservice Payment Gateway using a “direct post” method. It provides step-by-step instructions on how to simply and quickly get up and running with our services, as well as detailed reference material. 
+This document is designed to give you details on how to integrate your business to the HiPay Fullservice Payment Gateway using a “direct post” method. It provides step-by-step instructions on how to simply and quickly get up and running with our services, as well as detailed reference material.
 
 ##Disclaimer
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
