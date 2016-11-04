@@ -2,23 +2,23 @@
 
 Basically, there are two ways to make payments:
 
-- The use of the built-in native payment screeen (easiest integration)
-- The custom integration by using the *Core wrapper* (hardest integration)
+- With the built-in native payment screen (easiest integration),
+- With a custom integration using the *core wrapper* (advanced integration).
 
-The first integration is the easiest one, allowing you to accept payments in your iOS app very quickly. In this scenario, your customer is presented with a built-in native payment screen. However, you won't be able to customize the payment workflow that much.
+The first integration is the easiest one, allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
-On the other hand, you can integrate the *Core wrapper* yourself. In this case, you build your own payment workflow and your own form. In this case, you can customize the payment experience to fit your needs. The downside is that you have to take care of building the whole user interface, creating and sending orders, etc.
+However, you can integrate the *core wrapper* yourself. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
-The easiest integration (built-in native payment screen) is described below. The hardest one (customized integration) is described in the next section.
+The easiest integration (built-in native payment screen) is described below. The advanced one (customized integration) is described in the next section.
 
-## Built-in native payment screen (easiest)
+## Built-in native payment screen (easiest integration)
 
-### Example code
-This method is used by the demo appliation. Do not hesitate to test the demo app for a comprehensive example of the built-in payment screen integration.
+### Code example
+This method is used by the demo application. Do not hesitate to test the demo app for a comprehensive example of the built-in payment screen integration.
 
 In this example, we assume that you will test the integration in a controller named `DemoViewController`, but it can be anywhere in your code base. 
 
-Below is the full code example. You will find details in comments as well 
+Please find below the full code example. Details can be found in comments as well. 
 
 #### Objective-C
 
@@ -40,12 +40,12 @@ Below is the full code example. You will find details in comments as well
 ```Objective-C
 // DemoViewController.m
 
-/* This is an controller example,
+/* This is a controller example,
  * the place where you put this code
  * is really up to you. */
 @implementation DemoViewController
 
-/* We assume that you have defined a button in a XIB with
+/* We assume that you have defined a button in an XIB with
  * the method "payButtonTouched" as touch callback. */
 - (IBAction)payButtonTouched {
     
@@ -55,10 +55,10 @@ Below is the full code example. You will find details in comments as well
     request.amount = @(155.50);
     request.currency = @"EUR";
     request.orderId = @"TEST5987";
-    request.shortDescription = @"Outstanding shirt.";
+    request.shortDescription = @"Outstanding shirt";
     
     /* Below, optional properties are defined as well.
-     * Check the HPFPaymentPageRequest's documentation
+     * Check the HPFPaymentPageRequest documentation
      * for the full list of parameters */
     request.customer.country = @"FR";
     request.customer.firstname = @"John";
@@ -96,12 +96,12 @@ Below is the full code example. You will find details in comments as well
 ```Swift
 // DemoViewController.swift
 
-/* This is an controller example,
+/* This is a controller example,
  * the place where you put this code
  * is really up to you. */
 class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelegate {
 
-    /* We assume that you have defined a button in a XIB with
+    /* We assume that you have defined a button in an XIB with
      * the method "payButtonTouched" as touch callback. */
     func payButtonTouched() {
 
@@ -111,10 +111,10 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
         request.amount = 155.50;
         request.currency = "EUR";
         request.orderId = "TEST5987";
-        request.shortDescription = "Outstanding shirt.";
+        request.shortDescription = "Outstanding shirt";
         
         /* Below, optional properties are defined as well.
-         * Check the HPFPaymentPageRequest's documentation
+         * Check the HPFPaymentPageRequest documentation
          * for the full list of parameters */
         request.customer.country = "FR";
         request.customer.firstname = "John";
@@ -150,27 +150,27 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature section](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
 
-This example will present the built-in payment screen to your user when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol's methods will be called. 
+This example will present the built-in payment screen to your users when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol methods will be called. 
 
 You may copy and paste all or part of the example above.
 
-Below are some additional details:
+Please find below some additional details.
 
 ### Payment page request
 
-As mentionned in the comments, some parameters are optional. However, we strongly encourage you to provide some parameters such as the name of your customer if you have it. By doing so, the card holder name will be filled automatically.
+As mentioned in the comments, some parameters are optional. However, we strongly encourage you to provide some parameters such as the name of your customers if you have it. By doing so, the card holder's name will be filled in automatically.
 
-Not all the parameters have been set in the example of payment page request definition above. There are many properties that you can use in order to provide more details about the order, for instance: 
+Not all the parameters have been set in the example of the payment page request definition above. There are many properties that you can use in order to provide more details about the order, for instance: 
 
-- `multiUse` to tell the Secure Vault that you may reuse the credit card token in the future for reccurring payments; 
-- `paymentProductCategoryList` to tell categories of payment products which should appear on the payment screen; 
+- `multiUse` to tell the Secure Vault that you may re-use the credit card token in the future for recurring payments; 
+- `paymentProductCategoryList` to tell which categories of payment products should appear on the payment screen; 
 - `paymentProductList` to configure precisely the payment methods which should appear on the payment screen;
 - `customData` to send additional data alongside the transaction which you can get back later.
 
 Check out the `HPFPaymentPageRequest` class documentation for more information about all the properties you can set.
 
-### Delegate's methods
+### Delegate methods
 
-You will likely need to modify the implementation of the `HPFPaymentScreenViewControllerDelegate` methods in order to end your check-out process, present a confirmation message to your user, etc.
+You will likely need to modify the implementation of the `HPFPaymentScreenViewControllerDelegate` methods in order to end your check-out process, present a confirmation message to your users, etc.
