@@ -44,6 +44,3 @@ Don't forget to apply your changes.
 ## Run the demo app
 
 Finally, build and run the `example` module.
-
-[repo]: https://github.com/hipay/hipay-fullservice-sdk-ios
-[cocoapods]: https://cocoapods.org/
