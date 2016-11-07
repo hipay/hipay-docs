@@ -8,7 +8,7 @@ The sections below describe the main interfaces you can rely on to perform order
 
 ### Tokenizing a credit or debit card
 
-To tokenize a credit card, you need to leverage the *Secure Vault* client, as below.
+To tokenize a credit card, you need to leverage the *Secure Vault* client, as follows.
 
 This step is mandatory in order to make payments with credit or debit cards, either for one-shot or recurring payments.
 
@@ -51,7 +51,7 @@ To get information about a previously generated token, use the Secure Vault meth
 
 You can make payments using the *Gateway Client* and its `requestNewOrder(OrderRequest, OrderRequestCallback)` method. This request will both create a new order based on the information you provided and process the payment simultaneously.
 
-Therefore, you need to provide your order ID, the amount of the transaction, the payment product (Visa, MasterCard, PayPal, etc.) and the related payment method information (i.e., the token if it's a credit or debit card). You can also provide a lot of other optional information.
+Therefore, you need to provide your order ID, the amount of the transaction, the payment product (Visa, MasterCard, PayPal, etc.) and the related payment method information (i.e., the token if it's a credit or a debit card). You can also provide a lot of other optional information.
 
 #### Java
 ```Java

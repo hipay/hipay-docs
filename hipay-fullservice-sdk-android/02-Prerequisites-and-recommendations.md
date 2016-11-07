@@ -50,6 +50,6 @@ Please refer to the diagram below (Mobile checkout workflow) to see when the ser
 
 ### Mobile checkout workflow
 
-Please find below a diagram presenting the integration scope of the Mobile SDK and the roles of the server.
+Please find below a diagram describing the integration scope of the Mobile SDK and the roles of the server.
 
 ![HiPay Fullservice Mobile SDK checkout workflow](images/prerequisites/workflow.png)

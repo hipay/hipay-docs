@@ -73,13 +73,13 @@ public void onClick(View view) {
 
     /* Assuming that the server url takes the orderId as argument
      * and generates the signature after retrieving 
-     * the required data in database */
+     * the required data in the database */
 
     String url = String.format(getString(R.string.server_url), orderId);
 
     RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
-    // assuming the server's response is in JSON format
+    // Assuming that the server's response is in JSON format
     JsonObjectRequest jsObjRequest = new JsonObjectRequest
             (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

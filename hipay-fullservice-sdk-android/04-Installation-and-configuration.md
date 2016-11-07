@@ -20,7 +20,7 @@ You need to provide the SDK with a few parameters, such as the credentials and t
 
 ## Credentials
 
-Get a valid HiPay Fullservice API username and password. If you don't have any, please refer to the [[Prerequisites and recommendations]] section.
+Get a valid HiPay Fullservice API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
 ## Setting up the configuration
 
