@@ -12,19 +12,19 @@ Add this line to your project's `build.gradle`:
 		compile 'com.hipay.fullservice:hipayfullservice:1+'
 	}
 
-And then synchronize the project with Gradle files. This will install the core wrapper components as well as the built-in payment screen and other utility components.
+Then synchronize the project with Gradle files. This will install the core wrapper components as well as the built-in payment screen and other utility components.
 
 # Configuration
 
-Then, you need to provide the SDK with a few parameters, such as credentials and targeted environement.
+You need to provide the SDK with a few parameters, such as the credentials and targeted environment.
 
 ## Credentials
 
-Get a valid HiPay Fullservice API username and password. If you don't have them, refer to the [[Prerequisites and recommendations]] page.
+Get a valid HiPay Fullservice API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
-## Set up the configuration
+## Setting up the configuration
 
-The following code allows you to configure the SDK. We recommend you to put it in your *App Launcher Activity*'s `onCreate()` method implementation.
+The following code allows you to configure the SDK. We recommend putting it in your *App Launcher Activity*'s `onCreate()` method implementation.
 
 ```Java
 public class DemoActivity extends AppCompatActivity {

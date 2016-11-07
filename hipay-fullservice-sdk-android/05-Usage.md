@@ -2,24 +2,24 @@
 
 Basically, there are two ways to make payments:
 
-- The use of the built-in native payment screeen (easiest integration)
-- The custom integration by using the *Core wrapper* (hardest integration)
+- With the built-in native payment screen (easiest integration),
+- With a custom integration using the *core wrapper* (advanced integration).
 
-The first integration is the easiest one, allowing you to accept payments in your Android app very quickly. In this scenario, your customer is presented with a built-in native payment screen. However, you won't be able to customize the payment workflow that much.
+The first integration is the easiest one, allowing you to accept payments in your Android app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
-On the other hand, you can integrate the *Core wrapper* yourself. In this case, you build your own payment workflow and your own form. In this case, you can customize the payment experience to fit your needs. The downside is that you have to take care of building the whole user interface, creating and sending orders, etc.
+However, you can integrate the *core wrapper* yourself. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
-The easiest integration (built-in native payment screen) is described below. The hardest one (customized integration) is described in the next section.
+The easiest integration (built-in native payment screen) is described below. The advanced one (customized integration) is described in the next section.
 
-## Built-in native payment screen (easiest)
+## Built-in native payment screen (easiest integration)
 
-### Example code
+### Code example
 
 This method is used by the demo application. Do not hesitate to test the demo app for a comprehensive example of the built-in payment screen integration.
 
 In this example, we assume that you will test the integration in an activity named `DemoActivity`, but it can be anywhere in your code base. 
 
-Below is the full code example. You will find details in comments as well.
+Please find below the full code example. Details can be found in comments as well.
 
 
 ```Java
@@ -49,10 +49,10 @@ public class DemoActivity extends AppCompatActivity {
     	request.setAmount(155.50f);
     	request.setCurrency("EUR");
     	request.setOrderId("TEST5987");
-    	request.setShortDescription("Outstanding shirt.");
+    	request.setShortDescription("Outstanding shirt");
     	
     	/* Below, optional properties are defined as well.
-    	 * Check the PaymentPageRequest's documentation
+    	 * Check the PaymentPageRequest documentation
     	 * for the full list of parameters */
     	request.getCustomer().setCountry("FR");
     	request.getCustomer().setFirstname("John");
@@ -70,7 +70,7 @@ public class DemoActivity extends AppCompatActivity {
         /* Now, we instantiate and present the payment
     	 * screen, using the payment page request, the signature 
     	 * and the above custom theme,
-         * assuming the signature is not null */
+         * assuming that the signature is not null */
     	PaymentProductsActivity.start(this, request, mSignature, customTheme);
     }
 }
@@ -78,7 +78,7 @@ public class DemoActivity extends AppCompatActivity {
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature section](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
 
 ### Transaction callback
@@ -110,21 +110,21 @@ public class DemoActivity extends AppCompatActivity {
 }
 ```
 
-This example will present the built-in payment screen to your user when the `onClickPayButton` method is called (you may add a button targeting this method upon a touch).  
-Once the payment workflow finishes, the result will come back in the activity through your `onActivityResult(int, int, Intent)` method.
+This example will present the built-in payment screen to your users when the `onClickPayButton` method is called (you may add a button targeting this method upon a touch).  
+Once the payment workflow finishes, the result is called in the activity through your `onActivityResult(int, int, Intent)` method.
 
 You may copy and paste all or part of the example above.
 
-Below are some additional details:
+Please find below some additional details.
 
 ### Payment page request
 
-As mentionned in the comments, some parameters are optional. However, we strongly encourage you to provide some parameters such as the *name* of your customer if you have it. By doing so, the card holder name will be filled automatically.
+As mentioned in the comments, some parameters are optional. However, we strongly encourage you to provide some parameters such as the *name* of your customers if you have it. By doing so, the card holder's name will be filled in automatically.
 
-Not all the parameters have been set in the example of payment page request definition above. There are many properties that you can use in order to provide more details about the order, for instance: 
+Not all the parameters have been set in the example of the payment page request definition above. There are many properties that you can use in order to provide more details about the order, for instance: 
 
-- `multiUse` to tell the Secure Vault that you may reuse the credit card token in the future for reccurring payments; 
-- `paymentProductCategoryList` to tell categories of payment products which should appear on the payment screen; 
+- `multiUse` to tell the Secure Vault that you may re-use the credit card token in the future for recurring payments; 
+- `paymentProductCategoryList` to tell which categories of payment products should appear on the payment screen; 
 - `paymentProductList` to configure precisely the payment methods which should appear on the payment screen;
 - `customData` to send additional data alongside the transaction which you can get back later.
 
@@ -132,4 +132,4 @@ Check out the `PaymentPageRequest` class documentation for more information abou
 
 ### Callback method
 
-You will likely need to modify the implementation of the `onActivityResult(int, int, Intent)` method in order to end your check-out process, present a confirmation message to your user, etc.
+You will likely need to modify the implementation of the `onActivityResult(int, int, Intent)` method in order to end your check-out process, present a confirmation message to your users, etc.

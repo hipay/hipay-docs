@@ -1,18 +1,18 @@
 ## Core wrapper (advanced integration)
 
-The HiPay Fullservice SDK for Android contains a layer referred to as the *Core wrapper* which is basically a helpful wrapper of the HiPay Fullservice platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The Core wrapper will take care of this for you.
+The HiPay Fullservice SDK for Android contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Fullservice platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
 
-It exposes models and methods that allow you to easyly send payment requests. In facts, the built-in payment screen itself relies on the Core wrapper for performing order requests, retrieving transaction details, etc.
+It exposes models and methods that allow you to easily send payment requests. In fact, the built-in payment screen itself relies on the core wrapper for performing order requests, retrieving transaction details, etc.
 
-The sections below describe the main interfaces you can rely on to perform order requests, tokenize credit cards, retrieving transaction details, etc. The payment workflow implementation details and the user interface is up to you.
+The sections below describe the main interfaces you can rely on to perform order requests, tokenize credit cards, retrieve transaction details, etc. The payment workflow implementation details and the user interface are up to you.
 
 ### Tokenizing a credit or debit card
 
-To tokenize a credit card, you need to leverage the *Secure Vault* client, as below.
+To tokenize a credit card, you need to leverage the *Secure Vault* client, as follows.
 
-This step is mandatory in order to make payments with credit or debit cards, either for one shot or recurring payments.
+This step is mandatory in order to make payments with credit or debit cards, either for one-shot or recurring payments.
 
-#### Generate a card token
+#### Generating a card token
 
 #### Java
 ```Java
@@ -43,15 +43,15 @@ new SecureVaultClient(this)
 
 ### Updating a token or retrieving information about a token
 
-You can also update a token by using the *Secure Vault*'s `updatePaymentCard(String, String, String, String, String, UpdatePaymentCardCallback)` method.
+You can also update a token by using the *Secure Vault* method named `updatePaymentCard(String, String, String, String, String, UpdatePaymentCardCallback)`.
 
-To get information about a previsouly generated token, use the Secure Vault's `lookupPaymentCardWithToken(String, String, LookupPaymentCardCallback)` method.
+To get information about a previously generated token, use the Secure Vault method named `lookupPaymentCardWithToken(String, String, LookupPaymentCardCallback)`.
 
-### Request a new order (make payments)
+### Requesting a new order (making payments)
 
-You can make payments by using the *Gateway Client* and its `requestNewOrder(OrderRequest, OrderRequestCallback)` method. This request will both create a new order based on the information you provided and will process the payment simultaneously.
+You can make payments using the *Gateway Client* and its `requestNewOrder(OrderRequest, OrderRequestCallback)` method. This request will both create a new order based on the information you provided and process the payment simultaneously.
 
-Therefore, you need to provide your order ID, the amount of the transaction, the payment product (Visa, MasterCard, PayPal, etc.) and the related payment method information (i.e. the token if it's a credit or debit card). You can also provide many other optional information as well.
+Therefore, you need to provide your order ID, the amount of the transaction, the payment product (Visa, MasterCard, PayPal, etc.) and the related payment method information (i.e., the token if it's a credit or a debit card). You can also provide a lot of other optional information.
 
 #### Java
 ```Java
@@ -66,7 +66,7 @@ request.setShortDescription("Outstanding shirt.");
 request.setOperation(OrderRelatedRequest.OrderRequestOperation.Sale);
 
 /* Below, optional properties are defined as well.
- * Check the HPFPaymentPageRequest's documentation
+ * Check the HPFPaymentPageRequest documentation
  * for the full list of parameters */
 request.getCustomer().setCountry("FR");
 request.getCustomer().setFirstname("John");
@@ -76,7 +76,7 @@ request.getCustomer().setEmail("yourclient@domain.com");
 request.setPaymentProductCode(PaymentProduct.PaymentProductCodeVisa);
 
 /* Payment method info, in this case,
- * we reuse the token which has been
+ * we re-use the token which has been
  * generated in the previous section */
 CardTokenPaymentMethodRequest cardTokenPaymentMethodRequest = new CardTokenPaymentMethodRequest(
                         "f39bfab2b6c96fa30dcc0e55aa3da4125a49ab03",
@@ -103,12 +103,12 @@ When requesting a new order, do not forget to check the *state* of the newly cre
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature section](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
 
-### Get the payment products enabled on your account
+### Getting the payment products enabled on your account
 
-In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using a *PaymentPageRequest*, because the list of payment products may change depending on order-related information (i.e. the currency). 
+In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using a *PaymentPageRequest*, because the list of payment products may change depending on order-related information (i.e., the currency)). 
 
 #### Java
 ```Java
@@ -116,7 +116,7 @@ PaymentPageRequest request = new PaymentPageRequest();
 request.setAmount(155.50f);
 request.setCurrency("EUR");
 
-// We just want the payment cards products
+// We just want the payment card products
 request.setPaymentProductCategoryList(
 	Arrays.asList(	
 		PaymentProduct.PaymentProductCategoryCodeCreditCard,
@@ -138,14 +138,14 @@ new GatewayClient(this).
 	});
 ```
 
-### Requesting information about a transaction (check transaction state)
+### Requesting information about a transaction (checking transaction state)
 
-You can get the transactions related to an order or get information about a specific transaction by using the methods: 
+You can get the transactions related to an order or get information about a specific transaction by using the following methods: 
 
 - `getTransactionWithReference(String, TransactionDetailsCallback)`
 - `getTransactionsWithOrderId(String, TransactionsDetailsCallback)`
 
-Below is an example with the transactions linked to the merchant order ID "TEST_89897":
+Please find below an example with the transactions linked to the merchant order ID "TEST_89897":
 
 #### Java
 ```Java
@@ -166,4 +166,4 @@ new GatewayClient(this)
 
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a signature section](#generating-a-signature-server-side) for details.
+Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) for details.

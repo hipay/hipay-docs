@@ -1,28 +1,28 @@
-# Generating a signature server-side
+# Generating a server-side signature 
 
-In order to perform some actions with the HiPay Fullservice SDK for iOS such as execute a payment or get transaction details, you need to generate a *signature* on the server side beforehand.
+In order to perform some actions with the HiPay Fullservice SDK for Android, such as making a payment or getting transaction details, you need to generate a *signature* on the server side beforehand.
 
-The *signature* will be used as an additional **parameter** for these `GatewayClient`'s methods: 
+The *signature* will be used as an additional **parameter** for these `GatewayClient` methods: 
 
-- Request new order
-- Initialize hosted payment page
-- Get transaction(s) details
+- Request a new order,
+- Initialize a hosted payment page,
+- Get transaction details.
 
-The signature parameter is necessary for security purposes and must be generated on your server beforehand, for each order to be paid on the HiPay Fullservice SDK for Android. You can get more details about these methods in the a ["Advanced usage" section](#usage-making-payments-core-wrapper-advanced-integration).
+The signature parameter is necessary for security purposes and must be generated on your server beforehand for each order to be paid on the HiPay Fullservice SDK for Android. You can get more details about these methods in the ["Advanced usage"](#usage-making-payments-core-wrapper-advanced-integration) section.
 
 ## Signature calculation
 
 The signature is the **SHA-1 hash** of these four parameters concatenation:
 
-- Order ID
-- Amount (formatted with two decimal places, example: 72.10)
-- Currency
-- Secret pass phrase
+- Order ID,
+- Amount (formatted with two decimal places, example: 72.10),
+- Currency,
+- Secret passphrase.
 
-The signature has to be generated beforehand on the **server side** in order not to show the **secret pass phrase** in client code.  
-Which is why the example codes below are executed in PHP/Python and not embedded in the iOS app directly. This code has to be hosted somewhere on your servers.
+The signature has to be generated beforehand on the **server side** in order not to show the **secret passphrase** in client code.  
+That is why the code examples below are executed in PHP/Python and not embedded in the Android app directly. This code has to be hosted somewhere on your servers.
 
-Below are some example codes for signature generation
+Please find below some code examples for signature generation.
 
 #### PHP
 ```PHP
@@ -53,33 +53,33 @@ signature = hashlib.sha1(orderId + '{0:.2f}'.format(amount) + currency + passPhr
 print(signature.hexdigest())
 ```
 
-The codes above generate a signature which aims to be used by the HiPay Fullservice SDK for iOS.
+The codes above generate a signature which is to be used by the HiPay Fullservice SDK for Android.
 
-To get the **secret pass phrase** of your account, go to the "Integration" section of the HiPay Fullservice back office and then go to "Security Settings".
+To get the **secret passphrase** of your account, go to the "Integration" section of your HiPay Fullservice back office, then to "Security Settings".
 
 ![Secret pass phrase example](images/demo/passphrase.png)
 
-You may choose a secret pass phrase if you don't have one already. This pass phrase is also used to process server-to-server notifications.
+You may choose a secret passphrase if you don't have one already. This passphrase is also used to process server-to-server notifications.
 
 ## Mobile app implementation
 
-The Android SDK needs to use the signature in order to perform transactions.  
-Below is an Android code example querying the merchant server (yours) to get the signature and then, initializing the SDK's payment page with the signature.
+The Android SDK needs to use the signature in order to make transactions.  
+Please find below an Android code example querying the merchant's server (yours) to get the signature and then initializing the SDK's payment page with the signature.
 
 ```JAVA
 public void onClick(View view) {
 
     final String orderId = "TEST_89897";
 
-    /* Assuming the server url takes the orderId as argument
+    /* Assuming that the server url takes the orderId as argument
      * and generates the signature after retrieving 
-     * the required data in database */
+     * the required data in the database */
 
     String url = String.format(getString(R.string.server_url), orderId);
 
     RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
-    // assuming the server's response is in JSON format
+    // Assuming that the server's response is in JSON format
     JsonObjectRequest jsObjRequest = new JsonObjectRequest
             (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -91,7 +91,7 @@ public void onClick(View view) {
                         String amount = response.getString("amount");
                         String currency = response.getString("currency");
 
-    	                /* Once we got the signature, we can now instantiate
+    	                /* Once we get the signature, we can instantiate
                          * and present the payment screen */
 
     	                PaymentPageRequest request = new PaymentPageRequest();
