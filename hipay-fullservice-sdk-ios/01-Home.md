@@ -7,4 +7,6 @@ The **HiPay Fullservice SDK for iOS** is a library that allows you to **accept p
 ## Objective
 This documentation describes how to install the HiPay Fullservice SDK for iOS in order to accept payments in your own iOS (iPhone/iPad) application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.
 
-![HiPay Fullservice SDK for iOS screenshots](images/screenshots.png)
+<span class="align_center_img">
+![HiPay Fullservice SDK for iOS Front Overview](images/gif/intro.gif)
+</span>
