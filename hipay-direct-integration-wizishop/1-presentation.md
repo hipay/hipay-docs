@@ -9,7 +9,7 @@ You need a WiziShop account. If you don't have one yet, you can create a store d
 
 # Objective
 
-The HiPay Professional integration into WiziShop allows you to accept payments in your WiziShop store, using either credit or debit cards (MasterCard, Visa, etc.) or local payment methods such as SOFORT, Multibanco, iDEAL, Przelewy24, Carte Bancaire, Bancontact, etc.
+The HiPay Professional integration into WiziShop allows you to accept payments in your WiziShop store using either credit or debit cards (MasterCard, Visa, etc.) or local payment methods such as SOFORT, Multibanco, iDEAL, Przelewy24, Carte Bancaire, Bancontact, etc.
 
 # Configuration
 
@@ -25,7 +25,7 @@ Once logged in, move your cursor over "*Configuration*" in order to display the 
 
 ![WiziShop back office - Payment](images/wizishop_payment.png)
 
-Then, find the HiPay Professional integration and click on the button to add it:
+Then look for the HiPay integration and click on the button to add it:
 
 ![WiziShop back office - Add HiPay](images/wizishop_add_hipay.png)
 
@@ -37,15 +37,15 @@ If you don't have a HiPay Professional account yet, create one by clicking on th
 
 ## 3. HiPay Professional back office
 
-Log in to your HiPay Professional back office. To do so, go on the [HiPay Professional website](https://www.hipaydirect.com) and click on "LOGIN".
+Log in to your HiPay Professional back office. To do so, go to the [HiPay website](https://hipay.com/product-professional/), click on "Login" and choose "Professional".
 
 ## 4. API credentials
 
-On the HiPay Professional back office, click on the API link of the Integration menu:
+In the HiPay Professional back office, click on the API link of the Integration menu:
 
 ![HiPay Professional back office - API](images/hipay_api.png)
 
-Then, find your credentials:
+Then look for your credentials:
 
 ![HiPay Professional back office - API](images/hipay_credentials.png)
 
@@ -59,7 +59,7 @@ In your HiPay Professional back office, go to the websites section:
 
 ![HiPay Professional back office - Websites](images/hipay_websites.png)
 
-Then, find your website ID, as follows:
+Then look for your website ID, as follows:
 
 ![HiPay Professional back office - Website ID](images/hipay_website_id.png)
 
@@ -71,7 +71,7 @@ Do not forget to choose a category of product when the category selector appears
 
 ## 6. Payment workflow customization (optional)
 
-Optionally, you can customize the payment workflow by clicking on the link allowing you to do so on the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Sauvegarder" button.
+Optionally, you can customize the payment workflow by clicking on the link allowing you to do so in the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Sauvegarder" button.
 
 ## 7. Save
 
