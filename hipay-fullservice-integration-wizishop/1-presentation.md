@@ -33,7 +33,7 @@ Once logged in, move your cursor over "*Configuration*" in order to display the 
 
 ![WiziShop back office - Payment](images/wizishop_payment.png)
 
-Then, look for the HiPay integration and click on it:
+Then look for the HiPay integration and click on it:
 
 ![WiziShop back office - Add HiPay](images/wizishop_hipay_fullservice.png)
 
@@ -49,7 +49,7 @@ At the end of the configuration, you should have filled in the form as follows:
 
 You may customize the payment page by uploading your own CSS (cascading style sheet) file. For more information, please refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-fullservice/overview/). You will be able to upload your CSS file by using the appropriate button on the WiziShop back office.
 
-Optionally, you can customize the payment workflow by clicking on the link allowing you to do so on the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Sauvegarder" button.
+Optionally, you can customize the payment workflow by clicking on the link allowing you to do so in the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Sauvegarder" button.
 
 ## 4. Save
 
