@@ -1,11 +1,11 @@
 
-# HiPay Fullservice platform overview
+# HiPay Enterprise platform overview
 
 # About this guide 
 
 ## Purpose
 
-This document is designed to provide you with details on how to integrate your business with the HiPay Fullservice payment gateway. It provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
+This document is designed to provide you with details on how to integrate your business with the HiPay Enterprise payment gateway. It provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
 
 Where applicable, this document refers to the related documentation with further details.
 
@@ -35,7 +35,7 @@ The following acronyms and abbreviations are used in this guide.
 
 # Technical integration
 
-In order for you to accept payment through the HiPay Fullservice platform, you need to integrate our APIs. HiPay offers a wide variety of turnkey integrations for industry-standard e-commerce platforms and other SDKs and libraries. **[You can find all the HiPay Fullservice integrations here.](/fullservice)**
+In order for you to accept payment through the HiPay Enterprise platform, you need to integrate our APIs. HiPay offers a wide variety of turnkey integrations for industry-standard e-commerce platforms and other SDKs and libraries. **[You can find all the HiPay Enterprise integrations here.](/fullservice)**
 
 You may also integrate our REST API if you have specific technical needs. To this end, please check the next chapter of this guide: *API Overview*.
 
@@ -43,29 +43,29 @@ You may also integrate our REST API if you have specific technical needs. To thi
 
 The APIs are based on REST principles. Thus, it is very easy to write and test applications.
 
-HiPay Fullservice provides you with three main APIs, allowing you to **manage payment data**, **get paid** and **handle financial operations**. Detailed documentation and references for these APIs, including web service URLs and parameter information, are provided in interactive documentation tools. Please see below for more information.
+HiPay Enterprise provides you with three main APIs, allowing you to **manage payment data**, **get paid** and **handle financial operations**. Detailed documentation and references for these APIs, including web service URLs and parameter information, are provided in interactive documentation tools. Please see below for more information.
 
 ## Gateway API
 
 The Gateway API allows you to get paid as well as to manage orders and transactions. By leveraging this API, you will be able to present payment pages to your customers.
 
-**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Gateway API](/doc-api/fullservice/gateway/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Gateway API](/doc-api/fullservice/gateway/).**
 
 ## Tokenization API
 
-The Tokenization (Secure Vault) API allows merchants to retrieve and update data associated with their customers' payment information stored in the HiPay Fullservice Secure Vault. Using the Tokenization API, merchants eliminate the risk, liability and cost of storing sensitive data on their local servers and storage devices. The Tokenization API is to be used alongside the Gateway API. 
+The Tokenization (Secure Vault) API allows merchants to retrieve and update data associated with their customers' payment information stored in the HiPay Enterprise Secure Vault. Using the Tokenization API, merchants eliminate the risk, liability and cost of storing sensitive data on their local servers and storage devices. The Tokenization API is to be used alongside the Gateway API. 
 
-**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Tokenization API](/doc-api/fullservice/token/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Tokenization API](/doc-api/fullservice/token/).**
 
 ## Finance API
 
-When using HiPay Fullservice, all your sales are consolidated and settled (transferred to your bank account). The Finance API allows you to get all the details about settlements relating to your merchant account.
+When using HiPay Enterprise, all your sales are consolidated and settled (transferred to your bank account). The Finance API allows you to get all the details about settlements relating to your merchant account.
 
-**[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Finance API](/doc-api/fullservice/settlement/).**
+**[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Finance API](/doc-api/fullservice/settlement/).**
 
 # Security considerations
 
-The HiPay Fullservice platform is protected to:
+The HiPay Enterprise platform is protected to:
 
 -   Ensure that only authorized merchants use it,
 -   Prevent payment information from being compromised.
@@ -73,7 +73,7 @@ The HiPay Fullservice platform is protected to:
 ## PCI DSS requirements
 
 **Description**:
-HiPay Fullservice allows sending payment data, which means that the system will be transmitting, and possibly storing, card data.
+HiPay Enterprise allows sending payment data, which means that the system will be transmitting, and possibly storing, card data.
 
 **Storage (SAD) information**:
 The Card Schemes (American Express, Discover Financial Services, JCB International, MasterCard Worldwide and Visa Inc.) have never permitted the storage of sensitive data (track data and/or CVV2). It is prohibited under "Requirement 3" of the Payment Card Industry Data Security Standard (PCI DSS).
@@ -88,15 +88,15 @@ For further information on PCI security standards, please visit [www.pcisecurity
 
 ## Encrypted communication
 
-**Description**: HiPay Fullservice provides all REST API methods over TLS (Transport Layer Security).
+**Description**: HiPay Enterprise provides all REST API methods over TLS (Transport Layer Security).
 
-**Guarantees**: All data transmitted between HiPay Fullservice and the merchant's system are encrypted (256-bit encryption using a DigiCert certificate).
+**Guarantees**: All data transmitted between HiPay Enterprise and the merchant's system are encrypted (256-bit encryption using a DigiCert certificate).
 
 ## IP restriction
 
 **Description**: When a request is sent to the platform, the IP address or IP address range from where the connection was made is verified.
 
-If it matches with the IP address supplied by the merchant at a previous stage (in the HiPay Fullservice back office: Integration Section), the request will be processed.
+If it matches with the IP address supplied by the merchant at a previous stage (in the HiPay Enterprise back office: Integration Section), the request will be processed.
 
 In case of missing or incorrect information, the server will respond with an appropriate error message, indicating the error in the request.
 
@@ -133,7 +133,7 @@ VISA’s branded 3-D Secure program is commonly known as Verified By VISA (VbV).
 
 Proceed as follows to carry out a transaction:
 
-1. The merchant calls the HiPay Fullservice API with an `authentication_indicator` value of `1` or `2` (or the Fraud Protection Service (FPS) asks for 3-D Secure).
+1. The merchant calls the HiPay Enterprise API with an `authentication_indicator` value of `1` or `2` (or the Fraud Protection Service (FPS) asks for 3-D Secure).
 2. To complete the purchase, the cardholder clicks on the **Pay** button after filling in payment card details on the payment page: this activates the Merchant Plug-In (MPI) and initiates a transaction.    
 3. The MPI identifies the card number and sends it to the Directory Server to determine if the card is in a participating card range.
 4. If the issuer is participating for the card range, the Directory sends a Verify Enrollment Request message to the issuer's *ACS* (Access Control Server) to determine if authentication is available for the account number.
@@ -182,15 +182,15 @@ The following table lists the authentication messages and statuses:
 
 ## Redirect your customer to a page of your choice
 
-**Description**: The redirect pages are pages to which HiPay Fullservice redirects your customer's browser after the transaction is processed if it was made outside of your website (hosted payment page, local payments, 3-D Secure authentication, etc.).
+**Description**: The redirect pages are pages to which HiPay Enterprise redirects your customer's browser after the transaction is processed if it was made outside of your website (hosted payment page, local payments, 3-D Secure authentication, etc.).
 
 **Objective**: Typically, this is a secure page on your site. The main purpose is to redirect your customers back to your website once they have completed a payment.
 
 ## Redirect pages setup
 
-**Description**: You can configure redirect pages in the *Integration -> Redirect Pages* section of your HiPay Fullservice back office.
+**Description**: You can configure redirect pages in the *Integration -> Redirect Pages* section of your HiPay Enterprise back office.
                 
-You can overwrite the default redirect pages by sending custom URLs along with the order details in your requests to the payment gateway. Please refer to the [HiPay Fullservice Gateway API documentation](/doc-api/fullservice/gateway/).
+You can overwrite the default redirect pages by sending custom URLs along with the order details in your requests to the payment gateway. Please refer to the [HiPay Enterprise Gateway API documentation](/doc-api/fullservice/gateway/).
 
 ## Default redirect pages
   
@@ -204,7 +204,7 @@ You can overwrite the default redirect pages by sending custom URLs along with t
 
 ## Feedback parameters
 
-**Description**: Select this option in your HiPay Fullservice back office if you want HiPay Fullservice to send back transaction parameters to your redirect pages for further processing within your own website.
+**Description**: Select this option in your HiPay Enterprise back office if you want HiPay Enterprise to send back transaction parameters to your redirect pages for further processing within your own website.
 
 **Procedure**: To activate this option, you “MUST” specify at least an “Accept page” URL. Sent parameters are included in your redirect pages on HTTP GET.
   
@@ -246,11 +246,11 @@ The following table lists and describes the fields sent to your redirect pages.
 
 ## What is a server-to-server notification?
 
-**Description**: In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Fullservice platform can send your application a server-to-server notification.
+**Description**: In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Enterprise platform can send your application a server-to-server notification.
  
 ## Setup
 
-**Procedure**: To set your Notification URL, you must login into your HiPay Fullservice back office and go to “*Integration -> Notifications*”.
+**Procedure**: To set your Notification URL, you must login into your HiPay Enterprise back office and go to “*Integration -> Notifications*”.
 
 ![Notifications configuration](images/media/image2.png)
  
@@ -270,7 +270,7 @@ The following table lists and describes the response fields received on the noti
 |`state`|Transaction state. The value must be from the following list: <br/>- `completed`<br/>- `pending`<br/>- `declined`<br/>- `error`<br/> For further details, please refer to the following section — Transaction workflow —.
 |`reason` <br/>- `code` <br/>- `message`|Optional element. Reason why the transaction was declined.<br/>- code : Decline reason code <br/>- message: Decline reason description
 |`test`|True if the transaction is a test transaction; otherwise false
-|`mid`|Your merchant account number (issued to you by HiPay Fullservice)
+|`mid`|Your merchant account number (issued to you by HiPay Enterprise)
 |`attempt_id`|Attempt ID of the payment
 |`authorization_code`|Authorization code (up to 35 characters) generated for each approved or pending transaction by the acquiring provider
 |`transaction_reference`|Unique identifier of the transaction
@@ -313,9 +313,9 @@ The following table lists and describes the response fields received on the noti
 
 ## Transaction workflow
 
-**Description**: The HiPay Fullservice payment gateway can process transactions through many different acquirers using different payment methods and involving anti-fraud checks. All these aspects change the transaction processing flow significantly for you.
+**Description**: The HiPay Enterprise payment gateway can process transactions through many different acquirers using different payment methods and involving anti-fraud checks. All these aspects change the transaction processing flow significantly for you.
 
-When you activate a server-to-server notification on HiPay Fullservice, you receive a response describing the transaction state. Depending on the transaction state, there are five possible values:
+When you activate a server-to-server notification on HiPay Enterprise, you receive a response describing the transaction state. Depending on the transaction state, there are five possible values:
 
 | Transaction state   |      Description    |
 |----------|-------------|
@@ -474,7 +474,7 @@ A unique signature is sent each time HiPay contacts any merchant's URL, notifica
         
 ## Setup
 
-First of all, you need to set a secret passphrase in your HiPay Fullservice back office under “*Integration -> Security Settings -> Secret Passphrase*”.
+First of all, you need to set a secret passphrase in your HiPay Enterprise back office under “*Integration -> Security Settings -> Secret Passphrase*”.
 
 ![](images/media/image3.jpeg)
 
@@ -534,7 +534,7 @@ First of all, you need to set a secret passphrase in your HiPay Fullservice back
 
 The device fingerprint identifies devices through information collected by a client run on an end user’s computer. This client generates a black box that contains all the available device information.
 
-Web applications obtain device information by sourcing dynamically generated JavaScript from HiPay Fullservice. The JavaScript determines what information is available and generates a black box from all available sources.
+Web applications obtain device information by sourcing dynamically generated JavaScript from HiPay Enterprise. The JavaScript determines what information is available and generates a black box from all available sources.
 
 A black box will typically:
 
@@ -548,17 +548,17 @@ To integrate the client, you must specify a hidden field that the JavaScript wil
 **What TO DO:**
 
 1.	You MUST include a hidden form field with a “ioBB” ID  that will be populated with the value.
-2.	You MUST call the HiPay Fullservice fingerprint JavaScript function to get the black box content: https://secure-gateway.hipay-tpp.com/gateway/toolbox/fingerprint
+2.	You MUST call the HiPay Enterprise fingerprint JavaScript function to get the black box content: https://secure-gateway.hipay-tpp.com/gateway/toolbox/fingerprint
 
 **What NOT TO DO:**
 
-1.	DO NOT call HiPay Fullservice fingerprint JavaScript BEFORE including the hidden “ioBB” form field.
+1.	DO NOT call HiPay Enterprise fingerprint JavaScript BEFORE including the hidden “ioBB” form field.
 2.	DO NOT cache or use local copies of the JavaScript (JavaScript is dynamically generated for each customer and caching the script may cause unrelated devices to be identified as the same computer. The script also uses domain cookies to identify devices across subscribers.) 
 
 # Settlements 
 
 If you need an overview of your settlements or a list of operations
-included in one of them, check out the [HiPay Fullservice Finance API interactive documentation](/doc-api/fullservice/settlement/).
+included in one of them, check out the [HiPay Enterprise Finance API interactive documentation](/doc-api/fullservice/settlement/).
 
 ## Settlement file transfer
 
@@ -566,7 +566,7 @@ included in one of them, check out the [HiPay Fullservice Finance API interactiv
 
 **Description**:   In order to notify financial events related to your payment system, such as a new settlement file created, the HiPay platform can send your application a settlement file by FTP/SFTP.
 
-**Procedure**: To set up your financial file transfer system, you must login into your HiPay Fullservice back office and go to *“Integration -> File Transfer*”.
+**Procedure**: To set up your financial file transfer system, you must login into your HiPay Enterprise back office and go to *“Integration -> File Transfer*”.
 
 *Configuration screen*  
 ![](images/media/image4.jpg)
@@ -585,7 +585,7 @@ included in one of them, check out the [HiPay Fullservice Finance API interactiv
 ### Settlement file data
 
 To get a list of fields included in settlement files, please refer to
-the [HiPay Fullservice Finance API interactive documentation](/doc-api/fullservice/settlement/).
+the [HiPay Enterprise Finance API interactive documentation](/doc-api/fullservice/settlement/).
 
 ## Settlement file fields
 
@@ -631,7 +631,7 @@ operations.
 |**Asset settlement** |                 Operation following a negative balance, indicating that it has been paid off on the merchant’s account
 |**Chargeback**     |                   Credit/debit card charge paid by the merchant to a customer after he/she successfully disputed an item on his/her bank statement
 |**Chargeback refund**    |                  Amount of a chargeback credited back to the merchant after giving evidence that the product or service was duly delivered
-|**Deferred settlement** |                   Settlement file issued in case the merchant’s HiPay Fullservice account shows a negative balance
+|**Deferred settlement** |                   Settlement file issued in case the merchant’s HiPay Enterprise account shows a negative balance
 |**Fixed fee**      |                        Commission charged on transactions when collecting amounts
 |**Fixed reserve capture** |                 Amount transferred by the merchant or debited from the merchant’s balance and withheld for protection against potential risks
 |**Fixed reserve release**|                  Fixed reserve amount released back to the merchant 180 days after its capture
@@ -647,26 +647,26 @@ operations.
 |**Rolling reserve release** |               Amount released back to the merchant after being held for 180 days
 |**Sale**            |                       Sale or transaction amount
 |**Settlement**      |                       Payout amount on D-day
-|**Setup fee**      |                        Fee for the implementation of the project and account. It is billed on the first HiPay Fullservice invoice.
+|**Setup fee**      |                        Fee for the implementation of the project and account. It is billed on the first HiPay Enterprise invoice.
 |**Split settlement** |                      Amount to be paid out on a specific bank account when allocating payouts among several bank accounts
 |**Splitting settlement**  |                 Total amount to be paid out when allocating payouts among several bank accounts
-|**Transferred from merchant** |             Transfer sent from a HiPay Fullservice account to another HiPay Fullservice account (between accounts of a same merchant). This operation is displayed on the sending account’s operations.
-|**Transferred to merchant**  |              Transfer sent from a HiPay Fullservice account to another HiPay Fullservice account (between accounts of a same merchant). This operation is displayed on the receiving account’s operations.
-|**Variable**       |                        Commission based on a percentage and calculated on amounts collected on the HiPay Fullservice account.
+|**Transferred from merchant** |             Transfer sent from a HiPay Enterprise account to another HiPay Enterprise account (between accounts of a same merchant). This operation is displayed on the sending account’s operations.
+|**Transferred to merchant**  |              Transfer sent from a HiPay Enterprise account to another HiPay Enterprise account (between accounts of a same merchant). This operation is displayed on the receiving account’s operations.
+|**Variable**       |                        Commission based on a percentage and calculated on amounts collected on the HiPay Enterprise account.
 
 ## Settlement notifications
 
-This document is designed to provide you with details on how to integrate your business to the HiPay Fullservice Financial Gateway Notifications. It gives step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
+This document is designed to provide you with details on how to integrate your business to the HiPay Enterprise Financial Gateway Notifications. It gives step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
 
 ## Settlement server-to-server notifications
 
 ### What is a server-to-server notification?
 
-**Description**: In order to notify financial events related to your payment system, such as a new settlement file created, the HiPay Fullservice platform can send your application a server-to-server notification.
+**Description**: In order to notify financial events related to your payment system, such as a new settlement file created, the HiPay Enterprise platform can send your application a server-to-server notification.
 
 ### Setup
 
-**Procedure** To set up your Financial Feedback Notification URL, you must login into your HiPay Fullservice back office and go to *“Integration -> Notifications -> Financial Feedback*”.
+**Procedure** To set up your Financial Feedback Notification URL, you must login into your HiPay Enterprise back office and go to *“Integration -> Notifications -> Financial Feedback*”.
 
 *Configuration screen*   
 ![](images/media/image5.jpg)
@@ -749,7 +749,7 @@ notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=
 
 ## API reference
 
-This payment product can be used with the HiPay Fullservice Gateway API. **[Click here to access the full interactive documentation and live testing tools for the HiPay Fullservice Gateway API](/doc-api/fullservice/gateway/).**
+This payment product can be used with the HiPay Enterprise Gateway API. **[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Gateway API](/doc-api/fullservice/gateway/).**
 
 ## Recurring payment request with client authentication
 
