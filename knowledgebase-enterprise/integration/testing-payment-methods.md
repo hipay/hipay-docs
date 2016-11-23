@@ -1,1 +1,17 @@
----title: Testing payment methodsdescription: This is a short description  platform: enterprisedate: 23/11/2016---The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.## ObjectiveThis documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.## Prerequisites and recommentations### Build settingsThe project *minSdkVersion* is 14 (Ice Cream Sandwich), which means that the SDK won't build on applications targeting a lower version of Android.
+---
+title: Testing payment methods
+description: This is a short description  
+platform: enterprise
+date: 12/10/2016
+---
+
+The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.
+
+## Objective
+This documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.
+
+## Prerequisites and recommentations
+
+### Build settings
+
+The project *minSdkVersion* is 14 (Ice Cream Sandwich), which means that the SDK won't build on applications targeting a lower version of Android.
