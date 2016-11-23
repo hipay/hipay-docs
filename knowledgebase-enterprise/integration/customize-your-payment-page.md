@@ -2,10 +2,12 @@
 title: Customize your payment page
 description: This is a short description  
 platform: enterprise
+category: integration
+filename: customize-your-payment-page
 date: 23/11/2016
 ---
 
-The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.
+In libero nibh, commodo vel sem non, aliquet tempus sapien. Sed a laoreet lacus. Phasellus vel nisi vitae dui ullamcorper viverra ac in urna. Etiam augue tortor, efficitur quis ligula bibendum, sollicitudin vehicula nisi. Integer ac magna luctus, pharetra purus nec, pretium diam. Donec eget porta nisl. Praesent pretium purus ut justo pretium, et condimentum sapien lacinia. In dapibus mauris nec metus tristique, ac blandit turpis condimentum. Nunc tellus nisi, ultricies non ante vitae, ultricies viverra nisi. Quisque lorem mauris, dapibus nec justo nec, vestibulum egestas nulla.
 
 ## Objective
 This documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.

@@ -1,11 +1,13 @@
 ---
-title: Manage your account like a boss
+title: Manage your account
 description: This is a short description  
 platform: enterprise
-date: 08/11/2016
+category: account-management
+filename: manage-your-account
+date: 23/11/2016
 ---
 
-The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent posuere nulla euismod, laoreet ex elementum, viverra justo. Nam volutpat nisi quis viverra fringilla. Aenean suscipit magna at dictum maximus. Aenean ac nulla ac neque tempus laoreet. Pellentesque vehicula iaculis lectus, vitae blandit metus rhoncus ut. Aliquam erat volutpat. In volutpat suscipit rutrum. Praesent sed gravida neque, eget rutrum dolor. Curabitur eleifend rhoncus mi, a vestibulum dolor vestibulum ut. Fusce facilisis nibh sit amet odio interdum blandit. Vestibulum tristique nibh eget nisi mollis malesuada. Duis accumsan faucibus viverra. Duis nisl enim, pharetra sed pellentesque faucibus, lacinia in dui.
 
 ## Objective
 This documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.

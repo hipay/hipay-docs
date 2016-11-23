@@ -2,10 +2,12 @@
 title: Testing payment methods
 description: This is a short description  
 platform: enterprise
-date: 12/10/2016
+category: integration
+filename: testing-payment-methods
+date: 23/11/2016
 ---
 
-The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.
+Nulla varius, metus ut blandit tristique, lectus orci dictum felis, at ullamcorper lectus mi vitae ante. Pellentesque elementum sollicitudin nunc vel tristique. Nullam accumsan sodales interdum. In eleifend in purus quis lobortis. Etiam quam felis, mollis sit amet rhoncus sit amet, ullamcorper ut felis.
 
 ## Objective
 This documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.
