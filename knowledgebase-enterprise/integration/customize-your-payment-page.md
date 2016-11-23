@@ -29,7 +29,7 @@ To be sure that your credentials have the proper accessibility:
 - Click on the edit icon next to the credentials you want to use 
 - **Finally, make sure that the credentials are set up as displayed on the screenshot below**:
 
-![Credentials accessibility](https://github.com/hipay/hipay-docs/tree/master/hipay-fullservice-sdk-android/images/prerequisites/credentials_accessibility.png)
+![Credentials accessibility](https://raw.githubusercontent.com/hipay/hipay-docs/master/hipay-fullservice-sdk-android/images/prerequisites/credentials_accessibility.png)
 
 Your credentials must be granted to:
 
@@ -64,4 +64,4 @@ Check out the diagram below (Mobile checkout workflow) to see when the server-to
 
 Below is a diagram presenting the integration scope of the Mobile SDK and the necessary server parts.
 
-![HiPay Fullservice Mobile SDK checkout workflow](https://github.com/hipay/hipay-docs/tree/master/hipay-fullservice-sdk-android/images/prerequisites/workflow.png)
+![HiPay Fullservice Mobile SDK checkout workflow](https://raw.githubusercontent.com/hipay/hipay-docs/master/hipay-fullservice-sdk-android/images/prerequisites/workflow.png)
