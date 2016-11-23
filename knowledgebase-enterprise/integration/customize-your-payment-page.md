@@ -1,13 +1,7 @@
 ---
-name: Derek Worthen
-age: young
-contact:
- email: email@domain.com
- address: some location
-pets:
- - cat
- - dog
- - bat
+title: Customize your payment page
+description: This document is designed to provide you details on how to integrate your business to the HiPay Direct payment gateway.
+platform: enterprise
 ---
 
 #Customize your payment page
