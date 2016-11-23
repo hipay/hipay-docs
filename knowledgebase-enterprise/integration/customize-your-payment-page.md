@@ -4,159 +4,64 @@ description: This document is designed to provide you details on how to integrat
 platform: enterprise
 ---
 
-*View the [source of this content](http://github.github.com/github-flavored-markdown/sample_content.html).*
+## Preamble
+The **HiPay Fullservice SDK for Android** is a library that allows you to **accept payments in your Android application** by leveraging the HiPay Fullservice payment platform. The library is written in Java and is based on Android framework. This repository contains the SDK as well as a demo application allowing you to generate a simple payment screen and demonstrating how to use the SDK.
 
-Let's get the whole "linebreak" thing out of the way. The next paragraph contains two phrases separated by a single newline character:
+## Objective
+This documentation describes how to install the HiPay Fullservice SDK for Android in order to accept payments in your own Android application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.
 
-Roses are red
-Violets are blue
+## Prerequisites and recommentations
 
-The next paragraph has the same phrases, but now they are separated by two spaces and a newline character:
+### Build settings
 
-Roses are red  
-Violets are blue
+The project *minSdkVersion* is 14 (Ice Cream Sandwich), which means that the SDK won't build on applications targeting a lower version of Android.
 
-Oh, and one thing I cannot stand is the mangling of words with multiple underscores in them like perform_complicated_task or do_this_and_do_that_and_another_thing.
+### Credentials
 
-A bit of the GitHub spice
--------------------------
+You need to generate *API credentials* in order for the SDK to send requests to the HiPay Fullservice platform. To do so, go in the "Integration" section of the HiPay Fullservice back office and then go to "Security Settings".
 
-In addition to the changes in the previous section, certain references are auto-linked:
+**Warning: credentials included in the Android SDK must have a public accessibility, NOT a private accessibility.**  
+To be sure that your credentials have the proper accessibility:
 
-* SHA: be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
-* User@SHA ref: mojombo@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
-* User/Project@SHA: mojombo/god@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2
-* \#Num: #1
-* User/#Num: mojombo#1
-* User/Project#Num: mojombo/god#1
+- Go to the "Integration" section of your HiPay Fullservice merchant back office
+- Then, click on "Security Settings"
+- Scroll down to "Api credentials"
+- Click on the edit icon next to the credentials you want to use 
+- **Finally, make sure that the credentials are set up as displayed on the screenshot below**:
 
-These are dangerous goodies though, and we need to make sure email addresses don't get mangled:
+![Credentials accessibility](https://github.com/hipay/hipay-docs/tree/master/hipay-fullservice-sdk-android/images/prerequisites/credentials_accessibility.png)
 
-My email addy is tom@github.com.
+Your credentials must be granted to:
 
-Math is hard, let's go shopping
--------------------------------
+- Tokenize a card
+- Get transaction details
+- Process an order 
+- Create a payment page
 
-In first grade I learned that 5 > 3 and 2 < 7. Maybe some arrows. 1 -> 2 -> 3. 9 <- 8 <- 7.
+### Checkout workflow integration
 
-Triangles man! a^2 + b^2 = c^2
+This section lets you know about the scope of the HiPay Fullservice SDK for iOS. Some parts of the checkout are integrated on the client side (that's to say your mobile app, thanks to the SDK) and some other parts must be integrated on the server side.
 
-We all like making lists
-------------------------
+#### Authentication
 
-The above header should be an H2 tag. Now, for a list of fruits:
+When you redirect your user to the HiPay iOS SDK's payment page, the SDK will process transactions with user's payment details againt the HiPay Fullservice payment platform. In order to let our iOS SDK process payments to the HiPay Fullservice platform, you must provide the SDK with credentials (more info in the Configuration section).
 
-* Red Apples
-* Purple Grapes
-* Green Kiwifruits
+However, the credentials are not sufficient. For each order processed by the iOS SDK, the HiPay Fullservice platform must authenticates the call and validates that the merchant allowed it. To do so, HiPay Fullservice leverages a signature mechanism. Once your app needs to process a payment, it needs to contact your own server in order to get a signature, specific to the order to be treated.
 
-Let's get crazy:
+To know how to generate a signature on the server side, check the ["Generating a signature" section](#generating-a-signature-server-side).
 
-1.  This is a list item with two paragraphs. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
-    mi posuere lectus.
+Check out the diagram below (Mobile checkout workflow) to see when the signature should be generated in the checkout workflow.
 
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
-    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
-    sit amet velit.
+### Order processing
 
-2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+Order information should not be generated on the client side. Most of the time, orders are generated on the server side (on your servers), following actions performed by your users on your mobile app. The HiPay Fullservice SDK for iOS allows you to present a payment page to your user and to process transactions directly in your mobile app. 
 
-What about some code **in** a list? That's insane, right?
+Thus, your mobile app will receive a confirmation with a transaction status indicating that the payment was successfully executed. You may display a confirmation screen upon this confirmation, but you must not process order on the server-side following this confirmation. For security reasons, orders must always be confirmed on your systems following the server-to-server notification.
 
-1. In Ruby you can map like this:
+Check out the diagram below (Mobile checkout workflow) to see when the server-to-server notification is triggered in the checkout workflow and therefore, when you should validate orders.
 
-        ['a', 'b'].map { |x| x.uppercase }
+#### Mobile checkout workflow
 
-2. In Rails, you can do a shortcut:
+Below is a diagram presenting the integration scope of the Mobile SDK and the necessary server parts.
 
-        ['a', 'b'].map(&:uppercase)
-
-Some people seem to like definition lists
-
-<dl>
-  <dt>Lower cost</dt>
-  <dd>The new version of this product costs significantly less than the previous one!</dd>
-  <dt>Easier to use</dt>
-  <dd>We've changed the product so that it's much easier to use!</dd>
-</dl>
-
-I am a robot
-------------
-
-Maybe you want to print `robot` to the console 1000 times. Why not?
-
-    def robot_invasion
-      puts("robot " * 1000)
-    end
-
-You see, that was formatted as code because it's been indented by four spaces.
-
-How about we throw some angle braces and ampersands in there?
-
-    <div class="footer">
-        &copy; 2004 Foo Corporation
-    </div>
-
-Set in stone
-------------
-
-Preformatted blocks are useful for ASCII art:
-
-<pre>
-             ,-. 
-    ,     ,-.   ,-. 
-   / \   (   )-(   ) 
-   \ |  ,.>-(   )-< 
-    \|,' (   )-(   ) 
-     Y ___`-'   `-' 
-     |/__/   `-' 
-     | 
-     | 
-     |    -hrr- 
-  ___|_____________ 
-</pre>
-
-Playing the blame game
-----------------------
-
-If you need to blame someone, the best way to do so is by quoting them:
-
-> I, at any rate, am convinced that He does not throw dice.
-
-Or perhaps someone a little less eloquent:
-
-> I wish you'd have given me this written question ahead of time so I
-> could plan for it... I'm sure something will pop into my head here in
-> the midst of this press conference, with all the pressure of trying to
-> come up with answer, but it hadn't yet...
->
-> I don't want to sound like
-> I have made no mistakes. I'm confident I have. I just haven't - you
-> just put me under the spot here, and maybe I'm not as quick on my feet
-> as I should be in coming up with one.
-
-Table for two
--------------
-
-<table>
-  <tr>
-    <th>ID</th><th>Name</th><th>Rank</th>
-  </tr>
-  <tr>
-    <td>1</td><td>Tom Preston-Werner</td><td>Awesome</td>
-  </tr>
-  <tr>
-    <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
-  </tr>
-</table>
-
-Crazy linking action
---------------------
-
-I get 10 times more traffic from [Google] [1] than from
-[Yahoo] [2] or [MSN] [3].
-
-  [1]: http://google.com/        "Google"
-  [2]: http://search.yahoo.com/  "Yahoo Search"
-  [3]: http://search.msn.com/    "MSN Search"
+![HiPay Fullservice Mobile SDK checkout workflow](https://github.com/hipay/hipay-docs/tree/master/hipay-fullservice-sdk-android/images/prerequisites/workflow.png)
