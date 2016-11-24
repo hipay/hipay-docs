@@ -22,7 +22,7 @@ Please find below the full code example. Details can be found in comments as wel
 
 #### Objective-C
 
-```Objective-C
+```objectivec
 // DemoViewController.h
 
 #import <HiPayFullservice/HiPayFullservice.h>
@@ -37,7 +37,7 @@ Please find below the full code example. Details can be found in comments as wel
 @end
 ```
 
-```Objective-C
+```objectivec
 // DemoViewController.m
 
 /* This is a controller example,

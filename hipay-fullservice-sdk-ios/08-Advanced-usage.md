@@ -13,7 +13,7 @@ To tokenize a credit card, you need to leverage the *Secure Vault* client, as be
 This step is mandatory in order to make payments with credit or debit cards, either for one-shot or recurring payments.
 
 #### Objective-C
-```Objective-C
+```objectivec
 [[HPFSecureVaultClient sharedClient]
  generateTokenWithCardNumber:@"4111111111111111"
              cardExpiryMonth:@"12"
@@ -60,7 +60,7 @@ You can make payments using the *Gateway Client* and its *requestNewOrder* metho
 Therefore, you need to provide your order ID, the amount of the transaction, the payment product (Visa, MasterCard, PayPal, etc.) and the related payment method information (i.e., the token if it's a credit or debit card). You can also provide a lot of other optional information.
 
 #### Objective-C
-```Objective-C
+```objectivec
 /* Create an order request which
  * contains information about your order */
 HPFOrderRequest *request = [[HPFOrderRequest alloc] init];
@@ -145,7 +145,7 @@ When requesting a new order, do not forget to check the state of the newly creat
 In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest:withCompletionHandler:` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using  `HPFPaymentPageRequest` because the list of payment products may change depending on order-related information (i.e. the currency)). 
 
 #### Objective-C
-```Objective-C
+```objectivec
 HPFPaymentPageRequest *request = [[HPFPaymentPageRequest alloc] init];
 request.amount = @(155.50);
 request.currency = @"EUR";
@@ -191,7 +191,7 @@ You can get the transactions related to an order or get information about a spec
 Please find below an example with the transactions linked to the merchant order ID "TEST_89897":
 
 #### Objective-C
-```Objective-C
+```objectivec
 [[HPFGatewayClient sharedClient] getTransactionsWithOrderId:@"TEST_89897" signature:signature
                                       withCompletionHandler:^(NSArray<HPFTransaction *> * _Nullable transactions,
                                                               NSError * _Nullable error) {

@@ -67,7 +67,6 @@ The iOS SDK needs to use the signature in order to make transactions.
 
 Please find below an iOS code example querying the merchant's server (yours) to get the signature and then initializing the SDK's payment page with the signature.
 
-
 ```objectivec
 - (void) requestSignature {
 

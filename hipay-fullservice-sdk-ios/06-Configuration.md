@@ -6,7 +6,7 @@ You need to follow all the steps below before integrating the payment workflow.
 
 First and foremost, you need to add this line in order to use the SDK in an Objective-C app:
 
-```Objective-C
+```objectivec
 #import <HiPayFullservice/HiPayFullservice.h>
 ```
 
@@ -55,7 +55,7 @@ Eventually, you will need to use one of the values defined in the "URL Schemes" 
 The following code allows you to configure the SDK. We recommend putting it in your *App Delegate*'s `application:didFinishLaunchingWithOptions:` method implementation.
 
 #### Objective-C
-```Objective-C
+```objectivec
 // AppDelegate.m — application:didFinishLaunchingWithOptions:
 
 [[HPFClientConfig sharedClientConfig] setEnvironment:HPFEnvironmentStage
@@ -87,7 +87,7 @@ If the SDK presents your users with a web page (for 3-D Secure or specific payme
 In order for the SDK to be aware of the redirection and to receive the callback data, you need to implement the `application:handleOpenURL:` method in your *App Delegate*, as follows:
 
 ### Objective-C
-```Objective-C
+```objectivec
 // AppDelegate.m
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
