@@ -61,7 +61,8 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setEnvironment:HPFEnvironmentStage
                                       username:@"YOUR API USERNAME"
                                       password:@"YOUR API PASSWORD"
-                                      appURLscheme:@"myshoppingapp"];
+                                      appURLscheme:@"myshoppingapp"
+                                      paymentCardStorageEnabled:true];
 ```
 
 #### Swift
@@ -72,11 +73,20 @@ HPFClientConfig.sharedClientConfig()
     .setEnvironment(HPFEnvironment.Stage,
     username: "YOUR API USERNAME",
     password: "YOUR API PASSWORD",
-    appURLscheme: "myshoppingapp")
+    appURLscheme: "myshoppingapp",
+    paymentCardStorageEnabled: true)
 
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
+
+The last parameter is the Payment card storage option. 
+Note that if you enable this option, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
+
+You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.
+
+
+![App URL schemes - Step 6](images/config/card_storage.png)
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
 

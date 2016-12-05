@@ -214,4 +214,22 @@ HPFGatewayClient.sharedClient()
 The *signature* parameter is required for security purposes.  
 Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
+
+
+### Card storage feature
+
+The card storage feature allows to register a `HPFPaymentCardToken` object in the iOS device *Keychain*, necessary to use the 1-click payment for your customers.
+
+Since the card storage option is turned ON, you have access to these three `HPFPaymentCardTokenDatabase` class methods:
+
+To get every tokens associated to a currency :  
+`paymentCardTokensForCurrency:` 
+
+To remove a specific token associated to a currency :  
+`delete:forCurrency` 
+
+To remove every tokens located in the iOS device keychain :  
+`clearPaymentCardTokens`
+
+
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899
