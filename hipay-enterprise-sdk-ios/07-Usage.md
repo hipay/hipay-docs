@@ -25,7 +25,7 @@ Please find below the full code example. Details can be found in comments as wel
 ```objectivec
 // DemoViewController.h
 
-#import <HiPayEnterprise/HiPayEnterprise.h>
+#import <HiPayFullservice/HiPayFullservice.h>
 
 // You need to implement the HPFPaymentScreenViewControllerDelegate protocol
 @interface DemoViewController : UIViewController <HPFPaymentScreenViewControllerDelegate>

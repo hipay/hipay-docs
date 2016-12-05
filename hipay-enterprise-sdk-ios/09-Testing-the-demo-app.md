@@ -40,9 +40,9 @@ To generate the project workspace, run the following command:
 
 ### Opening the project
 
-Open the `HiPayEnterprise.xcworkspace` workspace by typing the following command:
+Open the `HiPayFullservice.xcworkspace` workspace by typing the following command:
 
-	$ open HiPayEnterprise.xcworkspace
+	$ open HiPayFullservice.xcworkspace
 
 ### Adding your credentials
 
@@ -70,7 +70,7 @@ Don't forget to apply your changes.
 
 ### Running the demo app
 
-Finally, build and run the `HiPayEnterprise-Example` target.
+Finally, build and run the `HiPayFullservice-Example` target.
 
 [repo]: https://github.com/hipay/hipay-fullservice-sdk-ios
 [cocoapods]: https://cocoapods.org/

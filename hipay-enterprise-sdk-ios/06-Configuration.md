@@ -7,7 +7,7 @@ You need to follow all the steps below before integrating the payment workflow.
 First and foremost, you need to add this line in order to use the SDK in an Objective-C app:
 
 ```objectivec
-#import <HiPayEnterprise/HiPayEnterprise.h>
+#import <HiPayFullservice/HiPayFullservice.h>
 ```
 
 ## Step 2 — Configure the SDK
