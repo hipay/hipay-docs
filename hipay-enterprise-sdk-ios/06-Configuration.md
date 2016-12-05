@@ -62,7 +62,9 @@ The following code allows you to configure the SDK. We recommend putting it in y
                                       username:@"YOUR API USERNAME"
                                       password:@"YOUR API PASSWORD"
                                       appURLscheme:@"myshoppingapp"
-                                      paymentCardStorageEnabled:true];
+                                      paymentCardStorageEnabled:YES];
+
+[[HPFClientConfig sharedClientConfig] setTouchIDEnabled:YES];
 ```
 
 #### Swift
@@ -76,6 +78,7 @@ HPFClientConfig.sharedClientConfig()
     appURLscheme: "myshoppingapp",
     paymentCardStorageEnabled: true)
 
+HPFClientConfig.sharedClientConfig().setTouchIDEnabled(true)
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
