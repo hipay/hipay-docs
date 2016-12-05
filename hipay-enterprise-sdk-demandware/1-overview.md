@@ -1,9 +1,9 @@
-#HiPay Fullservice Cartridge for Demandware
+#HiPay Enterprise Cartridge for Demandware
 
 #General information
 
 The HiPay cartridge, available on the Demandware (DW) LINK Marketplace,
-allows merchants to offer HiPay Fullservice as a payment solution on
+allows merchants to offer HiPay Enterprise as a payment solution on
 their Demandware storefronts.
 
 The cartridge provides several options for entering payment information
@@ -75,7 +75,7 @@ payment methods.
 The cartridge offers customers the possibility to fill in payment
 information directly on the websites of merchants, who have to be
 PCI-DSS compliant. Transactions will be validated through the module
-called HiPay Fullservice API.
+called HiPay Enterprise API.
 
 The cartridge provides several options for entering payment information
 (credit card or debit card information) during the checkout process:
@@ -102,7 +102,7 @@ secure”.
 **Device fingerprint**
 
 The cartridge supports device fingerprint information by sourcing the
-dynamically generated JavaScript from HiPay Fullservice. The JavaScript
+dynamically generated JavaScript from HiPay Enterprise. The JavaScript
 determines the available information and creates or generates a
 so-called black box. To use this functionality, custom configurations
 are needed. These custom configurations are not part of the development
@@ -151,7 +151,7 @@ success page.
 
 HiPay can generally receive payments in two ways: 
 
-1. via the HiPay Direct Payment API (PCI-DSS compliance needed). A result is returned right away. This can only be used for credit cards.
+1. via the HiPay Professional Payment API (PCI-DSS compliance needed). A result is returned right away. This can only be used for credit cards.
 
 2. via the "redirect model", through which a form containing certain
 fields is posted to HiPay and the customer is redirected to the HiPay
@@ -173,7 +173,7 @@ Payment results should be sent asynchronously to a “notification URL” on
 the merchant (DW) site. Payments can change status over time
 (Authorized, Refunded, Cancelled…) on HiPay’s side; statuses are
 automatically updated on Demandware’s side by sending these
-notifications. HiPay Fullservice sends notifications to Demandware for
+notifications. HiPay Enterprise sends notifications to Demandware for
 each event that occurred/transaction that changed. In order to handle
 all the notifications, notes are added to the order.
 
@@ -188,7 +188,7 @@ Registered and unregistered customers will be able to follow the
 standard SiteGenesis flow with the following changes: 
 
 HiPay redirect (hosted payment pages, iFrame integration and multiple
-payment methods) and HiPay Direct Payment API will be the only payment
+payment methods) and HiPay Professional Payment API will be the only payment
 options.
 
 **If HiPay redirect is enabled: **
@@ -256,7 +256,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	6.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	7.  The customer can verify the Order Summary information.
 	8.  The merchant can verify the Order status in DW BM.
-	9.  The merchant can verify the information in the HiPay Fullservice account.
+	9.  The merchant can verify the information in the HiPay Enterprise account.
                                                                                                                                                                
 **Please note that a similar flow can be done for guest checkout.**
 
@@ -279,7 +279,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	8.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	9.  The customer can verify the Order Summary information.
 	10. The merchant can verify the Order status in DW BM.
-	11. The merchant can verify the information in the HiPay Fullservice account.
+	11. The merchant can verify the information in the HiPay Enterprise account.
                                                                                                                                                                                
 **Please note that a similar flow can be done for guest checkout.**
     
@@ -300,7 +300,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	7.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	8.  The customer can verify the Order Summary information.
 	9.  The merchant can verify the Order status in DW BM – on the Order screen, open the Payment tab to verify the payment information.
-	10. The merchant can verify the information in the HiPay Fullservice account.
+	10. The merchant can verify the information in the HiPay Enterprise account.
 
 **Please note that a similar flow can be done for guest checkout.**
   
@@ -403,7 +403,7 @@ the existing fields.
     from the checkout page.
 
 	-   **Enable Tokenization Test Mode –** Test Mode: if enabled, the
-    module will use the HiPay Fullservice test platform.
+    module will use the HiPay Enterprise test platform.
 
 	-   **3-D Secure –** Allows the activation of 3-D Secure if the card has
     been enrolled.
@@ -1116,7 +1116,7 @@ Please refer to the use cases in section 2.2. If you have any issues, the *HiPay
 
 ###Orders
 
-HiPay Fullservice sends notifications for each event that occurred. In order to handle all notifications, notes are added to the order. There should be 1 event for each notification.
+HiPay Enterprise sends notifications for each event that occurred. In order to handle all notifications, notes are added to the order. There should be 1 event for each notification.
 
 ![](images/media/image26.png)
 
@@ -1210,7 +1210,7 @@ Please find hereafter the options for the HiPay configuration.
 | Property name   |      Possible values    |      Default value     |      Description    |
 |----------|:-------------:|:-------------:|:-------------:|
 |HiPay Operation Mode |           hosted *(Hosted page)*<br/>iframe (iFrame)<br/>api (API) |  hosted *(Hosted page)* | Defines which operation payment mode to use
-|Enable Tokenization Test Mode|   true / false|false|Test Mode: If enabled, the module will use the HiPay Fullservice test platform
+|Enable Tokenization Test Mode|   true / false|false|Test Mode: If enabled, the module will use the HiPay Enterprise test platform
 |3-D Secure|0 *(Bypass 3-D Secure authentication)*<br/>1 (3-D Secure authentication,<br/>if available)<br/>2 (3-D Secure authentication mandatory)|0 *(Bypass 3-D Secure authentication)*|Allows the activation of 3-D Secure if the card has been enrolled
 |HiPay API Signature Passphrase|String|-|API Signature passphrase configured in HiPay’s back office to verify the requests made to DW
 |Payment Action|Sale *(Authorization * *+ Capture)* Authorization (Authorization only)|-|Please refer to *HiPayTPP-GatewayAPI* documentation, chapter 3.1 *Request a New Order (Order Parameters – operation)*
@@ -1309,7 +1309,7 @@ Go to **Merchant Tools &gt; Ordering &gt; Payment Processors**.
 ###Payment methods
 
 All possible HiPay payment methods have been added to the BM. In order
-to work, they should also be activated in HiPay Fullservice.
+to work, they should also be activated in HiPay Enterprise.
 
 Go to **Merchant Tools &gt; Ordering &gt; Payment Methods**.
 
@@ -1334,7 +1334,7 @@ needed.
 
 ###Notification URL
 
-In the HiPay Fullservice back office, go to **Integration &gt;
+In the HiPay Enterprise back office, go to **Integration &gt;
 Notifications**.
 
 In the Notification URL, the following URL should be added:

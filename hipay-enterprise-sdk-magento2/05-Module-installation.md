@@ -14,7 +14,7 @@ composer require hipay/hipay-fullservice-sdk-magento2
 
 After the Composer installation, you must run these command lines:  
 
-`bin/magento module:enable --clear-static-content HiPay_FullserviceMagento`  
+`bin/magento module:enable --clear-static-content HiPay_EnterpriseMagento`  
 `bin/magento setup:upgrade`  
 `bin/magento cache:clean`  
 

@@ -39,7 +39,7 @@ You must have a file transfer software like "_FileZilla_" for example.
 Once the module is successfully downloaded:
 
 1. Go to "_Modules -> Modules_". 
-2. Search for the "_HiPay Fullservice_" module.
+2. Search for the "_HiPay Enterprise_" module.
 3. Click on “Install” in the module description.
 
 ![legend](images/list-module-hipay-1.png)
@@ -61,7 +61,7 @@ Requirements for your environment:
 Here is the procedure to be applied to a Linux environment:
 
 - Open a terminal and select the folder of your choice. 
-- Clone the HiPay Fullservice PrestaShop project in your environment with Git:
+- Clone the HiPay Enterprise PrestaShop project in your environment with Git:
 
 ```
 $ git clone https://github.com/hipay/hipay-fullservice-sdk-prestashop.git
@@ -74,7 +74,7 @@ $ docker-compose up -d
 ```
 
 - Your container is loading: wait for a few seconds while Docker installs PrestaShop and the HiPay module.*
-- You can now test the HiPay Fullservice module in a browser with this URL:
+- You can now test the HiPay Enterprise module in a browser with this URL:
 
 ```
  http://localhost:8085/

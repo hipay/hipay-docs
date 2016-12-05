@@ -22,10 +22,10 @@ Please find below the full code example. Details can be found in comments as wel
 
 #### Objective-C
 
-```Objective-C
+```objectivec
 // DemoViewController.h
 
-#import <HiPayFullservice/HiPayFullservice.h>
+#import <HiPayEnterprise/HiPayEnterprise.h>
 
 // You need to implement the HPFPaymentScreenViewControllerDelegate protocol
 @interface DemoViewController : UIViewController <HPFPaymentScreenViewControllerDelegate>
@@ -37,7 +37,7 @@ Please find below the full code example. Details can be found in comments as wel
 @end
 ```
 
-```Objective-C
+```objectivec
 // DemoViewController.m
 
 /* This is a controller example,

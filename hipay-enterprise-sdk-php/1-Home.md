@@ -1,9 +1,9 @@
-# HiPay Fullservice SDK for PHP
+# HiPay Enterprise SDK for PHP
 
 # Preamble
 
-The **HiPay Fullservice PHP SDK** is a library for developers who want to integrate HiPay Fullservice payment methods to any PHP platform (Symfony, CMS module, custom website...).
+The **HiPay Enterprise PHP SDK** is a library for developers who want to integrate HiPay Enterprise payment methods to any PHP platform (Symfony, CMS module, custom website...).
 
 # Objective
 
-This document describes the requirements, general use cases and installation procedure for the HiPay Fullservice PHP SDK.
+This document describes the requirements, general use cases and installation procedure for the HiPay Enterprise PHP SDK.

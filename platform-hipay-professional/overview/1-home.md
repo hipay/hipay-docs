@@ -1,4 +1,28 @@
-#HiPay Direct - OverviewThis document is designed to provide you details on how to integrate your business to the HiPay Direct payment gateway. This document provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.#Disclaimer While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay. HiPay has made every effort to ensure the accuracy of this material. #Technical support If you need any complementary information concerning the technical implementation of HiPay Direct don’t hesitate to contact our Technical Support team: Email: support.tpp@hipay.com Telephone: +33 (0)1 53 44 15 07#About this Guide ##PurposeThis document is designed to provide you details on how to integrate your business to the HiPay TPP payment gateway. This document provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material. Where applicable, this document refers to the related documentation with further details. ##Intended Audience The intended audience is the merchant's technical staff or the merchant's system integrator. Because almost all communication between the merchant's system and the SOAP API is realized through predefined XML messages over the Internet using standard protocols, you will need basic XML/SOAP programming skills and knowledge of HTTP(S). ##Copyright The information contained in this guide is proprietary and confidential to HiPay and its members. This material may not be duplicated, published, or disclosed, in whole or in part, without the prior written permission of HiPay. ##Legal Notice This document contains the proprietary and confidential information of HiPay. Such information may not be used for any unauthorized purpose and may not be published or disclosed to third parties, in whole or part, without the express written permission of HiPay. You acknowledge and agree that between you and HiPay this document and all portions thereof, including, but not limited to, any copyright, trade secret and other intellectual property rights relating thereto, are and at all times shall remain the sole property of HiPay and that title and full ownership rights in the information contained herein and all portions thereof are reserved to and at all times shall remain with HiPay. You agree to safeguard the confidentiality of the information contained herein using the same standard you employ to safeguard your own confidential information of like kind, but in no event less than a commercially reasonable standard of care. If you do not agree with the foregoing conditions, you are required to return this document immediately to HiPay.#How to Read this Guide
+#HiPay Professional - Overview
+
+This document is designed to provide you details on how to integrate your business to the HiPay Professional payment gateway. This document provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
+
+#Disclaimer 
+While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay. HiPay has made every effort to ensure the accuracy of this material. 
+
+#Technical support 
+If you need any complementary information concerning the technical implementation of HiPay Professional don’t hesitate to contact our Technical Support team: Email: support.tpp@hipay.com Telephone: +33 (0)1 53 44 15 07
+
+#About this Guide 
+
+##Purpose
+This document is designed to provide you details on how to integrate your business to the HiPay TPP payment gateway. This document provides step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material. Where applicable, this document refers to the related documentation with further details. 
+
+##Intended Audience 
+The intended audience is the merchant's technical staff or the merchant's system integrator. Because almost all communication between the merchant's system and the SOAP API is realized through predefined XML messages over the Internet using standard protocols, you will need basic XML/SOAP programming skills and knowledge of HTTP(S). 
+
+##Copyright 
+The information contained in this guide is proprietary and confidential to HiPay and its members. This material may not be duplicated, published, or disclosed, in whole or in part, without the prior written permission of HiPay. 
+
+##Legal Notice 
+This document contains the proprietary and confidential information of HiPay. Such information may not be used for any unauthorized purpose and may not be published or disclosed to third parties, in whole or part, without the express written permission of HiPay. You acknowledge and agree that between you and HiPay this document and all portions thereof, including, but not limited to, any copyright, trade secret and other intellectual property rights relating thereto, are and at all times shall remain the sole property of HiPay and that title and full ownership rights in the information contained herein and all portions thereof are reserved to and at all times shall remain with HiPay. You agree to safeguard the confidentiality of the information contained herein using the same standard you employ to safeguard your own confidential information of like kind, but in no event less than a commercially reasonable standard of care. If you do not agree with the foregoing conditions, you are required to return this document immediately to HiPay.
+
+#How to Read this Guide
 
 ##Document Conventions
 These conventions help to locate and interpreted information.
@@ -62,7 +86,7 @@ How to access the API:
 - Use almost any HTTP client in any programming language, to interact with the API.
 
 ##Security Considerations
-HiPay Direct SOAP API service is protected to:
+HiPay Professional SOAP API service is protected to:
 
 - ensure that only authorized Merchants use it,
 - prevent payment information from being compromised
@@ -122,7 +146,8 @@ These are the HTTP status codes you may receive and their meaning.
 
 ###Response Format
 The HiPay API will respond to your request in SOAP XML format.
-By default, HiPay SOAP API returns XML in a SOAP Envelope.For example, here is the default XML representation of a “generate” result.
+By default, HiPay SOAP API returns XML in a SOAP Envelope.
+For example, here is the default XML representation of a “generate” result.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -157,8 +182,16 @@ i.g. if you receive an exception with status code 400 (Bad Request), the and   p
 **XML Error Example**
 
 ``` xml
-<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP- ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/payment-v2">	<SOAP-ENV:Body>		<ns1:generateResponse>
-			<generateResult>				<redirectUrl/>				<code>1</code>				<description>Bad password for login '4f8x3x80fd4x476f1e227c68xefdx0x5'</description>			</generateResult>		</ns1:generateResponse>
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP- ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/payment-v2">
+	<SOAP-ENV:Body>
+		<ns1:generateResponse>
+			<generateResult>
+				<redirectUrl/>
+				<code>1</code>
+				<description>Bad password for login '4f8x3x80fd4x476f1e227c68xefdx0x5'</description>
+			</generateResult>
+		</ns1:generateResponse>
 	</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
@@ -175,7 +208,9 @@ The following table lists the REST API resources used.
 | **POST** /soap/refund-v2/card |  A request instructing the payment gateway to fully refund a credit card previously captured transaction.
 
 ##Request a New Order
-At the time of payment, cardholders are redirected to a secured payment page hosted by HiPay.This page can be personalized with merchants’ CSS style sheet to fit his website look and feel.To post your CSS please go to “HiPay Direct integration -> Creating a button -> Edit (on your website details)“
+At the time of payment, cardholders are redirected to a secured payment page hosted by HiPay.
+This page can be personalized with merchants’ CSS style sheet to fit his website look and feel.
+To post your CSS please go to “HiPay Professional integration -> Creating a button -> Edit (on your website details)“
 
 **Order Parameters**
 
@@ -185,7 +220,7 @@ At the time of payment, cardholders are redirected to a secured payment page hos
 |wsPassword|AN|32|M|Your API Webservice Password.
 |websiteId|N|11|M|ID of the website created on merchants’ account.
 |categoryId|N|11|M|The order or product categories are attached to, and depend upon, the merchant site’s category. Depending on the category that is associated with the site, the categories that are available to the order and products will NOT be the same. You can obtain the list of order and product category ID’s for the merchant site at this URL:<br/>Production platform: https://payment.hipay.com/order/list-categories/id/[production websiteID]<br/>Stage platform:<br/> https://test-payment.hipay.com/order/list-categories/id/[stage websiteID]
-|currency|A|3|M|The currency specified in your HiPay Direct account. This three-character currency code complies with ISO 4217.
+|currency|A|3|M|The currency specified in your HiPay Professional account. This three-character currency code complies with ISO 4217.
 |amount|R|-|M|The total order amount. It should be calculated as a sum of the items purchased, plus the shipping fee (if present), plus the tax fee (if present).
 |rating|AN|3|M|Age category of your order.<br/>Accepted values :<br/>+12 : For ages 13 and over<br/>+16 : For ages 16 and over<br/>+18 : For ages 18 and over<br/>ALL : For all ages
 |locale|AN|5|M|Locale code of your customer (Default to en_GB – English – Great Britain).It may be used for sending confirmation emails to your customer or for displaying payment pages.<br/>Examples:<br/>en_GB<br/>fr_FR<br/>es_ES<br/>it_IT
@@ -201,13 +236,23 @@ At the time of payment, cardholders are redirected to a secured payment page hos
 |urlLogo|AN|255|-|This URL is where the logo you want to appear on your payment page is located.<br/>Important: **HTTPS** protocol is required.
 |merchantReference|AN|255|-|Merchants’ order refernce.
 |merchantComment|AN|255|-|Merchants’ comment concerning the order.
-|emailCallback|AN|255|-|Email used by HiPay Direct to post operation notifications.
+|emailCallback|AN|255|-|Email used by HiPay Professional to post operation notifications.
 |freedata|AN|-|-|Custom data. You may use these parameters to submit values you wish to receive back in the API response messages or in the notifications, e.g. you can use these parameters to get back session data, order content or user info.
 
 You must format it like this:
 
 ``` xml  
-<freeData> <item>  <key>keyOne</key>  <value>ValueOne</value> </item> <item>  <key>keyTwo</key>  <value>ValueTwo</value> </item></freeData>```
+<freeData>
+ <item>
+  <key>keyOne</key>
+  <value>ValueOne</value>
+ </item>
+ <item>
+  <key>keyTwo</key>
+  <value>ValueTwo</value>
+ </item>
+</freeData>
+```
 
 **Response Fields**
 The following table lists and describes the response fields.
@@ -279,12 +324,36 @@ The following are SOAP XML examples.
 *Example Request*
 
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/refund-v2">   	<SOAP-ENV:Body>   	  <ns1:card>   	   <parameters>   		  <websiteId>107</websiteId>   	    <transactionPublicId>51X6F4C37X253</transactionPublicId>   		  <wsLogin>4f8x3e8xfd4ex76f1ex27c6xfefdb3e5</wsLogin>   	    <wsPassword>2x0c409xc4254x819bfx246d6x02d1x2</wsPassword>   	   </parameters>   	  </ns1:card>   	</SOAP-ENV:Body></SOAP-ENV:Envelope>```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/refund-v2">
+   	<SOAP-ENV:Body>
+   	  <ns1:card>
+   	   <parameters>
+   		  <websiteId>107</websiteId>
+   	    <transactionPublicId>51X6F4C37X253</transactionPublicId>
+   		  <wsLogin>4f8x3e8xfd4ex76f1ex27c6xfefdb3e5</wsLogin>   	    <wsPassword>2x0c409xc4254x819bfx246d6x02d1x2</wsPassword>
+   	   </parameters>
+   	  </ns1:card>
+   	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 *XML Response Example*
 
 ```xml
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/refund-v2">   	 <SOAP-ENV:Body>   	  <ns1:cardResponse>   	   <cardResult>   		  <code>0</code>   		  <description>Refund to credit card request for transaction 51X6F4C37X253 has been sent !</description>   		  <currency>EUR</currency>   		  <amount>4</amount>   		  <transactionPublicId>51X6F4C37X253</transactionPublicId>   	   </cardResult>   	  </ns1:cardResponse>   	 </SOAP-ENV:Body></SOAP-ENV:Envelope>```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.hipay.com/soap/refund-v2">
+   	 <SOAP-ENV:Body>
+   	  <ns1:cardResponse>
+   	   <cardResult>
+   		  <code>0</code>
+   		  <description>Refund to credit card request for transaction 51X6F4C37X253 has been sent !</description>
+   		  <currency>EUR</currency>
+   		  <amount>4</amount>
+   		  <transactionPublicId>51X6F4C37X253</transactionPublicId>
+   	   </cardResult>
+   	  </ns1:cardResponse>
+   	 </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 
 #Server-to-Server Notifications
@@ -293,7 +362,7 @@ The following are SOAP XML examples.
 
 ##Setup
 To set your Notification URL you must set it on "urlCallback" parameter at the moment of generate a new order (please refer to Chapter 3.1 Request a New Order).
-After a successful purchase, HiPay calls twice your Notification URL in background with comprehensive information about the payment passed through an HTTP POST parameter in an XML array `POST['xml']` the first time for the authorization notification and the second one for the capture notification.
+After a successful purchase, HiPay calls twice your Notification URL in background with comprehensive information about the payment passed through an HTTP POST parameter in an XML array `POST['xml']` the first time for the authorization notification and the second one for the capture notification.
 
 | Operation Type   |      Description    |
 |----------|:-------------:|
@@ -369,7 +438,10 @@ The following table lists and describes the response fields received on the noti
 #Signature verification
 
 ##Introduction
-It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection made to your servers.This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.A unique signature is sent each time that HiPay contact a merchant URL.
+It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection made to your servers.
+
+This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.
+A unique signature is sent each time that HiPay contact a merchant URL.
 
 ##Verification
 For the URL notification, the signature is sent on the "md5content" parameter, to verify it, you just need so concatenate your "wsPassword" with the "result" part of the XML posted to you.

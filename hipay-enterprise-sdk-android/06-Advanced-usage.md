@@ -1,6 +1,6 @@
 ## Core wrapper (advanced integration)
 
-The HiPay Fullservice SDK for Android contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Fullservice platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
+The HiPay Enterprise SDK for Android contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Enterprise platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
 
 It exposes models and methods that allow you to easily send payment requests. In fact, the built-in payment screen itself relies on the core wrapper for performing order requests, retrieving transaction details, etc.
 

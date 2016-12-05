@@ -1,10 +1,10 @@
-# HiPay Fullservice SDK for JavaScript (Direct Post)
+# HiPay Enterprise SDK for JavaScript (Direct Post)
 
-The HiPay Fullservice SDK for JavaScript allows you to tokenize credit or debit cards using the HiPay Fullservice payment platform, directly from the web browser. This method (called Direct Post in the PCI Council terminology) enables you to offer a unified payment workflow to your customers while remaining PCI compliant.
+The HiPay Enterprise SDK for JavaScript allows you to tokenize credit or debit cards using the HiPay Enterprise payment platform, directly from the web browser. This method (called Direct Post in the PCI Council terminology) enables you to offer a unified payment workflow to your customers while remaining PCI compliant.
 
 # Security principle
 
-Payment data (card number, card verification code and so on) will never hit your server: they will remain in the browser and will be sent directly to the HiPay Fullservice Secure Vault. This method is called "Direct Post". That way, you can create your own payment form, hosted on your server. Once the user validates the form, payment data are sent to the HiPay Fullservice platform through the HiPay Fullservice SDK for JavaScript, which returns a token. Then, you can process payments with the token on the server side.
+Payment data (card number, card verification code and so on) will never hit your server: they will remain in the browser and will be sent directly to the HiPay Enterprise Secure Vault. This method is called "Direct Post". That way, you can create your own payment form, hosted on your server. Once the user validates the form, payment data are sent to the HiPay Enterprise platform through the HiPay Enterprise SDK for JavaScript, which returns a token. Then, you can process payments with the token on the server side.
 
 # Installation
 
@@ -34,7 +34,7 @@ You can also download the source code in ZIP format.
 
 You can test our example app which is available in the `example` directory. This app leverages both the HiPay JavaScript SDK and PHP SDK in order to tokenize the card number (in the browser, using the JavaScript SDK) and make a transaction with this token on the server side using the PHP SDK.
 
-![HiPay Fullservice Direct Post Simulator](images/screenshot.png)
+![HiPay Enterprise Direct Post Simulator](images/screenshot.png)
 
 ## Setup
 
@@ -52,14 +52,14 @@ Once the Docker container is up and running, type the following command:
 
 	$ docker-compose run web /bin/bash example/setup.sh
 
-Then, you need to open the following file: `example/credentials.php` to put your own HiPay Fullservice credentials. Follow the instructions inserted in PHP comments.
+Then, you need to open the following file: `example/credentials.php` to put your own HiPay Enterprise credentials. Follow the instructions inserted in PHP comments.
 
 Finally, open your web browser and go to: http://localhost:8080/example/. 
 You should see the form shown in the screenshot above.
 
 # Integration guide
 
-The following integration guide describes step by step how to use the HiPay Fullservice SDK for JavaScript. The implementation can also be found in the example app (see the previous section).
+The following integration guide describes step by step how to use the HiPay Enterprise SDK for JavaScript. The implementation can also be found in the example app (see the previous section).
 
 ## Import the JavaScript SDK
 
@@ -136,7 +136,7 @@ $("#pay-button").click(function() {
 
   HiPay.setTarget('stage'); // default is production/live
   
-  // These are fake credentials, put your own credentials here (HiPay Fullservice back office > Integration > Security settings and create credentials with public visibility)
+  // These are fake credentials, put your own credentials here (HiPay Enterprise back office > Integration > Security settings and create credentials with public visibility)
   HiPay.setCredentials('11111111.stage-secure-gateway.hipay-tpp.com', 'Test_pMAjfghBqya7TA9jqhYah56');
 
   HiPay.create(params,
@@ -176,7 +176,7 @@ Please find below the methods and parameters made available by the SDK.
 | Field name   |      Format      |  Description |
 |----------|:-------------:|------|
 | `setTarget` |  AN | If you are testing in your stage or production account, you can choose the following targets:<br/>- `stage`<br/>- `production`
-| `setCredentials` |  AN | Your Direct Post API credentials. **Be careful! Do not use classic API credentials but public API credentials created in the HiPay Fullservice back office.**
+| `setCredentials` |  AN | Your Direct Post API credentials. **Be careful! Do not use classic API credentials but public API credentials created in the HiPay Enterprise back office.**
 | `create` |  - | Credit card information. Please refer to the “Create token request parameters” table below.
 
 ## Create token request parameters

@@ -5,7 +5,7 @@ In your Magento Admin Portal, select:
 "Stores" => "Configuration" => "Sales" [Payment Methods]
 ```
 
-You can then see all the HiPay Fullservice payment methods.
+You can then see all the HiPay Enterprise payment methods.
 
 ![legend](images/all_methods.png)
 
@@ -25,7 +25,7 @@ For this type of payment method, your website needs to be PCI compliant.
 
 ## General configuration
 
-All methods have basic configuration like native Magento 2 payment methods configuration or general HiPay Fullservice configuration.
+All methods have basic configuration like native Magento 2 payment methods configuration or general HiPay Enterprise configuration.
 
 |Field|Description|
 |-----|----|
@@ -36,7 +36,7 @@ All methods have basic configuration like native Magento 2 payment methods confi
 |Order status when payment accepted|Status to set to the order when the transaction is successful. *Processing* by default.|
 |Order status when payment refused|Status to set to the order when the transaction fails. *On Hold* by default.|
 |Order status when payment cancelled|Status to set to the order when the transaction is canceled by the user. *Canceled* by default.|
-|HiPay status to validate order|By default, all orders are validated/invoiced upon notification when the *Capture* status  (118) is sent from the HiPay Fullservice platform (~10 min. after capture is requested). You can change this pattern by selecting "Capture Requested". In this case, the order is validated/invoiced directly upon *Capture Requested* (117) status.|
+|HiPay status to validate order|By default, all orders are validated/invoiced upon notification when the *Capture* status  (118) is sent from the HiPay Enterprise platform (~10 min. after capture is requested). You can change this pattern by selecting "Capture Requested". In this case, the order is validated/invoiced directly upon *Capture Requested* (117) status.|
 |Cancel pending order|Cancel orders pending because the customer did not validate the payment. For more information, please refer to the [[Cron configuration and task information]] section of the Developer guide.|
 |Payment products|Allowed payment products. E.g.: Visa, MasterCard, Sisal...|
 |Use 3D Secure|Configure 3-D Secure. See more configuration details below.|

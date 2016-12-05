@@ -1,6 +1,6 @@
 # Local payment methods
 
-Simply add a new local payment method based on the HiPay Fullservice `API` or `HOSTED` mode.  
+Simply add a new local payment method based on the HiPay Enterprise `API` or `HOSTED` mode.  
 To do so, please follow the steps below.
 
 ## HOSTED MODE
@@ -68,7 +68,7 @@ Example for the Sisal method with a minimum configuration:
 <?xml version="1.0" encoding="UTF-8"?>
 <include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
 <group id="hipay_sisal" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
-				<label>HiPay Fullservice SISAL Hosted</label>
+				<label>HiPay Enterprise SISAL Hosted</label>
 				<comment></comment>
 				<!-- 
 					Includes tag import configuration from another file.
@@ -263,7 +263,7 @@ Finally, enter a node in [checkout_index_index.xml](src/view/frontend/layout/che
 
 ### API MODE
 
-The API MODE is used to **request a new order** to the HiPay Fullservice API.
+The API MODE is used to **request a new order** to the HiPay Enterprise API.
 As with the CcMethod, you can provide form fields on the checkout.
 
 Examples are based on the Qiwi Wallet payment method.
@@ -344,7 +344,7 @@ Change `id` in qiwi-wallet.xml. In this case, we do not need custom fields:
 <?xml version="1.0" encoding="UTF-8"?>
 <include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
 <group id="hipay_qiwiwallet" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
-				<label>HiPay Fullservice Qiwi Wallet API</label>
+				<label>HiPay Enterprise Qiwi Wallet API</label>
 				<comment></comment>
 				<!-- 
 					Includes tag import configuration from another file.

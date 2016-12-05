@@ -2,8 +2,8 @@
 
 ## Please note
 
-- Your HiPay Fullservice account must be configured before installing your PrestaShop module in the [HiPay Fullservice back office][hipay-fullservice-bo].
-- To use this module, you will need valid HiPay Fullservice credentials: please contact HiPay to get them.
+- Your HiPay Enterprise account must be configured before installing your PrestaShop module in the [HiPay Enterprise back office][hipay-fullservice-bo].
+- To use this module, you will need valid HiPay Enterprise credentials: please contact HiPay to get them.
 
 ## Acronyms and abbreviations
 

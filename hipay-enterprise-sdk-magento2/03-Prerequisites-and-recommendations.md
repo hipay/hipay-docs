@@ -2,8 +2,8 @@
 
 ## Please note
 
-- Your HiPay Fullservice account must be configured before installing your Magento 2 module.
-- To use this module, you will need valid HiPay Fullservice credentials: please contact HiPay to get them.
+- Your HiPay Enterprise account must be configured before installing your Magento 2 module.
+- To use this module, you will need valid HiPay Enterprise credentials: please contact HiPay to get them.
 
 ## Acronyms and abbreviations
 

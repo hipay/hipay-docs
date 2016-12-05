@@ -6,12 +6,12 @@ The project *minSdkVersion* is 14 (Ice Cream Sandwich), which means that the SDK
 
 ## Credentials
 
-You need to generate *API credentials* in order for the SDK to send requests to the HiPay Fullservice platform. To do so, go to the "Integration" section of your HiPay Fullservice back office, then to "Security Settings".
+You need to generate *API credentials* in order for the SDK to send requests to the HiPay Enterprise platform. To do so, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".
 
 **Warning: credentials included in the Android SDK must have a public accessibility, NOT a private accessibility.**  
 To be sure that your credentials have the proper accessibility:
 
-- Go to the "Integration" section of your HiPay Fullservice back office.
+- Go to the "Integration" section of your HiPay Enterprise back office.
 - Then, click on "Security Settings".
 - Scroll down to "Api credentials".
 - Click on the edit icon next to the credentials you want to use. 
@@ -28,13 +28,13 @@ Your credentials must be granted to:
 
 ## Checkout workflow integration
 
-This section informs you about the scope of the HiPay Fullservice SDK for Android. Some parts of the checkout are integrated on the client side (i.e., your mobile app, thanks to the SDK) while some other parts must be integrated on the server side.
+This section informs you about the scope of the HiPay Enterprise SDK for Android. Some parts of the checkout are integrated on the client side (i.e., your mobile app, thanks to the SDK) while some other parts must be integrated on the server side.
 
 ### Authentication
 
-When you redirect users to the HiPay Android SDK's payment page, the SDK will process transactions with users' payment details using the HiPay Fullservice payment platform. In order for our Android SDK to process payments on the HiPay Fullservice platform, you must provide the SDK with credentials (please refer to the Configuration section for more information).
+When you redirect users to the HiPay Android SDK's payment page, the SDK will process transactions with users' payment details using the HiPay Enterprise payment platform. In order for our Android SDK to process payments on the HiPay Enterprise platform, you must provide the SDK with credentials (please refer to the Configuration section for more information).
 
-However, credentials are not sufficient. For each order processed by the Android SDK, the HiPay Fullservice platform must authenticate the call and validate that the merchant has allowed it. To do so, HiPay Fullservice leverages a signature mechanism. Once your app needs to process a payment, it must contact your own server in order to get a signature, specific to the order to be processed.
+However, credentials are not sufficient. For each order processed by the Android SDK, the HiPay Enterprise platform must authenticate the call and validate that the merchant has allowed it. To do so, HiPay Enterprise leverages a signature mechanism. Once your app needs to process a payment, it must contact your own server in order to get a signature, specific to the order to be processed.
 
 To know how to generate a signature on the server side, please refer to the ["Generating a server-side signature"](#generating-a-server-side-signature) section.
 
@@ -42,7 +42,7 @@ Please refer to the diagram below (Mobile checkout workflow) to know when the si
 
 ### Order processing
 
-Order information should not be generated on the client side. Most of the time, orders are generated on the server side (on your servers), following actions performed by your users on your mobile app. The HiPay Fullservice SDK for Android allows you to present a payment page to your users and process transactions directly on your mobile app. 
+Order information should not be generated on the client side. Most of the time, orders are generated on the server side (on your servers), following actions performed by your users on your mobile app. The HiPay Enterprise SDK for Android allows you to present a payment page to your users and process transactions directly on your mobile app. 
 
 Thus, your mobile app will receive a confirmation with a transaction status indicating that the payment was successfully completed. You may display a confirmation screen upon this confirmation, but you must not process the order on the server side following this confirmation. For security reasons, orders must always be confirmed on your systems following the server-to-server notification.
 
@@ -52,4 +52,4 @@ Please refer to the diagram below (Mobile checkout workflow) to see when the ser
 
 Please find below a diagram describing the integration scope of the Mobile SDK and the roles of the server.
 
-![HiPay Fullservice Mobile SDK checkout workflow](images/prerequisites/workflow.png)
+![HiPay Enterprise Mobile SDK checkout workflow](images/prerequisites/workflow.png)

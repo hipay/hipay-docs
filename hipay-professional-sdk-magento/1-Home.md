@@ -1,19 +1,19 @@
-# HiPay Direct extension for Magento 1
+# HiPay Professional extension for Magento 1
 
 # Prerequisites
 
-## HiPay Direct account
+## HiPay Professional account
 
-In order to process payments with this module, you have to create a HiPay Direct account beforehand. To do so, go to the [HiPay Direct website](https://www.hipaydirect.com/).
+In order to process payments with this module, you have to create a HiPay Professional account beforehand. To do so, go to the [HiPay Professional website](https://www.hipaydirect.com/).
 
-You may need to use a test account in order to test the payment page and the module configuration. You can create a test account on [the HiPay Direct test website](https://test-www.hipaydirect.com/).
+You may need to use a test account in order to test the payment page and the module configuration. You can create a test account on [the HiPay Professional test website](https://test-www.hipaydirect.com/).
 
 ## Magento store
 
 This module is compatible with Magento version 1.x. 
 
 # Installation
-Log into the administration area of your Magento online store.
+Log into the administration area of your Magento online store.
 
 In the main menu click on "Magento Connect" and then on "Magento Connect Manager".
 
@@ -41,12 +41,12 @@ On the left side, you will now find the HiPay module in the "Sales" category.
 
 In the HiPay module configuration section, you can:
 
-- Register a new HiPay Direct merchant account
+- Register a new HiPay Professional merchant account
 - Read installation instructions
 - Enable the module for your shop
 - Configure your payment countries (default setting being "All Allowed Countries")
 
-In order for the module to work, please provide the module with your HiPay Direct merchant account information, including your HiPay Direct website ID.
+In order for the module to work, please provide the module with your HiPay Professional merchant account information, including your HiPay Professional website ID.
 
 You may also select the appropriate category for the products in your online shop in the "Order category" section.
 
@@ -60,10 +60,10 @@ When the configuration is done, click on "Save Configuration".
 
 ## Test mode
 
-To use the test mode, you have to use a HiPay Direct test account. 
+To use the test mode, you have to use a HiPay Professional test account. 
 Test transactions are charged with virtual amounts, so you can easily test as many transactions as necessary.
 
-You can create a test account on [the HiPay Direct test website](https://test-www.hipaydirect.com/).
+You can create a test account on [the HiPay Professional test website](https://test-www.hipaydirect.com/).
 If you need help with the test mode, please submit a support ticket.
 
 ## Customization
@@ -72,4 +72,4 @@ You can customize the payment page with your online shop logo. To do so, enter t
 
 ## Sub accounts
 
-You can receive transactions on different HiPay sub accounts depending on transaction parameters. To do so, just provide your HiPay Direct sub account IDs.
+You can receive transactions on different HiPay sub accounts depending on transaction parameters. To do so, just provide your HiPay Professional sub account IDs.

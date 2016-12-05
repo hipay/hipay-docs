@@ -13,11 +13,11 @@ Before going through this documentation, you may [read information about the HiP
 
 You need an Izberg account. If you don't have one yet, check out their contact details on [the Izberg website](http://www.izberg-marketplace.com/).
 
-## HiPay Fullservice account
+## HiPay Enterprise account
 
-You need a HiPay Fullservice account. The HiPay Fullservice platform will process payments of the end customers in a wide variety of payment methods (major credit and debit cards such as Visa, MasterCard and American Express as well as local payment methods).
+You need a HiPay Enterprise account. The HiPay Enterprise platform will process payments of the end customers in a wide variety of payment methods (major credit and debit cards such as Visa, MasterCard and American Express as well as local payment methods).
 
-If you don't have an account yet, contact us on [the HiPay Fullservice website](http://www.hipayfullservice.com/).
+If you don't have an account yet, contact us on [the HiPay Enterprise website](http://www.hipayfullservice.com/).
 
 ## HiPay Marketplace details
 
@@ -77,11 +77,11 @@ All these information should have been provided to you beforehand by HiPay. If y
 
 ## 5. Cash-in
 
-### HiPay Fullservice back office
+### HiPay Enterprise back office
 
-Sign in to your [HiPay Fullservice merchant back office](https://merchant.hipay-tpp.com).
+Sign in to your [HiPay Enterprise merchant back office](https://merchant.hipay-tpp.com).
 
-Once logged in to HiPay Fullservice, go to the "**Integration**" section:
+Once logged in to HiPay Enterprise, go to the "**Integration**" section:
 
 ![HiPay back office - Integration](images/bo_hipay_integration.png)
 
@@ -91,7 +91,7 @@ Then, go to the "**security settings**" section:
 
 ### REST API passphrase
 
-On the HiPay Fullservice back office, if the *Secret Passphrase* field is empty, choose one by typing a secret string here. If the passphrase is already defined, do not modify it (unless it's not already in use). Here is an example of passphrase:
+On the HiPay Enterprise back office, if the *Secret Passphrase* field is empty, choose one by typing a secret string here. If the passphrase is already defined, do not modify it (unless it's not already in use). Here is an example of passphrase:
 
 ![HiPay back office - Passphrase](images/bo_hipay_passphrase.png)
 
@@ -101,7 +101,7 @@ Then, copy and paste this secret passphrase into the *REST API passphrase* field
 
 ### REST API login and password
 
-On your HiPay Fullservice back office, find the API credentials section (still in *Security settings*):
+On your HiPay Enterprise back office, find the API credentials section (still in *Security settings*):
 
 ![HiPay back office - Credentials](images/bo_hipay_credentials.png)
 
@@ -117,7 +117,7 @@ Then copy and paste the *Username* value into the *REST API Login* field and cop
 
 ![Izberg back office - Payment config - Payment form style](images/bo_izberg_payment_form_style.png)
 
-You may customize the cash-in payment page by uploading your own CSS (cascading style sheet) file. For more information, refer to the [HiPay Fullservice platform documentation](/getting-started/platform-hipay-fullservice/overview/).
+You may customize the cash-in payment page by uploading your own CSS (cascading style sheet) file. For more information, refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-fullservice/overview/).
 
 The *Payment Form Template* option allows you to choose whether you want the end user to be fully redirected to our payment page or if you want the payment form to be integrated into the checkout.
 

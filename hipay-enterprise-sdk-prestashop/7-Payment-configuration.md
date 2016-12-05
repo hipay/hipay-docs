@@ -22,15 +22,15 @@ To capture the transaction, go to "_Back Office -> Sales ->View order_" to see t
 
 ![legend](images/capture.png)
 
-You can also do the “capture” directly in your HiPay Fullservice back office. The order will be updated automatically in your PrestaShop back office.
+You can also do the “capture” directly in your HiPay Enterprise back office. The order will be updated automatically in your PrestaShop back office.
 
 ## Refund
 
-Some HiPay Fullservice payment methods allow for a refund. To do it, go to "_Back Office -> Sales ->View order_" to see the details of the order and choose to make a "complete" or "partial" refund.  
+Some HiPay Enterprise payment methods allow for a refund. To do it, go to "_Back Office -> Sales ->View order_" to see the details of the order and choose to make a "complete" or "partial" refund.  
 
 ![legend](images/capture-2.png)
 
-You can also do the "refund" directly in your HiPay Fullservice back office. The order will be updated automatically in your PrestaShop back office.
+You can also do the "refund" directly in your HiPay Enterprise back office. The order will be updated automatically in your PrestaShop back office.
 
 ## One-Click (only available for credit card payment methods)
 

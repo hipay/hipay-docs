@@ -1,6 +1,6 @@
 # Test suites
 
-The HiPay Fullservice module for Magento 2 includes unit and functional test suites.
+The HiPay Enterprise module for Magento 2 includes unit and functional test suites.
 
 
 ## Unit tests

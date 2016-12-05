@@ -1,4 +1,4 @@
-# Guide de configuration du module HiPay Direct pour Prestashop
+# Guide de configuration du module HiPay Professional pour Prestashop
 
 
 #Introduction
@@ -35,7 +35,7 @@ Dans ce document, nous décrivons la méthode pour activer et utiliser le module
 
 Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. Rendez vous sur [*www.hipay.com*](http://www.hipay.com), dans le cadre « Vous êtes Marchand » cliquez sur « Ouvrir un compte » et suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
 
-![HiPay Direct Dashboard](images/media/dashboard.png) 
+![HiPay Professional Dashboard](images/media/dashboard.png) 
 
 #Inscrivez votre site internet
 
@@ -49,7 +49,7 @@ différents sites internet enregistrés dans votre compte.
 Entrez le nom de votre site, l’URL, le thème principal et secondaire,le mot de passe marchand, l’email de contact et le téléphone
 (optionnel).
 
-![HiPay Direct edit your website](images/media/edit_website.png)
+![HiPay Professional edit your website](images/media/edit_website.png)
 
 Vous pouvez également insérer un CSS (Cascading Style Sheet) pour
 personnaliser votre page de paiement Hipay (elle doit être validée par nos techniciens avant son activation).

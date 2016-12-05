@@ -1,4 +1,4 @@
-#HiPay Fullservice Magento 1 - Integration guide
+#HiPay Enterprise Magento 1 - Integration guide
 
 **DISCLAIMER:**
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay.
@@ -8,7 +8,7 @@ any part thereof, or any supplementary materials subsequently issued by
 HiPay. HiPay has made every effort to ensure the accuracy of this
 material.
 
-**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Fullservice TPP don’t hesitate to go to our support center ([*http://help.hipay.com*](http://help.hipay.com)) or contact our Technical Support team:
+**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise TPP don’t hesitate to go to our support center ([*http://help.hipay.com*](http://help.hipay.com)) or contact our Technical Support team:
 
 - Email: support.tpp@hipay.com
 - Telephone: +33 (0)1 53 44 15 07
@@ -19,7 +19,7 @@ material.
 ##Purpose
 
 This document is designed to provide you details on how to integrate
-your business to the HiPay Fullservice TPP payment gateway. This
+your business to the HiPay Enterprise TPP payment gateway. This
 document provides step-by-step instructions on how to simply and quickly
 get up and running with our services as well as detailed reference
 material.
@@ -125,17 +125,17 @@ corresponding full name.
 
 #Introduction
 
-In this document we describe the method to parameter and use the HiPay Fullservice TPP module for Magento webshop.
+In this document we describe the method to parameter and use the HiPay Enterprise TPP module for Magento webshop.
 
 ##To know
 
--   You will need to configure your HiPay Fullservice TPP account before
-    installing your Magento module under HiPay Fullservice TPP back
+-   You will need to configure your HiPay Enterprise TPP account before
+    installing your Magento module under HiPay Enterprise TPP back
     office
     ([*https://merchant.hipay-tpp.com/*](https://merchant.hipay-tpp.com/)).
--   HiPay Fullservice TPP module is not offered natively on Magento, you
+-   HiPay Enterprise TPP module is not offered natively on Magento, you
     must contact HiPay to get the module.
--   This module needs valid HiPay Fullservice TPP credentials to use it,
+-   This module needs valid HiPay Enterprise TPP credentials to use it,
     please contact HiPay to get them.
 
 
@@ -143,14 +143,14 @@ In this document we describe the method to parameter and use the HiPay Fullservi
 
 ##Allow your servers IP addresses
 
-When a request is sent to the HiPay Fullservice TPP servers, the IP
+When a request is sent to the HiPay Enterprise TPP servers, the IP
 address or IP address range from where the connection was made is
 verified. If it matches with the IP address supplied by the Merchant at
 a previous stage, the request will be processed. In the case of missing
 or incorrect information, the server will respond with an appropriate
 error message, indicating the error in the request.
 
-To do this, you must log in your HiPay Fullservice TPP back office
+To do this, you must log in your HiPay Enterprise TPP back office
 (https://merchant.hipay-tpp.com), click on the "*Integration*" menu,
 then "*Security Setting*" and enter your IP(s) in "*IP restriction*"
 section.
@@ -173,14 +173,14 @@ A unique signature is sent each time that HiPay contact a merchant URL,
 notification or redirection.
 
 First of all you will need to set a Secret Passphrase in your HiPay
-Fullservice TPP back office under “*Integration -&gt; Security Settings -&gt; Secret Passphrase*”.
+Enterprise TPP back office under “*Integration -&gt; Security Settings -&gt; Secret Passphrase*”.
 
 ![passphrase](images/media/image7.jpg)
 
 ##Configure redirection URLs
 
-To use the HiPay Fullservice TPP module, you need to configure the
-redirection URLs in your HiPay Fullservice TPP back office under
+To use the HiPay Enterprise TPP module, you need to configure the
+redirection URLs in your HiPay Enterprise TPP back office under
 “*Integration -&gt; Redirect Pages*”.
 
 -   Accept Page: `http://www.{your-domain.com}/index.php/hipay/cc/accept/`
@@ -205,7 +205,7 @@ the store code if you have enabled it on your Magento configuration.
 
 ##Magento connect
 
-You can get HiPay Fullservice official Magento extension under
+You can get HiPay Enterprise official Magento extension under
 [*http://www.magentocommerce.com/magento-connect/hipay-fullservice-1.html*](http://www.magentocommerce.com/magento-connect/hipay-fullservice-1.html),
 to install it, just get the “extension key”, then go to your Magento
 administrator back office, click on “*System* -&gt; *Magento connect
@@ -221,16 +221,16 @@ steps:
 
 ##General configuration
 
-To configure your HiPay Fullservice TPP API credentials, you must click
-on "*HiPay Fullservice*" in Magento configuration section (*System -&gt;
+To configure your HiPay Enterprise TPP API credentials, you must click
+on "*HiPay Enterprise*" in Magento configuration section (*System -&gt;
 Configuration -&gt; Sales*). If you have administrative rights but you
 are not allowed to access to the configuration of the payment method,
 please log out and log in.
 
 ![](images/media/image9.jpg)
 
-You can find your HiPay Fullservice TPP API credentials on your HiPay
-Fullservice TPP back office, under “*Integration -&gt; Security Settings
+You can find your HiPay Enterprise TPP API credentials on your HiPay
+Enterprise TPP back office, under “*Integration -&gt; Security Settings
 -&gt;* *API credentials*”.
 
 Once you have them, fill them on the module configuration with your
@@ -243,21 +243,21 @@ specify the desired valued.
 
 ##Payment Methods configuration
 
-To configure your HiPay Fullservice TPP payment methods, you must click
+To configure your HiPay Enterprise TPP payment methods, you must click
 on "*Payment Methods*" in Magento configuration section (*System -&gt;
 Configuration*).
 
 Once you are in payment methods list you will find all the HiPay
-Fullservice installation possibilities.
+Enterprise installation possibilities.
 
 ![](images/media/image11.png)
 
-### HiPay Fullservice Credit Card API
+### HiPay Enterprise Credit Card API
 (only available for credit-card and debit-card payment methods)
 
-In case of HiPay Fullservice Credit Card API integration (direct API
+In case of HiPay Enterprise Credit Card API integration (direct API
 integration), the customer will fill his bank information directly on
-merchants’ website, the module calls HiPay Fullservice TPP API to
+merchants’ website, the module calls HiPay Enterprise TPP API to
 validate the transaction and the merchants’ website display the
 transaction confirmation / refused / pending message.
 
@@ -265,18 +265,18 @@ If this integration mode is selected, you are required to be compliant
 with the PCI Data Security Standard, you can find more information under
 “*https://www.pcisecuritystandards.org*”.
 
-### HiPay Fullservice Credit Card Split Payment
+### HiPay Enterprise Credit Card Split Payment
 (only available for credit-card and debit-card payment methods) 
 
 This integration can be used to process recurring payments and split
 order’s payments amount through time using API. It is a variant of the
-HiPay Fullservice Credit Card API integration, therefore you are also
+HiPay Enterprise Credit Card API integration, therefore you are also
 required to be compliant with the PCI Data Security Standard.
 
 Prior to activating this integration, at least one recurring profile
 must be created (*Please refer to section *5.6* Split payment method*).
 
-### HiPay Fullservice Credit Card Hosted Page
+### HiPay Enterprise Credit Card Hosted Page
 (only available for credit-card and debit-card payment methods)
 
 
@@ -288,7 +288,7 @@ website transaction confirmation / error / pending message.
 
 ### IFrame 
 
-You can activate the iFrame mode on your HiPay Fullservice Hosted Page
+You can activate the iFrame mode on your HiPay Enterprise Hosted Page
 if you want that cardholders fill their payment card information on a
 secured payment page hosted by HiPay displayed on an iFrame inside
 merchants’ payment page.
@@ -299,7 +299,7 @@ page.
 This page (hosted & iFrame) can be customized with merchants’ CSS
 stylesheet to fit his website look and feel.
 
-### HiPay Fullservice Hosted Page Split Payment
+### HiPay Enterprise Hosted Page Split Payment
 (only available for credit-card and debit-card payment methods)
 
 This integration can be used to process recurring payments and split
@@ -309,12 +309,12 @@ Prior to activating this integration, at least one recurring profile
 must be created (*Please refer to section* **5.6** *Split payment
 method*).
 
-### HiPay Fullservice other payment methods
+### HiPay Enterprise other payment methods
 
 If you want to offer on your website other payment methods than
 credit-cards or debit-cards you can choose them directly on the payment
-methods list, they will be showed as “*HiPay Fullservice {payment
-method}*”, for exemple: *HiPay Fullservice Sofort, HiPay Fullservice
+methods list, they will be showed as “*HiPay Enterprise {payment
+method}*”, for exemple: *HiPay Enterprise Sofort, HiPay Enterprise
 Sisal, etc.*
 
 ### Configuration parameters
@@ -399,16 +399,16 @@ capture the transaction:
     captured and you can create your shipment.
 -   If the configuration allows the creation of invoice, click on the
     invoice and on “*capture”* button. This will send the capture
-    information to HiPay Fullservice TPP server. If successful, the
+    information to HiPay Enterprise TPP server. If successful, the
     invoice status changes to “*Paid*”.
 
-You can also do the “*capture*” directly on your HiPay Fullservice TPP
+You can also do the “*capture*” directly on your HiPay Enterprise TPP
 BackOffice. The invoice will be created automatically on your Magento
 BackOffice.
 
 ##Refund
 
-HiPay Fullservice TPP allows a refund online. To do this, simply create
+HiPay Enterprise TPP allows a refund online. To do this, simply create
 a "*Credit memo*" on the Invoice (not from the order).
 
 ![refund](images/media/image12.png)
@@ -513,22 +513,22 @@ force the payment immediately :
 
 ![](images/media/image16.png)
 
-##HiPay Fullservice Credit Card API 
+##HiPay Enterprise Credit Card API 
 
 ![](images/media/image17.png)
 
-##HiPay Fullservice Credit Card Hosted Page with OneClick 
+##HiPay Enterprise Credit Card Hosted Page with OneClick 
 
 ![](images/media/image18.png)
 
-##HiPay Fullservice Hosted Page Split Payment 
+##HiPay Enterprise Hosted Page Split Payment 
 
 ![](images/media/image19.png)
 
-##HiPay Fullservice XXXX (other payment methods) 
+##HiPay Enterprise XXXX (other payment methods) 
  
 ![](images/media/image20.png)
 
-##HiPay Fullservice Hosted Page with IFrame 
+##HiPay Enterprise Hosted Page with IFrame 
 
 ![](images/media/image21.jpg)

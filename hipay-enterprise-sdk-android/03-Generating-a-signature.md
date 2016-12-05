@@ -1,6 +1,6 @@
 # Generating a server-side signature 
 
-In order to perform some actions with the HiPay Fullservice SDK for Android, such as making a payment or getting transaction details, you need to generate a *signature* on the server side beforehand.
+In order to perform some actions with the HiPay Enterprise SDK for Android, such as making a payment or getting transaction details, you need to generate a *signature* on the server side beforehand.
 
 The *signature* will be used as an additional **parameter** for these `GatewayClient` methods: 
 
@@ -8,7 +8,7 @@ The *signature* will be used as an additional **parameter** for these `GatewayCl
 - Initialize a hosted payment page,
 - Get transaction details.
 
-The signature parameter is necessary for security purposes and must be generated on your server beforehand for each order to be paid on the HiPay Fullservice SDK for Android. You can get more details about these methods in the ["Advanced usage"](#usage-making-payments-core-wrapper-advanced-integration) section.
+The signature parameter is necessary for security purposes and must be generated on your server beforehand for each order to be paid on the HiPay Enterprise SDK for Android. You can get more details about these methods in the ["Advanced usage"](#usage-making-payments-core-wrapper-advanced-integration) section.
 
 ## Signature calculation
 
@@ -53,9 +53,9 @@ signature = hashlib.sha1(orderId + '{0:.2f}'.format(amount) + currency + passPhr
 print(signature.hexdigest())
 ```
 
-The codes above generate a signature which is to be used by the HiPay Fullservice SDK for Android.
+The codes above generate a signature which is to be used by the HiPay Enterprise SDK for Android.
 
-To get the **secret passphrase** of your account, go to the "Integration" section of your HiPay Fullservice back office, then to "Security Settings".
+To get the **secret passphrase** of your account, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".
 
 ![Secret pass phrase example](images/demo/passphrase.png)
 

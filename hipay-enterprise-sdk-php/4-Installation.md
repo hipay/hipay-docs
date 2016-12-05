@@ -2,7 +2,7 @@
 
 Before starting the installation, please read all the instructions and make sure you've gone through the Prerequisites and recommendations section.
 
-It is recommended to use Composer to install the HiPay Fullservice SDK for PHP.
+It is recommended to use Composer to install the HiPay Enterprise SDK for PHP.
 
 ## How to use Composer
 

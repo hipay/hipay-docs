@@ -2,11 +2,11 @@
 
 ## How it works
 
-When an order is created with a HiPay Fullservice split payment method, x installments are created (x depending on the selected payment profile).
+When an order is created with a HiPay Enterprise split payment method, x installments are created (x depending on the selected payment profile).
 
 A split order is validated when the payment is captured.
 Upon payment capture, x installments are generated for this order.
-The order is fully invoiced (but not fully captured in the HiPay Fullservice platform) and you can get ready for shipment.
+The order is fully invoiced (but not fully captured in the HiPay Enterprise platform) and you can get ready for shipment.
 
 The first installment is always debited on the payment date in Capture mode or when you capture manually in Authorization mode.
 
@@ -14,10 +14,10 @@ Then, with a Cron task (please see [[Cron configuration and task information]]),
 
 ## Split payment methods
 
-The HiPay Fullservice module for Magento 2 includes two payment methods for split payments:
+The HiPay Enterprise module for Magento 2 includes two payment methods for split payments:
 
-* HiPay Fullservice Hosted Page Split Payment,
-* HiPay Fullservice Credit Card Split Payment,
+* HiPay Enterprise Hosted Page Split Payment,
+* HiPay Enterprise Credit Card Split Payment,
 
 based on the **HOSTED** or **API** mode.  
 
@@ -27,7 +27,7 @@ Before using them, you need to create payment profiles.
 
 A payment profile defines how the payment is split.
 
-In your Magento Admin Panel, select `Sales` => [HiPay Fullservice] `Payment Profiles`.
+In your Magento Admin Panel, select `Sales` => [HiPay Enterprise] `Payment Profiles`.
 
 ![legend](images/payment_profiles_list.png)
 
@@ -65,7 +65,7 @@ Specific configuration:
 
 ### Split payment overview
 
-A split payment overview is available in your Magento Admin Panel in `Sales => [HiPay Fullservice] Split Payment`.
+A split payment overview is available in your Magento Admin Panel in `Sales => [HiPay Enterprise] Split Payment`.
 
 For each installment, you can edit, delete or pay it immediately.  
 You can also change the payment date or the amount to pay.

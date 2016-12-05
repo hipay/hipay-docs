@@ -2,7 +2,7 @@
 
 Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
-It's recommended to use *Gradle* to install the HiPay Fullservice SDK for Android.
+It's recommended to use *Gradle* to install the HiPay Enterprise SDK for Android.
 
 ## Using Gradle (recommended)
 
@@ -20,7 +20,7 @@ You need to provide the SDK with a few parameters, such as the credentials and t
 
 ## Credentials
 
-Get a valid HiPay Fullservice API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
+Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
 ## Setting up the configuration
 

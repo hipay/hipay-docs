@@ -1,10 +1,10 @@
-# HiPay Fullservice module for PrestaShop 1.4.x - 1.5.x - 1.6.x
+# HiPay Enterprise module for PrestaShop 1.4.x - 1.5.x - 1.6.x
 
 ## Preamble
-The **HiPay Fullservice module for PrestaShop 1.4.x - 1.5.x - 1.6.x** is a PHP module which allows you to accept payments in your PrestaShop online store, offering innovative features to reduce shopping cart abandonment rates, optimize success rates and enhance the purchasing process on merchants’ sites to significantly increase business volumes without additional investments in the PrestaShop e-commerce CMS solution.
+The **HiPay Enterprise module for PrestaShop 1.4.x - 1.5.x - 1.6.x** is a PHP module which allows you to accept payments in your PrestaShop online store, offering innovative features to reduce shopping cart abandonment rates, optimize success rates and enhance the purchasing process on merchants’ sites to significantly increase business volumes without additional investments in the PrestaShop e-commerce CMS solution.
 
 ## Objective
-This document describes how to configure and use the HiPay Fullservice module
+This document describes how to configure and use the HiPay Enterprise module
 for your PrestaShop webshop.
 
 ## Table of contents

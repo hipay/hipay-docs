@@ -6,8 +6,8 @@ You need to follow all the steps below before integrating the payment workflow.
 
 First and foremost, you need to add this line in order to use the SDK in an Objective-C app:
 
-```Objective-C
-#import <HiPayFullservice/HiPayFullservice.h>
+```objectivec
+#import <HiPayEnterprise/HiPayEnterprise.h>
 ```
 
 ## Step 2 — Configure the SDK
@@ -16,7 +16,7 @@ Then, you need to provide the SDK with a few parameters, such as the credentials
 
 ### Credentials
 
-Get a valid HiPay Fullservice API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) page.
+Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) page.
 
 ### Determine your app URL scheme
 
@@ -55,7 +55,7 @@ Eventually, you will need to use one of the values defined in the "URL Schemes" 
 The following code allows you to configure the SDK. We recommend putting it in your *App Delegate*'s `application:didFinishLaunchingWithOptions:` method implementation.
 
 #### Objective-C
-```Objective-C
+```objectivec
 // AppDelegate.m — application:didFinishLaunchingWithOptions:
 
 [[HPFClientConfig sharedClientConfig] setEnvironment:HPFEnvironmentStage
@@ -87,7 +87,7 @@ If the SDK presents your users with a web page (for 3-D Secure or specific payme
 In order for the SDK to be aware of the redirection and to receive the callback data, you need to implement the `application:handleOpenURL:` method in your *App Delegate*, as follows:
 
 ### Objective-C
-```Objective-C
+```objectivec
 // AppDelegate.m
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -104,6 +104,6 @@ func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
 }
 ```
 
-And that's it: the HiPay Fullservice SDK for iOS is properly configured.
+And that's it: the HiPay Enterprise SDK for iOS is properly configured.
 
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899

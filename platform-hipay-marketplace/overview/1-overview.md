@@ -74,15 +74,15 @@ All our solutions have been designed on a one-stop shop model to help
 you manage your transactions via a single interface for all payment
 methods available in 150 currencies.
 
-Therefore, HiPay Marketplace is based on two complementary platforms: cash-in is managed by HiPay Fullservice TPP, and cash-out by HiPay Wallet.
+Therefore, HiPay Marketplace is based on two complementary platforms: cash-in is managed by HiPay Enterprise TPP, and cash-out by HiPay Wallet.
 
-**HiPay Fullservice TPP: to simplify your cash-in transactions**
+**HiPay Enterprise TPP: to simplify your cash-in transactions**
 
-As a payment hub, HiPay Fullservice TPP facilitates fund collection. It
+As a payment hub, HiPay Enterprise TPP facilitates fund collection. It
 also offers the possibility to manage fund acquisition for you.
 Moreover, you benefit from automated financial reconciliation.
 
-With HiPay Fullservice TPP, HiPay Marketplace is even easier to
+With HiPay Enterprise TPP, HiPay Marketplace is even easier to
 implement!
 
 **HiPay Wallet: to easily manage e-money**
@@ -147,7 +147,7 @@ The implementation of HiPay Marketplace involves establishing connections betwee
 
 ![HiPay Marketplace Cash-in transactions](images/image6.png)
 
-*Cash-in transactions: here is a brief recap of APIs for HiPay Fullservice TPP*
+*Cash-in transactions: here is a brief recap of APIs for HiPay Enterprise TPP*
   
 | API | Description
 | --- | ---
@@ -156,7 +156,7 @@ The implementation of HiPay Marketplace involves establishing connections betwee
 | Initialize a hosted payment page | Used to generate a card payment page
 | Request information | Provides information on an already effected transaction about an existing transaction (status, currency, date, etc.)
 
-Please refer to technical documentation *HiPay Fullservice - Payment Gateway API documentation* for further details.
+Please refer to technical documentation *HiPay Enterprise - Payment Gateway API documentation* for further details.
 
 ![Cash-out transactions](images/image7.png)
 
@@ -266,7 +266,7 @@ following APIs that are optional, but strongly suggested, for:
 - Account balances, using the *getBalance* API;
 - Transaction history, using the *getTransactions* API.
 
-Please refer to technical documentation *HiPay Direct - API Integration Guide - Cash-out approach (Chapter 3. SOAP API Resources)* for further details.
+Please refer to technical documentation *HiPay Professional - API Integration Guide - Cash-out approach (Chapter 3. SOAP API Resources)* for further details.
 
 # Server-to-server notifications
 
@@ -281,7 +281,7 @@ notifications on your server to HiPay technical support.
 
 ![Cash-in Server-to-Server notifications](images/image8.png)
 
-Please refer to technical documentation *HiPay Fullservice - Payment Gateway API documentation* for further details.
+Please refer to technical documentation *HiPay Enterprise - Payment Gateway API documentation* for further details.
 
 ## Cash-out server-to-server notifications
 
@@ -305,7 +305,7 @@ Types of possible notification status (represented by the value of $status):
 
 ## On HiPay’s side
 
-Fund acquisition via HiPay Fullservice TPP:
+Fund acquisition via HiPay Enterprise TPP:
 
 -   Fund acquisition and processing
 -   Fraud monitoring

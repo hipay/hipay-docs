@@ -1,61 +1,61 @@
 # Module configuration
 
-Before using the HiPay Fullservice module for Magento 2, the following settings are required and must be configured:
+Before using the HiPay Enterprise module for Magento 2, the following settings are required and must be configured:
 
 1. Credentials configuration,
 2. Fraud emails configuration.
 
 In your Magento Admin Panel, select:  
 ```
-Stores => Configuration => Sales [HiPay Fullservice]
+Stores => Configuration => Sales [HiPay Enterprise]
 ```
 
 Then, you need to enter your credentials, provided by HiPay.
 
-![legend](images/fullservice_configuration.png)
+![legend](images/enterprise_configuration.png)
 
 
 ## Credentials
 
-### HiPay Fullservice credentials configuration  
-HiPay Fullservice API credentials are required to use the HiPay Fullservice module for Magento 2.
+### HiPay Enterprise credentials configuration  
+HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
 
 |Field|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (production account)|Enter the same value as in your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (test account)|Enter the same value as in your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 
 ![legend](images/credentials_conf.png)
 
-### HiPay Fullservice credentials Direct Post configuration
+### HiPay Enterprise credentials Direct Post configuration
 
-Generated in your HiPay Fullservice back office ("Integration" => "Security Settings" => "Api credentials" => "Credentials accessibility": Public), these newly created HiPay Fullservice API credentials are required to use the HiPay Fullservice module for Magento 2.
+Generated in your HiPay Enterprise back office ("Integration" => "Security Settings" => "Api credentials" => "Credentials accessibility": Public), these newly created HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
 
 |Field|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 
 ![legend](images/credentials_js.png)
 
-### HiPay Fullservice credentials MO/TO configuration  
+### HiPay Enterprise credentials MO/TO configuration  
 MO/TO API credentials are optional.  
 They are required only if you need to pay an order created in your Magento Admin Panel.
 
 |Field|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (production account)|Enter the same value as in your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (test account)|Enter the same value as in your HiPay Fullservice back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 
 ![legend](images/credentials_moto.png)
 
