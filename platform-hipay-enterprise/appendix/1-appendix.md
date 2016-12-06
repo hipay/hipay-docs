@@ -65,8 +65,6 @@ The following diagram shows the typical flow of a transaction through the differ
 
 ![alt text](images/media/diagram.png "Logo Title Text 1")
 
---------
-
 #Address Verification Service
 
 The Address Verification Service (AVS) allows e-commerce merchants to check a cardholder&#39;s billing address. AVS provides merchants with a key indicator that helps verify whether or not a transaction is valid.
@@ -84,8 +82,6 @@ The table below lists the available result codes as returned in the API response
 | `U` | Unavailable | Address information is unavailable for that account number, or the card issuer does not support AVS.|
 | `R` | Retry | The issuer&#39;s authorization system is unavailable; please try again later. |
 | `S` | Not Supported | The card issuer does not support AVS. |
-
---------
 
 #Card Verification Code
 
@@ -105,8 +101,6 @@ The table below lists the available result codes as returned in the API response
 | `P` | Not processed | The CVC request was not processed. |
 | `S` | Missing | The CVC should be on the card, but the cardholder has reported that it is not. |
 | `U` | Not supported | The card issuer does not support CVC. |
-
---------
 
 #Payment products
 
@@ -155,8 +149,6 @@ Debit cards (Category code: debit-card)
 | `webmoney-transfer` | WebMoney Transfer | No | No | Only available in RUB currency |
 | `yandex` | Yandex.Money | No | No | Only available in RUB currency |
 | `paypal` | PayPal | Yes | No | &nbsp; |
-
---------
 
 #Decline reasons and error codes
 
@@ -293,8 +285,6 @@ Should an error occur, here is a list of all the possible related codes and mess
 | `4010307` | Unauthorized IP address country | The IP address country used is not authorized. |
 | `4010309` | Card not in authorizer&#39;s database | The credit card number is not in an authorized cards database. |
 | `4010310` | 3DS required but not used | The transaction requires 3DS authentication but the credit card is not enrolled. |
-
---------
 
 #Electronic Commerce Indicator
 
