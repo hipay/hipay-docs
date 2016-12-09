@@ -1,37 +1,37 @@
-#HiPay Enterprise Cartridge for Demandware
+#HiPay Enterprise Cartridge for Salesforce Commerce Cloud
 
 #General information
 
-The HiPay cartridge, available on the Demandware (DW) LINK Marketplace,
+Salesforce Commerce Cloud was formerly known as Demandware. The HiPay cartridge, available on the Salesforce Commerce Cloud (SCC) LINK Marketplace,
 allows merchants to offer HiPay Enterprise as a payment solution on
-their Demandware storefronts.
+their Salesforce Commerce Cloud storefronts.
 
 The cartridge provides several options for entering payment information
 (credit card or debit card information) during the checkout process:
 
--   through a hosted page, external to the Demandware platform,
--   or directly on merchants’ Demandware storefronts, through API module calls.
+-   through a hosted page, external to the Salesforce Commerce Cloud platform,
+-   or directly on merchants’ Salesforce Commerce Cloud storefronts, through API module calls.
 
 Additionally, a full range of other payment methods are supported.
 
-To enable a Demandware store to use HiPay’s payment services, the
+To enable a Salesforce Commerce Cloud store to use HiPay’s payment services, the
 developer has to install the cartridge and integrate it to the online
 store following the instructions provided in this document.For the integration to work properly, merchants should first contact
 HiPay and fill in an account request on
 [*http://www.hipayfullservice.com/*](http://www.hipayfullservice.com/).
 
 HiPay can provide merchants with both test and production accounts. The configuration described in this document should be done in both
-Demandware Business Manager and HiPay’s back office.
+Salesforce Commerce Cloud Business Manager and HiPay’s back office.
 
 The integration package contains the following elements:
 
 -   a cartridge called `int_hipay` – which is the core integration cartridge
--   a cartridge called `bm_hipay` – which is an extension for the cartridge within Demandware Business Manager
+-   a cartridge called `bm_hipay` – which is an extension for the cartridge within Salesforce Commerce Cloud Business Manager
 -   a `site-template` folder with metadata
 -   this document.
 
 The integration is based on the SiteGenesis demo store provided by
-Demandware. The cartridge is compatible with SiteGenesis 16.7 and might require
+Salesforce Commerce Cloud. The cartridge is compatible with SiteGenesis 16.7 and might require
 updates and reviews for future versions and releases of SiteGenesis.
 
 #Component overview
@@ -39,7 +39,7 @@ updates and reviews for future versions and releases of SiteGenesis.
 ##Functional overview
 
 This section describes the functionalities of the HiPay cartridge to
-merchants who will integrate it in their Demandware environment.
+merchants who will integrate it in their Salesforce Commerce Cloud environment.
 
 ###Frontend and Business Manager (BM) functionalities
 
@@ -63,7 +63,7 @@ storefront look-and-feel.
 **iFrame integration**
 
 The cartridge enables merchants to use the HiPay payment solution via an
-iFrame integrated in their own Demandware implementation.
+iFrame integrated in their own Salesforce Commerce Cloud implementation.
 
 **Multiple payment methods**
 
@@ -79,8 +79,8 @@ called HiPay Enterprise API.
 
 The cartridge provides several options for entering payment information
 (credit card or debit card information) during the checkout process:
-through a hosted page, external to the Demandware platform, or directly
-on the merchants’ Demandware storefront, through API module calls.
+through a hosted page, external to the Salesforce Commerce Cloud platform, or directly
+on the merchants’ Salesforce Commerce Cloud storefront, through API module calls.
 
 Additionally, a full range of other payment methods are supported.
 
@@ -94,7 +94,7 @@ redirect merchants’ customers to a special page hosted by the issuing
 card company. The cartridge enables the redirection to that page.
 
 After the authentication process, the cartridge ensures that the result
-is transferred back to Demandware so that the right message is displayed
+is transferred back to Salesforce Commerce Cloud so that the right message is displayed
 on the frontend and that the order status is set accordingly. Merchants can configure specific rules for the use of 3-D Secure. These
 rules can be edited or deleted in the configuration parameter “rules 3d
 secure”.
@@ -170,10 +170,10 @@ Compared to the API, the redirect model offers much more payment methods
 as well as other functionalities. 
 
 Payment results should be sent asynchronously to a “notification URL” on
-the merchant (DW) site. Payments can change status over time
+the merchant (SCC) site. Payments can change status over time
 (Authorized, Refunded, Cancelled…) on HiPay’s side; statuses are
-automatically updated on Demandware’s side by sending these
-notifications. HiPay Enterprise sends notifications to Demandware for
+automatically updated on Salesforce Commerce Cloud’s side by sending these
+notifications. HiPay Enterprise sends notifications to Salesforce Commerce Cloud for
 each event that occurred/transaction that changed. In order to handle
 all the notifications, notes are added to the order.
 
@@ -202,15 +202,15 @@ options.
     HiPay’s payment method
 -   a redirect to the HiPay hosted payment pages after clicking the
     “SUBMIT ORDER” button on the Order Confirmation page
--   a return to the DW Order Summary page after successful payment
+-   a return to the SCC Order Summary page after successful payment
     authorization 
--   a return to the DW Order Confirmation page, if the customer
+-   a return to the SCC Order Confirmation page, if the customer
     cancelled the payment on the HiPay hosted payment pages
--   a return to the DW Order Confirmation page with an error message
+-   a return to the SCC Order Confirmation page with an error message
     displayed, if the payment was refused 
 
 **If HiPay API payments are enabled: **
--   credit card details are entered and stored in merchants’ DW store
+-   credit card details are entered and stored in merchants’ SCC store
 -   for the other payment methods, merchants can still redirect
     customers to the HiPay hosted payment pages, but can disable credit
     cards via the configuration of their skin
@@ -223,7 +223,7 @@ options.
 -   If for a payment method on a hosted page, there is an emulation
     page, the system should be tested for all options (e.g.: Cancel,
     Exception, Decline).
--   When making a payment, a Demandware Order object changes its status
+-   When making a payment, a Salesforce Commerce Cloud Order object changes its status
     as follows:
     -   **CREATED** – the iFrame or Hosted page has been shown; the basket
         has been cleared; the order may stay in this status if the
@@ -234,7 +234,7 @@ options.
     -   **NEW** – the order in the iFrame or Hosted page has been accepted
         – the order has changed its status.
 
-    -   **OPEN** – the order has been viewed in DW Business Manager after
+    -   **OPEN** – the order has been viewed in SCC Business Manager after
         being in status NEW.
 
     -   **FAILED** – all cases of Cancel and Decline.
@@ -255,7 +255,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	5.  A HiPay hosted page is opened and the customer enters the card details.
 	6.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	7.  The customer can verify the Order Summary information.
-	8.  The merchant can verify the Order status in DW BM.
+	8.  The merchant can verify the Order status in SCC BM.
 	9.  The merchant can verify the information in the HiPay Enterprise account.
                                                                                                                                                                
 **Please note that a similar flow can be done for guest checkout.**
@@ -278,7 +278,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	7.  After successful identification, the customer clicks on **Back to Payment**.
 	8.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	9.  The customer can verify the Order Summary information.
-	10. The merchant can verify the Order status in DW BM.
+	10. The merchant can verify the Order status in SCC BM.
 	11. The merchant can verify the information in the HiPay Enterprise account.
                                                                                                                                                                                
 **Please note that a similar flow can be done for guest checkout.**
@@ -299,7 +299,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	6.  The customer enters the payment details.
 	7.  After successful payment, the customer is redirected to the Summary page and the order confirmation message is successfully loaded.
 	8.  The customer can verify the Order Summary information.
-	9.  The merchant can verify the Order status in DW BM – on the Order screen, open the Payment tab to verify the payment information.
+	9.  The merchant can verify the Order status in SCC BM – on the Order screen, open the Payment tab to verify the payment information.
 	10. The merchant can verify the information in the HiPay Enterprise account.
 
 **Please note that a similar flow can be done for guest checkout.**
@@ -317,14 +317,14 @@ The following features are out of scope:
 
 ##Compatibility
 
-The HiPay integration cartridge is compatible with Demandware version
+The HiPay integration cartridge is compatible with Salesforce Commerce Cloud version
 16.7 or higher.
 
 ##Payment data privacy
 
 If only the redirect method is used, all payment data are entered on the
 HiPay hosted pages by the customer and no credit card data will be
-stored in Demandware (except the brand of the card being used).
+stored in Salesforce Commerce Cloud (except the brand of the card being used).
 
 Examples:
 
@@ -351,7 +351,7 @@ The following steps are needed to complete the integration:
 -   Change and import “site-template.zip” (system objects).
 -   Make the required code changes.
 -   Configure your merchant’s HiPay account in HiPay’s back office.
--   Configure HiPay’s parameters in Demandware.
+-   Configure HiPay’s parameters in Salesforce Commerce Cloud.
 -   Test.
 
 ##Setup
@@ -359,7 +359,7 @@ The following steps are needed to complete the integration:
 ###Installation
 
 Install the `int_hipay`, `bm_hipay` and `app_hipay` cartridges from
-the distributive zip-archive in a standard way using Demandware
+the distributive zip-archive in a standard way using Salesforce Commerce Cloud
 UX-studio.
 
 ###Metadata import
@@ -414,7 +414,7 @@ the existing fields.
 
 	-   **HiPay API Signature Passphrase –** API Signature passphrase
     configured in HiPay’s back office, used to verify the requests made
-    to DW.
+    to SCC.
 
 	-   **Payment Action –** Please refer to *HiPay TPP – Payment Gateway
     API* documentation, chapter 3.1 *Request a New Order (Order
@@ -1197,7 +1197,7 @@ capture amounts for orders already authorized.
 
 ![](images/media/image28.png)
 
-- Partial or full captures can be requested. If the requested amount is captured, a HiPay notification will be sent to Demandware and the **Captured amount** will be updated too.
+- Partial or full captures can be requested. If the requested amount is captured, a HiPay notification will be sent to Salesforce Commerce Cloud and the **Captured amount** will be updated too.
 
 **HiPay Site Preferences**
 
@@ -1212,7 +1212,7 @@ Please find hereafter the options for the HiPay configuration.
 |HiPay Operation Mode |           hosted *(Hosted page)*<br/>iframe (iFrame)<br/>api (API) |  hosted *(Hosted page)* | Defines which operation payment mode to use
 |Enable Tokenization Test Mode|   true / false|false|Test Mode: If enabled, the module will use the HiPay Enterprise test platform
 |3-D Secure|0 *(Bypass 3-D Secure authentication)*<br/>1 (3-D Secure authentication,<br/>if available)<br/>2 (3-D Secure authentication mandatory)|0 *(Bypass 3-D Secure authentication)*|Allows the activation of 3-D Secure if the card has been enrolled
-|HiPay API Signature Passphrase|String|-|API Signature passphrase configured in HiPay’s back office to verify the requests made to DW
+|HiPay API Signature Passphrase|String|-|API Signature passphrase configured in HiPay’s back office to verify the requests made to SCC
 |Payment Action|Sale *(Authorization * *+ Capture)* Authorization (Authorization only)|-|Please refer to *HiPayTPP-GatewayAPI* documentation, chapter 3.1 *Request a New Order (Order Parameters – operation)*
 |HiPay CSS content|Text|hipaycss|HiPay’s content with custom CSS
 |Display card selector|true / false|false|Enables/disables the payment method selector on iFrame and Hosted pages
@@ -1322,8 +1322,8 @@ available:
 
 -   service-HIPAY-REST-\*service\*-blade1-3-appserver-\*date\*.log –
     logs HiPay services specific information
--   error-blade1-3-appserver-\*date\*.log – logs Demandware errors
--   customerror-blade1-3-appserver-\*date\*.log – logs Demandware custom
+-   error-blade1-3-appserver-\*date\*.log – logs Salesforce Commerce Cloud errors
+-   customerror-blade1-3-appserver-\*date\*.log – logs Salesforce Commerce Cloud custom
     errors
 
 All of these can be found in: **Administration &gt; Site Development
