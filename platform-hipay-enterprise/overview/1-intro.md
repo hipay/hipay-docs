@@ -268,7 +268,7 @@ The following table lists and describes the response fields received on the noti
 
 | Field name   |      Description    |
 |----------|:-------------:|
-|`state`|Transaction state. The value must be from the following list: <br/>- `completed`<br/>- `pending`<br/>- `declined`<br/>- `error`<br/> For further details, please refer to the [Transaction workflow section.](#transaction-workflow)
+|`state`|Transaction state. The value must be from the following list: <br/>- `completed`<br/>- `pending`<br/>- `declined`<br/>- `error`<br/> For further details, please refer to the [Transaction workflow section.](#server-to-server-notifications-transaction-workflow)
 |`reason` <br/>- `code` <br/>- `message`|Optional element. Reason why the transaction was declined.<br/>- code: Decline reason code <br/>- message: Decline reason description Possible decline reasons can be found in the [Decline reasons and error codes section.](../appendix/#decline-reasons-and-error-codes)
 |`test`|True if the transaction is a test transaction; otherwise false
 |`mid`|Your merchant account number (issued to you by HiPay Enterprise)
@@ -305,7 +305,15 @@ The following table lists and describes the response fields received on the noti
 
 | Field name   |      Description    |
 |----------|:------------:|
-|`token`|Card token |`brand`|Card brand (e.g., VISA, MASTERCARD, AMERICAN EXPRESS, MAESTRO).|`pan`| Card number (up to 19 characters)<br/>Please note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., 549619******4769).|`card_holder`|Cardholder's name|`card_expiry_month`|Card expiry month (2 digits)|`card_expiry_year`|Card expiry year (4 digits)|`issuer`|Card issuing bank name<br/>Do not rely on this value to remain static over time. Bank names may change due to acquisitions and mergers.|`country`|Bank country code where the card was issued.<br/>This two-letter country code complies with ISO 3166-1 (alpha 2).
+|`token`|Card token 
+|`brand`|Card brand (e.g., VISA, MASTERCARD, AMERICAN EXPRESS, MAESTRO).
+|`pan`| Card number (up to 19 characters)<br/>Please note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., 549619******4769).
+|`card_holder`|Cardholder's name
+|`card_expiry_month`|Card expiry month (2 digits)
+|`card_expiry_year`|Card expiry year (4 digits)
+|`issuer`|Card issuing bank name<br/>Do not rely on this value to remain static over time. Bank names may change due to acquisitions and mergers.
+|`country`|Bank country code where the card was issued.<br/>This two-letter country code complies with ISO 3166-1 (alpha 2).
+
 **QIWI payments**: The following table lists and describes the response fields returned for transactions by VISA QIWI Wallet.
 
 | Field name   |      Description    |
@@ -490,7 +498,8 @@ First of all, you need to set a secret passphrase in your HiPay Enterprise back 
 2. The value can’t be empty,
 3. The parameter must be sorted in alphabetical order.
 
-- Algorithm:	- a.	paramC = val3
+- Algorithm:
+	- a.	paramC = val3
 	- paramA = val1
 	- paramB = val2
 	- SHA signature = `SHA1(paramAval1<passphrase>paramBval2<passphrase>paramCval3<passphrase>)`
