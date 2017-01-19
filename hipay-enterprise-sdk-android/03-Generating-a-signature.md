@@ -100,7 +100,7 @@ public void onClick(View view) {
     	                request.setAmount(Float.parseFloat(amount));
     	                request.setCurrency(currency);
     	
-                        PaymentProductsActivity.start(MyActivity.this, 
+                        PaymentScreenActivity.start(MyActivity.this, 
                             request, 
                             signature, 
                             null);
@@ -123,4 +123,4 @@ public void onClick(View view) {
 ```
 
 For the sake of this example, we assume that the response is in JSON format.
-Once you get the signature, you can create a `PaymentPageRequest` with the necessary parameters and then present the `PaymentProductsActivity` screen. You will get more details about the *payment screen* in the next sections.
+Once you get the signature, you can create a `PaymentPageRequest` with the necessary parameters and then present the `PaymentScreenActivity` screen. You will get more details about the *payment screen* in the next sections.
