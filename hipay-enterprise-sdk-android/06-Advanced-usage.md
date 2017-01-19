@@ -167,3 +167,19 @@ new GatewayClient(this)
 ### Implementation note 
 The *signature* parameter is required for security purposes.  
 Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) for details.
+
+### Card storage feature
+
+The card storage feature allows to register a `PaymentCardToken` object in the *SharedPreferences* object for your application, necessary to use the 1-click payment for your customers.
+
+Since the card storage option is turned ON, you have access to these three `PaymentCardTokenDatabase` class methods:
+
+To get every tokens associated to a currency :  
+`getPaymentCardTokens(Context, String)` 
+
+To remove a specific token associated to a currency :  
+`delete(Context, PaymentCardToken, String)` 
+
+To remove every tokens located in the iOS device keychain :  
+`clearPaymentCardTokens(Context)`
+

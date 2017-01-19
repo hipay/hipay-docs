@@ -37,7 +37,8 @@ public class DemoActivity extends AppCompatActivity {
          
                 ClientConfig.Environment.Stage,
                 "YOUR API USERNAME",
-                "YOUR API PASSWORD"
+                "YOUR API PASSWORD",
+                true
         );
      }
  }
@@ -46,4 +47,7 @@ public class DemoActivity extends AppCompatActivity {
 
 Do not forget to **replace the username and password arguments with your API username and password**.
 
+The last parameter is the Payment card storage option.  
+You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page. 
+ 
 Once your app goes live, you need to set the environment to `Environment.Production`.
