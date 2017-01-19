@@ -180,6 +180,6 @@ To get every tokens associated to a currency :
 To remove a specific token associated to a currency :  
 `delete(Context, PaymentCardToken, String)` 
 
-To remove every tokens located in the iOS device keychain :  
+To remove every tokens located in your SharedPreferences :  
 `clearPaymentCardTokens(Context)`
 

@@ -71,7 +71,7 @@ public class DemoActivity extends AppCompatActivity {
     	 * screen, using the payment page request, the signature 
     	 * and the above custom theme,
          * assuming that the signature is not null */
-    	PaymentProductsActivity.start(this, request, mSignature, customTheme);
+    	PaymentScreenActivity.start(this, request, mSignature, customTheme);
     }
 }
 ```
