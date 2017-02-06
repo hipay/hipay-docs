@@ -6,7 +6,7 @@ Here is a list of the transaction statuses sent by server-to-server notification
 
 | **Status** | **Message** | **Description** |
 | --- | --- | --- |
-| `109` | Authentication Failed | The cardholder&#39;s authentication failed.The authorization request should not be submitted._An authentication failure may be a possible indication of a fraudulent user._ |
+| `109` | Authentication Failed | The cardholder&#39;s authentication failed. The authorization request should not be submitted._An authentication failure may be a possible indication of a fraudulent user._ |
 | `110` | Blocked | The transaction has been rejected for reasons of suspected fraud. |
 | `111` | Denied | The merchant denied the payment attempt. After reviewing the fraud screening result, the merchant decided to decline the payment. |
 | `112` | Authorized and Pending | The payment has been challenged by the fraud rule set and is pending. |
