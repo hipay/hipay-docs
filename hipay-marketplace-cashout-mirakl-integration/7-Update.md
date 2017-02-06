@@ -76,7 +76,7 @@ For example, if you want to update to version 2.1.0, you will have `tags/2.1.0`.
 
 ### 4. Install the dependencies
 
-Finally, install the dependencies using Composer:
+Install the dependencies using Composer:
 
 	$ composer install
 	
@@ -85,3 +85,13 @@ If new parameters were added into the project, you will be asked to provide valu
 You may check if the upgrade was successful by trying a simple command, for example: 
 
 	$ php bin/console vendor:process "7 days ago"
+
+### 5. Update the database
+
+Finally, go in the project directory: 
+
+	$ cd hipay_mirakl
+
+Run the following command:
+
+	$ php bin/console orm:schema-tool:update --dump-sql --force
