@@ -193,10 +193,6 @@ operational.
 Please note that submitted information cannot be modified through APIs,
 only by e-mail at <identification@hipay.com>.
 
-This step has to be performed before allowing the withdrawal if the
-following limits have been reached: €1,000 for cash-in, €2,500 for
-cash-out. However, it can be done after collecting the money.
-
 It is important to remember that the agent always remains in control of
 financial flows. The agent is also responsible for account integrity and
 must follow and ensure due process. To do so, our experts will support
