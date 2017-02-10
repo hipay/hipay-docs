@@ -20,7 +20,7 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 ## System
 
-- You must have at least PHP 5.3.9. The library has dependencies that need at least this version of PHP.
+- You must have at least PHP 5.6. The library has dependencies that need at least this version of PHP.
 - You should have Composer, which is the best way to install the library or do the integration.
 - You should use MySQL. Even though the integration should function with most RDBMSs, it was only tested with MySQL 5.5 through Doctrine.
 - A web server is required, with a URL accessible by HiPay with the HTTP verb POST so that server-to-server notifications can be sent by HiPay. It can be Apache, Nginx or any other choice, as long as the other mandatory requirements are met.
