@@ -16,7 +16,6 @@ guide.
 |`...`                   |Horizontal ellipsis points in sample code indicate the omission of part of the code (i.e. when you would normally expect additional code to appear, but such code would not be related to the example).
 |`$`                    |At the beginning of a command, indicates an operating system shell prompt.
 |`<placeholder>`   |Indicates placeholders, most often method or function parameters; these placeholders represent information that must be supplied by the implementation or the user. For command-line input, indicates parameter values.
-
 *Table 1: Typographic conventions used throughout this guide*
 
 ## Abbreviations used in tables
@@ -30,10 +29,9 @@ that define a data element.
 |------------- |-------------------------------------------------------------------------------------------------------------
 |`Field name`    |Name of the data element
 |`Format`        |Format of the element
-|`Length`        |Maximum size of the data element (i.e. a size of 6 means that the data value cannot exceed six characters) *Note: there is no limitation on the length of the size, when no size is specified.*
+|`Length`        |Maximum size of the data element (i.e. a size of 6 means that the data value cannot exceed six characters)           *Note: there is no limitation on the length of the size, when no size is specified.*
 |`Req.`          |Specifies whether an element is required or not.<br/>**M** = Mandatory -&gt; must always be provided. <br/>**C** = Conditional -&gt; requirement depends on the value or presence of other elements
 |`Description`   |Brief description of the data element and, where necessary, a list of valid values and element dependencies
-
 *Table 2: Description of data elements*
 
 |Format abbreviation   |Description                                                 |Example
@@ -44,7 +42,6 @@ that define a data element.
 |`R`                     |Decimal number with explicit decimal point, signed          |`12.34`
 |`DT`                    |Date in the format YYYY-MM-DD                               |`2017-01-31`
 |`TM`                    |Time in the format HH:MM with optional seconds (HH:MM:SS)   |`15:30`
-
 *Table 3: Available formats of data elements*
 
 ##Acronyms and abbreviations 
@@ -56,7 +53,6 @@ The following acronyms and abbreviations are used in this guide.
 |`REST`                   |Representational State Transfer
 |`KYC`                    |Know your customer
 |`NA`                     |Not applicable
-
 *Table 4: Acronyms and abbreviations*
 
 ##Response status codes
@@ -103,12 +99,11 @@ There are two endpoints (base URLs) to which you can make your API calls.
 |------------- |----------
 |`Stage`        |[*https://test-merchant.hipaywallet.com/api/identification*](https://test-merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
 |`Production`    |[*https://merchant.hipaywallet.com/api/identification*](https://merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
-
 *Table 5: Service endpoints*
 
 ##Format
 
-###JSON or XML
+**JSON | XML**
 
 The format is not mandatory, but you can choose the format of the received response.
 By default, the response is in JSON format.
@@ -123,10 +118,9 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |Label          |Description
 |------ |---------------|--------------
-|`1`    | ID proof      | Copy of a valid identification document<br/>e.g.: passport or ID card<br/>– 2 files accepted for front and back sides
+|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card<br/>– 2 files accepted for front and back sides*)
 |`2`    | Proof of address   |Proof of address issued within the last three months<br/>(e.g.: rent receipt, utility bill)
 |`6`    | Bank              | Bank account details (“RIB”/IBAN) / Account statement /…
-
 *Table 6: KYC documents for individuals*
 
 ### For professionals (corporations)
@@ -134,37 +128,34 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
   
 |Type   |Label               |Description
 |------ |----------------------- |--------------------------------------------------------------------------------------------------------------
-|`3`      |Identity card           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides)
+|`3`      |Identity card           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
 |`4`      |Company Registration    |Document certifying company registration issued within the last three months (Kbis extract)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
 |`6`      |Bank                    |Bank account details (“RIB”/IBAN) / Account statement /…
-
 *Table 7: KYC documents for professionals (corporations)*
 
 ### For professionals (persons)
 
 |Type   |**Label**              |**Description**
 |------ |---------------------- |---------------------------------------------------------------------------
-|`7`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides)
+|`7`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
 |`8`      |Company Registration   |Document certifying registration issued within the last three months (Kbis extract)
 |`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
 |`6`      |Bank                   |Bank account details (“RIB”/IBAN) / Account statement /…
-
 *Table 8: KYC documents for professionals (persons)*
 
 ### For associations
 
 |Type   |**Label**                  |**Description**
 |------ |-------------------------- |---------------------------------------------------------------------------
-|`7`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides)
+|`7`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
 |`11`     |President of association   |Document certifying who is the president of the association
 |`12`    |Official Journal           |Publication in the Official Journal
 |`13`     |Association status         |Document certifying the Association statutes
 |`6`      |Bank                       |Bank account details (“RIB”/IBAN) / Account statement /…
-
 *Table 9: KYC documents for associations*
 
-Only identification documents (types 1, 3 & 7) enable to upload two files for front and back sides (one per request).
+*Only identification documents (types 1, 3 & 7) enable to upload two files for front and back sides (one per request).
 
 **Please note:** each category of account also requires a document
 entitled “Identification of Controlling Stakeholders”, duly completed,
@@ -182,21 +173,19 @@ account different from the authenticated one.
 |--------------------------- |------------ |------------ |---------- |------------------------------------------------------------------------
 |`php-auth-subaccount-id`      |N            |12           |C          |Account ID of the HiPay account for which to upload the KYC documents
 |`php-auth-subaccount-login`   |AN           |255          |C          |Email login of the HiPay account for which to upload the KYC documents
-
 *Table 10: KYC document upload related header*
 
 ##Request parameters
 
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
-|`type`             |N            |12           |M          |Type of KYC document (see page 7 for a detailed description)
-|`file`             |AN           |255          |M          |KYC document to upload<br/>(1 document per request)<br/>- Accepted formats:<br/>`JPEG, JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
+|`type`             |N            |12           |M          |Type of KYC document (please see [here] (#types-of-kyc-documents) for a detailed description)
+|`file`             |AN           |255          |M          |KYC document to upload<br/>(1 document per request*)<br/>- Accepted formats:<br/>`JPEG, JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (types `1, 3 or 7`) <br/>- Optional for other KYC documents
 |`user_space`      |N            |12            |          |ID of the user space (deprecated)
-
 *Table 11: KYC document upload related parameters*
 
-For identification documents (types 1, 3 & 7), please make two
+*For identification documents (types 1, 3 & 7), please make two
 requests to upload one file for the front side and one file for the back
 side respectively.
 
@@ -416,7 +405,6 @@ calls.
 |------------- |----------
 |`Stage`        |[*https://test-merchant.hipaywallet.com/api/identification*](https://test-merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
 |`Production`    |[*https://merchant.hipaywallet.com/api/identification*](https://merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
-
 *Table 12: Service endpoints*
 
 ##Format 
@@ -439,7 +427,6 @@ You may use the Account ID or the Account email login to select an account diffe
 |--------------------------- |------------ |------------ |---------- |-------------------------------------------------------------------------------------------------------
 |`php-auth-subaccount-id`    |  N          |  12         |  C        | Account ID of the HiPay account for which to request the list of sent KYC documents and their status
 |`php-auth-subaccount-login` |  AN         |  255        |  C        | Email login of the HiPay account for which to request the list of sent KYC documents and their status
-
 *Table 13: KYC document status request related header*
 
 ### Example of a cURL request 
@@ -506,8 +493,7 @@ curl_close($curl);
 |`message`                  |Displays the message related to the code
 |`user_space`               |ID of the user space being verified
 |`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual check is being performed to identify the user space
-|`documents`                |All the required KYC documents for this user space:<br/>- type: please see page 7 for a detailed description<br/>- label: please see page 7 for a detailed description<br/>- status_code: please see table 15 hereafter for a detailed description<br/>- status_label: please see table 15 hereafter for a detailed description
-                          
+|`documents`                |All the required KYC documents for this user space:<br/>- type: please see [here] (#types-of-kyc-documents) for a detailed description<br/>- label: please see [here] (#types-of-kyc-documents) for a detailed description<br/>- status_code: please see table 15 hereafter for a detailed description<br/>- status_label: please see table 15 hereafter for a detailed description
 *Table 14: Response fields*
 
 ##Status codes and status labels
@@ -522,7 +508,6 @@ curl_close($curl);
 |`5`                |`Waiting`           | The document is being reviewed
 |`8`                |`Refused`           | The document has been refused
 |`9`                |`Waiting`           | A new review of the document is in progress
-
 *Table 15: Status codes and status labels*
 
 <span id="_Toc458697235" class="anchor"><span id="_Toc474760795"
@@ -615,7 +600,7 @@ If an error occurs, the API returns status code 4xx or 5xx, with a descriptive m
 </result>
 ```
 
-#Server-To-Server notifications 
+#Server-to-server notifications 
 
 ##What is a server-to-server notification?
 
@@ -635,10 +620,9 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 |`message`                 |Description of the status
 |`date`                    |Date of the notification (`YYYY-MM-DD`)
 |`time`                    |Time of the notification (`HH:MM:SS Time zone`)
-|`document_type`           |Type of KYC document<br/>(please see page 7 for a detailed description)
-|`document_type_label`     |Description of the document (please see page 7 for a detailed description)
+|`document_type`           |Type of KYC document<br/>(please see [here] (#types-of-kyc-documents) for a detailed description)
+|`document_type_label`     |Description of the document (please see [here] (#types-of-kyc-documents) for a detailed description)
 |`account_id`              |HiPay account ID for which the KYC was uploaded
-
 *Table 16: Response fields*
 
 ##Callback messages by document type 
@@ -664,7 +648,6 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 |`1,3,7`           |Valid but not certifiable
 |`2,6`             |Verified except holder’s first name
 |`1,2,3,4,6,7,8`   |Waiting
-
 *Table 17: Callback messages by document type*
 
 ##Response example 
