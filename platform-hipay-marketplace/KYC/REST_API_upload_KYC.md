@@ -179,7 +179,7 @@ account different from the authenticated one.
 
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
-|`type`             |N            |12           |M          |Type of KYC document (please see [here] (#types-of-kyc-documents) for a detailed description)
+|`type`             |N            |12           |M          |Type of KYC document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
 |`file`             |AN           |255          |M          |KYC document to upload<br/>(1 document per request*)<br/>- Accepted formats:<br/>`JPEG, JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (types `1, 3 or 7`) <br/>- Optional for other KYC documents
 |`user_space`      |N            |12            |          |ID of the user space (deprecated)
@@ -493,7 +493,7 @@ curl_close($curl);
 |`message`                  |Displays the message related to the code
 |`user_space`               |ID of the user space being verified
 |`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual check is being performed to identify the user space
-|`documents`                |All the required KYC documents for this user space:<br/>- type: please see [here] (#types-of-kyc-documents) for a detailed description<br/>- label: please see [here] (#types-of-kyc-documents) for a detailed description<br/>- status_code: please see table 15 hereafter for a detailed description<br/>- status_label: please see table 15 hereafter for a detailed description
+|`documents`                |All the required KYC documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
 *Table 14: Response fields*
 
 ##Status codes and status labels
@@ -620,8 +620,8 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 |`message`                 |Description of the status
 |`date`                    |Date of the notification (`YYYY-MM-DD`)
 |`time`                    |Time of the notification (`HH:MM:SS Time zone`)
-|`document_type`           |Type of KYC document<br/>(please see [here] (#types-of-kyc-documents) for a detailed description)
-|`document_type_label`     |Description of the document (please see [here] (#types-of-kyc-documents) for a detailed description)
+|`document_type`           |Type of KYC document<br/>(please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
+|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
 |`account_id`              |HiPay account ID for which the KYC was uploaded
 *Table 16: Response fields*
 
