@@ -17,7 +17,7 @@ You need an Izberg account. If you don't have one yet, check out their contact d
 
 You need a HiPay Enterprise account. The HiPay Enterprise platform will process payments of the end customers in a wide variety of payment methods (major credit and debit cards such as Visa, MasterCard and American Express as well as local payment methods).
 
-If you don't have an account yet, contact us on [the HiPay Enterprise website](http://www.hipayfullservice.com/).
+If you don't have an account yet, contact us on [the HiPay Enterprise website](https://hipay.com/).
 
 ## HiPay Marketplace details
 

@@ -18,7 +18,7 @@ To enable a Salesforce Commerce Cloud store to use HiPay’s payment services, t
 developer has to install the cartridge and integrate it to the online
 store following the instructions provided in this document.For the integration to work properly, merchants should first contact
 HiPay and fill in an account request on
-[*http://www.hipayfullservice.com/*](http://www.hipayfullservice.com/).
+[*https://hipay.com/*](https://hipay.com/).
 
 HiPay can provide merchants with both test and production accounts. The configuration described in this document should be done in both
 Salesforce Commerce Cloud Business Manager and HiPay’s back office.
