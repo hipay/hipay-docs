@@ -94,7 +94,7 @@ You can find more information in the [Card storage feature](#usage-making-paymen
 ![App URL schemes - Step 6](images/config/card_storage.png)    
 
 
-At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.
+At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.    
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
 
 
