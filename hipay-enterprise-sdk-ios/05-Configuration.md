@@ -10,6 +10,10 @@ First and foremost, you need to add this line in order to use the SDK in an Obje
 #import <HiPayFullservice/HiPayFullservice.h>
 ```
 
+In the case of a Swift project, you must rely on an Objective-C bridging header to expose this framework (Objective-C files).
+
+[https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
+
 ## Step 2 — Configure the SDK
 
 Then, you need to provide the SDK with a few parameters, such as the credentials and targeted environment.
