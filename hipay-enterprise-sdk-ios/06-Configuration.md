@@ -61,10 +61,10 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setEnvironment:HPFEnvironmentStage
                                       username:@"YOUR API USERNAME"
                                       password:@"YOUR API PASSWORD"
-                                      appURLscheme:@"myshoppingapp"
-                                      paymentCardStorageEnabled:YES];
+                                      appURLscheme:@"myshoppingapp"];
 
-[[HPFClientConfig sharedClientConfig] setTouchIDEnabled:YES];
+[[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
+[[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
 ```
 
 #### Swift
