@@ -80,16 +80,13 @@ HPFClientConfig.shared()
 
 HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
 
-HPFClientConfig.shared().isPaymentCardScanEnabled = false
+HPFClientConfig.shared().isPaymentCardScanEnabled = true
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
 
 
-
-
-The last parameter is the Payment card storage option. 
-Note that if you enable this option, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
+Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
 You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.
 
