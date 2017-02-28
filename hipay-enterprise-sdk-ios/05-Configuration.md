@@ -64,6 +64,7 @@ The following code allows you to configure the SDK. We recommend putting it in y
                                       appURLscheme:@"myshoppingapp"];
 
 [[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
+
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
 ```
 
@@ -71,17 +72,21 @@ The following code allows you to configure the SDK. We recommend putting it in y
 ```Swift
 // AppDelegate.swift — application:didFinishLaunchingWithOptions:
 
-HPFClientConfig.sharedClientConfig()
-    .setEnvironment(HPFEnvironment.Stage,
+HPFClientConfig.shared()
+    .setEnvironment(HPFEnvironment.stage,
     username: "YOUR API USERNAME",
     password: "YOUR API PASSWORD",
-    appURLscheme: "myshoppingapp",
-    paymentCardStorageEnabled: true)
+    appURLscheme: "myshoppingapp")
 
-HPFClientConfig.sharedClientConfig().setTouchIDEnabled(true)
+HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
+
+HPFClientConfig.shared().isPaymentCardScanEnabled = false
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
+
+
+
 
 The last parameter is the Payment card storage option. 
 Note that if you enable this option, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
