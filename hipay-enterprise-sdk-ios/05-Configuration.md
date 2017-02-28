@@ -88,16 +88,17 @@ Do not forget to **replace the username and password arguments with your API use
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
-You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.
+You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.    
 
 
-![App URL schemes - Step 6](images/config/card_storage.png)
+![App URL schemes - Step 6](images/config/card_storage.png)    
 
 
 At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.
-You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. \"To scan credit cards.\")
+You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
 
-![App URL schemes - Step 6](images/config/card_scan_privacy.png)
+
+![App URL schemes - Step 6](images/config/card_scan_privacy.png)    
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
