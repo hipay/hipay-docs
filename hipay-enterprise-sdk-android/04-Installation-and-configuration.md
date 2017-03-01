@@ -37,17 +37,27 @@ public class DemoActivity extends AppCompatActivity {
          
                 ClientConfig.Environment.Stage,
                 "YOUR API USERNAME",
-                "YOUR API PASSWORD",
-                true
+                "YOUR API PASSWORD"
         );
      }
- }
+
+     //optional features
+
+     ClientConfig.getInstance().setPaymentCardStorageEnabled(true);
+
+     ClientConfig.getInstance().setPaymentCardScanEnabled(true);
+
+     ClientConfig.getInstance().setPaymentCardNfcScanEnabled(true);
+}
 
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**.
 
-The last parameter is the Payment card storage option.  
+The Payment card storage option is also called "One-click payment".
 You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page. 
+
+The **camera scan** and **NFC scan** options help create a more fluid mobile payment process.    
+
  
 Once your app goes live, you need to set the environment to `Environment.Production`.
