@@ -526,7 +526,7 @@ First of all, you need to set a secret passphrase in your HiPay Enterprise back 
    	else {				
    		// If it is a notification
    		$signature = $_SERVER['HTTP_X_ALLOPASS_SIGNATURE'];
-   		$string2compute = $HTTP_RAW_POST_DATA . $secretPassphrase;
+   		$string2compute = file_get_contents("php://input"). $secretPassphrase;
    	}
    	$computedSignature = sha1($string2compute);
    	
