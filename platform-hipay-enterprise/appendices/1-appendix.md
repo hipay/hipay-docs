@@ -192,6 +192,7 @@ Should an error occur, here is a list of all the possible related codes and mess
 | `1010208` | Invalid IP Address | The merchant entered an IP address that was in an invalid format. The IP address must be in a format such as 123.456.123.456. |
 | `1010209` | Invalid Email Address | The merchant entered an email address that was in an invalid format. |
 | `1010301` | Invalid Soft Descriptor | The soft descriptor contains invalid characters. |
+| `1010401` | UTF-8 Encoding error | The merchant sent parameters which are not UTF-8 encoded. |
 
 ##Error codes relating to the checkout process
 
