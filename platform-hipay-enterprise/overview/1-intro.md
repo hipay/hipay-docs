@@ -498,6 +498,8 @@ First of all, you need to set a secret passphrase in your HiPay Enterprise back 
 2. The value can’t be empty,
 3. The parameter must be sorted in alphabetical order.
 
+Please note: you must remove any personal parameter from the query to only include the HiPay parameters.
+
 - Algorithm:
 	- a.	paramC = val3
 	- paramA = val1
