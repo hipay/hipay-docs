@@ -109,7 +109,7 @@ Only authenticated users and system components are allowed to access the Gateway
 
 ## Introduction
 
-**Overview**: This chapter describes how to implement 3-D Secure authentication.
+**Overview**: This chapter describes how to implement [3-D Secure authentication.](https://hipay.com/en/3d-secure-system)
 
 **Description**: This process involves redirecting customers to an authentication page. This page is provided and hosted by the customer's card issuer. Therefore, we have no control over its appearance or functionality.
 
