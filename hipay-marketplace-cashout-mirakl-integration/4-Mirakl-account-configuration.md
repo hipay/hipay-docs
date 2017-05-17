@@ -4,40 +4,36 @@ Before starting the installation, please read all instructions and make sure you
  
 ## Preamble
 
-In order for us to validate the HiPay Wallet accounts, the connector needs to upload documents allowing us to identify your merchants.
+In order for us to validate the HiPay accounts, the connector needs to upload KYC documents allowing us to identify your merchants.
 
-Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your shops. Then, these documents will be retrieved by the HiPay Marketplace cash-out integration for Mirakl and sent to the HiPay Wallet platform.
+Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your shops. Then, these documents will be retrieved by the HiPay Marketplace cash-out integration for Mirakl and sent to the HiPay platform.
 
 ## Configuration
 
-Go in the **Manage Document Types** section by following these steps:
+Go in the **Manage Document Types** section by following these steps.
 
-- Log in to your Mirakl operator account
-- In the **Settings** tab, click on **Stores** (in the "Advanced parameters" column)
-- Click on **Documents**
+- Log in to your Mirakl operator account.
+- In the **Settings** tab, click on **Stores** (in the "Advanced parameters" column).
+- Click on **Documents**.
 
 You need to provide the following list of document types by clicking on *Add a document type*:
 
-| Label | Code | 
-|-------|------|
-| Proof of bank account (all types of businesses) | `ALL_PROOF_OF_BANK_ACCOUNT` |
-| Identity of legal representative (legal entities only) | `LEGAL_IDENTITY_OF_REPRESENTATIVE` | 
-| Proof of registration number (legal entities only) | `LEGAL_PROOF_OF_REGISTRATION_NUMBER` | 
-| Articles with distribution of powers (legal entities only) | `LEGAL_ARTICLES_DISTR_OF_POWERS` |  
-| Identity (individuals only) | `SOLE_MAN_BUS_IDENTITY` |  
-| Proof of registration number (individuals only) | `SOLE_MAN_BUS_PROOF_OF_REG_NUMBER` |  
-| Proof of tax status (individuals only) | `SOLE_MAN_BUS_PROOF_OF_TAX_STATUS` |  
+| Label | Description | Code | 
+|-------|-------|------|
+| Bank | Bank account details (“RIB”/IBAN) / Account statement /… (for all professionals) | `ALL_PROOF_OF_BANK_ACCOUNT` |
+| Identity card | Copy of a valid identification document of the legal representative (professionals — **only for corporations**) | `LEGAL_IDENTITY_OF_REPRESENTATIVE` | 
+| Company Registration | Document certifying company registration issued within the last three months (Kbis extract) (professionals — **only for corporations**) | `LEGAL_PROOF_OF_REGISTRATION_NUMBER` | 
+| Distribution of power | Signed Articles of Association with the division of powers (professionals — **only for corporations**)| `LEGAL_ARTICLES_DISTR_OF_POWERS` |  
+| ID proof | Copy of a valid identification document of the legal representative (professionals — **only for persons**) | `SOLE_MAN_BUS_IDENTITY` |  
+| Company Registration  | Document certifying registration issued within the last three months (Kbis extract) (professionals — **only for persons**)  | `SOLE_MAN_BUS_PROOF_OF_REG_NUMBER` |  
+| Tax status | Document certifying tax status (“auto-entrepreneur” / independent /…) (professionals — **only for persons**) | `SOLE_MAN_BUS_PROOF_OF_TAX_STATUS` |  
 
 You can set whatever you want in the description field. In any case, **the codes must be exactly as displayed in the table**.
 
-You should get something like this once you added all the document types:
-
-![legend](images/mirakl_document_types_all.png)
-
 Then, you will need to upload the documents on each of the shop pages.
 
-Note: when uploading your files (on a shop page), **only upload files corresponding to the type of your shop**. For example, if the shop is managed by an individual, you can only upload the "individuals only" documents as well as the proof of bank account document, but not the documents flagged as "legal entities only".
+Note: when uploading your files (on a shop page), **only upload files corresponding to the type of your shop**. For example, if the shop is managed by a person, you can only upload the documents that are required "only for persons" as well as the bank account details, but not the documents flagged as being "only for corporations".
 
-If your marketplace only have legal entity business shops and no shops held by individuals (most probable scenario), **you may not add the document types flagged as "individuals" because you would never need to upload such types of documents**. In such a case, your Mirakl back office configuration would look like:
+If your marketplace only has corporations as shops and no shops held by persons (most probable scenario), **you should not add the document types flagged as being "only for persons" because you would never need to upload such types of documents**.
 
-![legend](images/mirakl_document_types_legal_only.png)
+For more information on the types of KYC documents, please check *HiPay Marketplace - REST API to upload KYC documents* [https://developer.hipay.com/getting-started/platform-hipay-marketplace/KYC/].
