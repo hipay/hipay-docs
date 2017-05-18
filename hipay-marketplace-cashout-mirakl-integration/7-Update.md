@@ -2,7 +2,7 @@
 
 This section is useful if you already have the HiPay Marketplace cash-out integration for Mirakl installed on your server and want to update it.
 
-Remember: the project HiPay Marketplace cash-out **integration** for Mirakl relies on a ***core library*** which is named [HiPay Marketplace cash-out **library** for Mirakl](https://github.com/hipay/hipay-wallet-cashout-mirakl-library). You can either update the full project or the core library only. In most cases, you will only need to update the core library. Update the full project only if new versions contain features you need or if the HiPay's Business IT Services recommended you to do it.
+Remember: the project HiPay Marketplace cash-out **integration** for Mirakl relies on a ***core library*** which is named [HiPay Marketplace cash-out **library** for Mirakl](https://github.com/hipay/hipay-wallet-cashout-mirakl-library). You can either update the full project or the core library only. In most cases, you will only need to update the core library. Update the full project only if new versions contain features you need or if HiPay's Business IT Services recommended you to do it.
 
 Both procedures are documented below:
 
@@ -50,7 +50,7 @@ drwxr-xr-x  2 root root 4096 May  4 08:13 hooks
 ...
 ````
 
-**If you get an output like this, then go to the next part ("Update the project").**
+**If you get an output like this, then go to the next section ("Update the project").**
 
 If you get an error message like `ls: cannot access .git: No such file or directory`, then type the following commands to init Git:
 
@@ -65,7 +65,7 @@ First, fetch the new tags available:
 
 Then, figure out the version number to which you want to upgrade. Check out the [releases page](https://github.com/hipay/hipay-wallet-cashout-mirakl-integration/releases) for more information. 
 
-**When upgrading to a major version (example: from v1.x.x to v2.x.x), make sure that you know the upgrading details.** Do not hesitate to contact HiPay's Business IT Services on our [Support Center](http://help.hipay.com/) if you need details. You can check the version of your installation by typing `cat composer.json | grep version`. You should get an output similar to: 
+**When upgrading to a major version (example: from v1.x.x to v2.x.x), make sure that you know the upgrading details.** Do not hesitate to contact HiPay's Business IT Services on our [Support Center](https://support.hipay.com) if you need details. You can check the version of your installation by typing `cat composer.json | grep version`. You should get an output similar to: 
 > "version": "2.0.3",
 
 When you figured out the version number to which you want to upgrade, type the following command, **replacing xxx by the version number**:
