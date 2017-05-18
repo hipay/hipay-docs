@@ -12,12 +12,12 @@ There are 3 main commands that need to be run automatically by relying on *cron*
 
 There are also two debug commands that do not need to be run using a *cron* job:
 
-- [Listing Wallet accounts](#listing-of-wallet-accounts)
+- [Listing wallet accounts](#listing-of-wallet-accounts)
 - [Getting bank information](#getting-bank-information)
 
 ## Notifications
 
-In some cases, the HiPay Wallet integration for Mirakl can encounter errors or issues that cannot be managed automatically. In such a case, a notification is sent by email in order to inform you about the issue. The email recipient can be configured in the `parameters.yml` file. When this documentation refers to a "notification" being sent upon error, it means an email notification.
+In some cases, the HiPay integration for Mirakl can encounter errors or issues that cannot be managed automatically. In such a case, a notification is sent by email in order to inform you about the issue. The email recipient can be configured in the `parameters.yml` file. When this documentation refers to a "notification" being sent upon error, it means an email notification.
 
 ## Available commands
 
@@ -29,17 +29,17 @@ In some cases, the HiPay Wallet integration for Mirakl can encounter errors or i
 
 #### Execution
 1. Retrieves the vendors from Mirakl.
-2. Saves the vendors: creates the HiPay Wallet account, if not already created, or gets the HiPay Wallet account number from HiPay.
+2. Saves the vendors: creates the HiPay account, if not already created, or gets the HiPay account number from HiPay.
 3. Validates them.
-4. Transfers the KYC files from Mirakl to the HiPay Wallet platform
-5. Adds the bank information on the HiPay Wallet account if not already done or checks HiPay’s bank information against the data from Mirakl to make sure they match.
+4. Transfers the KYC files from Mirakl to the HiPay platform.
+5. Adds the bank information on the HiPay account if not already done or checks HiPay’s bank information against the data from Mirakl to make sure they match.
 If these are not the same, an error notification is sent.
 
 **Once the HiPay Marketplace cash-out integration for Mirakl is installed, you may call this method without the `lastUpdate` argument**, just as below:
 
 	$ php bin/console vendor:process
 
-This will make the command retrieve all shops of your Mirakl instance and will synchronize all of them into the connector and into HiPay Wallet. Then, the command may be run regularly with the `lastUpdate` parameter in order to retrieve only te new shops or the recently updated ones (see the cron example).
+This will make the command retrieve all shops of your Mirakl instance and will synchronize all of them into the connector and into the HiPay platform. Then, the command may be run regularly with the `lastUpdate` parameter in order to retrieve only the new shops or the recently updated ones (see the cron example).
 
 #### Argument
 |Name       |Type | Required | Description                           |
@@ -50,7 +50,7 @@ This will make the command retrieve all shops of your Mirakl instance and will s
 
 |Name       |Type     | Description                           |
 |-----------|---------|---------------------------------------|
-|tmpPath    |String   | Path where the documents should be saved temporarily before being sent to HiPay Wallet
+|tmpPath    |String   | Path where the documents should be saved temporarily before being sent to HiPay
 
 #### Cron example
 Please see below an example of how your cron job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
@@ -100,8 +100,8 @@ This command should be run right after the payment cycle has been made in Mirakl
 	$ php bin/console cashout:process
 
 #### Execution
-1. Executes, on the HiPay Wallet platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
-2. Executes, on the HiPay Wallet platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
+1. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
+2. Executes, on the HiPay platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
 
 #### Arguments
 This command doesn’t have any argument.
@@ -113,25 +113,25 @@ This command doesn’t have any option.
 
 Please see below an example of how your *cron* job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 
-This command should be run when you have payments you want to transfer to your sellers. Basically, after completion of the `cashout:generate` command. Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay Wallet account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once per day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
+This command should be run when you have payments you want to transfer to your sellers. Basically, after completion of the `cashout:generate` command. Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
 
 	0 2 * * * path/to/bin/console cashout:process
 
-### Listing of Wallet accounts
+### Listing of wallet accounts
 
 #### Command call
 
 	$ php bin/console vendor:wallet:list
 
 #### Execution
-1. Retrieves the HiPay Wallet account information associated with a merchant group ID (associated with an entity)
-2. Displays them in a table
+1. Retrieves the HiPay account information associated with a merchant group ID (associated with an entity).
+2. Displays them in a table.
 
 #### Argument
 
 |Name       |Type | Required | Description                           |
 |-----------|-----|----------|---------------------------------------|
-|merchantGroupId  |Integer | No       |Merchant group ID for retrieving HiPay Wallet accounts                  |
+|merchantGroupId  |Integer | No       |Merchant group ID for retrieving HiPay accounts                  |
 
 #### Options
 
@@ -141,13 +141,13 @@ This command doesn’t have any option.
 ### Getting bank information
 
 #### Execution
-1. Retrieves the bank information status for a specific HiPay Wallet account ID
-2. If that status is validated, displays the information stored by HiPay
+1. Retrieves the bank information status for a specific HiPay account ID.
+2. If that status is validated, displays the information stored by HiPay.
 
 #### Argument
 |Name       |Type | Required | Description                           |
 |-----------|-----|----------|---------------------------------------|
-|hipayId  |Integer | Yes      |HiPay Wallet account ID used to retrieve the bank information status              |
+|hipayId  |Integer | Yes      |HiPay account ID used to retrieve the bank information status              |
 
 #### Options
 This command doesn’t have any option.
