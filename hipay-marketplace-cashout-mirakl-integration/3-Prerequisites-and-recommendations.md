@@ -28,8 +28,8 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 ## Mirakl
 
-- Each shop must have a unique email address, as a HiPay Wallet account is created with and tied to an email address.
-- Even though Mirakl does not require filling in the phone number section, it must be completed to create a HiPay Wallet account.
+- Each shop must have a unique email address, as a HiPay account is created with and tied to an email address.
+- Even though Mirakl does not require filling in the phone number section, it must be completed to create a HiPay account.
 - Even though Mirakl only requires filling in the IBAN and the BIC in the banking information section, all form fields must be completed to provide banking information to HiPay.
 - Only alphanumeric characters should be used for filling in the fields, especially for banking information, as HiPay only accepts this category of characters.
 - The version of the API should be at least 3.\*.\*.
@@ -37,7 +37,7 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 ## HiPay
 
-- Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the [HiPay Support Center][hipay-help].
-- A HiPay Wallet account for the operator must be created beforehand. An email address that will not be used for another shop on the marketplace is required.
+- Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the [HiPay Support Center][https://support.hipay.com/].
+- A HiPay account for the operator must be created beforehand. An email address that will not be used for another shop on the marketplace is required.
 - A good understanding of APIs for cash-out transactions may be useful: please refer to the *HiPay Marketplace - APIs overview* guide.
 
