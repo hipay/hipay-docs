@@ -1,6 +1,6 @@
 # Mirakl Account configuration
 
-Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations] (https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section.
+Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section.
  
 ## Preamble
 
