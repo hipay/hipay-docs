@@ -37,10 +37,10 @@ The following table describes the data in `parameters.yml`. The user you run the
 
 | Name | Type | Default value | Description
 |------|:----:|:-------------:|------------
-| `account.technical.email`     | String	                    |               	                                    | Email of the HiPay Wallet technical account
-| `account.technical.hipayId`   | Integer	                    |               	                                    | ID of the HiPay Wallet technical account
-| `account.operator.email`      | String	                    |               	                                    | Email of the HiPay Wallet operator's account
-| `account.operator.hipayId`    | Integer	                    |               	                                    | ID of the HiPay Wallet operator's account
+| `account.technical.email`     | String	                    |               	                                    | Email of the HiPay technical account
+| `account.technical.hipayId`   | Integer	                    |               	                                    | ID of the HiPay technical account
+| `account.operator.email`      | String	                    |               	                                    | Email of the HiPay operator's account
+| `account.operator.hipayId`    | Integer	                    |               	                                    | ID of the HiPay operator's account
 
 ## HiPay labels
 
@@ -116,7 +116,7 @@ Each string must be surrounded by {{ and }} to be replaced.
 |-----------------|-------------------------------------------------------------------------|
 | `miraklId`      | Shop ID if it exists, or operator ID in case of an operator’s operation |
 | `amount`        | Amount of the operation                                                 |
-| `hipayId`       | HiPay Wallet account ID                                                 |
+| `hipayId`       | HiPay account ID                                                 |
 | `cycleDate`     | Cycle date of the operation                                             |
 | `cycleDateTime` | Cycle date and time of the operation                                    |
 | `cycleTime`     | Cycle time of the operation                                             |
