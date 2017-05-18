@@ -1,6 +1,6 @@
 # Mirakl Account configuration
 
-Before starting the installation, please read all instructions and make sure you've gone through the [[Prerequisites and recommendations]] section.
+Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations] (https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section.
  
 ## Preamble
 
@@ -36,4 +36,4 @@ Note: when uploading your files (on a shop page), **only upload files correspond
 
 If your marketplace only has corporations as shops and no shops held by persons (most probable scenario), **you should not add the document types flagged as being "only for persons" because you would never need to upload such types of documents**.
 
-For more information on the types of KYC documents, please check *HiPay Marketplace - REST API to upload KYC documents* [https://developer.hipay.com/getting-started/platform-hipay-marketplace/KYC/].
+For more information on the types of KYC documents, please check <a href="https://developer.hipay.com/getting-started/platform-hipay-marketplace/KYC/" target="_blank”>HiPay Marketplace - REST API to upload KYC documents</a>.
