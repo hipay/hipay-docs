@@ -37,7 +37,7 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 ## HiPay
 
-- Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the <a href="https://support.hipay.com/" target="_blank”>HiPay Support Center</a>.
+- Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the <a href="https://support.hipay.com/" target="_blank">HiPay Support Center</a>.
 - A HiPay account for the operator must be created beforehand. An email address that will not be used for another shop on the marketplace is required.
 - A good understanding of APIs for cash-out transactions may be useful: please refer to the *HiPay Marketplace - APIs overview* guide.
 
