@@ -154,7 +154,7 @@ If the payment is on a hosted payment page, the redirection to the *ACS* will be
 
 ### Workflow overview
 
-![3-D Secure transaction workflow overview](images/media/image1.png)
+![3-D Secure transaction workflow overview](images/image1.png)
 
 ## Authentication results
 
@@ -251,7 +251,7 @@ The following table lists and describes the fields sent to your redirect pages.
 
 **Procedure**: To set your Notification URL, you must login into your HiPay Enterprise back office and go to “*Integration -> Notifications*”.
 
-![Notifications configuration](images/media/image2.png)
+![Notifications configuration](images/image2.png)
  
 ## Configuration parameters
 
@@ -485,7 +485,7 @@ A unique signature is sent each time HiPay contacts any merchant's URL, notifica
 
 First of all, you need to set a secret passphrase in your HiPay Enterprise back office under “*Integration -> Security Settings -> Secret Passphrase*”.
 
-![](images/media/image3.jpeg)
+![](images/image3.jpeg)
 
 **Secret passphrase**: The secret passphrase is used to generate a unique character string (signature) hashed with SHA algorithm. The security level of the password depends on its length. A long password is more secure.
 
@@ -581,7 +581,7 @@ included in one of them, check out the [HiPay Enterprise Finance API interactive
 **Procedure**: To set up your financial file transfer system, you must login into your HiPay Enterprise back office and go to *“Integration -> File Transfer*”.
 
 *Configuration screen*  
-![](images/media/image4.jpg)
+![](images/image4.jpg)
 
 ### Configuration parameters
 
@@ -681,7 +681,7 @@ This document is designed to provide you with details on how to integrate your b
 **Procedure** To set up your Financial Feedback Notification URL, you must login into your HiPay Enterprise back office and go to *“Integration -> Notifications -> Financial Feedback*”.
 
 *Configuration screen*   
-![](images/media/image5.jpg)
+![](images/image5.jpg)
 
 ### Configuration parameters
 
@@ -868,7 +868,7 @@ mandate.
 
 At this point, the transaction status is `Authentication requested`. The merchant will redirect the customer to the HiPay payment page, which will redirect him or her to the pay4 payment page to complete the registration, as shown here.
 
-![](images/media/image6.png) 
+![](images/image6.png) 
 
 After completing the registration, the customer is redirected to the success page specified by the merchant in the initial payment request (or to the error page in case of failure).
                                                                                                                              

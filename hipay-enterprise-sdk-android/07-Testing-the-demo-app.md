@@ -22,7 +22,7 @@ Then, import the `hipay-fullservice-sdk-android` project folder into Android Stu
 
 Open the project, then try the demo application with your HiPay Enterprise API test credentials: open the `/example/src/main/res/values/credentials.xml` file and set your API username and password. 
 
-![Setting API credentials for the demo app](images/demo/credentials.png)
+![Setting API credentials for the demo app](images/credentials.png)
 
 ### Setting the proper passphrase
 
@@ -36,7 +36,7 @@ To set the passphrase, please sign in to your HiPay Enterprise back office. Then
 
 You should get that on your screen:
 
-![](images/demo/passphrase.png)
+![](images/passphrase.png)
 
 Don't forget to apply your changes.  
 

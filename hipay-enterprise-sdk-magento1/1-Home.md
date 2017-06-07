@@ -156,12 +156,12 @@ To do this, you must log in your HiPay Enterprise TPP back office
 then "*Security Setting*" and enter your IP(s) in "*IP restriction*"
 section.
 
-![Important](images/media/image5.png)
+![Important](images/image5.png)
 <br/>**Important!**
 
 When changing your IP address, do not forget to ensure that all new IP addresses are configured for your account. If not, your server requests will be rejected.
   
-![ip](images/media/image6.png)
+![ip](images/image6.png)
 
 ##Choose a passphrase
 
@@ -176,7 +176,7 @@ notification or redirection.
 First of all you will need to set a Secret Passphrase in your HiPay
 Enterprise TPP back office under “*Integration -&gt; Security Settings -&gt; Secret Passphrase*”.
 
-![passphrase](images/media/image7.jpg)
+![passphrase](images/image7.jpg)
 
 ##Configure redirection URLs
 
@@ -215,7 +215,7 @@ administrator back office, click on “*System* -&gt; *Magento connect
 Paste the “extension key” under “Install New Extensions” and follow the
 steps:
 
-![magento connect](images/media/image8.png)
+![magento connect](images/image8.png)
 
 
 #Module configuration
@@ -228,7 +228,7 @@ Configuration -&gt; Sales*). If you have administrative rights but you
 are not allowed to access to the configuration of the payment method,
 please log out and log in.
 
-![](images/media/image9.jpg)
+![](images/image9.jpg)
 
 You can find your HiPay Enterprise TPP API credentials on your HiPay
 Enterprise TPP back office, under “*Integration -&gt; Security Settings
@@ -251,7 +251,7 @@ Configuration*).
 Once you are in payment methods list you will find all the HiPay
 Enterprise installation possibilities.
 
-![](images/media/image11.png)
+![](images/image11.png)
 
 ### HiPay Enterprise Credit Card API
 (only available for credit-card and debit-card payment methods)
@@ -412,7 +412,7 @@ BackOffice.
 HiPay Enterprise TPP allows a refund online. To do this, simply create
 a "*Credit memo*" on the Invoice (not from the order).
 
-![refund](images/media/image12.png)
+![refund](images/image12.png)
 You will have two options: “*Refund Offline*" (we are not interested in
 our case) or the "*Refund*".
 
@@ -463,7 +463,7 @@ payment profiles under: *Sales &gt; HiPay &gt; Split Payment Profiles &gt; Add p
 
 A payment profile defines the billing cycle of an order, for example :
 
-![payment](images/media/image13.png)
+![payment](images/image13.png)
 
 ### Configuration parameters
 
@@ -499,37 +499,37 @@ Status of the Split payments:
     is failed and an action is needed. You can retry the payment by
     switching the status to Pending.
 
-![](images/media/image14.jpg)
+![](images/image14.jpg)
 
 ### Retry a split payment
 
 On pending or failed split payments, you can change the due date or
 force the payment immediately :
 
-![](images/media/image15.png)
+![](images/image15.png)
 
 #Front-end payment examples
 
 ##Payment method selection
 
-![](images/media/image16.png)
+![](images/image16.png)
 
 ##HiPay Enterprise Credit Card API 
 
-![](images/media/image17.png)
+![](images/image17.png)
 
 ##HiPay Enterprise Credit Card Hosted Page with OneClick 
 
-![](images/media/image18.png)
+![](images/image18.png)
 
 ##HiPay Enterprise Hosted Page Split Payment 
 
-![](images/media/image19.png)
+![](images/image19.png)
 
 ##HiPay Enterprise XXXX (other payment methods) 
  
-![](images/media/image20.png)
+![](images/image20.png)
 
 ##HiPay Enterprise Hosted Page with IFrame 
 
-![](images/media/image21.jpg)
+![](images/image21.jpg)

@@ -57,7 +57,7 @@ The codes above generate a signature which is to be used by the HiPay Enterprise
 
 To get the **secret passphrase** of your account, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".
 
-![Secret passphrase example](images/demo/passphrase.png)
+![Secret passphrase example](images/passphrase.png)
 
 You may choose a secret passphrase if you don't have one already. This passphrase is also used to process server-to-server notifications.
 

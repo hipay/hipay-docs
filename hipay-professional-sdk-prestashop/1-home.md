@@ -35,7 +35,7 @@ Dans ce document, nous décrivons la méthode pour activer et utiliser le module
 
 Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. Rendez vous sur [*www.hipay.com*](http://www.hipay.com), dans le cadre « Vous êtes Marchand » cliquez sur « Ouvrir un compte » et suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
 
-![HiPay Professional Dashboard](images/media/dashboard.png) 
+![HiPay Professional Dashboard](images/dashboard.png) 
 
 #Inscrivez votre site internet
 
@@ -49,7 +49,7 @@ différents sites internet enregistrés dans votre compte.
 Entrez le nom de votre site, l’URL, le thème principal et secondaire,le mot de passe marchand, l’email de contact et le téléphone
 (optionnel).
 
-![HiPay Professional edit your website](images/media/edit_website.png)
+![HiPay Professional edit your website](images/edit_website.png)
 
 Vous pouvez également insérer un CSS (Cascading Style Sheet) pour
 personnaliser votre page de paiement Hipay (elle doit être validée par nos techniciens avant son activation).
@@ -66,43 +66,43 @@ Prestashop.
 
 Cliquez sur « Modules » et sur « Paiement ». Au niveau du module Hipay,cliquez sur « Installer » :
 
-![](images/media/image7.png)
+![](images/image7.png)
 
 Cliquez ensuite sur « Configurer »
 
-![](images/media/image8.png)
+![](images/image8.png)
 
-![](images/media/module1.png)
+![](images/module1.png)
 
-![](images/media/module2.png)
-![](images/media/module3.png)
+![](images/module2.png)
+![](images/module3.png)
 
 Le **numéro de compte** se trouve en haut à droite sur votre compte
 Hipay
 
-![legend](images/media/account_id.png)
+![legend](images/account_id.png)
 
 Le **mot de passe marchand** est le mot de passe que vous avez choisi lors de l’inscription de votre site.
 Si vous l’avez oublié, vous pouvez le renouveler en vous connectant sur votre compte Hipay, en cliquant sur « Création de bouton » et « Editer » à coté de votre site.
 
-![legend](images/media/edit_website.png)
+![legend](images/edit_website.png)
 
 L’**id du site** est l’id de votre site inscrit sur Hipay. Vous pouvez le trouver en cliquant sur « Création de bouton »
 
-![legend](images/media/list_websites.png)
+![legend](images/list_websites.png)
 
 
 #Choix du bouton de paiement
 
 Choisissez le bouton de paiement que vous souhaitez voir apparaître sur votre page de commande et cliquez sur « Enregistrer les modifications »
 
-![](images/media/module4.png)
+![](images/module4.png)
 
 #Choix des zones
 
 Choisissez les zones dans lesquelles vous souhaitez proposer Hipay et validez.
 
-![](images/media/module5.png)
+![](images/module5.png)
 
 
 #Points de blocages

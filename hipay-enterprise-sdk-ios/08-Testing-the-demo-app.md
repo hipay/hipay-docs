@@ -48,7 +48,7 @@ Open the `HiPayFullservice.xcworkspace` workspace by typing the following comman
 
 To try the demo application with your HiPay Enterprise API test credentials, open the `parameters.plist` file and set your API username and password, as follows:
 
-![Setting API credentials for the demo app](images/demo/credentials.png)
+![Setting API credentials for the demo app](images/credentials.png)
 
 To find your credentials, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
@@ -64,7 +64,7 @@ To set the passphrase, please sign in to your HiPay Enterprise back office. Then
 
 You should get that on your screen:
 
-![](images/demo/passphrase.png)
+![](images/passphrase.png)
 
 Don't forget to apply your changes.  
 

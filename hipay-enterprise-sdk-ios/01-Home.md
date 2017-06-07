@@ -8,5 +8,5 @@ The **HiPay Enterprise SDK for iOS** is a library that allows you to **accept pa
 This documentation describes how to install the HiPay Enterprise SDK for iOS in order to accept payments in your own iOS (iPhone/iPad) application. You will be provided with several use cases including the usage of the built-in payment screen as well as implementation guides for custom integrations.
 
 <span class="align_center_img">
-![HiPay Enterprise SDK for iOS Front Overview](images/gif/intro.gif)
+![HiPay Enterprise SDK for iOS Front Overview](images/intro.gif)
 </span>

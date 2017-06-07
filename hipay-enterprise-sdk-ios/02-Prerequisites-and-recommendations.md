@@ -17,7 +17,7 @@ To be sure that your credentials have the proper accessibility:
 - Click on the edit icon next to the credentials you want to use. 
 - **Finally, make sure that the credentials are set up as displayed on the screenshot below**.
 
-![Credentials accessibility](images/prerequisites/credentials_accessibility.png)
+![Credentials accessibility](images/credentials_accessibility.png)
 
 Your credentials must be granted to:
 
@@ -52,4 +52,4 @@ Please refer to the diagram below (Mobile checkout workflow) to see when the ser
 
 Please find below a diagram describing the integration scope of the Mobile SDK and the roles of the server.
 
-![HiPay Enterprise Mobile SDK checkout workflow](images/prerequisites/workflow.png)
+![HiPay Enterprise Mobile SDK checkout workflow](images/workflow.png)

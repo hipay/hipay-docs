@@ -30,27 +30,27 @@ To do so, the SDK presents your users with a `SafariViewController` web page (on
 
 To find your app URL schemes, open your Xcode project settings:
 
-![App URL schemes - Step 1](images/config/scheme_1.png)
+![App URL schemes - Step 1](images/scheme_1.png)
 
 Make sure that your app project is selected:
 
-![App URL schemes - Step 2](images/config/scheme_2.png)
+![App URL schemes - Step 2](images/scheme_2.png)
 
 Open the "Info" tab:
 
-![App URL schemes - Step 3](images/config/scheme_3.png)
+![App URL schemes - Step 3](images/scheme_3.png)
 
 Expand the "URL Types" section:
 
-![App URL schemes - Step 4](images/config/scheme_4.png)
+![App URL schemes - Step 4](images/scheme_4.png)
 
 You can then either re-use an existing scheme or create a new one. To do so, click on the "+" button:
 
-![App URL schemes - Step 5](images/config/scheme_5.png)
+![App URL schemes - Step 5](images/scheme_5.png)
 
 Fill out the form by setting a proper identifier and a URL scheme, as follows:
 
-![App URL schemes - Step 6](images/config/scheme_6.png)
+![App URL schemes - Step 6](images/scheme_6.png)
 
 Eventually, you will need to use one of the values defined in the "URL Schemes" field. In this case, it's **myshoppingapp**.
 
@@ -95,14 +95,14 @@ Note that if you enable the **payment card storage option**, since XCode 8.0 you
 You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.    
 
 
-![App URL schemes - Step 6](images/config/card_storage.png)    
+![App URL schemes - Step 6](images/card_storage.png)    
 
 
 At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.    
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
 
 
-![App URL schemes - Step 6](images/config/card_scan_privacy.png)    
+![App URL schemes - Step 6](images/card_scan_privacy.png)    
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.

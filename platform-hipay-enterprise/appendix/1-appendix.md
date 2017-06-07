@@ -63,7 +63,7 @@ The following diagram shows the typical flow of a transaction through the differ
 
 *Typical transaction workflow*
 
-![alt text](images/media/diagram.png "Logo Title Text 1")
+![alt text](images/diagram.png "Logo Title Text 1")
 
 #Address Verification Service
 

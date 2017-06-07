@@ -466,7 +466,7 @@ Go to **Administration &gt; Operations &gt; Custom Log Settings**.
 
 HiPay’s log category is called “HIPAY”. It can be added or removed from the **Info** and **Debug** configuration.
 
-![](images/media/image6.png)
+![](images/image6.png)
 
 ##Custom code
 
@@ -486,7 +486,7 @@ After:
 
 `expirationYear:pdict.SelectedCreditCard.creditCardExpirationYear`
 
-![](images/media/image7.png)
+![](images/image7.png)
 
 2.	`app_storefront_core/cartridge/templates/default/checkout/billing/paymentmethods.isml`
 
@@ -519,7 +519,7 @@ After:
 
 ```
 
-![](images/media/image8.png)
+![](images/image8.png)
 
 Add:
 
@@ -543,7 +543,7 @@ After:
 <isif condition="${paymentMethodType.value.equals(dw.order.PaymentInstrument.METHOD_GIFT_CERTIFICATE)}"><iscontinue/></isif>
 ```
 
-![](images/media/image9.png)
+![](images/image9.png)
 
 Add:
 
@@ -562,7 +562,7 @@ After:
 `<isset name="radioID" value="${paymentMethodType.value}" scope="page"/>`
 
 
-![](images/media/image10.png)
+![](images/image10.png)
 
 Remove lines of code between the following lines
 
@@ -586,7 +586,7 @@ Remove:
 
 `${Resource.msg('billing.custompaymentmethod','checkout',null)}`
 
-![](images/media/image11.png)
+![](images/image11.png)
 
 Add:
 
@@ -778,7 +778,7 @@ if ( pdict.CurrentHttpParameterMap.status != null ) {
 
 ```
 
-![](images/media/image12.png)
+![](images/image12.png)
 
 5. **app_storefront_core/cartridge/js/pages/checkout/billing.js**
 
@@ -786,7 +786,7 @@ Change: `var $creditCard = $('[data-method="CREDIT_CARD"]');`
 
 To: `var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');`
 
-![](images/media/image13.png)
+![](images/image13.png)
 
 Change:
 
@@ -812,9 +812,9 @@ $selectPaymentMethod.on('click', 'label', function () {
 });
 ```
 
-![](images/media/image14.png)
+![](images/image14.png)
 
-![](images/media/image15.png)
+![](images/image15.png)
 
 Add:
 
@@ -848,7 +848,7 @@ Before:
 
 `$('#check-giftcert').on('click', function (e) {`
 
-![](images/media/image16.png)
+![](images/image16.png)
 
 6. **app_storefront_core/cartridge/forms/default/billing.xml** 
 
@@ -887,7 +887,7 @@ After:
 <include formid="bml" name="bml"/> 
 ```
 
-![](images/media/image17.png)
+![](images/image17.png)
 
 7. **app_storefront_core/cartridge/forms/default/creditcard.xml**
 
@@ -907,7 +907,7 @@ To:
 <field formid="number" label="creditcard.number" type="string" mandatory="true" masked="4" max-length="17" description="creditcard.numberexample" binding="creditCardNumber" missing-error="creditcard.numbermissingerror" value-error="creditcard.numbervalueerror"/> 
 ```
 
-![](images/media/image18.png)
+![](images/image18.png)
 
 Change:
 
@@ -922,7 +922,7 @@ To:
 <field formid="owner" label="creditcard.ownerlabel" type="string" mandatory="false" max-length="40" binding="creditCardHolder" missing-error="creditcard.ownermissingerror"/> 
 ```
 
-![](images/media/image19.png)
+![](images/image19.png)
 
 Add:
 
@@ -941,7 +941,7 @@ Before:
 
 ```
 
-![](images/media/image20.png)
+![](images/image20.png)
 
 Add:
 
@@ -957,7 +957,7 @@ Before:
 		<field formid="saveCard" label="creditcard.savecard" type="boolean" mandatory="false" default-value="true" />
 ```
 
-![](images/media/image21.png)
+![](images/image21.png)
 
 8. **Create an app_storefront_core/cartridge/forms/default/hipaymethods.xml file** 
 
@@ -1009,9 +1009,9 @@ one.
 Replace the existing COBilling-ResetPaymentForms with the nodes
 described hereafter.
 
-![](images/media/image22.png)
+![](images/image22.png)
 
-![](images/media/image23.png)
+![](images/image23.png)
 
 1.  Pipeline: Cart-GetExistingBasket
 2.  Decision Key: Basket.getPaymentInstruments().size() == 0
@@ -1052,9 +1052,9 @@ and Last name, the validation logic was changed in
 COBilling-ValidateBilling. Replace the existing
 COBilling-ValidateBilling with the nodes described below.
 
-![](images/media/image24.png)
+![](images/image24.png)
 
-![](images/media/image25.png)
+![](images/image25.png)
 
 1.  Decision Key: CurrentForms.billing.billingAddress.valid
 2.  Decision Key: !empty(CurrentHttpParameterMap.noPaymentNeeded.value)
@@ -1118,7 +1118,7 @@ Please refer to the use cases in section 2.2. If you have any issues, the *HiPay
 
 HiPay Enterprise sends notifications for each event that occurred. In order to handle all notifications, notes are added to the order. There should be 1 event for each notification.
 
-![](images/media/image26.png)
+![](images/image26.png)
 
 ###ClearHungOrders job
 
@@ -1130,19 +1130,19 @@ been created and can be configured to change the order to the “Failed”
 state according to the configured timeframe (every 30 minutes, for
 example).
 
-![](images/media/image27.png)
+![](images/image27.png)
 
 ##Availability
 
 The HiPay integration cartridges use the following services:
 
-![](images/media/image28.png)
+![](images/image28.png)
 
-![](images/media/image29.png)
+![](images/image29.png)
 
 All of them use the following Profile configuration:
 
-![](images/media/image30.png)
+![](images/image30.png)
 
 The circuit breaker suspends platform calls to a web service if a
 certain number of calls fail within a specified time interval. It can be
@@ -1177,25 +1177,25 @@ capture amounts for orders already authorized.
 1.  Go to ***Administration &gt; Organization &gt; Roles & Permissions &gt; Administrator - Business Manager Modules**.*
 2.  Select your site context and click on **Apply**.
 
-![](images/media/image31.png)
+![](images/image31.png)
 
 3.  Tick off the ***HiPay Integration*** module and click on ***Update***.
 
-![](images/media/image32.png)
+![](images/image32.png)
 
 4.  Go to **Business Manager&gt; Merchant Tools&gt;**: the HiPay module should be displayed.
 
-![](images/media/image33.png)
+![](images/image33.png)
 
 **Usage**
 
 - Go to ***HiPay Integration &gt; Order capture.***
 
-![](images/media/image34.jpg)
+![](images/image34.jpg)
 
 - Enter a given order ID and click on **Load**.
 
-![](images/media/image28.png)
+![](images/image28.png)
 
 - Partial or full captures can be requested. If the requested amount is captured, a HiPay notification will be sent to Salesforce Commerce Cloud and the **Captured amount** will be updated too.
 
@@ -1203,7 +1203,7 @@ capture amounts for orders already authorized.
 
 Go to **Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings**.
 
-![](images/media/image35.jpg)
+![](images/image35.jpg)
 
 Please find hereafter the options for the HiPay configuration.
 
@@ -1226,7 +1226,7 @@ Please find hereafter the options for the HiPay configuration.
 
 Go to **Administration &gt; Operations &gt; Services**.
 
-![](images/media/image36.png)
+![](images/image36.png)
 
 There are four services implemented. Each one corresponds to a different
 HiPay service, as follows:
@@ -1275,11 +1275,11 @@ be assigned:
 
 Please find below an example with Services configured for two different sites and two HiPay accounts.
 
-![](images/media/image37.png)
+![](images/image37.png)
 
- ![](images/media/image38.png)
+ ![](images/image38.png)
 
-![](images/media/image39.png)
+![](images/image39.png)
 
 ###Schedules
 
@@ -1290,7 +1290,7 @@ configurable time period.
 Go to **Administration &gt; Operations &gt; Job Schedules &gt;
 ClearHungOrders – Details**.
 
-![](images/media/image40.png)
+![](images/image40.png)
 
 ###Payment processors
 
@@ -1304,7 +1304,7 @@ iDEAL, ING Home’Pay, Giropay, Klarna, etc.
 
 Go to **Merchant Tools &gt; Ordering &gt; Payment Processors**.
 
-![](images/media/image41.png)
+![](images/image41.png)
 
 ###Payment methods
 
@@ -1313,7 +1313,7 @@ to work, they should also be activated in HiPay Enterprise.
 
 Go to **Merchant Tools &gt; Ordering &gt; Payment Methods**.
 
-![](images/media/image42.png)
+![](images/image42.png)
 
 ###Logs
 
@@ -1378,14 +1378,14 @@ When using this method, the storefront functionality will be the same as
 the standard one for credit cards in Site Genesis. The card is
 authorized online during checkout, directly on the merchant’s website.
 
-![](images/media/image43.png)
+![](images/image43.png)
 
 ###HiPay API payments – Credit cards (with 3-D Secure)
 
 When using this method, customers still select what type of card they
 wish to use on the billing page.
 
-![](images/media/image44.png)
+![](images/image44.png)
 
 After submitting the order from the Summary page, if the card is enrolled by the customer’s bank for 3-D
 Secure, they will be directed to the 3-D Secure page.
@@ -1399,7 +1399,7 @@ When using the following methods, if the currency is applicable to one
 of them, the bank payment option will be displayed (each one of them
 only works in specific currencies).
 
-![](images/media/image45.png)
+![](images/image45.png)
 
 After submitting the order from the Summary page, the customer is
 redirected to the third-party website.
@@ -1415,13 +1415,13 @@ and the customer is asked to select a different payment method.
 
 On the billing page, the customer selects Hosted Credit Cards.
 
-![](images/media/image46.png)
+![](images/image46.png)
 
 After customers submit an order, they are redirected to a Payment page
 hosted and provided by HiPay, featuring the credit card form on which
 end-customers can enter the payment details:
 
-![](images/media/image47.png)
+![](images/image47.png)
 
 After completing the payment with HiPay, the customer is redirected back
 to the Storefront.
@@ -1434,13 +1434,13 @@ page.
 On the billing page, the customer selects Hosted Credit Cards or another
 payment method.
 
-![](images/media/image48.png)
+![](images/image48.png)
 
 After submitting the order from the Summary page, the customer is taken
 to a Payment page, where the HiPay credit card form appears inside an
 iFrame:
 
-![](images/media/image49.png)
+![](images/image49.png)
 
 When the payment is complete, the customer is directed to the
 Confirmation page, as usual. If the payment is successful, the customer
