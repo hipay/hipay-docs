@@ -128,19 +128,24 @@ request.setPaymentProductCategoryList(
 		PaymentProduct.PaymentProductCategoryCodeDebitCard))
 );
 
-new GatewayClient(this).
-	getPaymentProducts(request, new OrderRequestCallback() {
+final GatewayClient gatewayClient = new GatewayClient(this);
+gatewayClient.getPaymentProducts(request, new OrderRequestCallback() {
 	
-		@Override
-		public void onSuccess(List<PaymentProduct> paymentProducts) {
-			// Check the PaymentProduct objects
-		}
+	@Override
+	public void onSuccess(List<PaymentProduct> paymentProducts) {
+		// Check the PaymentProduct objects
+
+		// Do not forget to close once we got the callback
+		gatewayClient.cancelOperation(this);
+	}
 	
-		@Override
-		public void onError(Exception error) {
-			// The request failed, probe exception for details
-		}
-	});
+	@Override
+	public void onError(Exception error) {
+		// The request failed, probe exception for details
+
+		gatewayClient.cancelOperation(this);
+	}
+});
 ```
 
 ### Requesting information about a transaction (checking transaction state)
@@ -154,19 +159,24 @@ Please find below an example with the transactions linked to the merchant order 
 
 #### Java
 ```Java
-new GatewayClient(this)
-	.getTransactionsWithOrderId("TEST_89897", signature, new TransactionsDetailsCallback() {
+final GatewayClient gatewayClient = new GatewayClient(this);
+gatewayClient.getTransactionsWithOrderId("TEST_89897", signature, new TransactionsDetailsCallback() {
 	
-		@Override
-		public void onSuccess(List<Transaction> transactions) {
-			// Check the transactions list
-		}
-		
-		@Override
-		public void onError(Exception error) {
-			// The request failed, probe exception for details
-		}
-	})
+	@Override
+	public void onSuccess(List<Transaction> transactions) {
+		// Check the transactions list
+
+		// Do not forget to close once we got the callback
+		gatewayClient.cancelOperation(this);
+	}
+	
+	@Override
+	public void onError(Exception error) {
+		// The request failed, probe exception for details
+
+		gatewayClient.cancelOperation(this);
+	}
+});
 ```
 
 ### Implementation note 
