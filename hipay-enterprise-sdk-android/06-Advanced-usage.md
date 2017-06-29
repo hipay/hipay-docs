@@ -32,7 +32,7 @@ secureVaultClient.generateToken(
 		public void onSuccess(PaymentCardToken paymentCardToken) {
 			// Tokenization completed successfully!
 
-			// Do not forget to "close" once the got the callback
+			// Do not forget to close once we got the callback
 			secureVaultClient.cancelOperation(this);
 		}
 			
