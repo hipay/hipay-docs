@@ -90,16 +90,22 @@ CardTokenPaymentMethodRequest cardTokenPaymentMethodRequest = new CardTokenPayme
                         
 request.setPaymentMethod(cardTokenPaymentMethodRequest);
 
-new GatewayClient(this).requestNewOrder(request, signature, new OrderRequestCallback() {
+final GatewayClient gatewayClient = new GatewayClient(this);
+gatewayClient.requestNewOrder(request, signature, new OrderRequestCallback() {
 
 	@Override
 	public void onSuccess(Transaction transaction) {
 		// Check the transaction object, particularly its state
+
+		// Do not forget to close once we got the callback
+		gatewayClient.cancelOperation(this);
 	}
 	
 	@Override
 	public void onError(Exception error) {
 		// Transaction failed, probe exception for details
+
+		gatewayClient.cancelOperation(this);
 	}
 });    
 ```
