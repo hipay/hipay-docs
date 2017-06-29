@@ -16,29 +16,34 @@ This step is mandatory in order to make payments with credit or debit cards, eit
 
 #### Java
 ```Java
-new SecureVaultClient(this)
-	.generateToken(
+final SecureVaultClient secureVaultClient = new SecureVaultClient(this);
+secureVaultClient.generateToken(
 	
-		"4111111111111111", // card number
-		"12", // card expiry month
-		"2020", // card expiry year
-		"John Doe", // card holder
-		"496", // security code
-		true, // multi use
-		
-		// request callback
-		new SecureVaultRequestCallback() {
-			@Override
-			public void onSuccess(PaymentCardToken paymentCardToken) {
-				// Tokenization completed successfully!
-			}
-			
-			@Override
-			public void onError(Exception error) {
-				// Tokenization failed, probe exception for details
-			}
+	"4111111111111111", // card number
+	"12", // card expiry month
+	"2020", // card expiry year
+	"John Doe", // card holder
+	"496", // security code
+	true, // multi use
+	
+	// request callback
+	new SecureVaultRequestCallback() {
+		@Override
+		public void onSuccess(PaymentCardToken paymentCardToken) {
+			// Tokenization completed successfully!
+
+			// Do not forget to "close" once the got the callback
+			secureVaultClient.cancelOperation(this);
 		}
-	);
+			
+		@Override
+		public void onError(Exception error) {
+			// Tokenization failed, probe exception for details
+
+			secureVaultClient.cancelOperation(this);
+		}
+	}
+);
 ```
 
 ### Updating a token or retrieving information about a token
