@@ -56,7 +56,7 @@ This will make the command retrieve all shops of your Mirakl instance and will s
 Please see below an example of how your cron job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 This command should be run as often as the vendors update their data. 
 
-	0 0 */6 * * php path/to/bin/console vendor:process "24 hour ago"
+	0 */6 * * * php path/to/bin/console vendor:process "24 hour ago"
 
 In this cron example, the command will run every 6 hours, retrieving the shops which have been updated in the last 24 hours. 
 Retrieving the shops updated in the last 24 hours instead of the last 6 hours allows to handle some rare issues, for example in case the command would have failed once because of a network issue disallowing it from reaching Mirakl or HiPay. In such a case, the shops would be synchronized at the next command call.
