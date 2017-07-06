@@ -20,3 +20,20 @@ After the Composer installation, you must run these command lines:
 
 If no errors are displayed, the module is installed.  
 You can then go to your Magento Admin Panel.
+
+### Module update
+
+You can now update the module with the following command line:
+
+```
+composer update hipay/hipay-fullservice-sdk-magento2
+```
+
+Then, you must run these command lines:  
+
+php bin/magento setup:static-content:deploy
+php bin/magento setup:upgrade
+php bin/magento cache:clean
+
+If no errors are displayed, the module is updated.  
+You can then go to your Magento Admin Panel.
