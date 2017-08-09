@@ -4,7 +4,7 @@
 
 This section aims to describe the omnichannel philosophy behind HiPay's products and how to leverage its features through the HiPay's APIs. Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
 
-# Acronyms and abbreviations
+## Acronyms and abbreviations
 
 The following acronyms and abbreviations are used in this guide.
 
@@ -99,7 +99,7 @@ You also need to pass other global parameters related to the order, such as the 
 
 #### Example call
 
-Here is an example of cURL call for initializing a transaction on a payment terminal:
+Here is an example of cURL call for initializing a transaction on a payment terminal on the test environment:
 
 `````
 curl -X POST \
@@ -116,8 +116,8 @@ curl -X POST \
 -F firstname=John \
 -F lastname=Doe \
 -F initialize_payment_terminal=1 \
--F pos_transaction_lifetime=60 \
--F payment_terminal_id=1 \
+-F pos_transaction_lifetime=600 \
+-F payment_terminal_id=62 \
 -F store_id=1 \
 -F order_point=store \
 'https://stage-secure-gateway.hipay-tpp.com/rest/v1/order'
