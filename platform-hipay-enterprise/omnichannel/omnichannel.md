@@ -2,7 +2,7 @@
 
 ## Objectives
 
-This section aims to describe the omnichannel philosophy behind HiPay's products and how to leverage its features through the HiPay's APIs.  
+This section aims to describe the omnichannel philosophy behind the HiPay Enterprise platform and how to leverage its features through the our APIs.  
 Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
 
 ## Acronyms and abbreviations
@@ -17,7 +17,7 @@ The following acronyms and abbreviations are used in this guide.
 
 ## Overview
 
-First of all, you can check out our [corporate website](https://hipay.com/en/omnichannel-payment-services) in order to have an outline of the [HiPay's omnichannel products](https://hipay.com/en/omnichannel-payment-services).
+First of all, you can check out our [corporate website](https://hipay.com/en/omnichannel-payment-services) in order to have an outline of the [HiPay's omnichannel solutions](https://hipay.com/en/omnichannel-payment-services).
 
 The HiPay Enterprise platform centralizes the management of your payments for both your online and physical stores. The HiPay's Gateway allows you to both process electronic payments from your online store or initialize transactions on in-store payment terminals, the whole through a single platform.
 
@@ -26,7 +26,7 @@ The HiPay Enterprise platform centralizes the management of your payments for bo
 Basically, the HiPay's Gateway covers three types of scenarios:
 
 - traditional e-commerce processing,
-- initializing a transaction on a payment terminal provided by HiPay or embedding the HiPay's omnichannel softwares,
+- initializing a transaction on a payment terminal provided by HiPay or any terminal embedding the HiPay's POS software,
 - storing data related to your in-store transactions that have been processed by a third party (in-store gateways).
 
 These scenarios and their integration methods are described below.
@@ -35,7 +35,7 @@ These scenarios and their integration methods are described below.
 
 ## E-commerce processing
 
-The tradional e-commerce processing of payment transactions is described in the [HiPay Enterprise platform overview](/getting-started/platform-hipay-enterprise/overview/). Refer to this documentation in order to integrate your online shop with HiPay for e-commerce processing only (i.e. your user provides its debit or credit card details through a payment form).
+The tradional e-commerce processing of payment transactions is described in the [HiPay Enterprise platform overview](/getting-started/platform-hipay-enterprise/overview/). Refer to this documentation in order to integrate your online shop with HiPay for e-commerce processing (i.e. your user provides its debit or credit card details through a payment form).
 
 ## Initializing transactions on payment terminals (POS)
 
@@ -50,7 +50,7 @@ HiPay provides APIs allowing you to initialize transactions on payment terminals
 
 The workflow for managing transactions on physicial payment terminals and for charging your customers is the same as the e-commerce one. In fact, in-store transactions are just payment transactions which basically have the same behavior as e-commerce transactions.
 
-The HiPay Enterprise Gateway exposes its omnichannel */order* API, which allows you to both process e-commerce payments and initialize in-store transactions on payment terminals.
+The HiPay Enterprise Gateway exposes its omnichannel `/order` API, which allows you to both process e-commerce payments and initialize in-store transactions on payment terminals.
 
 ![Omnichannel API](images/omnichannel-pos-api.jpg)
 
@@ -60,8 +60,8 @@ If your system is already integrated with the HiPay Enterprise Gateway for e-com
 
 Before being able to initialize transactions on payment terminals through the HiPay platform, you need to get provisioned payment terminals from HiPay. Depending on your needs, you can get such terminals in defferent ways:
 
-- Payment terminals configured with proper HiPay's software can directly be shipped through our partners network.
-- Your existing payment terminals can be updated by your payment terminals fleet maintainer in order to install HiPay's software.
+- Payment terminals configured with proper HiPay's software can directly be shipped from our partners network.
+- Your existing payment terminals can be updated by your payment terminals fleet maintainer in order to carry HiPay POS software.
 
 Please contact the HiPay's Business IT Services in order to get provisioned payment terminals.
 
@@ -77,12 +77,12 @@ Thus, implementing POS scenarios through HiPay is easier if you are already awar
 
 #### Creating a transaction
 
-To initialize a transaction, you need to send a request to the ***POST /order*** endpoint. You can find the full list of parameters for this endpoint as well as live testing tools in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder). This API is the same as the one used to process e-commerce payments.
+To initialize a transaction, you need to send a request to the **`POST /order`** endpoint. You can find the full list of parameters for this endpoint as well as live testing tools in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder). This API is the same as the one used to process e-commerce payments.
 
 In order to initialize transactions on payment terminals, you:
 - must send complementary parameters,
 - must define some parameters to specific values,
-- should provide complementary complementary parameters.
+- should provide complementary parameters.
 
 These parameters are listed below.
 
@@ -94,7 +94,7 @@ These parameters are listed below.
 | *payment\_terminal_id* | AN | No | Yes | The ID of the payment terminal on which you need to initialize the transaction. These IDs are provided to you by HiPay for each provisioned payment terminal. You must provide a value if you want to send the transaction on a specific payment terminal. 
 | *store_id* | AN | No | Yes | The ID of the store in which the user processes his payment. These IDs are provided to you by HiPay when we register your stores in our system. **Providing a value is strongly recommended.**
 | *order_point* | A | No | No | The order point used by the customer to place his order. This parameter takes two values: ***web*** or ***store***. If your customer is ordering from a tablet in your store, you must provide "**store**" (the "web" value would only be useful for e-reservation orders). **Providing a value is strongly recommended.**
-| *pos\_transaction_lifetime* | N | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed before in the timeframe, the transaction will transition to the *expired* status. For example, if you want the transaction to expire within 5 minutes if it hasn't been processed, provide "600" (600 seconds = 5 minutes).
+| *pos\_transaction_lifetime* | N | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed in this timeframe, the transaction will transition to the *expired* status. For example, if you want the transaction to expire within 5 minutes if it hasn't been processed, provide "600" (600 seconds = 5 minutes).
 
 You also need to pass other global parameters related to the order, such as the amount, the customer e-mail adress, etc. All those parameters are documented in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
@@ -132,7 +132,7 @@ When the transaction is initialized on the payment terminal, you may display a w
 
 Once the transaction is paid, you need to have a technical callback in place allowing you to know the transaction status (whether it's paid or declined). This will allow you to confirm the order and display the proper feedback screen on your cash register application.
 
-Transaction status updates are delivered through *HTTP server-to-server notifications*. These notifications are exactly the same for both e-commerce and payment terminal transactions. **Refer to the [*Server-to-server notifications* section of the HiPay Enterprise platform overview document](/getting-started/platform-hipay-enterprise/overview/#server-to-server-notifications).**
+Transaction status updates are delivered through *HTTP server-to-server notifications*. These notifications are exactly the same for both e-commerce and payment terminal transactions. **Refer to the [*Server-to-server notifications* section of the HiPay Enterprise platform overview document](/getting-started/platform-hipay-enterprise/overview/#server-to-server-notifications)** to learn how to manage notifications and status updates.
 
 Regarding the *status* and *state* parameters described in the server-to-server notifications section mentioned above, here are some basic scenarios that you will encounter:
 
@@ -140,7 +140,7 @@ Regarding the *status* and *state* parameters described in the server-to-server 
 
 In that case, the workflow would be:
 
-1. The transaction is is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
 2. The user pays the transaction on the payment terminal.
 3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***completed*** and its *status* set to ***117*** (Capture Requested).
 
@@ -148,7 +148,7 @@ In that case, the workflow would be:
 
 In that case, the workflow would be:
 
-1. The transaction is is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
 2. The user encounters an error and his payment is refused.
 3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***declined*** and its *status* set to ***113*** (Refused).
 
@@ -158,11 +158,9 @@ Note that "Refused" is just an example and you may receive other statuses depend
 
 In that case, the workflow would be:
 
-1. The transaction is is initialized with a lifetime of 60 seconds, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized with a lifetime of 60 seconds, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
 2. The user waits one minute and doesn't make the payment.
 3. Your server receives a HTTP notification with a status update. The transaction *status* is set to ***114*** (Expired).
-
-Note that "Refused" is just an example and you may receive other statuses depending on the error. However, in case of error, the *state* value will always be either ***declined*** or ***error***.
 
 #### Statuses list
 
