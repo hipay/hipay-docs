@@ -2,7 +2,8 @@
 
 ## Objectives
 
-This section aims to describe the omnichannel philosophy behind HiPay's products and how to leverage its features through the HiPay's APIs. Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
+This section aims to describe the omnichannel philosophy behind HiPay's products and how to leverage its features through the HiPay's APIs.  
+Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
 
 ## Acronyms and abbreviations
 
@@ -122,3 +123,47 @@ curl -X POST \
 -F order_point=store \
 'https://stage-secure-gateway.hipay-tpp.com/rest/v1/order'
 `````
+
+You can also perform test API calls from [the live testing tool](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+
+### Transaction lifecycle
+
+When the transaction is initialized on the payment terminal, you may display a waiting screen on your application, indicating that the user must pay on the terminal.
+
+Once the transaction is paid, you need to have a technical callback in place allowing you to know the transaction status (whether it's paid or declined). This will allow you to confirm the order and display the proper feedback screen on your cash register application.
+
+Transaction status updates are delivered through *HTTP server-to-server notifications*. These notifications are exactly the same for both e-commerce and payment terminal transactions. **Refer to the [*Server-to-server notifications* section of the HiPay Enterprise platform overview document](/getting-started/platform-hipay-enterprise/overview/#server-to-server-notifications).**
+
+Regarding the *status* and *state* parameters described in the server-to-server notifications section mentioned above, here are some basic scenarios that you will encounter:
+
+#### The transaction is properly paid on the terminal
+
+In that case, the workflow would be:
+
+1. The transaction is is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+2. The user pays the transaction on the payment terminal.
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***completed*** and its *status* set to ***117*** (Capture Requested).
+
+#### The transaction is declined on the terminal
+
+In that case, the workflow would be:
+
+1. The transaction is is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+2. The user encounters an error and his payment is refused.
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***declined*** and its *status* set to ***113*** (Refused).
+
+Note that "Refused" is just an example and you may receive other statuses depending on the error. However, in case of error, the *state* value will always be either ***declined*** or ***error***.
+
+#### The transaction has expired
+
+In that case, the workflow would be:
+
+1. The transaction is is initialized with a lifetime of 60 seconds, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+2. The user waits one minute and doesn't make the payment.
+3. Your server receives a HTTP notification with a status update. The transaction *status* is set to ***114*** (Expired).
+
+Note that "Refused" is just an example and you may receive other statuses depending on the error. However, in case of error, the *state* value will always be either ***declined*** or ***error***.
+
+#### Statuses list
+
+In order to get the complete list of statuses, check out the [HiPay Enterprise platform overview appendicies](https://developer.hipay.com/getting-started/platform-hipay-enterprise/appendices/).
