@@ -80,6 +80,7 @@ Thus, implementing POS scenarios through HiPay is easier if you are already awar
 To initialize a transaction, you need to send a request to the **`POST /order`** endpoint. You can find the full list of parameters for this endpoint as well as live testing tools in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder). This API is the same as the one used to process e-commerce payments.
 
 In order to initialize transactions on payment terminals, you:
+
 - must send complementary parameters,
 - must define some parameters to specific values,
 - should provide complementary parameters.
