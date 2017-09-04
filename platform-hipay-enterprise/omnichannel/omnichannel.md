@@ -2,7 +2,7 @@
 
 ## Objectives 
 
-This section aims to describe the omnichannel philosophy behind the HiPay Enterprise platform and how to leverage its features through the our APIs.  
+This section aims to describe the omnichannel philosophy behind the HiPay Enterprise platform and how to leverage its features through our APIs.  
 Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
 
 ## Acronyms and abbreviations
@@ -13,11 +13,11 @@ The following acronyms and abbreviations are used in this guide.
 |----------|-------------|
 | POS | Point of sale |
 | mPOS | Mobile point of sale |
-| API | Application Programming Interface |
+| API | Application programming interface |
 
 ## Overview
 
-First of all, you can check out our [corporate website](https://hipay.com/en/omnichannel-payment-services) in order to have an outline of the [HiPay's omnichannel solutions](https://hipay.com/en/omnichannel-payment-services).
+First of all, you can check out our [corporate website](https://hipay.com/en/omnichannel-payment-services) in order to have an outline of the HiPay's omnichannel solutions.
 
 The HiPay Enterprise platform centralizes the management of your payments for both your online and physical stores. The HiPay's Gateway allows you to both process electronic payments from your online store or initialize transactions on in-store payment terminals, the whole through a single platform.
 
