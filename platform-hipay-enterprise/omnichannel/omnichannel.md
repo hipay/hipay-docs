@@ -89,13 +89,13 @@ These parameters are listed below.
 
 | Field name | Format | Req. | Specific to POS | Description |
 | --- | :---: | --- | :---: | --- |
-| *eci* | N | Yes | No | Electronic Commerce Indicator (ECI). The ECI indicates the security level at which the payment information is processed between the cardholder and merchant. In this case, **its value must be set to 10 (in-store payment)**.
+| *eci* | N | Yes | No | Electronic Commerce Indicator (ECI). The ECI indicates the security level at which the payment information is processed between the cardholder and merchant. In this case, **its value must be set to `10` (in-store payment)**.
 | *payment_product* | AN | No | No | The payment method used to proceed checkout. In case of POS payments, you don't know in advance the brand of the card which will be introduced in the payment terminal. Therefore, **its value must be blank.**
-| *initialize\_payment_terminal* | AN | Yes | Yes | Tells the platform whether a payment terminal should be initialized with this transaction. As this section describes how to initialize payment terminals, **this value must be set to 1**.
-| *payment\_terminal_id* | AN | No | Yes | The ID of the payment terminal on which you need to initialize the transaction. These IDs are provided to you by HiPay for each provisioned payment terminal. You must provide a value if you want to send the transaction on a specific payment terminal. 
-| *store_id* | AN | No | Yes | The ID of the store in which the user processes his payment. These IDs are provided to you by HiPay when we register your stores in our system. **Providing a value is strongly recommended.**
-| *order_point* | A | No | No | The order point used by the customer to place his order. This parameter takes two values: ***web*** or ***store***. If your customer is ordering from a tablet in your store, you must provide "**store**" (the "web" value would only be useful for e-reservation orders). **Providing a value is strongly recommended.**
-| *pos\_transaction_lifetime* | N | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed in this timeframe, the transaction will transition to the *expired* status. For example, if you want the transaction to expire within 5 minutes if it hasn't been processed, provide "600" (600 seconds = 5 minutes).
+| *initialize\_payment_terminal* | N | Yes | Yes | Tells the platform whether a payment terminal should be initialized with this transaction. As this section describes how to initialize payment terminals, **this value must be set to `1`**.
+| *payment\_terminal_id* | N | No | Yes | The ID of the payment terminal on which you need to initialize the transaction. These IDs are provided to you by HiPay for each provisioned payment terminal. You must provide a value if you want to send the transaction on a specific payment terminal. 
+| *store_id* | N | No | Yes | The ID of the store in which the user processes his payment. These IDs are provided to you by HiPay when we register your stores in our system. **Providing a value is strongly recommended.**
+| *order_point* | A | No | No | The order point used by the customer to place his order. This parameter takes two values: `web` or `store`. If your customer is ordering from a tablet in your store, you must provide `store` (the `web` value would only be useful for e-reservation orders). **Providing a value is strongly recommended.**
+| *pos\_transaction_lifetime* | N | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed in this timeframe, the transaction will transition to the *expired* status. For example, if you want the transaction to expire within 5 minutes if it hasn't been processed, provide `600` (600 seconds = 5 minutes).
 
 You also need to pass other global parameters related to the order, such as the amount, the customer e-mail adress, etc. All those parameters are documented in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
@@ -141,27 +141,27 @@ Regarding the *status* and *state* parameters described in the server-to-server 
 
 In that case, the workflow would be:
 
-1. The transaction is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized, its state is set to **`pending`** and its status set to **`174`** (Awaiting Terminal).
 2. The user pays the transaction on the payment terminal.
-3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***completed*** and its *status* set to ***117*** (Capture Requested).
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`completed`** and its *status* set to **`117`** (Capture Requested).
 
 #### The transaction is declined on the terminal
 
 In that case, the workflow would be:
 
-1. The transaction is initialized, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized, its state is set to **`pending`** and its status set to **`174`** (Awaiting Terminal).
 2. The user encounters an error and his payment is refused.
-3. Your server receives a HTTP notification with a status update. The transaction *state* is set to ***declined*** and its *status* set to ***113*** (Refused).
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`declined`** and its *status* set to **`113`** (Refused).
 
-Note that "Refused" is just an example and you may receive other statuses depending on the error. However, in case of error, the *state* value will always be either ***declined*** or ***error***.
+Note that "Refused" is just an example and you may receive other statuses depending on the error. However, in case of error, the *state* value will always be either `declined` or `error`.
 
 #### The transaction has expired
 
 In that case, the workflow would be:
 
-1. The transaction is initialized with a lifetime of 60 seconds, its state is set to ***pending*** and its status set to ***174*** (Awaiting Terminal).
+1. The transaction is initialized with a lifetime of 60 seconds, its state is set to **`pending`** and its status set to **`174`** (Awaiting Terminal).
 2. The user waits one minute and doesn't make the payment.
-3. Your server receives a HTTP notification with a status update. The transaction *status* is set to ***114*** (Expired).
+3. Your server receives a HTTP notification with a status update. The transaction *status* is set to **`114`** (Expired).
 
 #### Statuses list
 
