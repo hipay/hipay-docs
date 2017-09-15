@@ -9,6 +9,10 @@ You have to use CocoaPods to install the HiPay Enterprise SDK for iOS.
 Add this line to your project's `Podfile`:
 
 	pod 'HiPayFullservice'
+	
+Optionally, if you want the SDK to calculate the Device Fingerprint, add this line as well:
+
+	pod 'HiPayFullservice/Device-Print'
 
 Then, run the following command in the same directory as your `Podfile`:
 
