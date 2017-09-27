@@ -40,7 +40,7 @@ You may also integrate our REST API if you have specific technical needs. To thi
 
 # API overview
 
-The APIs are based on REST principles. Thus, it is very easy to write and test applications.
+The APIs are based on REST and JavaScript principles. Thus, it is very easy to write and test applications.
 
 HiPay Enterprise provides you with three main APIs, allowing you to **manage payment data**, **get paid** and **handle financial operations**. Detailed documentation and references for these APIs, including web service URLs and parameter information, are provided in interactive documentation tools. Please see below for more information.
 
@@ -50,11 +50,11 @@ The Gateway API allows you to get paid as well as to manage orders and transacti
 
 **[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Gateway API](/doc-api/enterprise/gateway/).**
 
-## Tokenization API
+## JavaScript SDK for tokenization (Direct Post)
 
-The Tokenization (Secure Vault) API allows merchants to retrieve and update data associated with their customers' payment information stored in the HiPay Enterprise Secure Vault. Using the Tokenization API, merchants eliminate the risk, liability and cost of storing sensitive data on their local servers and storage devices. The Tokenization API is to be used alongside the Gateway API. 
+The HiPay Enterprise JavaScript SDK for tokenization allows you to tokenize credit or debit cards using the HiPay Enterprise payment platform, directly from the web browser. This method (called Direct Post in the PCI Council terminology) enables you to offer a unified payment workflow to your customers while remaining PCI compliant.
 
-**[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Tokenization API](/doc-api/enterprise/token/).**
+**[Click here to access the full documentation for the HiPay Enterprise JavaScript SDK for tokenization (Direct Post)](/doc/hipay-enterprise-sdk-js/#hipay-enterprise-sdk-for-javascript-direct-post).**
 
 ## Finance API
 
