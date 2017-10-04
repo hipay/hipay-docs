@@ -18,27 +18,14 @@ First, you need to check out the repository. Go to your projects folder and type
 
 Then, import the `hipay-fullservice-sdk-android` project folder into Android Studio/Eclipse to open the demo project.
 
-### Adding your credentials
+### Adding the test credentials
 
-Open the project, then try the demo application with your HiPay Enterprise API test credentials: open the `/example/src/main/res/values/credentials.xml` file and set your API username and password. 
+Open the project, then try the demo application with your HiPay Enterprise API test credentials: open the `/example/src/main/res/values/credentials.xml` file and set these API username and password :
+
+`94666899.stage-secure-gateway.hipay-tpp.com`
+`Test_6j6SVHimlA5o0NIBdBQH6SVm`
 
 ![Setting API credentials for the demo app](images/credentials.png)
-
-### Setting the proper passphrase
-
-The demo app uses a HiPay test web service which generates the signature based on a specific passphrase. Thus, in order to test the demo app, you must set the same specific passphrase on your HiPay Enterprise test account.
-
-To set the passphrase, please sign in to your HiPay Enterprise back office. Then, go to the "Integration" section and click on "Security Settings". Finally, set the following string in the "Secret Passphrase" input field: 
-
-	32JUWB3veDWWmHySNJvtvPyBnqrDFEHbaP3jr
-
-**Warning: do NOT set this passphrase on your live/production account. This specific passphrase must be used for testing purposes only.**
-
-You should get that on your screen:
-
-![](images/passphrase.png)
-
-Don't forget to apply your changes.  
 
 
 ## Running the demo app
