@@ -82,10 +82,6 @@ Install the dependencies using Composer:
 	
 If new parameters were added into the project, you will be asked to provide values for them.
 
-You may check if the upgrade was successful by trying a simple command, for example: 
-
-	$ php bin/console vendor:process "7 days ago"
-
 ### 5. Update the database
 
 Finally, go in the project directory: 
@@ -95,3 +91,21 @@ Finally, go in the project directory:
 Run the following command:
 
 	$ php bin/console orm:schema-tool:update --dump-sql --force
+
+### 6. Permissions
+
+Run the following command:
+
+	$ chmod 777 /var/log/hipay.log
+
+	$ chmod 777 -R var/
+
+### 6. Permissions
+
+If there's existing vendors in the database but no logs link to those vendors, you can generate logs by running the following command:
+    
+    $ php bin/console logs:vendors:recover
+
+You may check if the upgrade was successful by trying a simple command, for example: 
+
+	$ php bin/console vendor:process "7 days ago"

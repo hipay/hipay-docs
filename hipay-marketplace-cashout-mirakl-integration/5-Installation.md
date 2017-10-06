@@ -74,5 +74,67 @@ This command will initialize the database with the needed tables. You should get
 | updatedAt      | datetime     | NO   |     | NULL    |                |
 | paymentVoucher | varchar(255) | NO   |     | NULL    |                |
 
+### Documents
 
-To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php`). **A white page with the "*Hello World*" text message should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.
+| Field            | Type         | Null | Key | Default | Extra          |
+|------------------|--------------|------|-----|---------|----------------|
+| id               | int(11)      | NO   | PRI | NULL    | auto_increment |
+| vendor_id        | int(11)      | YES  |     | NULL    |                |
+| miraklDocumentId | int(11)      | YES  |     | NULL    |                |
+| miraklUploadDate | datetime     | NO   |     | NULL    |                |
+| documentType     | varchar(255) | NO   |     | NULL    |                |
+
+### Batchs
+
+| Field            | Type         | Null | Key | Default | Extra          |
+|------------------|--------------|------|-----|---------|----------------|
+| id               | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name             | longtext     | NO   |     | NULL    |                |
+| error            | longtext     | YES  |     | NULL    |                |
+| started_at       | datetime     | NO   |     | NULL    |                |
+| ended_at         | datetime     | YES  |     | NULL    |                |
+
+### log_general
+
+| Field            | Type         | Null | Key | Default | Extra          |
+|------------------|--------------|------|-----|---------|----------------|
+| id               | int(11)      | NO   | PRI | NULL    | auto_increment |
+| miraklId         | int(11)      | YES  |     | NULL    |                |
+| action           | longtext     | YES  |     | NULL    |                |
+| message          | longtext     | NO   |     | NULL    |                |
+| context          | longtext     | NO   |     | NULL    |                |
+| level            | smallint(6)  | NO   |     | NULL    |                |
+| level_name       | varchar(50)  | NO   |     | NULL    |                |
+| extra            | longtext     | NO   |     | NULL    |                |
+| created_at       | datetime     | NO   |     | NULL    |                |
+
+### log_operations
+
+| Field            | Type         | Null | Key | Default | Extra          |
+|------------------|--------------|------|-----|---------|----------------|
+| id               | int(11)      | NO   | PRI | NULL    | auto_increment |
+| miraklId         | int(11)      | YES  |     | NULL    |                |
+| hipayId          | int(11)      | YES  |     | NULL    |                |
+| paymentVoucher   | varchar(255) | NO   |     | NULL    |                |
+| dateCreated      | datetime     | YES  |     | NULL    |                |
+| amount           | double       | NO   |     | NULL    |                |
+| statusTransferts | int(11)      | YES  |     | NULL    |                |
+| statusWithDrawal | int(11)      | YES  |     | NULL    |                |
+| message          | varchar(255) | YES  |     | NULL    |                |
+| balance          | varchar(255) | YES  |     | NULL    |                |
+
+### log_vendors
+
+| Field               | Type         | Null | Key | Default | Extra          |
+|---------------------|--------------|------|-----|---------|----------------|
+| id                  | int(11)      | NO   | PRI | NULL    | auto_increment |
+| miraklId            | int(11)      | NO   |     | NULL    |                |
+| hipayId             | int(11)      | NO   |     | NULL    |                |
+| login               | varchar(255) | YES  |     | NULL    |                |
+| statusWalletAccount | int(11)      | NO   |     | NULL    |                |
+| status              | int(11)      | NO   |     | NULL    |                |
+| message             | varchar(255) | YES  |     | NULL    |                |
+| nbDoc               | int(11)      | NO   |     | NULL    |                |
+| date                | datetime     | NO   |     | NULL    |                |
+
+To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php`). **The login page of the dashboard should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.

@@ -24,7 +24,6 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 - You should have Composer, which is the best way to install the library or do the integration.
 - You should use MySQL. Even though the integration should function with most RDBMSs, it was only tested with MySQL 5.5 through Doctrine.
 - A web server is required, with a URL accessible by HiPay with the HTTP verb POST so that server-to-server notifications can be sent by HiPay. It can be Apache, Nginx or any other choice, as long as the other mandatory requirements are met.
-- You must have an SMTP server, which can be hosted either on the same machine as the application itself, or on a remote one. This SMTP server will be used to send you email notifications in case of errors (see the Notifications section on the Usage page for more information).
 
 ## Mirakl
 
@@ -40,4 +39,3 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 - Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the <a href="https://support.hipay.com/" target="_blank">HiPay Support Center</a>.
 - A HiPay account for the operator must be created beforehand. An email address that will not be used for another shop on the marketplace is required.
 - A good understanding of APIs for cash-out transactions may be useful: please refer to the *HiPay Marketplace - APIs overview* guide.
-

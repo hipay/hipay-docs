@@ -30,6 +30,7 @@ The following table describes the data in `parameters.yml`. The user you run the
 | `hipay.locale`                | String	                    |fr_FR               	                                | Locale of created accounts. Format should be: languageCode_ISO3166-1 alpha-2 country code
 | `hipay.timezone`              | String	                    |Europe/Paris               	                        | Time zone of created accounts. Please see [the php manual](http://php.net/manual/en/timezones.php) for a list of time zones
 | `hipay.merchantGroupId`       | Integer	                              |               	                                    | Provided by HiPay
+| `hipay.transfer.withdraw.rest`| Boolean	                              | true               	                                    | Use REST api instead of SOAP api
 
 
 ## HiPay accounts
@@ -61,50 +62,30 @@ The following table describes the data in `parameters.yml`. The user you run the
 | `db.name`                     | String	                    |               	                                    | DB name
 | `db.port`                     | Integer	                    |               	                                    | DB port
 
-## Email
-
-| Name | Type | Default value | Description
-|------|:----:|:-------------:|------------
-| `mail.host`                   | String	                    |               	                                    | SMTP server hostname
-| `mail.port`                   | Integer	                    |               	                                    | SMTP server port
-| `mail.security`               | String	                    |               	                                    | SMTP server security. See [below](#e-mail-security) for more information. 
-| `mail.username`               | String	                    |               	                                    | SMTP server username
-| `mail.password`               | String	                    |               	                                    | SMTP server password
-| `mail.subject`                | String	                    |               	                                    | Mail subject
-| `mail.to`                     | String or array of strings	    |               	                                    | Mail recipients for various notifications (notably error notifications)
-| `mail.from`                   | String or array of strings	    |               	                                    | Mail senders
-
-### E-mail security
-
-The e-mail security parameter can be `null` or another transport wrapper. As pointed out in the [Swift Mailer documentation](http://swiftmailer.org/docs/sending.html#encrypted-smtp), your PHP installation must have appropriate OpenSSL transports wrappers in order to use values such as `tls` or `ssl`. In order to check if TLS or SSL are available, run this command:
-
-       $ php -r "var_export(stream_get_transports());"
-
-You should get something like this:
-
-```
-root@ab19320254c7:/var/www/html# php -r "var_export(stream_get_transports());"
-array (
-  0 => 'tcp',
-  1 => 'udp',
-  2 => 'unix',
-  3 => 'udg',
-  4 => 'ssl',
-  5 => 'sslv3',
-  6 => 'tls',
-)
-````
-
-You can either provide the `tls` or `ssl` values for the `mail.security` parameter if they are present in the list.
 
 ## Miscellaneous
 
 | Name | Type | Default value | Description
 |------|:----:|:-------------:|------------
 | `debug`                       | Boolean	                    |false               	                                | Activates Debug mode
-| `default.tmp.path`            | String	                    | /tmp              	                | Default path to save the downloaded zip file
-| `log.file.path`               | String	                    |/var/log/hipay.log               	                | Path to the log file
+| `db.logger.level`             | Integer	                    |300                	                                | The minimum logging level at which this handler will be triggered
+| `default.tmp.path`            | String	                    | /tmp                                   	                | Default path to save the downloaded zip file
+| `log.file.path`               | String	                    |/var/log/hipay.log                 	                | Path to the log file
 | `cashout.transactionFilterRegex`               | String	                    | null | Used to filter cash-out transactions. Let it `null` if you don't know what to do with it.
+| `dashboard.locale`            | String	                    |fr               	                                | Default locale for dashboard.
+
+## Log level
+
+| Label            | Value|
+|----- ------------|------|
+| `DEBUG`          | 100  |
+| `INFO`           | 200  |
+| `NOTICE`         | 250  |
+| `WARNING`        | 300  |
+| `ERROR`          | 400  |
+| `CRITICAL`       | 500  |
+| `ALERT`          | 550  |
+| `EMERGENCY`      | 600  |
 
 ## Labels
 
