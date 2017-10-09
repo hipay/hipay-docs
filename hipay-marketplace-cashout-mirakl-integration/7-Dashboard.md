@@ -81,6 +81,7 @@ On the `Settings` page you'll be able to:
 
 ### Run commands
 You can the following commands through the `Fix errors` form:
+
 - `Wallet acount creation` corresponding to the [vendor:process](#general-usage-available-commands-vendor-processing) command
 - `Transfer` corresponding to the [cashout:generate:process](#general-usage-available-commands-cash-out-generation) command
 - `Withdraw` corresponding to the [cashout:process:process](#general-usage-available-commands-cash-out-processing) command
