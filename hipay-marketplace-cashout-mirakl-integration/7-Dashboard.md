@@ -75,6 +75,7 @@ You can export logs to an csv file.
 ## Settings
 
 On the `Settings` page you'll be able to: 
+
 - Run commands
 - Retrieve lists of executed batch
 - Get technical informations
