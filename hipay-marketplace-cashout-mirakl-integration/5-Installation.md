@@ -12,21 +12,26 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 
 2. Go in your web projects directory (example: `$ cd /var/www` or `$ cd /srv`)
 	
-5. Download and install Composer (if you haven't already done so): 
+3. Download and install Composer (if you haven't already done so): 
 
 	`$ curl -sS https://getcomposer.org/installer | php -- --filename=composer -- --install-dir=/usr/local/bin`
 	
-6. Download the project using Git:
+4. Download the project using Git:
 
 	`$ git clone https://github.com/hipay/hipay-wallet-cashout-mirakl-integration hipay_mirakl`
 
-7. Go in the project directory: `cd hipay_mirakl`
+5. Go in the project directory: `cd hipay_mirakl`
 
-8. Install the project's dependencies using Composer:
+6. Install the project's dependencies using Composer:
 
 	`$ composer install` 
 	
 	This step may take a few minutes to complete as the project and its dependencies are being downloaded and configured.
+7. (Optional) If you use the default logs file (`/var/log/hipay.log`), run the following commands : 
+        
+        `$ touch /var/log/hipay.log`
+
+        `$ chmod 755 /var/log/hipay.log`
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
