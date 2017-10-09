@@ -32,7 +32,7 @@ You can filter Vendors logs by `status`, `wallet account status` and `time perio
 
 If `status` of a vendor is `warning` you get the detail of the error by clicking the tooltip `Show message`.
 
-![vendor-warning](images/vendor-warning.jpg)
+![vendor-warning](images/vendor-warning.png)
 
 ## Transfer & withdraw management
 

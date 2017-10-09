@@ -77,7 +77,7 @@ The following table describes the data in `parameters.yml`. The user you run the
 ## Log level
 
 | Label            | Value|
-|----- ------------|------|
+|------------------|------|
 | `DEBUG`          | 100  |
 | `INFO`           | 200  |
 | `NOTICE`         | 250  |
