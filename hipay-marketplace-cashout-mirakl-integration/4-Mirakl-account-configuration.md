@@ -54,8 +54,8 @@ Go in the **Manage Custom Fields** section by following these steps.
 
 You need to provide the following custom field by clicking on *Add a Custom Field*:
 
-| Code | Label | Description | Type | Stores permission | Required | Default Value
+| Code | Label | Description | Type | Stores permission | Required | Default Value |
 |-------|-------|------|
-| `hipay-process` | HiPay Process | shop will be processed | Read write | true | Yes
+| `hipay-process` | HiPay Process | shop will be processed | Read write | true | Yes |
 
 Note: If custom field `hipay-process` is not set no shop will be processed by the HiPay Marketplace cash-out integration for Mirakl
