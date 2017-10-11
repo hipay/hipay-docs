@@ -46,7 +46,7 @@ Open the `HiPayFullservice.xcworkspace` workspace by typing the following comman
 
 ### Adding the test credentials
 
-To try the demo application with your HiPay Enterprise API test credentials, open the `parameters.plist` file and set these API username and password:
+To try the demo application with our HiPay Enterprise API test credentials, open the `parameters.plist` file and set these API username and password:
 
 `94666899.stage-secure-gateway.hipay-tpp.com`  
 `Test_6j6SVHimlA5o0NIBdBQH6SVm`
