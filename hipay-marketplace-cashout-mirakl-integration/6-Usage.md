@@ -93,7 +93,7 @@ Retrieving the shops updated in the last 24 hours instead of the last 6 hours al
 Please see below an example of how your cron job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 This command should be run right after the payment cycle has been made in Mirakl.
 
-	30 0 1,11,21 * * php path/to/bin/console cashout:generate `date +%Y-%m-%d`
+	30 0 * * * php path/to/bin/console cashout:generate `date +%Y-%m-%d`
 
 ### Cash-out processing
 
@@ -116,7 +116,7 @@ Please see below an example of how your *cron* job may be configured. Replace `p
 
 This command should be run when you have payments you want to transfer to your sellers. Basically, after completion of the `cashout:generate` command. Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
 
-	0 2 * * * path/to/bin/console cashout:process
+	0 2 * * * php path/to/bin/console cashout:process
 
 ### Listing of wallet accounts
 
