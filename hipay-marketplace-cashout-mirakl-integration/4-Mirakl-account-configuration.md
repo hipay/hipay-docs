@@ -6,9 +6,9 @@ Before starting the installation, please read all instructions and make sure you
 
 In order for us to validate the HiPay accounts, the connector needs to upload KYC documents allowing us to identify your merchants.
 
-Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your shops. Then, these documents will be retrieved by the HiPay Marketplace cash-out integration for Mirakl and sent to the HiPay platform.
+Thus, you need to configure your Mirakl back office in order to be able to upload these documents for each of your stores. Then, these documents will be retrieved by the HiPay Marketplace cash-out integration for Mirakl and sent to the HiPay platform.
 
-Furthermore, you need to specify which shops should be processed.
+Furthermore, you need to specify which stores should be processed.
 
 ## Document configuration
 
@@ -18,7 +18,7 @@ Go to the **Manage document types** section by following these steps.
 - In the **Settings** tab, click on **Stores** (in the "Advanced parameters" column).
 - Click on **Documents**.
 
-You need to provide the following list of document types by clicking on *Add a document type*:
+You need to provide the following list of document types by clicking on *Add a document type*.
 
 | Label | Description | Code | 
 |-------|-------|------|
@@ -34,13 +34,13 @@ You need to provide the following list of document types by clicking on *Add a d
 
 You can put whatever you want in the description field. In any case, **the codes must be exactly as displayed in the table**.
 
-Then, you will need to upload the documents on each of the shop pages.
+Then, you will need to upload the documents on each of the store pages.
 
 Documents must be image (jpg, jpeg, png...) or PDF files: otherwise, the HiPay Marketplace cash-out integration for Mirakl will not process them.
 
-Please note: when uploading your files (on a shop page), **only upload files corresponding to the type of your shop**. For example, if the shop is managed by a person, you can only upload the required documents flagged as being "only for persons" as well as the bank account details, but not the documents flagged as being "only for corporations".
+Please note: when uploading your documents (on a store page), **only upload files corresponding to the type of your store**. For example, if the store is managed by a person, you can only upload the required documents flagged as being "only for persons" as well as the bank account details, but not the documents flagged as being "only for corporations".
 
-If your marketplace only has corporations as shops and no shops managed by persons (most probable scenario), **you should not upload the document types flagged as being "only for persons"**.
+If your marketplace only has corporations as stores and no stores managed by persons (most probable scenario), **you should not upload the document types flagged as being "only for persons"**.
 
 For more information on the types of KYC documents, please check <a href="https://developer.hipay.com/getting-started/platform-hipay-marketplace/upload_kyc_doc/" target="_blank">HiPay Marketplace - REST API to upload KYC documents</a>.
 
@@ -56,6 +56,6 @@ You need to provide the following custom field by clicking on *Add a Custom Fiel
 
 | Code | Label | Description | Type | Stores permission | Required | Default Value |
 |-------|-------|------|------|------|------|------|
-| `hipay-process` | HiPay Process | Shop that will be processed | Yes/No | Read write | true | Yes |
+| `hipay-process` | HiPay Process | Store that will be processed | Yes/No | Read write | true | Yes |
 
-Please note: If the custom field `hipay-process` is not set, no shop will be processed by the HiPay Marketplace cash-out integration for Mirakl.
+Please note: If the custom field `hipay-process` is not set, no store will be processed by the HiPay Marketplace cash-out integration for Mirakl.
