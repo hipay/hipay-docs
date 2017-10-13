@@ -70,6 +70,10 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
 
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
+
+[[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
+								      privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD" 
+									  merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
 ```
 
 #### Swift
@@ -89,6 +93,7 @@ HPFClientConfig.shared().isPaymentCardScanEnabled = true
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
 
+#### Payment card storage option
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
@@ -97,12 +102,24 @@ You can find more information in the [Card storage feature](#usage-making-paymen
 
 ![App URL schemes - Step 6](images/card_storage.png)    
 
+#### Payment card scan option
 
 At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.    
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
 
 
 ![App URL schemes - Step 6](images/card_scan_privacy.png)    
+
+#### Apple Pay option
+
+If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your Merchant ID to make it work.
+
+You need an HiPay Enterprise account configured with Apple Pay to get this functionality.
+
+You can find more information in the [Apple Pay option](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.    
+
+
+![App URL schemes - Step 6](images/apple_pay_capabilities.png)    
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
