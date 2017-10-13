@@ -31,20 +31,29 @@ This step is mandatory in order to make payments with credit or debit cards, eit
  }];
 ```
 
-#### Swift
-```Swift
-HPFSecureVaultClient.sharedClient()
-    .generateTokenWithCardNumber("4111111111111111",
-        cardExpiryMonth: "12",
-        cardExpiryYear: "2016",
-        cardHolder: "John Doe",
-        securityCode: "496",
-        multiUse: true) { (cardToken: HPFPaymentCardToken?, error: NSError?) -> Void in
-            
-            /* The cardToken object should be defined with your token
-             * if the tokenization was completed successfully.
-             * Otherwise, the error object will be defined */
-}
+### Tokenizing an encrypted Apple Pay token
+
+You can tokenize the Apple Pay token using the Secure Vault client as well.
+
+#### Objective-C
+```objectivec
+
+/* We assume you received a PKPayment object
+ * from the Apple PassKit delegate method */
+NSString *decodedString = [[NSString alloc] initWithData:payment.token.paymentData
+												encoding:NSUTF8StringEncoding];
+
+[[HPFSecureVaultClient sharedClient]
+ generateTokenWithApplePayToken:decodedString
+             privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
+        andCompletionHandler:^(HPFPaymentCardToken * _Nullable cardToken,
+                               NSError * _Nullable error) {
+     
+     /* The cardToken object should be defined with your token
+      * if the tokenization was completed successfully.
+      * Otherwise, the error object will be defined. */
+     
+ }];
 ```
 
 ### Updating a token or retrieving information about a token
