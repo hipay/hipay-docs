@@ -2,15 +2,15 @@
 
 Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) and [Mirakl account configuration](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#mirakl-account-configuration) sections. 
 
-Be aware that **all relative paths are relative to the root directory of the installation**.
+Please note that **all relative paths are relative to the root directory of the installation**.
 
 ## Application deployment
 
 This section describes how to install the **HiPay Marketplace cash-out integration for Mirakl** using Git and [Composer](https://getcomposer.org/), the PHP package manager. The software being installed is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/).
 
-1. Connect to your web server using SSH
+1. Connect to your web server using SSH.
 
-2. Go in your web projects directory (example: `$ cd /var/www` or `$ cd /srv`)
+2. Go to your web project directory (example: `$ cd /var/www` or `$ cd /srv`).
 	
 3. Download and install Composer (if you haven't already done so): 
 
@@ -20,14 +20,14 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 
 	`$ git clone https://github.com/hipay/hipay-wallet-cashout-mirakl-integration hipay_mirakl`
 
-5. Go in the project directory: `cd hipay_mirakl`
+5. Go to the project directory: `cd hipay_mirakl`.
 
-6. Install the project's dependencies using Composer:
+6. Install the project dependencies using Composer:
 
 	`$ composer install` 
 	
 	This step may take a few minutes to complete as the project and its dependencies are being downloaded and configured.
-7. (Optional) If you use the default logs file (`/var/log/hipay.log`), run the following commands : 
+7. (Optional) If you use the default logs file (`/var/log/hipay.log`), run the following commands: 
         
         `$ touch /var/log/hipay.log`
 
@@ -41,11 +41,11 @@ This section describes how to provide HiPay with information on how to reach you
 
 1. Configure your web server so that HiPay can reach the `web/index.php` through HTTP. This configuration is beyond the scope of the present guide and depends on the web server software you rely on (Apache, Nginx, etc.).
 
-2. Note the URL from which the `web/index.php` is reachable (example: `https://cashout.merchant-example.com/index.php`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) to configure this URL as your marketplace notification URL.
+2. Note the URL from which the `web/index.php` is reachable (example: `https://cashout.merchant-example.com/index.php`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
 
 ## Initialization and final check
 
-Go in the project directory: 
+Go to the project directory: 
 
 	$ cd hipay_mirakl
 
@@ -89,7 +89,7 @@ This command will initialize the database with the needed tables. You should get
 | miraklUploadDate | datetime     | NO   |     | NULL    |                |
 | documentType     | varchar(255) | NO   |     | NULL    |                |
 
-### Batchs
+### Batches
 
 | Field            | Type         | Null | Key | Default | Extra          |
 |------------------|--------------|------|-----|---------|----------------|
