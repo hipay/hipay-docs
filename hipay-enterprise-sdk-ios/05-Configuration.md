@@ -116,10 +116,10 @@ If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the C
 
 You need an HiPay Enterprise account configured with Apple Pay to get this functionality.
 
-You can find more information in the [Apple Pay option](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
-Tokenizing an encrypted Apple Pay token
+You can find more information in the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
 
-![App URL schemes - Step 8](images/apple_pay_capabilities.png)    
+
+![App URL schemes - Step 8](images/apple_pay_capabilities.png)
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
