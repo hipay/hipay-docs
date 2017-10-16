@@ -8,8 +8,8 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 | **Name** | **Nature** | **Description** |
 | --- | --- | --- |
-| HiPay | Third-party and web service provider | Payment solution handling payment processing between the operator and the different shops available on your marketplace |
-| Mirakl | Third-party and web service provider | Marketplace solution handling the shops, with a read-only web service |
+| HiPay | Third-party and web service provider | Payment solution handling payment processing between the operator and the different stores available on your marketplace |
+| Mirakl | Third-party and web service provider | Marketplace solution handling the stores, with a read-only web service |
 | Cron | System service | Unix task scheduler, which may be replaced by a Windows alternative if needed (not tested with Windows) |
 | Integrator | Human | The developer, who wishes to easily interface HiPay and Mirakl |
 
@@ -27,7 +27,7 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 
 ## Mirakl
 
-- Each shop must have a unique email address, as a HiPay account is created with and tied to an email address.
+- Each store must have a unique email address, as a HiPay account is created with and tied to an email address.
 - Even though Mirakl does not require filling in the phone number section, it must be completed to create a HiPay account.
 - Even though Mirakl only requires filling in the IBAN and the BIC in the banking information section, all form fields must be completed to provide banking information to HiPay.
 - Only alphanumeric characters should be used for filling in the fields, especially for banking information, as HiPay only accepts this category of characters.
@@ -37,5 +37,5 @@ This integration intends to facilitate cash-out operations between HiPay and Mir
 ## HiPay
 
 - Some operations require HiPay's assistance: please contact HiPay's Business IT Services for technical support on the <a href="https://support.hipay.com/" target="_blank">HiPay Support Center</a>.
-- A HiPay account for the operator must be created beforehand. An email address that will not be used for another shop on the marketplace is required.
+- A HiPay account for the operator must be created beforehand. An email address that will not be used for another store on the marketplace is required.
 - A good understanding of APIs for cash-out transactions may be useful: please refer to the *HiPay Marketplace - APIs overview* guide.

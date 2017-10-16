@@ -1,6 +1,6 @@
 # Appendix
 
-You will find below the description of each operation status that you can find in the `operations` table.
+Please find below the description of each operation status listed in the `operations` table.
 
 | Name               | Value | Description                                    |
 |--------------------|-------|------------------------------------------------|
