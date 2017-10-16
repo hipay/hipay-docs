@@ -10,10 +10,11 @@ There are 3 main commands that need to be run automatically by relying on *cron*
 - [Cash-out generation](#cash-out-generation)
 - [Cash-out processing](#cash-out-processing)
 
-There are also two debug commands that do not need to be run using a *cron* job:
+There are also two debug and one update commands that do not need to be run using a *cron* job:
 
 - [Listing wallet accounts](#listing-of-wallet-accounts)
 - [Getting bank information](#getting-bank-information)
+- [Generate vendors logs from past executed cron](#recover-vendors-logs)
 
 ## Notifications
 
@@ -71,6 +72,7 @@ Retrieving the shops updated in the last 24 hours instead of the last 6 hours al
 1. Retrieves the *PAYMENT* transactions from Mirakl to get all the payment vouchers of the cycle.
 2. Calculates the amount due to the vendors and the operator thanks to the retrieved payment vouchers.
 3. Creates the operations to be executed afterwards, validates and saves them.
+4. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
 
 #### Argument
 
@@ -91,7 +93,7 @@ Retrieving the shops updated in the last 24 hours instead of the last 6 hours al
 Please see below an example of how your cron job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 This command should be run right after the payment cycle has been made in Mirakl.
 
-	30 0 1,11,21 * * php path/to/bin/console cashout:generate `date +%Y-%m-%d`
+	30 0 * * * php path/to/bin/console cashout:generate `date +%Y-%m-%d`
 
 ### Cash-out processing
 
@@ -100,8 +102,7 @@ This command should be run right after the payment cycle has been made in Mirakl
 	$ php bin/console cashout:process
 
 #### Execution
-1. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
-2. Executes, on the HiPay platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
+1. Executes, on the HiPay platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
 
 #### Arguments
 This command doesn’t have any argument.
@@ -115,7 +116,7 @@ Please see below an example of how your *cron* job may be configured. Replace `p
 
 This command should be run when you have payments you want to transfer to your sellers. Basically, after completion of the `cashout:generate` command. Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
 
-	0 2 * * * path/to/bin/console cashout:process
+	0 2 * * * php path/to/bin/console cashout:process
 
 ### Listing of wallet accounts
 
@@ -148,6 +149,22 @@ This command doesn’t have any option.
 |Name       |Type | Required | Description                           |
 |-----------|-----|----------|---------------------------------------|
 |hipayId  |Integer | Yes      |HiPay account ID used to retrieve the bank information status              |
+
+#### Options
+This command doesn’t have any option.
+
+### Recover vendors logs
+
+#### Command call
+
+	$ php bin/console logs:vendors:recover
+
+#### Execution
+1. Retrieves every saved vendors in database
+2. If vendor has no log, create one.
+
+#### Argument
+This command doesn’t have any option argument.
 
 #### Options
 This command doesn’t have any option.
