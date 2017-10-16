@@ -1,6 +1,6 @@
 # Parameters
 
-The following table describes the data in `parameters.yml`. The user you run the commands with should have write access to all the paths you use in this file.
+The following table describes the data in the `parameters.yml` file. The user you run the commands with should have write access to all the paths you use in this file.
 
 ## Mirakl web service
 
@@ -28,7 +28,7 @@ The following table describes the data in `parameters.yml`. The user you run the
 | `hipay.baseUrl`               | String	                    |               	                                    | Base URL to HiPay web service
 | `hipay.entity`                | String	                    |               	                                    | Provided by HiPay
 | `hipay.locale`                | String	                    |fr_FR               	                                | Locale of created accounts. Format should be: languageCode_ISO3166-1 alpha-2 country code
-| `hipay.timezone`              | String	                    |Europe/Paris               	                        | Time zone of created accounts. Please see [the php manual](http://php.net/manual/en/timezones.php) for a list of time zones
+| `hipay.timezone`              | String	                    |Europe/Paris               	                        | Time zone of created accounts. Please see the [php manual](http://php.net/manual/en/timezones.php) for a list of time zones.
 | `hipay.merchantGroupId`       | Integer	                              |               	                                    | Provided by HiPay
 | `hipay.transfer.withdraw.rest`| Boolean	                              | true               	                                    | Use REST api instead of SOAP api
 
@@ -55,7 +55,7 @@ The following table describes the data in `parameters.yml`. The user you run the
 
 | Name | Type | Default value | Description
 |------|:----:|:-------------:|------------
-| `db.driver`                   | String	                    |pdo_mysql               	                            | PHP PDO driver. Please refer to [the php manual](http://php.net/manual/en/pdo.drivers.php) for a list of PDO drivers
+| `db.driver`                   | String	                    |pdo_mysql               	                            | PHP PDO driver. Please refer to the [php manual](http://php.net/manual/en/pdo.drivers.php) for a list of PDO drivers.
 | `db.host`                     | String	                    |               	                                    | DB hostname
 | `db.username`                 | String	                    |               	                                    | DB username
 | `db.password`                 | String	                    |               	                                    | DB password
@@ -68,11 +68,11 @@ The following table describes the data in `parameters.yml`. The user you run the
 | Name | Type | Default value | Description
 |------|:----:|:-------------:|------------
 | `debug`                       | Boolean	                    |false               	                                | Activates Debug mode
-| `db.logger.level`             | Integer	                    |300                	                                | The minimum logging level at which this handler will be triggered
+| `db.logger.level`             | Integer	                    |300                	                                | Minimum logging level at which this handler will be triggered
 | `default.tmp.path`            | String	                    | /tmp                                   	                | Default path to save the downloaded zip file
 | `log.file.path`               | String	                    |/var/log/hipay.log                 	                | Path to the log file
-| `cashout.transactionFilterRegex`               | String	                    | null | Used to filter cash-out transactions. Let it `null` if you don't know what to do with it.
-| `dashboard.locale`            | String	                    |fr               	                                | Default locale for dashboard.
+| `cashout.transactionFilterRegex`               | String	                    | null | Used to filter cash-out transactions. Leave `null` if you don't know what to do with it.
+| `dashboard.locale`            | String	                    |fr               	                                | Default locale for the dashboard
 
 ## Log level
 
@@ -95,7 +95,7 @@ Each string must be surrounded by {{ and }} to be replaced.
 
 | Placeholder     | Description                                                             |
 |-----------------|-------------------------------------------------------------------------|
-| `miraklId`      | Shop ID if it exists, or operator ID in case of an operator’s operation |
+| `miraklId`      | Store ID if it exists, or operator ID in case of an operator’s operation |
 | `amount`        | Amount of the operation                                                 |
 | `hipayId`       | HiPay account ID                                                 |
 | `cycleDate`     | Cycle date of the operation                                             |
