@@ -114,11 +114,14 @@ You must add the NSCameraUsageDescription key to your Info.plist with a string v
 
 #### Apple Pay option
 
-If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your Merchant ID to make it work.
+If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your **Merchant ID** to make it work.
 
-You need an HiPay Enterprise account configured with Apple Pay to get this functionality.
+You need an HiPay Enterprise account configured with Apple Pay to get this functionality. Please contact the HiPay support team.
 
-You can find more information in the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
+You can find more information about the Apple Pay configuring environment in the official developer documentation.  
+[https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1)
+
+In the case of an advanced integration, you must use the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
 
 
 ![App URL schemes - Step 8](images/apple_pay_capabilities.png)
