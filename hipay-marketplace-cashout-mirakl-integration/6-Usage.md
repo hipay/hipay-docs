@@ -2,19 +2,19 @@
 
 The HiPay Marketplace cash-out integration for Mirakl is intended to be used with a *cron*, but can be used directly from the command line. In fact, this software is supposed to execute tasks automatically, which is why you need to configure *cron* jobs (or any other alternative) that will execute commands at the appropriate time automatically.
 
-Please note that default values for command line arguments/parameters are defined in the `parameters.yml`.
+Please note that default values for command line arguments/parameters are defined in the `parameters.yml` file.
 
 There are 3 main commands that need to be run automatically by relying on *cron* jobs:
 
-- [Vendor processing](#vendor-processing)
-- [Cash-out generation](#cash-out-generation)
-- [Cash-out processing](#cash-out-processing)
+- [Vendor processing](#vendor-processing),
+- [Cash-out generation](#cash-out-generation),
+- [Cash-out processing](#cash-out-processing).
 
 There are also two debug and one update commands that do not need to be run using a *cron* job:
 
-- [Listing wallet accounts](#listing-of-wallet-accounts)
-- [Getting bank information](#getting-bank-information)
-- [Generate vendors logs from past executed cron](#recover-vendors-logs)
+- [Listing wallet accounts](#listing-of-wallet-accounts),
+- [Getting bank information](#getting-bank-information),
+- [Recovering vendors logs from past executed cron](#recover-vendors-logs).
 
 ## Notifications
 
@@ -40,18 +40,18 @@ If these are not the same, an error notification is sent.
 
 	$ php bin/console vendor:process
 
-This will make the command retrieve all shops of your Mirakl instance and will synchronize all of them into the connector and into the HiPay platform. Then, the command may be run regularly with the `lastUpdate` parameter in order to retrieve only the new shops or the recently updated ones (see the cron example).
+This will make the command retrieve all the stores of your Mirakl instance and will synchronize all of them into the connector and into the HiPay platform. Then, the command may be run regularly with the `lastUpdate` parameter in order to only retrieve the new stores or the recently updated ones (please see the cron example).
 
 #### Argument
 |Name       |Type | Required | Description                           |
 |-----------|-----|----------|---------------------------------------|
-|lastUpdate |Date |No         |Date of the last update of Mirakl shops. If not provided, all shops will be retrieved.
+|lastUpdate |Date |No         |Date of the last update of Mirakl stores. If not provided, all stores will be retrieved.
 
 #### Options
 
 |Name       |Type     | Description                           |
 |-----------|---------|---------------------------------------|
-|tmpPath    |String   | Path where the documents should be saved temporarily before being sent to HiPay
+|tmpPath    |String   | Path where the documents should be saved temporarily before being sent to HiPay.
 
 #### Cron example
 Please see below an example of how your cron job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
@@ -59,8 +59,8 @@ This command should be run as often as the vendors update their data.
 
 	0 */6 * * * php path/to/bin/console vendor:process "24 hour ago"
 
-In this cron example, the command will run every 6 hours, retrieving the shops which have been updated in the last 24 hours. 
-Retrieving the shops updated in the last 24 hours instead of the last 6 hours allows to handle some rare issues, for example in case the command would have failed once because of a network issue disallowing it from reaching Mirakl or HiPay. In such a case, the shops would be synchronized at the next command call.
+In this cron example, the command will be run every 6 hours, retrieving the stores which have been updated in the last 24 hours. 
+Retrieving the stores updated in the last 24 hours instead of the last 6 hours allows to handle some rare issues (for example, in case the command failed once because of a network issue disallowing it from reaching Mirakl or HiPay). In such a case, the stores would be synchronized on the next command call.
 
 ### Cash-out generation
 
@@ -114,11 +114,11 @@ This command doesn’t have any option.
 
 Please see below an example of how your *cron* job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 
-This command should be run when you have payments you want to transfer to your sellers. Basically, after completion of the `cashout:generate` command. Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
+This command should be run when you have payments you want to transfer to your sellers (basically, after completion of the `cashout:generate` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
 
 	0 2 * * * php path/to/bin/console cashout:process
 
-### Listing of wallet accounts
+### Listing wallet accounts
 
 #### Command call
 
@@ -153,18 +153,18 @@ This command doesn’t have any option.
 #### Options
 This command doesn’t have any option.
 
-### Recover vendors logs
+### Recovering vendors logs from past executed cron
 
 #### Command call
 
 	$ php bin/console logs:vendors:recover
 
 #### Execution
-1. Retrieves every saved vendors in database
-2. If vendor has no log, create one.
+1. Retrieves every saved vendors in the database.
+2. If a vendor has no log, creates one.
 
 #### Argument
-This command doesn’t have any option argument.
+This command doesn’t have any argument.
 
 #### Options
 This command doesn’t have any option.
