@@ -311,4 +311,4 @@ The table below lists all the available Electronic Commerce Indicators as they a
 | `4` | Manually Keyed               (Card Present) | The customer is physically present in front of the merchant. The merchant has the customer&#39;s card within easy reach. The card details are manually entered; the card is not swiped through a machine. |
 | `7` | Secure E-commerce          with SSL/TLS Encryption | The payment transaction was conducted over a secure e-commerce channel (e.g.: TLS). |
 | `9` | Recurring E-commerce | The first transaction of the customer was an e-commerce transaction; which means that financial details were entered by the customer              on a secure website (either the merchant&#39;s website or our secure platform). These details are either stored by the merchant or stored in our system     in order to use an alias to make recurring transactions for the same customer. |
-| `10` | In-store payment | Payment processed in a physical store, generally from a payment terminal. |
+| `10` | Point of sale payment | Payment processed in a physical store, generally from a payment terminal. |
