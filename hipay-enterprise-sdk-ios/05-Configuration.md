@@ -108,7 +108,7 @@ At the same time, if you enable the **payment scan card option**, since iOS 10 y
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
 
 
-![App URL schemes - Step 6](images/card_scan_privacy.png)    
+![App URL schemes - Step 7](images/card_scan_privacy.png)    
 
 #### Apple Pay option
 
@@ -119,7 +119,7 @@ You need an HiPay Enterprise account configured with Apple Pay to get this funct
 You can find more information in the [Apple Pay option](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
 Tokenizing an encrypted Apple Pay token
 
-![App URL schemes - Step 6](images/apple_pay_capabilities.png)    
+![App URL schemes - Step 8](images/apple_pay_capabilities.png)    
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
