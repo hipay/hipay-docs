@@ -72,8 +72,8 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
 
 [[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
-								      privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD" 
-									  merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
+                                      privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
+                                      merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
 ```
 
 #### Swift
@@ -89,6 +89,8 @@ HPFClientConfig.shared()
 HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
 
 HPFClientConfig.shared().isPaymentCardScanEnabled = true
+
+HPFClientConfig.shared().setApplePayEnabled(false, privateKeyPassword: "YOUR P12 CERTIFICATE PASSWORD", merchantIdentifier: "YOUR MERCHANT IDENTIFIER")
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
