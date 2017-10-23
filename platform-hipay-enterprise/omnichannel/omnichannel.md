@@ -1,8 +1,8 @@
 # Omnichannel APIs
 
-## Objectives 
+## Objectives
 
-This section aims to describe the omnichannel philosophy behind the HiPay Enterprise platform and how to leverage its features through our APIs.  
+This section aims to describe the omnichannel philosophy behind the HiPay Enterprise platform and how to leverage its features through our APIs.
 Among other features, this document outlines the POS (point-of-sale) capabilities of the HiPay Enterprise platform.
 
 ## Acronyms and abbreviations
@@ -71,7 +71,7 @@ Please contact the HiPay's Business IT Services in order to get provisioned paym
 
 Before going through this part, we recommend you to have payment terminals properly configured to be managed through the HiPay Enterprise platform. Once you have your terminals configured, HiPay will provide you with a list of unique IDs for your payment terminals.
 
-Moreover, this section refers to APIs which are not specific to in-store payments but which are general to the HiPay transactional workflow, presenting some specific parameters related to POS and physical payment terminals. 
+Moreover, this section refers to APIs which are not specific to in-store payments but which are general to the HiPay transactional workflow, presenting some specific parameters related to POS and physical payment terminals.
 
 Thus, implementing POS scenarios through HiPay is easier if you are already aware of the [HiPay Enterprise platform overview](/getting-started/platform-hipay-enterprise/overview/) and if you already implemented and tested the [HiPay Enterprise Gateway APIs](/doc-api/enterprise/gateway/).
 
@@ -89,13 +89,13 @@ These parameters are listed below.
 
 | Field name | Format | Req. | Specific to POS | Description |
 | --- | :---: | --- | :---: | --- |
-| *eci* | N | Yes | No | Electronic Commerce Indicator (ECI). The ECI indicates the security level at which the payment information is processed between the cardholder and merchant. In this case, **its value must be set to `10` (in-store payment)**.
-| *payment_product* | AN | No | No | The payment method used to proceed checkout. In case of POS payments, you don't know in advance the brand of the card which will be introduced in the payment terminal. Therefore, **its value must be blank.**
-| *initialize\_payment_terminal* | N | Yes | Yes | Tells the platform whether a payment terminal should be initialized with this transaction. As this section describes how to initialize payment terminals, **this value must be set to `1`**.
-| *payment\_terminal_id* | N | No | Yes | The ID of the payment terminal on which you need to initialize the transaction. These IDs are provided to you by HiPay for each provisioned payment terminal. You must provide a value if you want to send the transaction on a specific payment terminal. 
-| *store_id* | N | No | Yes | The ID of the store in which the user processes his payment. These IDs are provided to you by HiPay when we register your stores in our system. **Providing a value is strongly recommended.**
-| *order_point* | A | No | No | The order point used by the customer to place his order. This parameter takes two values: `web` or `store`. If your customer is ordering from a tablet in your store, you must provide `store` (the `web` value would only be useful for e-reservation orders). **Providing a value is strongly recommended.**
-| *pos\_transaction_lifetime* | N | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed in this timeframe, the transaction will transition to the *expired* status. For example, if you want the transaction to expire within 5 minutes if it hasn't been processed, provide `600` (600 seconds = 5 minutes).
+| `eci` | Numeric | Yes | No | Electronic Commerce Indicator (ECI). The ECI indicates the security level at which the payment information is processed between the cardholder and merchant. In this case, **its value must be set to `10` (in-store payment)**.
+| `payment_product` | Alphanumeric | No | No | The payment method used to proceed checkout. In case of POS payments, you don't know in advance the brand of the card which will be introduced in the payment terminal. Therefore, **this parameter must not be sent for POS transactions.**
+| `initialize_payment_terminal` | Numeric | Yes | Yes | Tells the platform whether a payment terminal should be initialized with this transaction. As this section describes how to initialize payment terminals, **this value must be set to `1`**.
+| `payment_terminal_id` | Numeric | No | Yes | The ID of the payment terminal on which you need to initialize the transaction. These IDs are provided to you by HiPay for each provisioned payment terminal. **You must provide a value if you want to send the transaction on a specific payment terminal.**
+| `store_id` | Numeric | No | Yes | The ID of the store in which the user processes his payment. These IDs are provided to you by HiPay when we register your stores in our system. **Providing a value is strongly recommended.**
+| `order_point` | Alphabetic | No | No | The order point used by the customer to place his order. This parameter takes two values: `web` or `store`. If your customer is ordering from a tablet in your store, you must provide `store` (the `web` value would only be useful for e-reservation orders). **Providing a value is strongly recommended.**
+| `pos_transaction_lifetime` | Numeric | No | Yes | The lifetime of the transaction on the payment terminal, in seconds. If the transaction hasn't been executed in this timeframe, the transaction will transition to the `expired` status. For example, **if you want the transaction to expire within 5 minutes if it hasn't been processed, provide `600`** (600 seconds = 5 minutes).
 
 You also need to pass other global parameters related to the order, such as the amount, the customer e-mail adress, etc. All those parameters are documented in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
@@ -103,27 +103,28 @@ You also need to pass other global parameters related to the order, such as the 
 
 Here is an example of cURL call for initializing a transaction on a payment terminal on the test environment:
 
-`````
+```json
 curl -X POST \
---header 'Content-Type: multipart/form-data' \
---header 'Accept: application/json' \
---header 'Authorization: Basic OTQ2NTgzNjUuc3RhZ2Utc2VjdXJlLWdhdGV3YXkuaGlwYXktdHBwLmNvbTpUZXN0X1JoeXBWdktpUDY4VzNLQUJ4eUdoS3Zlcw==' \
--F orderid=1502198470978 \
--F eci=10 \
--F description='Blue shirt' \
--F currency=EUR \
--F amount=1.2 \
--F language=fr_FR \
--F email=customer@example.com \
--F firstname=John \
--F lastname=Doe \
--F initialize_payment_terminal=1 \
--F pos_transaction_lifetime=600 \
--F payment_terminal_id=62 \
--F store_id=1 \
--F order_point=store \
-'https://stage-secure-gateway.hipay-tpp.com/rest/v1/order'
-`````
+    https://stage-secure-gateway.hipay-tpp.com/rest/v1/order \
+    -H 'Accept: application/json' \
+    -H 'Authorization: Basic OTQ2NTg4OTcuc3RhZ2Utc2VjdXJlLWdhdGV3YXkuaGlwYXktdHBwLmNvbTpUZXN0X1BiTUU4T2lDQ25tTUJCNGswR2NLSlFOQQ==' \
+    -H 'Content-Type: multipart/form-data' \
+    -F eci=10 \
+    -F order_point=store \
+    -F payment_terminal_id=24 \
+    -F store_id=12 \
+    -F initialize_payment_terminal=1 \
+    -F pos_transaction_lifetime=60 \
+    -F orderid=99762198470978 \
+    -F eci=10 \
+    -F description="My custom description here..." \
+    -F currency=EUR \
+    -F amount=1.2 \
+    -F language=fr_FR \
+    -F email=customer@example.com \
+    -F firstname=John \
+    -F lastname=Doe
+```
 
 You can also perform test API calls from [the live testing tool](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 

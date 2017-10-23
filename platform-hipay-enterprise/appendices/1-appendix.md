@@ -26,6 +26,7 @@ Here is a list of the transaction statuses sent by server-to-server notification
 | `165` | Refund Refused | The refund operation was refused by the financial institution. |
 | `166` | Issuer Credited | The issuer&#39;s card has been credited. |
 | `173` | Capture Refused | The capture was refused by the financial institution. |
+| `174` | Awaiting Terminal | The transaction request was sent to the payment terminal. |
 | `200` | Pending Payment | The transaction request was submitted to the acquirer but the response is not yet available. |
 
 ##Not sent by server-to-server notification
