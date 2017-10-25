@@ -5,13 +5,13 @@
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay.
 HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
 
-**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our [*Support Center*](https://support.hipay.com/hc/en-us) or [*submit a request to our Support team.*] (https://support.hipay.com/hc/en-us/requests/new)
+**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request to our Support team.] (https://support.hipay.com/hc/en-us/requests/new)
 
 # About this guide
 
 ## Purpose
 
-This document is designed to provide you with details on how to integrate your business to the HiPay Enterprise Payment Gateway. 
+This document is designed to provide you with details on how to integrate your business to the HiPay Enterprise Payment Gateway.
 It gives you step-by-step instructions on how to simply and quickly get up and running with our services as well as detailed reference material.
 
 Where applicable, this document refers to the related documentation with further details.
@@ -26,8 +26,8 @@ The information contained in this guide is a property of HiPay. This material sh
 
 ## Legal notice
 
-This document contains the proprietary and confidential information of HiPay. Such information may not be used for any unauthorized purpose and may not be published or disclosed to third parties, in whole or part, without the express written permission of HiPay. 
-You acknowledge and agree that this document and all portions thereof, including, but not limited to, any copyright, trade secret and other intellectual property rights relating thereto, are and at all times shall remain the sole property of HiPay and that title and full ownership rights in the information contained herein and all portions thereof are reserved to and at all times shall remain with HiPay. You agree to safeguard the confidentiality of the information contained herein using the same standard you employ to safeguard your own confidential information of like kind, but in no event less than a commercially reasonable standard of care. 
+This document contains the proprietary and confidential information of HiPay. Such information may not be used for any unauthorized purpose and may not be published or disclosed to third parties, in whole or part, without the express written permission of HiPay.
+You acknowledge and agree that this document and all portions thereof, including, but not limited to, any copyright, trade secret and other intellectual property rights relating thereto, are and at all times shall remain the sole property of HiPay and that title and full ownership rights in the information contained herein and all portions thereof are reserved to and at all times shall remain with HiPay. You agree to safeguard the confidentiality of the information contained herein using the same standard you employ to safeguard your own confidential information of like kind, but in no event less than a commercially reasonable standard of care.
 If you do not agree with the foregoing conditions, you are required to return this document immediately to HiPay.
 
 # How to read this guide
@@ -106,9 +106,9 @@ This document describes how to install and use the HiPay Enterprise module for M
 
 ## Please note
 
--   You will need to configure your HiPay Enterprise account                                                                             
-    before installing your Magento module in your [*HiPay Enterprise back office*](https://merchant.hipay-tpp.com/).
--   The HiPay Enterprise module is not offered natively on Magento,                                                                      
+-   You will need to configure your HiPay Enterprise account
+    before installing your Magento module in your [HiPay Enterprise back office](https://merchant.hipay-tpp.com/).
+-   The HiPay Enterprise module is not offered natively on Magento,
     you must contact HiPay to get it.
 -   This module requires valid HiPay Enterprise credentials to be able to use it;
     please contact HiPay to get them.
@@ -117,9 +117,9 @@ This document describes how to install and use the HiPay Enterprise module for M
 
 Please find here all the latest versions of the Magento module:
 
-| Date |Version| Level| Main feature | 
+| Date |Version| Level| Main feature |
 |----|----|----| -----------|
-| 06-12-2017| 1.7.0 |Major version | Supports Oney Facily Pay  
+| 06-12-2017| 1.7.0 |Major version | Supports Oney Facily Pay
 | 05-05-2017| 1.6.2 |  Minor version | TokenJS Domain
 | 04-13-2017| 1.6.1 |  Minor version | Security
 | 02-23-2017| 1.6.0 |  Major version | Supports MO/TO

@@ -51,7 +51,7 @@ The payment methods in question are **Klarna Invoice** and **Oney Facily Pay**.
 Oney's Fraud system requires additional configuration for shipping method and product categories.
 The configuration is explained in the following paragraph.
 
-Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our [*Support Center*](https://support.hipay.com/hc/en-us) or [*submit a request*] (https://support.hipay.com/hc/en-us/requests/new) to our Support team.
+Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request] (https://support.hipay.com/hc/en-us/requests/new) to our Support team.
 
 ![](images/image-basket.png)
 
@@ -188,11 +188,11 @@ If you want to offer on your website other payment methods than credit card or d
 |Order status when payment cancelled by customer|   Status to be assigned to the order
 |HiPay status to validate order| HiPay status for a Magento transaction to be validated
 |Redirect page pending status| If the transaction result is pending, the customer can be redirected to a pending, success or failure page.
-|Payment Action| Sets the payment mode: *Authorization + Capture* (*Sale*) or*: Authorization Only*.<br/>*Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation)*.<br/>Must be set to “*Sale*” for split payment method.
+|Payment Action| Sets the payment mode: *Authorization + Capture* (*Sale*) or*: Authorization Only*.<br/>Please refer to [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).<br/>Must be set to `Sale` for split payment method.
 |Credit Card Types|                                 Card types allowed on the payment form
 |Display card owner|                                Enables/disables the cardholder input field on the payment form
 |Credit Card Verification|                          Enables/disables Magento credit card verification
-|Css Url| URL for merchant style sheet for iFrame or Hosted page operating modes.<br/>Important, **HTTPS** protocol is required. *Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/generateHostedPaymentPage (Response Content Type – Parameters – css)”.*
+|Css Url| URL for merchant style sheet for iFrame or Hosted page operating modes.<br/>Important, **HTTPS** protocol is required. Please refer to [generateHostedPaymentPage](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/generateHostedPaymentPage)
 |Page payment template|For iFrame and Hosted page operating modes, you can choose your basic template to show:<br/>**Basic:** Basic responsive design.<br/>**Basic-js:** Advanced responsive design.
 |Display hosted page in iFrame|                     Activates iFrame mode on hosted page. *Please refer to chapter 4.2.*
 |iFrame Height|                                     If iFrame operating mode is chosen, you can select your iFrame height to fit with your CSS.
