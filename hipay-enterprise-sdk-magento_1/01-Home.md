@@ -5,7 +5,7 @@
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay.
 HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
 
-**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*] (https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
+**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our [*Support Center*](https://support.hipay.com/hc/en-us) or [*submit a request to our Support team.*] (https://support.hipay.com/hc/en-us/requests/new)
 
 # About this guide
 
@@ -107,8 +107,7 @@ This document describes how to install and use the HiPay Enterprise module for M
 ## Please note
 
 -   You will need to configure your HiPay Enterprise account                                                                             
-    before installing your Magento module in your HiPay Enterprise back office
-    ([*https://merchant.hipay-tpp.com/*](https://merchant.hipay-tpp.com/)).
+    before installing your Magento module in your [*HiPay Enterprise back office*](https://merchant.hipay-tpp.com/).
 -   The HiPay Enterprise module is not offered natively on Magento,                                                                      
     you must contact HiPay to get it.
 -   This module requires valid HiPay Enterprise credentials to be able to use it;

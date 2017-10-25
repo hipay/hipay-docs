@@ -50,22 +50,22 @@ Fix - Http code if signature is wrong
 **Publish date** : 02-23-2017  
 [*GitHub Release*](https://github.com/hipay/hipay-fullservice-sdk-magento1/releases/tag/1.6.0)
 
-New - Payment MO/TO configuration
-New - Payment MO/TO sends customer the payment page link
-New - New HiPay branding
-New - New order_id nomenclature on split payment
-New - Optimization of split payment profile labels
-New - Add Request sources sent to the API request
-New - Change "HiPay's Cards'" title
-New - Basket configuration
-New - Basket: Send the basket to transaction
-New - Basket: Available for capture and refund
-New - Additional parameters: use order currency for transactions
-New - Payment method: add Klarna integration associated with the basket feature
-New - Change Payment Methods in Store View in addition to the general configuration
-Fix - Add tax rate to split payment
-Fix - Cancel management by the HiPay back office towards Magento
-Fix - Callback 142 Authorization requested
-Fix - Custom_data file in error when not used
+- New - Payment MO/TO configuration
+- New - Payment MO/TO sends customer the payment page link
+- New - New HiPay branding
+- New - New order_id nomenclature on split payment
+- New - Optimization of split payment profile labels
+- New - Add Request sources sent to the API request
+- New - Change "HiPay's Cards'" title
+- New - Basket configuration
+- New - Basket: Send the basket to transaction
+- New - Basket: Available for capture and refund
+- New - Additional parameters: use order currency for transactions
+- New - Payment method: add Klarna integration associated with the basket feature
+- New - Change Payment Methods in Store View in addition to the general configuration
+- Fix - Add tax rate to split payment
+- Fix - Cancel management by the HiPay back office towards Magento
+- Fix - Callback 142 Authorization requested
+- Fix - Custom_data file in error when not used
 
 

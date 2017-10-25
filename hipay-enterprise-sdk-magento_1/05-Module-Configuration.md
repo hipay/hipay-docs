@@ -3,26 +3,24 @@
 
 ## Technical configuration
 
-Please increase the "max_inputs_vars" in the "*php.ini*" of your server.
+Please increase the `max_inputs_vars` in the `php.ini` of your server.
 An acceptable value is 5000.
 
         max_inputs_vars=5000
-        
-By default, this value is set to 1000 and is too low to support the saving of the HiPay module configuration.    
+
+By default, this value is set to 1000 and is too low to support the saving of the HiPay module configuration.
 
 ## General configuration
 
-To configure your HiPay Enterprise API credentials, you must click on "*HiPay Enterprise*" in the Magento configuration section (*System -&gt; Configuration -&gt; Sales*). If you have administrative rights but are not allowed to access the configuration of the payment method, please log out and log back in.
+To configure your HiPay Enterprise API credentials, you must click on "*HiPay Enterprise*" in the Magento configuration section (System > Configuration > Sales). If you have administrative rights but are not allowed to access the configuration of the payment method, please log out and log back in.
 
-![](images/image9.png)
+![](images/image9.jpg)
 
-You can find your HiPay Enterprise API credentials in your HiPay Enterprise back office, under “*Integration -&gt; Security Settings
--&gt;* *Api credentials*”.
+You can find your HiPay Enterprise API credentials in your HiPay Enterprise back office, under `Integration > Security Settings > Api credentials`.
 
-Once you have them, put them in the module configuration with your
-“*Passphrase*”. (*Please refer to section *2.2**).
+Once you have them, put them in the module configuration with your `Passphrase`. (Please refer to section 2.2).
 
-When using the Multi-site or Multi-store feature: you can use different HiPay credentials and payment methods for each Store View using the “*Current Configuration Scope*” select box. Uncheck the “Use Website” checkbox and specify the desired value.
+When using the Multi-site or Multi-store feature: you can use different HiPay credentials and payment methods for each Store View using the `Current Configuration Scope` select box. Uncheck the `Use Website` checkbox and specify the desired value.
 
 #### Additional parameters
 
@@ -31,11 +29,11 @@ When using the Multi-site or Multi-store feature: you can use different HiPay cr
 |  Device fingerprint    | Defines if a fingerprint is sent with the transaction ("YES" by default)
 |  Use order currency for transaction*    | Defines the currency used for the order. By default, orders are always processed with the base currency of the store.
 
-If you activate "*Use order currency for transaction*", your payment method must be configured in "Sale" mode.
-If you want to use this feature in "*Authorize*" mode and do "manual captures" in your back office when invoicing orders,
-you must develop your own "invoicing" and make an override of *Mage_Sales_Model_Order_Invoice* and "*register*" method. 
+If you activate `Use order currency for transaction`, your payment method must be configured in `Sale` mode.
+If you want to use this feature in `Authorize` mode and do `manual captures` in your back office when invoicing orders,
+you must develop your own `invoicing` and make an override of `Mage_Sales_Model_Order_Invoice` and `register` method.
 
-If you keep the default Magento process, the transaction authorization will be processed in the currency chosen by the customer, and 
+If you keep the default Magento process, the transaction authorization will be processed in the currency chosen by the customer, and
 the capture upon invoicing in the *base currency* of the store.
 
 ### Customer's cart items configuration
@@ -53,7 +51,7 @@ The payment methods in question are **Klarna Invoice** and **Oney Facily Pay**.
 Oney's Fraud system requires additional configuration for shipping method and product categories.
 The configuration is explained in the following paragraph.
 
-Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*] (https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
+Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our [*Support Center*](https://support.hipay.com/hc/en-us) or [*submit a request*] (https://support.hipay.com/hc/en-us/requests/new) to our Support team.
 
 ![](images/image-basket.png)
 
@@ -61,18 +59,18 @@ Please note that this feature is still in beta version. For questions relating t
 |----------|:-------------:|
 |  Send cart items   | Activates  customer's cart items sending or not ("NO" by default)
 |  Attribute ean   |  EAN is not a Magento attribute by default: you must define your custom attribute if you want to send it in the basket
-|  Load attribute*  |  Because EAN is not a default attribute, product loading is necessary to get the value. You can avoid loading by adding the attribute to the order and quote.  
+|  Load attribute*  |  Because EAN is not a default attribute, product loading is necessary to get the value. You can avoid loading by adding the attribute to the order and quote.
 
-Please assume that  **"Adjustment Fee"** or **"Adjustment Refund"** are not supported with baskets for refunds.  
+Please assume that  **"Adjustment Fee"** or **"Adjustment Refund"** are not supported with baskets for refunds.
 
-Product loading is carried into HiPay's helper, which is **Data.php**, when information about the product is retrieved. If you want to avoid this loading, which is not fast, please add your EAN attribute in the **Quote** and **Order** model.  
+Product loading is carried into HiPay's helper, which is **Data.php**, when information about the product is retrieved. If you want to avoid this loading, which is not fast, please add your EAN attribute in the **Quote** and **Order** model.
 
-There are several ways to do so. For example, you can: 
+There are several ways to do so. For example, you can:
 
-  1. Add your attribute in the "order" and "quote" tables. 
-  2. Save your attribute in the listening observer *sales_quote_save_before*.
-  3. Upgrade your config.xml to transfer the attribute to the "Order" with:
-     
+  1. Add your attribute in the "order" and "quote" tables.
+  2. Save your attribute in the listening observer `sales_quote_save_before`.
+  3. Upgrade your `config.xml` to transfer the attribute to the "Order" with:
+
             <fieldsets>
                 <sales_convert_quote>
                     <attribute_ean>
@@ -81,7 +79,7 @@ There are several ways to do so. For example, you can:
               </sales_convert_quote>
             </fieldsets>
 
-You can test and see the code used in the Data.php.
+You can test and see the code used in the `Data.php`.
 
             // If the store supports EAN (please set the attribute in hipay config)
             if (Mage::getStoreConfig('hipay/hipay_basket/attribute_ean', Mage::app()->getStore())) {
@@ -96,16 +94,16 @@ You can test and see the code used in the Data.php.
                     $ean = $product->getData($attribute);
                 }
             }
-            
+
 #### Categories and shipping methods mapping
 
-To enable sending relevant information about delivery methods and product categories, mapping 
+To enable sending relevant information about delivery methods and product categories, mapping
 is required between your data and HiPay's data.
 
 ##### Categories mapping
 
-Only the top level categories are displayed and must be mapped. As long as you have not mapped a category, a warning 
-icon is displayed and prompts you to do the mapping. If the mapping is not done, then the transaction will be refused 
+Only the top level categories are displayed and must be mapped. As long as you have not mapped a category, a warning
+icon is displayed and prompts you to do the mapping. If the mapping is not done, then the transaction will be refused
 by Oney. It is therefore important to check your mapping regularly when adding or modifying a category.
 
 ![](images/img-category-mapping.png)
@@ -118,9 +116,9 @@ For each customer's order, depending on the chosen configuration, this informati
 
 For each mapping, you have to fill out the following information:
 
-   *   "Preparation delay": Estimated day time for order preparation
-   *   "Delivery delay": Estimated day time for delivery
-   
+   *   `Preparation delay`: Estimated day time for order preparation
+   *   `Delivery delay`: Estimated day time for delivery
+
 From this information, an estimated delivery day is calculated and sent with the transaction.
 Non-working days are not taken into account in this calculation.
 
@@ -129,8 +127,7 @@ to see your list if you change the configuration of your payment methods.
 
 ## Payment methods configuration
 
-To configure your HiPay Enterprise payment methods, click on "*Payment Methods*" in the Magento configuration section (*System -&gt;
-Configuration*).
+To configure your HiPay Enterprise payment methods, click on `Payment Methods` in the Magento configuration section (System > Configuration).
 
 You will then see a list of payment methods with all the HiPay Enterprise integration possibilities.
 
@@ -140,16 +137,16 @@ You will then see a list of payment methods with all the HiPay Enterprise integr
 (only available for credit card and debit card payment methods)
 
 With the HiPay Enterprise Credit Card API integration (direct API integration), customers fill in their bank information directly on
-the merchants’ website. The module calls the HiPay Enterprise API to validate the transaction and the merchant’s website displays the transaction confirmation / refused / pending message.
+the merchants’ website. The module calls the HiPay Enterprise API to validate the transaction and the merchant’s website displays the transaction `confirmation` / `refused` / `pending` message.
 
-If this integration mode is selected, you are required to be compliant with the PCI Data Security Standard. For more information, please go to “*https://support.hipay.com/hc/en-us/articles/115001582249-PCI-DSS-Compliance-and-Validation-Guide*”.
+If this integration mode is selected, you are required to be compliant with the PCI Data Security Standard. For more information, please go to [PCI-DSS Compliance & validation guide](https://support.hipay.com/hc/en-us/articles/115001582249-PCI-DSS-Compliance-and-Validation-Guide).
 
 ### HiPay Enterprise Credit Card Split Payment
-(only available for credit card and debit card payment methods) 
+(only available for credit card and debit card payment methods)
 
 This integration can be used to process recurring payments and split order payments through APIs. It is a variant of the HiPay Enterprise Credit Card API integration. Therefore, you are also required to be compliant with the PCI Data Security Standard.
 
-Prior to activating this integration, at least one recurring profile must be created (*Please refer to section *5.6* Split payment method*).
+Prior to activating this integration, at least one recurring profile must be created (Please refer to section 5.6 Split payment method).
 
 ### HiPay Enterprise Credit Card Hosted Page
 (only available for credit card and debit card payment methods)
@@ -159,11 +156,11 @@ To process payments, cardholders are redirected to a secured payment page hosted
 
 After payment validation, customers are redirected to the merchant's website, which displays a transaction confirmation / error / pending message.
 
-### iFrame 
+### iFrame
 
 You can activate the iFrame mode on your HiPay Enterprise Hosted Page if you want cardholders to fill in their payment card information on a secured payment page hosted by HiPay and displayed in an iFrame inside the merchants’ payment page.
 
-Your website must run with the **HTTPS** protocol to use an iFrame hosted page.
+Your website must run with the `HTTPS` protocol to use an iFrame hosted page.
 
 This page (hosted & iFrame) can be customized with the merchants’ CSS stylesheet to fit their website look and feel.
 
@@ -172,8 +169,7 @@ This page (hosted & iFrame) can be customized with the merchants’ CSS styleshe
 
 This integration can be used to process recurring payments and split order payments using a hosted page.
 
-Prior to activating this integration, at least one recurring profile must be created (*Please refer to section* **5.6** *Split payment
-method*).
+Prior to activating this integration, at least one recurring profile must be created (Please refer to section* 5.6 Split payment method).
 
 ### Other HiPay Enterprise payment methods
 
@@ -181,7 +177,7 @@ If you want to offer on your website other payment methods than credit card or d
 
 ### Configuration parameters
 
-  
+
 |  Name    | Description|
 |----------|:-------------:|
 |  Enabled    | Allows the activation of the module
@@ -219,4 +215,4 @@ If you want to offer on your website other payment methods than credit card or d
 |Sort Order|                                        Sorts the payment method order in the front-end
 |Enable debug log|                                  Logs requests and server responses on the "var/log/payment\_hipay\_cc.log" file
 |Enable test mode|                                  If Test mode is enabled, the module will use the HiPay Enterprise test platform.
-  
+

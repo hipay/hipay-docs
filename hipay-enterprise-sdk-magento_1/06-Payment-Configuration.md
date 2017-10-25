@@ -2,44 +2,44 @@
 
 ## “Sale” mode
 
-When making a purchase with the “sale” mode, the capture is automatically requested right after the authorization. *Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation)*.
+When making a purchase with the `sale` mode, the capture is automatically requested right after the authorization. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 If the payment fails, the customer is redirected to the error page and the status is defined as configured in the module configuration.
 
 If the payment is successful, the customer is redirected to the success page. The invoice is then created if the configuration allows it and the status is defined as follows:
 
--   “capture_waiting”
--   “processing”
+-   `capture_waiting`
+-   `processing`
 
 ## “Authorization” mode
 
-When making a purchase with the "Authorization" mode, the transaction will be on “waiting capture”. *Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation)*.
+When making a purchase with the `Authorization` mode, the transaction will be on `waiting capture`. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 The customer is not charged directly: you have 7 days to "capture" the transaction and charge the customer. Otherwise, the order will be cancelled.
 
 If the payment fails, the customer is redirected to the error page and the status is defined as configured in the module configuration.
 
-If the payment is successful, the customer is redirected to the success page. At this step, the order status is “*Waiting for capture*”. Once you’re ready to capture the transaction:
+If the payment is successful, the customer is redirected to the success page. At this step, the order status is `Waiting for capture`. Once you’re ready to capture the transaction:
 
 -   If the configuration does not allow the creation of the invoice, you must create it from the order overview. Click on
-    “*Capture online*”: this will send the capture information to the HiPay Enterprise server. If successful, the invoice is created.
+    `Capture online`: this will send the capture information to the HiPay Enterprise server. If successful, the invoice is created.
     The payment is then captured and you can create your shipment.
--   If the configuration allows the creation of the invoice, click on the invoice and on the “*capture”* button. This will send the capture information to the HiPay Enterprise server. If successful, the invoice status changes to “*Paid*”.
+-   If the configuration allows the creation of the invoice, click on the invoice and on the `capture` button. This will send the capture information to the HiPay Enterprise server. If successful, the invoice status changes to `Paid`.
 
-You can also do the “*capture*” directly in your HiPay Enterprise back office. The invoice will then be automatically created in your Magento back office.
+You can also do the `capture` directly in your HiPay Enterprise back office. The invoice will then be automatically created in your Magento back office.
 
 ## Refund
 
-HiPay Enterprise allows online refunds. For this purpose, simply create a "*credit memo*" on the invoice (not from the order).
+HiPay Enterprise allows online refunds. For this purpose, simply create a `credit memo` on the invoice (not from the order).
 
 ![refund](images/image12.png)
-You have two options: “*Refund Offline*" (not relevant in our case) or "*Refund*".
+You have two options: `Refund Offline` (not relevant in our case) or `Refund`.
 
-Choose the amount and click on “*Refund*”. If successful, the credit memo is created and the refund is validated.
+Choose the amount and click on `Refund`. If successful, the credit memo is created and the refund is validated.
 
 ## One-click (only available for credit card payment methods)
 
-If the one-click option is activated, it enables your system to create an “*alias*” of the credit card. That way, after their first transaction, customers can use a saved credit card without having to fill in all the payment data again.
+If the one-click option is activated, it enables your system to create an `alias` of the credit card. That way, after their first transaction, customers can use a saved credit card without having to fill in all the payment data again.
 
 This option is only available if customers have created an account on your site.
 
@@ -51,8 +51,7 @@ Here are the instructions to follow when merchants need to create a new order an
 
 ![](images/image-moto.png)
 
-- Under “*System -&gt; Configuration -&gt; HiPay Entreprise*”, fill in specific credentials for MO/TO transactions in the
-    "HiPay Enterprise credentials MO/TO" section. If they are not specified, standard credentials will be used.
+- Under `System > Configuration > HiPay Entreprise`, fill in specific credentials for MO/TO transactions in the "HiPay Enterprise credentials MO/TO" section. If they are not specified, standard credentials will be used.
 
 - You can also configure the following settings.
 
@@ -65,21 +64,21 @@ Here are the instructions to follow when merchants need to create a new order an
 ### MO/TO payment for hosted methods
 
 - Create a new order in your Magento back office.
-    1.  Go to “*Sales -&gt; Create New Order*”.
+    1.  Go to `Sales > Create New Order`.
     2.  Add your products, account information, billing address,
         shipping address, payment method, shipping method, etc.
     3.  Submit your order.
     4.  An email is sent to the customer with a link for paying the order.
     5.  The customer clicks on the link in the email and is redirected to the hosted payment form.
     6.  The customer pays and is redirected to your Magento front-end (success or error page).
-    7.  The status of the order is changed to "processing".
+    7.  The status of the order is changed to `processing`.
 
 ## Split payment method
 
 ### Payment profile
 
 Prior to activating a split payment method, you must create one or more
-payment profiles under: *Sales &gt; HiPay &gt; Split Payment Profiles &gt; Add payment profile*.
+payment profiles under: `Sales > HiPay > Split Payment Profiles > Add payment profile`.
 
 A payment profile defines the billing cycle of an order, for example:
 
@@ -94,21 +93,21 @@ A payment profile defines the billing cycle of an order, for example:
 |Billing Delay|             Number of billing periods that make up one billing cycle
 |Maximum Billing Cycles |   Number of billing cycles for the payment period
 
-Please note: when configuring your payment method, you must select “*Sale”* as your “*Payment Action”*.
+Please note: when configuring your payment method, you must select `Sale` as your `Payment Action`.
 
 ### Split payments scheduling (Cron)
 
-A daily cron may be setup to launch the “*hipay_pay_split_payment”* method.
+A daily cron may be setup to launch the `hipay_pay_split_payment` method.
 
 ### Split payment management
 
-An installment plan will be created for each new split payment when the first payment is successful. You can follow the status and the due date of each payment under:\*Sales* *&gt;* *HiPay* *&gt; Split payments*.
+An installment plan will be created for each new split payment when the first payment is successful. You can follow the status and the due date of each payment under: `Sales > HiPay > Split payments`.
 
 Split payment statuses:
 
--   “*Complete*” payments have been processed and no further action is needed.
--   “*Pending*” payments are not processed yet: you can change the date or other parameters.
--   “*Failed*” payments: you will receive an email when a split payment has failed and an action is required. You can retry the payment by switching the status to "Pending".
+-   `Complete` payments have been processed and no further action is needed.
+-   `Pending` payments are not processed yet: you can change the date or other parameters.
+-   `Failed` payments: you will receive an email when a split payment has failed and an action is required. You can retry the payment by switching the status to "Pending".
 
 ![](images/image14.jpg)
 

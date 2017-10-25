@@ -13,7 +13,7 @@
 
 The module supports the following local payment methods:
 
-**Europe**
+**Europe:**
 
  * **iDEAL**
  * **ING Home'Pay**
@@ -21,26 +21,26 @@ The module supports the following local payment methods:
  * **PayPal**
  * **SEPA Direct Debit**
 
-**Switzerland**
+**Switzerland:**
 
  * **PostFinance Card**
  * **PostFinance E-finance**
 
-**Belgium**
+**Belgium:**
 
   * **Belfius / Dexia Direct Net**
 
-**Italy**
+**Italy:**
 
   * **SisalPay**
 
-**Germany**
+**Germany:**
 
  * **Giropay**
  * **Klarna Invoice**
  * **SOFORT Überweisung**
 
-**Brazil and Mexico**
+**Brazil and Mexico:**
 
  * **Itaú**
  * **Bradesco**
@@ -54,13 +54,16 @@ The module supports the following local payment methods:
  * **Banamex**
  * **Santander Cash**
 
-**Russia**
+**Russia:**
 
  * **Visa WebMoney Transfer**
  * **Yandex.Money**
 
- **Poland**
+**Poland:**
+
  * **Przelewy24**
+
+
 
  ![magento connect](images/img-payment-methods.png)
 
