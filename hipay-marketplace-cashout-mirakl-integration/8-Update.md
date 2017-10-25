@@ -25,13 +25,37 @@ Updating dependencies (including require-dev)
 
 ## Full project update procedure
 
-### 1. Make a backup
+For more safety, it is higly recommanded to daily backup of your database.
+
+You can perform a full project update in 3 differents ways :
+
+### Update through the project GUI
+
+Go to the [dashboard section](#dashboard-settings-update-the-application)
+
+### Update through command line
+
+You can update your application by running the following command : 
+        
+        $ php bin/console app:update
+
+The command will perform the following actions :
+
+- Backup actual project files 
+- Backup database (schema & data)
+- Update project files with the latest source
+- Update dependencies
+- Update database schema
+
+### Manual update
+
+#### 1. Make a backup
 
 Make sure you have a backup before updating the full project. You may copy the full project directory if you're not sure. For example, if your project directory is named `hipay_mirakl`:
 
 	$ cp -R hipay_mirakl hipay_mirakl_backup
 
-### 2. Check if Git is initialized
+#### 2. Check if Git is initialized
 
 Go to the root directory of the project (where `composer.json` is) and check if there is a `.git` directory by typing the following command:
 
@@ -57,7 +81,7 @@ If you get an error message like `ls: cannot access .git: No such file or direct
 	git init
 	git remote add origin https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
 
-### 3. Update the project
+#### 3. Update the project
 
 First, fetch the new tags available:
 
@@ -74,7 +98,7 @@ When you have determined the version number to which you want to upgrade, type t
 
 For example, if you want to update to version 2.1.0, you will have `tags/2.1.0`.
 
-### 4. Install the dependencies
+#### 4. Install the dependencies
 
 Install the dependencies using Composer:
 
@@ -82,7 +106,7 @@ Install the dependencies using Composer:
 	
 If new parameters were added to the project, you will be asked to provide values for them.
 
-### 5. Update the database
+#### 5. Update the database
 
 Go to the project directory:
 
@@ -92,7 +116,7 @@ Run the following command:
 
 	$ php bin/console orm:schema-tool:update --dump-sql --force
 
-### 6. Change permissions
+#### 6. Change permissions
 
 Run the following commands:
 
@@ -100,11 +124,11 @@ Run the following commands:
 
 	$ chmod 777 -R var/
 
-### 7. Recover vendors logs (optional)
+#### 7. Recover vendors logs (optional)
 
 If there are existing vendors in the database but no logs linked to them, you can generate logs by running the following command:
     
-    $ php bin/console logs:vendors:recover
+        $ php bin/console logs:vendors:recover
 
 You may check if the upgrade was successful by trying a simple command, for example: 
 

@@ -8,7 +8,8 @@ There are 3 main commands that need to be run automatically by relying on *cron*
 
 - [Vendor processing](#vendor-processing),
 - [Cash-out generation](#cash-out-generation),
-- [Cash-out processing](#cash-out-processing).
+- [Transfer processing](#transfer-processing).
+- [withdraw processing](#withdraw-processing).
 
 There are also two debug and one update commands that do not need to be run using a *cron* job:
 
@@ -69,10 +70,10 @@ Retrieving the stores updated in the last 24 hours instead of the last 6 hours a
 	$ php bin/console cashout:generate
 
 #### Execution
-1. Retrieves the *PAYMENT* transactions from Mirakl to get all the payment vouchers of the cycle.
-2. Calculates the amount due to the vendors and the operator thanks to the retrieved payment vouchers.
+1. Retrieves the *PAYMENT* transactions from Mirakl to get all invoices of the cycle.
+2. Get the amount due to the vendors and the operator thanks to the invoices.
 3. Creates the operations to be executed afterwards, validates and saves them.
-4. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
+4. Adjust operations amount to deal with past negative operations
 
 #### Argument
 
@@ -95,11 +96,34 @@ This command should be run right after the payment cycle has been made in Mirakl
 
 	30 0 * * * php path/to/bin/console cashout:generate `date +%Y-%m-%d`
 
-### Cash-out processing
+### Transfer processing
 
 #### Command call
 
-	$ php bin/console cashout:process
+	$ php bin/console cashout:transfer
+
+#### Execution
+1. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
+
+#### Arguments
+This command doesn’t have any argument.
+
+#### Options
+This command doesn’t have any option.
+
+#### Cron example
+
+Please see below an example of how your *cron* job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
+
+This command should be run when you have payments you want to transfer to your sellers (basically, after completion of the `cashout:generate` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
+
+	0 2 * * * php path/to/bin/console cashout:transfer
+
+### Withdraw processing
+
+#### Command call
+
+	$ php bin/console cashout:withdraw
 
 #### Execution
 1. Executes, on the HiPay platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
@@ -114,9 +138,9 @@ This command doesn’t have any option.
 
 Please see below an example of how your *cron* job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 
-This command should be run when you have payments you want to transfer to your sellers (basically, after completion of the `cashout:generate` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
+This command should be run when you have payments you want to transfer to your sellers (basically, after completion of the `cashout:transfer` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
 
-	0 2 * * * php path/to/bin/console cashout:process
+	0 4 * * * php path/to/bin/console cashout:withdraw
 
 ### Listing wallet accounts
 

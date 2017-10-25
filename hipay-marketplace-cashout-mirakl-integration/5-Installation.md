@@ -27,11 +27,20 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 	`$ composer install` 
 	
 	This step may take a few minutes to complete as the project and its dependencies are being downloaded and configured.
+
 7. (Optional) If you use the default logs file (`/var/log/hipay.log`), run the following commands: 
         
         `$ touch /var/log/hipay.log`
 
         `$ chmod 755 /var/log/hipay.log`
+
+8. (Optional) If you want to enable update from GUI you must run the following commands: 
+        
+        `$ chown -R < web_server_user >:< group_of_web_server_user > < path_to_your_install_dir > `
+
+        `$ chmod 755 -R < path_to_your_install_dir >`
+
+NB: If you don't want to set those specifics rights on your install folder, update from GUI will disabled. However, update from command line will be still be available.
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
@@ -41,7 +50,7 @@ This section describes how to provide HiPay with information on how to reach you
 
 1. Configure your web server so that HiPay can reach the `web/index.php` through HTTP. This configuration is beyond the scope of the present guide and depends on the web server software you rely on (Apache, Nginx, etc.).
 
-2. Note the URL from which the `web/index.php` is reachable (example: `https://cashout.merchant-example.com/index.php`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
+2. Note the URL from which the `web/index.php/dashboard` is reachable (example: `https://cashout.merchant-example.com/index.php/dashboard`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
 
 ## Initialization and final check
 
@@ -72,12 +81,14 @@ This command will initialize the database with the needed tables. You should get
 | miraklId       | int(11)      | YES  |     | NULL    |                |
 | hipayId        | int(11)      | YES  |     | NULL    |                |
 | amount         | double       | NO   |     | NULL    |                |
+| originAmount   | double       | YES  |     | NULL    |                |
 | cycleDate      | datetime     | NO   |     | NULL    |                |
 | withdrawId     | varchar(255) | YES  | UNI | NULL    |                |
 | transferId     | varchar(255) | YES  | UNI | NULL    |                |
 | status         | int(11)      | NO   |     | NULL    |                |
 | updatedAt      | datetime     | NO   |     | NULL    |                |
 | paymentVoucher | varchar(255) | NO   |     | NULL    |                |
+| adjustementIds | varchar(255) | YES  |     | NULL    |                |
 
 ### Documents
 
@@ -123,9 +134,10 @@ This command will initialize the database with the needed tables. You should get
 | paymentVoucher   | varchar(255) | NO   |     | NULL    |                |
 | dateCreated      | datetime     | YES  |     | NULL    |                |
 | amount           | double       | NO   |     | NULL    |                |
+| originAmount     | double       | YES  |     | NULL    |                |
 | statusTransferts | int(11)      | YES  |     | NULL    |                |
 | statusWithDrawal | int(11)      | YES  |     | NULL    |                |
-| message          | varchar(255) | YES  |     | NULL    |                |
+| message          | longtext     | YES  |     | NULL    |                |
 | balance          | varchar(255) | YES  |     | NULL    |                |
 
 ### log_vendors
@@ -142,4 +154,4 @@ This command will initialize the database with the needed tables. You should get
 | nbDoc               | int(11)      | NO   |     | NULL    |                |
 | date                | datetime     | NO   |     | NULL    |                |
 
-To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php`). **The login page of the dashboard should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.
+To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php/dashboard`). **The login page of the dashboard should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.
