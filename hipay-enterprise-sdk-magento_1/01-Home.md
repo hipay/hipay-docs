@@ -5,7 +5,7 @@
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay.
 HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
 
-**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request to our Support team.] (https://support.hipay.com/hc/en-us/requests/new)
+**TECHNICAL SUPPORT** If you need any complementary information concerning the technical implementation of HiPay Enterprise, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request to our Support team](https://support.hipay.com/hc/en-us/requests/new).
 
 # About this guide
 
