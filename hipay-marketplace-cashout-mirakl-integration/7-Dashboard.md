@@ -87,8 +87,9 @@ On the `Settings` page, you will be able to:
 You can run the following commands through the `Fix errors` form:
 
 - `Wallet account creation` corresponding to the [vendor:process](#general-usage-available-commands-vendor-processing) command,
-- `Transfer` corresponding to the [cashout:generate:process](#general-usage-available-commands-cash-out-generation) command,
-- `Withdraw` corresponding to the [cashout:process:process](#general-usage-available-commands-cash-out-processing) command.
+- `Generate operations` corresponding to the [cashout:generate:process](#general-usage-available-commands-cash-out-generation) command,
+- `Transfer` corresponding to the [cashout:transfer](#general-usage-available-commands-transfer-processing) command,
+- `Withdraw` corresponding to the [cashout:withdraw](#general-usage-available-commands-withdraw-processing) command.
 
 ### Retrieve lists of executed batches
 
@@ -108,4 +109,4 @@ If a new scurity patch for the HiPay Marketplace cash-out library project has be
 
 You'll be redirect to a page describing actions performed by the update process. This process may take a while, please do not refresh the web page.
 
-NB: This update process require specifics rights on your [install folders](#installation). If you don't want to set those rights see the [update section](#update)
+NB: This update process require specifics rights on your [install folders](#installation). If you don't want to set those rights, see the [update section](#update)

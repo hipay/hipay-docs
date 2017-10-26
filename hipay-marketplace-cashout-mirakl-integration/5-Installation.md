@@ -40,7 +40,7 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 
         `$ chmod 755 -R < path_to_your_install_dir >`
 
-NB: If you don't want to set those specifics rights on your install folder, update from GUI will disabled. However, update from command line will be still be available.
+NB: If you don't want to set those specifics rights on your install folder, update from GUI will disabled. However, update from command line will still be available.
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
@@ -50,7 +50,7 @@ This section describes how to provide HiPay with information on how to reach you
 
 1. Configure your web server so that HiPay can reach the `web/index.php` through HTTP. This configuration is beyond the scope of the present guide and depends on the web server software you rely on (Apache, Nginx, etc.).
 
-2. Note the URL from which the `web/index.php/dashboard` is reachable (example: `https://cashout.merchant-example.com/index.php/dashboard`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
+2. Note the URL from which the `web/index.php/` is reachable (example: `https://cashout.merchant-example.com/index.php/`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
 
 ## Initialization and final check
 

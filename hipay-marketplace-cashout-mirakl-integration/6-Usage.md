@@ -6,16 +6,16 @@ Please note that default values for command line arguments/parameters are define
 
 There are 3 main commands that need to be run automatically by relying on *cron* jobs:
 
-- [Vendor processing](#vendor-processing),
-- [Cash-out generation](#cash-out-generation),
-- [Transfer processing](#transfer-processing).
-- [withdraw processing](#withdraw-processing).
+- [Vendor processing](#general-usage-available-commands-vendor-processing),
+- [Cash-out generation](#general-usage-available-commands-cash-out-generation),
+- [Transfer processing](#general-usage-available-commands-transfer-processing).
+- [withdraw processing](#general-usage-available-commands-withdraw-processing).
 
 There are also two debug and one update commands that do not need to be run using a *cron* job:
 
-- [Listing wallet accounts](#listing-of-wallet-accounts),
-- [Getting bank information](#getting-bank-information),
-- [Recovering vendors logs from past executed cron](#recover-vendors-logs).
+- [Listing wallet accounts](#general-usage-available-commands-listing-of-wallet-accounts),
+- [Getting bank information](#general-usage-available-commands-getting-bank-information),
+- [Recovering vendors logs from past executed cron](#general-usage-available-commands-recover-vendors-logs).
 
 ## Notifications
 
@@ -103,7 +103,7 @@ This command should be run right after the payment cycle has been made in Mirakl
 	$ php bin/console cashout:transfer
 
 #### Execution
-1. Executes, on the HiPay platform, the transfer of operations in statuses *CREATED* and *TRANSFER_FAILED* dating from at least one day.
+1. Executes, on the HiPay platform, the transfer of operations in statuses *TRANSFER_NEGATIVE*, *TRANSFER_FAILED* and *CREATED* (in this order).
 
 #### Arguments
 This command doesn’t have any argument.
@@ -126,7 +126,7 @@ This command should be run when you have payments you want to transfer to your s
 	$ php bin/console cashout:withdraw
 
 #### Execution
-1. Executes, on the HiPay platform, the withdrawal of operations in statuses *TRANSFER_SUCCESS* and *WITHDRAW_FAILED* dating from at least one day.
+1. Executes, on the HiPay platform, the withdrawal of operations in statuses *WITHDRAW_NEGATIVE*, *WITHDRAW_FAILED* and *TRANSFER_SUCCESS* (in this order).
 
 #### Arguments
 This command doesn’t have any argument.

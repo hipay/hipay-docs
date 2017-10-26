@@ -25,7 +25,7 @@ Updating dependencies (including require-dev)
 
 ## Full project update procedure
 
-For more safety, it is higly recommanded to daily backup of your database.
+For more safety, it is higly recommanded to do a daily backup of your database.
 
 You can perform a full project update in 3 differents ways :
 
