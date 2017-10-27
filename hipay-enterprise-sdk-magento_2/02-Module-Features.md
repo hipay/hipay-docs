@@ -63,10 +63,10 @@ The module supports the following payment methods:
 
  * **Visa WebMoney Transfer**
  * **Yandex.Money**
- 
+
  **Poland**
  * **Przelewy24**
 
- ![magento connect](images/media/img-payment-methods.png)
+ ![magento connect](images/img-payment-methods.png)
 
 
