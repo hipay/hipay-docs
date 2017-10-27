@@ -1,4 +1,4 @@
-#Prerequisites & recommendations
+# Prerequisites & recommendations
 
 ## Please note
 
@@ -13,5 +13,5 @@ The following table shows the acronyms and abbreviations used in this guide and 
 |:------------|:------------|
 | BIN     | Bank Identification Number |
 | PAN     | Primary Account Number |
-| PCI DSS | Payment Card Industry Data Security Standards |
+| PCI DSS | Payment Card Industry Data Security Standard |
 | REST    | Representational State Transfer |
