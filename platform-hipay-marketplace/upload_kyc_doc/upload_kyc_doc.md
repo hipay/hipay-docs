@@ -57,15 +57,21 @@ The following acronyms and abbreviations are used in this guide.
 
 ##Response status codes
 
-HTTP codes indicate whether a request was successful or not.
+Status codes or HTTP codes indicate whether a request was successful or not.
 
--   `200`: OK
--   `400`: Bad request (data error)
--   `401`: Unauthorized (login / password error)
--   `403`: Forbidden (unauthorized account)
--   `404`: Not found
--   `500`: Server error
--   `503`: Service unavailable
+|Code   |Message                                                 |Description
+|--------------------- |----------------------------------------------------------- |------------
+|`0`|Success|Everything went well.|
+|`2`|Missing param|Both the front and back sides of Belgian and Italian ID cards are required.|
+|`200`|OK|The request was successful.|
+|`400`|Bad request / Validation failed|Data error: one or several parameters sent to the API are not valid.|
+|`401`|Unauthorized|Login/password error: authentication with the wsLogin and wsPassword failed.|
+|`403`|Forbidden|Unauthorized account: a document was uploaded without the proper access rights for that user account.|
+|`404`|Not found||
+|`414`|Already identified|A document was uploaded for an account that is already identified.|
+|`415`|Already uploaded|This type of document has already been uploaded for this user account.|
+|`500`|Server error||
+|`503`|Service unavailable||
 
 #How to upload KYC documents with the specific REST API
 
@@ -73,7 +79,7 @@ This web service enables you to upload KYC documents to a HiPay user
 account.
 
 Sent KYC documents are automatically processed in real time if the
-pictures provided are usable. Otherwise, a manual check is done within 72 hours (working days).
+documents provided are usable. Otherwise, a manual check is done within 72 hours (working days).
 
 If a document is uploaded and sent by mistake, please wait until it is
 refused to re-submit the right document.
@@ -84,7 +90,7 @@ law.
 
 ##Document constraints
 
--   Accepted formats: `JPEG, JPG, GIF, PDF, PNG`
+-   Accepted formats: `JPG, GIF, PDF, PNG`
 -   Maximum file size: `5 MB`
 -   A certified translation is required for documents in a non-Latin language
 
@@ -118,9 +124,9 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |Label          |Description
 |------ |---------------|--------------
-|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card<br/>– 2 files accepted for front and back sides*)
+|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card<br/>– Both the front and back sides of Belgian and Italian ID cards are required.)
 |`2`    | Proof of address   |Proof of address issued within the last three months<br/>(e.g.: rent receipt, utility bill)
-|`6`    | Bank              | Bank account details (“RIB”/IBAN) / Account statement /…
+|`6`    | Bank              | Bank account details (“RIB”/IBAN) / Account statement /… Deprecated: please use the Bank-info API instead.
 *Table 6: KYC documents for individuals*
 
 ### For professionals (corporations)
@@ -128,34 +134,32 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
   
 |Type   |Label               |Description
 |------ |----------------------- |--------------------------------------------------------------------------------------------------------------
-|`3`      |Identity card           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
+|`1`      |ID proof           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
 |`4`      |Company Registration    |Document certifying company registration issued within the last three months (Kbis extract)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
-|`6`      |Bank                    |Bank account details (“RIB”/IBAN) / Account statement /…
+|`6`      |Bank                    |Bank account details (“RIB”/IBAN) / Account statement /… Deprecated: please use the Bank-info API instead.
 *Table 7: KYC documents for professionals (corporations)*
 
 ### For professionals (persons)
 
 |Type   |**Label**              |**Description**
 |------ |---------------------- |---------------------------------------------------------------------------
-|`7`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
+|`1`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
 |`8`      |Company Registration   |Document certifying registration issued within the last three months (Kbis extract)
 |`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
-|`6`      |Bank                   |Bank account details (“RIB”/IBAN) / Account statement /…
+|`6`      |Bank                   |Bank account details (“RIB”/IBAN) / Account statement /… Deprecated: please use the Bank-info API instead.
 *Table 8: KYC documents for professionals (persons)*
 
 ### For associations
 
 |Type   |**Label**                  |**Description**
 |------ |-------------------------- |---------------------------------------------------------------------------
-|`7`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – 2 files accepted for front and back sides*)
+|`1`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
 |`11`     |President of association   |Document certifying who is the president of the association
 |`12`    |Official Journal           |Publication in the Official Journal
 |`13`     |Association status         |Document certifying the Association statutes
-|`6`      |Bank                       |Bank account details (“RIB”/IBAN) / Account statement /…
+|`6`      |Bank                       |Bank account details (“RIB”/IBAN) / Account statement /… Deprecated: please use the Bank-info API instead.
 *Table 9: KYC documents for associations*
-
-*Only identification documents (types 1, 3 & 7) enable to upload two files for front and back sides (one per request).
 
 **Please note:** each category of account also requires a document
 entitled “Identification of Controlling Stakeholders”, duly completed,
@@ -180,14 +184,12 @@ account different from the authenticated one.
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
 |`type`             |N            |12           |M          |Type of KYC document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
-|`file`             |AN           |255          |M          |KYC document to upload<br/>(1 document per request*)<br/>- Accepted formats:<br/>`JPEG, JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
+|`file`             |AN           |255          |M          |KYC document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
+|`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>(only required for Belgian and Italian cards)<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (types `1, 3 or 7`) <br/>- Optional for other KYC documents
 |`user_space`      |N            |12            |          |ID of the user space (deprecated)
 *Table 11: KYC document upload related parameters*
 
-*For identification documents (types 1, 3 & 7), please make two
-requests to upload one file for the front side and one file for the back
-side respectively.
 
 ###Example of a cURL request 
 
@@ -491,7 +493,7 @@ curl_close($curl);
 |------------------------ |----------------------------------------------------------------------------------------------
 |`code`                     |Indicates if the API call has been done without errors (0 = success)
 |`message`                  |Displays the message related to the code
-|`user_space`               |ID of the user space being verified
+|`user_space`               |ID of the user space being verified <br/>- Deprecated: will be removed soon
 |`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual check is being performed to identify the user space
 |`documents`                |All the required KYC documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
 *Table 14: Response fields*
@@ -630,24 +632,24 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 |Type              |**Message**
 |---------------   |-------------------------------------------
 |`6`               |Bank outside of perimeter
-|`1,2,3,4,7,8`     |Expired
+|`1,2,4,8`     |Expired
 |`2,4,6,8`         |Falsified
-|`1,3,7`           |Falsified or under age
+|`1`           |Falsified or under age
 |`2,4,8`           |Incoherence: error with address
 |`2`               |Incoherence: error with holder
 |`4,8`             |Incoherence: error with name
-|`1,3,6,7`         |Incoherence: name and first name reversed
-|`1,3,6,7`         |Incoherence: other error
+|`1,6`         |Incoherence: name and first name reversed
+|`1,6`         |Incoherence: other error
 |`6`               |Not a bank ID
 |`2`               |Not a proof of address
-|`1,3,7`           |Not an ID
-|`1,3,7`           |One side missing
+|`1`           |Not an ID
+|`1`           |One side missing
 |`2`               |Supplier outside of perimeter
-|`1,2,3,4,6,7,8`   |Unreadable or cut
-|`1,2,3,4,6,7,8`   |Valid and certified
-|`1,3,7`           |Valid but not certifiable
+|`1,2,4,6,8`   |Unreadable or cut
+|`1,2,4,6,8`   |Valid and certified
+|`1`           |Valid but not certifiable
 |`2,6`             |Verified except holder’s first name
-|`1,2,3,4,6,7,8`   |Waiting
+|`1,2,4,6,8`   |Waiting
 *Table 17: Callback messages by document type*
 
 ##Response example 
