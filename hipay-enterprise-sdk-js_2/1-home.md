@@ -44,11 +44,11 @@ The example app is plug-and-play with Docker. This procedure requires Docker to 
 
 ### Procedure
 
-In order to test the example app, open a terminal and go to the `example` directory. Then, type the following command:
+In order to test the example app, open a terminal and execute setup.sh with init parameter
 
-	$ docker-compose up -d
+	$ ./setup.sh init
 
-Then, you need to open the following file: `example/credentials.php` to put your own HiPay Enterprise credentials. Follow the instructions inserted in PHP comments.
+Then, you need to copy the following file: `example/config/credentials.php.dist` to `example/config/credentials.php` and open it to put your own HiPay Enterprise credentials. Follow the instructions inserted in PHP comments.
 
 Finally, open your web browser and go to: http://localhost:8080/example/. 
 You should see the form shown in the screenshot above.
@@ -62,19 +62,40 @@ The following integration guide describes step by step how to use the HiPay Ente
 To use the SDK, you need to add the following script tag to your HTML pages:
 
 ```html
-<script type="text/javascript" src="dist/hipay-fullservice-sdk.js"></script>
+<script type="text/javascript" src="dist/hipay-fullservice-sdk-2.js"></script>
 ```
 For better performance, you can use the minified version:
 
 ```html
-<script type="text/javascript" src="dist/hipay-fullservice-sdk.min.js"></script>
+<script type="text/javascript" src="dist/hipay-fullservice-sdk-2.min.js"></script>
 ```
 
 ## HTML-side integration
 Then, you need to add a payment form to your checkout. Here is a basic HTML example:
 
 ```html
-<div class="scontainer" id="form">
+<div id="main" class="container">
+
+        <div class="row">
+            <div class="col-sm-12 col-lg-7">
+
+                <!-- Main component for a primary marketing message or call to action -->
+            <div class="scontainer" id ="infos-txt" class="">
+                <h1 class="main-title" id="price">HiPay Direct Post Tokenization Simulator</h1>
+                <p id="order">Submit the form in oder to tokenize the credit card details using the HiPay Fullservice SDK for JavaScript (payment details won't hit the server). You will see the HiPay Fullservice platform response below.</p>
+                <div id="code"></div>
+                <p id="link-area">
+                    <a class="" role="link" href="#null" id="link">Click here</a> to fill the form with sample payment details.
+                </p>
+                <p id="charge" >
+                    <a class="btn btn-lg btn-primary" role="button" href="#null" id="charge-button" style="display: none;">Create a test charge on this token (server-side PHP SDK)</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-5">
+            <div class="scontainer" id="form">
+
                 <p class="form-description details">
                     Enter your payment details:
                 </p>
@@ -82,28 +103,29 @@ Then, you need to add a payment form to your checkout. Here is a basic HTML exam
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
+                            <label class="sr-only" for="input-name">Prénom Nom</label>
+                            <div class="input-group">
+                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+
+                                <input type="text" class="form-control" id="input-name" placeholder="" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
                             <label class="sr-only" for="input-card">Card number</label>
                             <div class="input-group">
                                 <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></div>
-                                <input type="tel" class="form-control" id="input-card"  placeholder="Ex : 5136 0000 0000 0000" autocomplete="off" pattern="\d*" name="cardNumber" value="">
+                                <input type="tel" class="form-control" id="input-card"  placeholder="" autocomplete="off" pattern="\d*" name="cardNumber" value="">
                             </div>
                             <div id="creditCardNumberMessageContainer" class="inputMessageContainer"></div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="input-name">Prénom Nom</label>
-                            <div class="input-group">
-                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
 
-                                <input type="text" class="form-control" id="input-name" placeholder="Prénom Nom" value="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -111,9 +133,11 @@ Then, you need to add a payment form to your checkout. Here is a basic HTML exam
                             <label class="sr-only" for="input-name">MM / YY</label>
                             <div class="input-group">
                                 <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+                                <input type="text" class="form-control" id="input-expiry-date" value="">
+                                <input tabindex="-1" style="position: absolute; left: -999em; width:1px" type="tel" class="form-control" id="expiration-month" value="">
+                                <input tabindex="-1" style="position: absolute; left: -999em;width:1px" type="tel" class="form-control" id="expiration-year" value="">
 
-                                <input type="text" class="form-control" id="input-expiry-date" placeholder="MM / YY" value="">
-                            </div>
+                               </div>
                             <div id="creditCardExpiryDateMessageContainer" class="inputMessageContainer"></div>
 
                         </div>
@@ -146,6 +170,11 @@ Then, you need to add a payment form to your checkout. Here is a basic HTML exam
                 </div>
 
             </div>
+        </div>
+
+    </div>
+
+</div>
 ```
 
 ## JavaScript processing
@@ -162,17 +191,17 @@ For example when the form change you can :
 2) get the validity of the form with HiPay.Form.paymentFormDataIsValid()
 3) get error list if the form is not valid
 ```js
-            HiPay.Form.change(function() {
-                // get CVV information
-                console.log(HiPay.getCVVInformation());
-                console.log('change form');
-                // enable / disable submit button with form validity
-                $("#pay-button").prop('disabled', !HiPay.Form.paymentFormDataIsValid());
-                // get error list if form is not valid
-                var errorCollection = HiPay.Form.paymentFormDataGetErrors();
-                console.log("errorCollection from client");
-                console.log(errorCollection);
-            });
+HiPay.Form.change(function() {
+    // get CVV information
+    console.log(HiPay.getCVVInformation());
+    console.log('change form');
+    // enable / disable submit button with form validity
+    $("#pay-button").prop('disabled', !HiPay.Form.paymentFormDataIsValid());
+    // get error list if form is not valid
+    var errorCollection = HiPay.Form.paymentFormDataGetErrors();
+    console.log("errorCollection from client");
+    console.log(errorCollection);
+});
 ```
 Once the user validates the form, you must use the JavaScript SDK in order to tokenize the card. Here is an example using *jQuery*:
 First set target and credentials with  HiPay.setTarget() and  HiPay.setCredentials()
@@ -184,55 +213,55 @@ For example HiPay.ErrorReason.APIIncorrectCredentials, HiPay.ErrorReason.Invalid
 ```js
  $("#pay-button").click(function() {
 
-            // disable submit button and display loader
-            $("#form :input").prop("disabled", true);
-            $("#form :button").prop("disabled", true);
-            $("#error").text("");
+    // disable submit button and display loader
+    $("#form :input").prop("disabled", true);
+    $("#form :button").prop("disabled", true);
+    $("#error").text("");
 
-            $("#pay-button").text("Loading…");
+    $("#pay-button").text("Loading…");
 
-            // set target and credentials
-            HiPay.setTarget('stage'); // default is production/live
-            HiPay.setCredentials('<?php echo $credentials['public']['username']; ?>', '<?php echo $credentials['public']['password']; ?>');
-
-
-            HiPay.Form.tokenizePaymentFormData()
-                .then(function(cardToken) {
-                token = cardToken.token;
-                $("#pay-button").text("Tokenize");
-                $("#order").text("The token has been created using the JavaScript SDK (client side).");
-
-                $('#code').text(JSON.stringify(cardToken, null, 4));
-                $('#link-area').text('');
-
-                $("#charge-button").show();
-            })
-                .catch(function(error){
-                    if (error.code === HiPay.ErrorReason.APIIncorrectCredentials) { // égal à 1012003
-                        console.log("Invalid crédentials");
-                    }
-
-                    if (error.code === HiPay.ErrorReason.InvalidCardToken) { // égal à 1012003
-                        console.log("Token passé invalide…");
-                    }
+    // set target and credentials
+    HiPay.setTarget('stage'); // default is production/live
+    HiPay.setCredentials('<?php echo $credentials['public']['username']; ?>', '<?php echo $credentials['public']['password']; ?>');
 
 
-                    $("#pay-button").text("Tokenize");
-                    $("#form :input").prop("disabled", false);
-                    $("#form :button").prop("disabled", false);
+    HiPay.Form.tokenizePaymentFormData()
+        .then(function(cardToken) {
+        token = cardToken.token;
+        $("#pay-button").text("Tokenize");
+        $("#order").text("The token has been created using the JavaScript SDK (client side).");
+
+        $('#code').text(JSON.stringify(cardToken, null, 4));
+        $('#link-area').text('');
+
+        $("#charge-button").show();
+    })
+        .catch(function(error){
+            if (error.code === HiPay.ErrorReason.APIIncorrectCredentials) { // égal à 1012003
+                console.log("Invalid crédentials");
+            }
+
+            if (error.code === HiPay.ErrorReason.InvalidCardToken) { // égal à 1012003
+                console.log("Token passé invalide…");
+            }
 
 
-                    if (error.errorCollection != undefined && error.errorCollection.length > 0) {
-                        for (var i = 0; i < error.errorCollection.length; i++) {
-                            var errorParameters = error.errorCollection[i];
-                            $("#error").append(errorParameters.message);
-                        }
-                    }
+            $("#pay-button").text("Tokenize");
+            $("#form :input").prop("disabled", false);
+            $("#form :button").prop("disabled", false);
 
-                });
 
-            return false;
+            if (error.errorCollection != undefined && error.errorCollection.length > 0) {
+                for (var i = 0; i < error.errorCollection.length; i++) {
+                    var errorParameters = error.errorCollection[i];
+                    $("#error").append(errorParameters.message);
+                }
+            }
+
         });
+
+    return false;
+});
 ```
 
 Once the token is retrieved, you can process a payment on the server side. Check out the example app's source code for more information.
@@ -247,7 +276,7 @@ Please find below the methods and parameters made available by the SDK.
 |----------|:-------------:|------|
 | `setTarget` |  AN | If you are testing in your stage or production account, you can choose the following targets:<br/>- `stage`<br/>- `production`
 | `setCredentials` |  AN | Your Direct Post API credentials. **Be careful! Do not use classic API credentials but public API credentials created in the HiPay Enterprise back office.**
-| `create` |  - | Credit card information. Please refer to the “Create token request parameters” table below.
+| `HiPay.Form.tokenizePaymentFormData` |  - | Credit card information. Please refer to the “Create token request parameters” table below.
 
 ## Create token request parameters
 
