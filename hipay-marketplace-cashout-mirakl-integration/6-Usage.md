@@ -4,18 +4,18 @@ The HiPay Marketplace cash-out integration for Mirakl is intended to be used wit
 
 Please note that default values for command line arguments/parameters are defined in the `parameters.yml` file.
 
-There are 3 main commands that need to be run automatically by relying on *cron* jobs:
+There are 4 main commands that need to be run automatically by relying on *cron* jobs:
 
 - [Vendor processing](#general-usage-available-commands-vendor-processing),
 - [Cash-out generation](#general-usage-available-commands-cash-out-generation),
-- [Transfer processing](#general-usage-available-commands-transfer-processing).
-- [withdraw processing](#general-usage-available-commands-withdraw-processing).
+- [Transfer processing](#general-usage-available-commands-transfer-processing),
+- [Withdrawal processing](#general-usage-available-commands-withdraw-processing).
 
 There are also two debug and one update commands that do not need to be run using a *cron* job:
 
 - [Listing wallet accounts](#general-usage-available-commands-listing-of-wallet-accounts),
 - [Getting bank information](#general-usage-available-commands-getting-bank-information),
-- [Recovering vendors logs from past executed cron](#general-usage-available-commands-recover-vendors-logs).
+- [Recovering vendor logs from past executed cron](#general-usage-available-commands-recover-vendors-logs).
 
 ## Notifications
 
@@ -34,7 +34,7 @@ In some cases, the HiPay integration for Mirakl can encounter errors or issues t
 2. Saves the vendors: creates the HiPay account, if not already created, or gets the HiPay account number from HiPay.
 3. Validates them.
 4. Transfers the KYC files from Mirakl to the HiPay platform.
-5. Adds the bank information on the HiPay account if not already done or checks HiPay’s bank information against the data from Mirakl to make sure they match.
+5. Adds the bank information on the HiPay account, if not already done, or checks HiPay’s bank information against the data from Mirakl to make sure they match.
 If these are not the same, an error notification is sent.
 
 **Once the HiPay Marketplace cash-out integration for Mirakl is installed, you may call this method without the `lastUpdate` argument**, just as below:
@@ -70,10 +70,10 @@ Retrieving the stores updated in the last 24 hours instead of the last 6 hours a
 	$ php bin/console cashout:generate
 
 #### Execution
-1. Retrieves the *PAYMENT* transactions from Mirakl to get all invoices of the cycle.
-2. Get the amount due to the vendors and the operator thanks to the invoices.
+1. Retrieves the *PAYMENT* transactions from Mirakl to get all the invoices of the cycle.
+2. Gets the amount due to the vendors and the operator from the invoices.
 3. Creates the operations to be executed afterwards, validates and saves them.
-4. Adjust operations amount to deal with past negative operations
+4. Adjusts operations amount to deal with past negative operations.
 
 #### Argument
 
@@ -119,7 +119,7 @@ This command should be run when you have payments you want to transfer to your s
 
 	0 2 * * * php path/to/bin/console cashout:transfer
 
-### Withdraw processing
+### Withdrawal processing
 
 #### Command call
 
@@ -138,7 +138,7 @@ This command doesn’t have any option.
 
 Please see below an example of how your *cron* job may be configured. Replace `path/to/bin/console` by the proper path to the `console` file.
 
-This command should be run when you have payments you want to transfer to your sellers (basically, after completion of the `cashout:transfer` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**. In that case, this command will be run after the `cashout:generate` command and will also be run any other day in the month, in case operations would be in error.
+This command should be run when you have payments you want to withdraw from your sellers' wallet account and transfer to their bank account (basically, after completion of the `cashout:transfer` command). Moreover, this command also handles the operations in error. For example, if an operation failed because the HiPay account was not identified at that time, the operation processing should be retried later. Therefore, **it's a good practice to run this command once a day**.
 
 	0 4 * * * php path/to/bin/console cashout:withdraw
 
@@ -150,7 +150,7 @@ This command should be run when you have payments you want to transfer to your s
 
 #### Execution
 1. Retrieves the HiPay account information associated with a merchant group ID (associated with an entity).
-2. Displays them in a table.
+2. Displays it in a table.
 
 #### Argument
 
@@ -177,14 +177,14 @@ This command doesn’t have any option.
 #### Options
 This command doesn’t have any option.
 
-### Recovering vendors logs from past executed cron
+### Recovering vendor logs from past executed cron
 
 #### Command call
 
 	$ php bin/console logs:vendors:recover
 
 #### Execution
-1. Retrieves every saved vendors in the database.
+1. Retrieves every saved vendor in the database.
 2. If a vendor has no log, creates one.
 
 #### Argument
