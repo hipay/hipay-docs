@@ -40,7 +40,7 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 
         `$ chmod 755 -R < path_to_your_install_dir >`
 
-Please note: If you don't want to set these specific rights on your install folder, updates from GUI will be disabled. However, updates from command line will still be available.
+Please note: if you don't want to set these specific rights on your install folder, updates from GUI will be disabled. However, updates from command line will still be available.
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
