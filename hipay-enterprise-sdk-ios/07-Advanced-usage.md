@@ -248,17 +248,19 @@ The card storage feature allows to register a `HPFPaymentCardToken` object in th
 
 Since the card storage option is turned ON, you have access to these four `HPFPOSManager` methods:
 
-To get every tokens associated to a currency :  
+To connect the PPad in the background :  
 `connect` 
 
-To remove a specific token associated to a currency :  
+Stops from trying to connect the PPad and breaks the existing connection :  
 `disconnect` 
 
-To remove every tokens located in the iOS device keychain :  
+Returns current connection state :  
 `connectionState`
 
-Please find below an example with the transactions linked to the merchant order ID "TEST_89897":
-You 
+Forces the PPad to get the latest informations :  
+`wakeUp`
+
+Please find below an example implementation.
 
 #### Objective-C
 ```objectivec
@@ -300,8 +302,7 @@ You
     
     // Barcode type
     NSString *barCodeType = userInfo[HPFPOSBarCodeTypeKey];
-}
-                                             
+}                                             
 ```
 
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899

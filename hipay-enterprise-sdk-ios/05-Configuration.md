@@ -130,7 +130,7 @@ In the case of an advanced integration, you must use the [Tokenizing an encrypte
 #### PayPlaza Datecs library
 
 If you enable the **Datecs option**, you need to add the subspec Datecs-Library.
---> pod install blabla
+--> pod install
 
 Picture with Datecs.com.library in PList info
 
@@ -138,15 +138,8 @@ Debug Information Format DWARF
 
 POSManager accessible ?
 
-[[HPFPOSManager sharedManager] connect];
 
---> dev one
-
-
-
-In the case of an advanced integration, you must use the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.  
-
-If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your **Merchant ID** to make it work.
+Please find the integration guide in [Datecs library usage](#usage-making-payments-core-wrapper-advanced-integration-datecs-library-usage) paragraph.  
 
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
