@@ -241,4 +241,69 @@ To remove every tokens located in the iOS device keychain :
 `clearPaymentCardTokens`
 
 
+### Datecs library usage
+
+Once you added the podspec subspec Datecs-library, you got access to the HPFPOSManager.
+
+The card storage feature allows to register a `HPFPaymentCardToken` object in the iOS device *Keychain*, necessary to use the 1-click payment for your customers.
+
+Since the card storage option is turned ON, you have access to these four `HPFPOSManager` methods:
+
+To get every tokens associated to a currency :  
+`connect` 
+
+To remove a specific token associated to a currency :  
+`disconnect` 
+
+To remove every tokens located in the iOS device keychain :  
+`connectionState`
+
+Please find below an example with the transactions linked to the merchant order ID "TEST_89897":
+You 
+
+#### Objective-C
+```objectivec
+/* To start the connection, just call
+ * this code at the appropriate time */
+[[HPFPOSManager sharedManager] connect];
+
+/* Once connect is called, it will 
+ * automatically try to reconnect 
+ * until disconnect is called.
+ * Do not assume the library has 
+ * fully connected to the device after this call, 
+ * but wait for the notification. */
+  
+[[NSNotificationCenter defaultCenter] addObserver:self 
+                                         selector:@selector(stateChangeNotification:)
+                                             name:HPFPOSStateChangeNotification object:nil];
+    
+[[NSNotificationCenter defaultCenter] addObserver:self 
+                                         selector:@selector(barCodeNotification:)
+                                             name:HPFPOSBarCodeNotification object:nil];
+                                             
+[...]
+
+- (void)stateChangeNotification:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSNumber *state = userInfo[HPFPOSConnectionStateKey];
+    
+    // Connection state
+    CONN_STATES connectionState = [state intValue];
+}
+
+- (void)barCodeNotification:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    
+    // Barcode
+    NSString *barCode = userInfo[HPFPOSBarCodeKey];
+    
+    // Barcode type
+    NSString *barCodeType = userInfo[HPFPOSBarCodeTypeKey];
+}
+                                             
+```
+
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899
