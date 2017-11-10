@@ -2,7 +2,7 @@
 
 The HiPay Marketplace cash-out integration for Mirakl provides you with a dashboard, which aims to:
 
-- Inform you of your vendors' status, transfers and withdrawals,
+- Inform you of your vendors' statuses, transfers and withdrawals,
 - Give you the possibility to rerun a previously failed action,
 - Centralize all information relating to interactions between HiPay and Mirakl.
 
@@ -16,7 +16,7 @@ Use the HiPay web service credentials for the technical account to log in to the
 
 Each processed vendor is saved in the HiPay Marketplace cash-out integration for Mirakl database.
 
-Vendors logs are displayed with the following information:
+Vendor logs are displayed with the following information:
 
 |Name       | Description  |
 |-----------|--------------|
@@ -28,7 +28,7 @@ Vendors logs are displayed with the following information:
 | Date  | Date of log creation |
 | Documents sent  | Click on `Show details` to see the status of sent documents. |
 
-You can filter vendors logs by `status`, `wallet account status` and `time period`.
+You can filter vendor logs by `status`, `wallet account status` and `time period`.
 
 If the `status` of a vendor is `warning`, you can get the details of the error by clicking on the `Show message` tooltip.
 
@@ -38,7 +38,7 @@ If the `status` of a vendor is `warning`, you can get the details of the error b
 
 Each processed transfer and withdrawal is saved in the HiPay Marketplace cash-out integration for Mirakl database.
 
-Operations logs are displayed with the following information: 
+Operation logs are displayed with the following information: 
 
 |Name       | Description  |
 |-----------|--------------|
@@ -80,7 +80,7 @@ On the `Settings` page, you will be able to:
 
 - Run commands,
 - Retrieve lists of executed batches,
-- Get technical information.
+- Get technical information,
 - Update the application.
 
 ### Run commands
@@ -101,12 +101,12 @@ The list is refreshed every 30 seconds.
 
 ### Update the application
 
-This section allows you to your application.
+This section allows you to update your application.
 
-If a new version of the HiPay Marketplace cash-out integration project has been released, you'll we be able to update your application directly from your browser.
+If a new version of the HiPay Marketplace cash-out integration project has been released, you will be able to update your application directly from your browser.
  
-If a new scurity patch for the HiPay Marketplace cash-out library project has been released, you'll we be able to update your library directly from your browser. 
+If a new security patch for the HiPay Marketplace cash-out library project has been released, you will be able to update your library directly from your browser. 
 
-You'll be redirect to a page describing actions performed by the update process. This process may take a while, please do not refresh the web page.
+You will be redirected to a page describing actions performed by the update process. This process may take a while: please do not refresh the web page.
 
-NB: This update process require specifics rights on your [install folders](#installation). If you don't want to set those rights, see the [update section](#update)
+Please note: this update process requires specific rights on your [install folders](#installation). If you don't want to set these rights, please see the [update section](#update).
