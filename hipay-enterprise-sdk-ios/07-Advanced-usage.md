@@ -224,7 +224,6 @@ The *signature* parameter is required for security purposes.
 Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
 
-
 ### Card storage feature
 
 The card storage feature allows to register a `HPFPaymentCardToken` object in the iOS device *Keychain*, necessary to use the 1-click payment for your customers.
@@ -267,13 +266,10 @@ You
  * this code at the appropriate time */
 [[HPFPOSManager sharedManager] connect];
 
-/* Once connect is called, it will 
- * automatically try to reconnect 
- * until disconnect is called.
- * Do not assume the library has 
- * fully connected to the device after this call, 
- * but wait for the notification. */
-  
+/* Once connect is called, do not assume 
+ * the library has fully connected to 
+ * the device after this call, but 
+ * wait for the notifications. */
 [[NSNotificationCenter defaultCenter] addObserver:self 
                                          selector:@selector(stateChangeNotification:)
                                              name:HPFPOSStateChangeNotification object:nil];
@@ -284,6 +280,7 @@ You
                                              
 [...]
 
+// Notifies about the current connection state
 - (void)stateChangeNotification:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
@@ -293,6 +290,7 @@ You
     CONN_STATES connectionState = [state intValue];
 }
 
+// Notification sent when barcode is successfuly read
 - (void)barCodeNotification:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
