@@ -8,7 +8,7 @@ Both procedures are documented below.
 
 ## Core library update procedure (common use case)
 
-Go to the root directory of the project (where `composer.json` is) and type the following command:
+Go to the root directory of the project (where `composer.json` is) and run the following command:
 
 	$ composer update hipay/hipay-wallet-cashout-mirakl-library
 
@@ -25,27 +25,27 @@ Updating dependencies (including require-dev)
 
 ## Full project update procedure
 
-For more safety, it is higly recommanded to do a daily backup of your database.
+For more safety, it is highly recommanded to make a daily backup of your database.
 
-You can perform a full project update in 3 differents ways :
+There are 3 different ways to perform a full project update.
 
-### Update through the project GUI
+### Update through the GUI project
 
-Go to the [dashboard section](#dashboard-settings-update-the-application)
+Please see the [dashboard section](#dashboard-settings-update-the-application).
 
 ### Update through command line
 
-You can update your application by running the following command : 
+You can update your application by running the following command: 
         
         $ php bin/console app:update
 
-The command will perform the following actions :
+The command will perform the following actions:
 
-- Backup actual project files 
-- Backup database (schema & data)
-- Update project files with the latest source
-- Update dependencies
-- Update database schema
+- Back up current project files, 
+- Back up database (schema & data),
+- Update project files with the latest source,
+- Update dependencies,
+- Update database schema.
 
 ### Manual update
 
@@ -57,7 +57,7 @@ Make sure you have a backup before updating the full project. You may copy the f
 
 #### 2. Check if Git is initialized
 
-Go to the root directory of the project (where `composer.json` is) and check if there is a `.git` directory by typing the following command:
+Go to the root directory of the project (where `composer.json` is) and check if there is a `.git` directory by running the following command:
 
 	ls -al .git
 	
@@ -76,7 +76,7 @@ drwxr-xr-x  2 root root 4096 May  4 08:13 hooks
 
 **If you get an output like this, go to the next section ("Update the project").**
 
-If you get an error message like `ls: cannot access .git: No such file or directory`, type the following commands to initialize Git:
+If you get an error message like `ls: cannot access .git: No such file or directory`, run the following commands to initialize Git:
 
 	git init
 	git remote add origin https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
@@ -92,7 +92,7 @@ Then, determine the version number to which you want to upgrade. Check out the [
 **When upgrading to a major version (example: from v1.x.x to v2.x.x), make sure that you know the upgrading details.** Do not hesitate to contact HiPay's Business IT Services on our [Support Center](https://support.hipay.com) if you need more information. You can check the version of your installation by typing `cat composer.json | grep version`. You should get an output similar to: 
 > "version": "2.0.3".
 
-When you have determined the version number to which you want to upgrade, type the following command, **replacing xxx by the version number**:
+When you have determined the version number to which you want to upgrade, run the following command, **replacing xxx by the version number**:
 
 	$ git checkout tags/xxx --force
 
@@ -124,7 +124,7 @@ Run the following commands:
 
 	$ chmod 777 -R var/
 
-#### 7. Recover vendors logs (optional)
+#### 7. Recover vendor logs (optional)
 
 If there are existing vendors in the database but no logs linked to them, you can generate logs by running the following command:
     
