@@ -58,4 +58,4 @@ You need to provide the following custom field by clicking on *Add a Custom Fiel
 |-------|-------|------|------|------|------|------|
 | `hipay-process` | HiPay Process | Store that will be processed | Yes/No | Read write | true | Yes |
 
-Please note: If the custom field `hipay-process` is not set, no store will be processed by the HiPay Marketplace cash-out integration for Mirakl.
+Please note: if the custom field `hipay-process` is not set, no store will be processed by the HiPay Marketplace cash-out integration for Mirakl.
