@@ -28,19 +28,19 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 	
 	This step may take a few minutes to complete as the project and its dependencies are being downloaded and configured.
 
-7. (Optional) If you use the default logs file (`/var/log/hipay.log`), run the following commands: 
+7. (Optional) If you use the default log file (`/var/log/hipay.log`), run the following commands: 
         
         `$ touch /var/log/hipay.log`
 
         `$ chmod 755 /var/log/hipay.log`
 
-8. (Optional) If you want to enable update from GUI you must run the following commands: 
+8. (Optional) If you want to enable updates from GUI, run the following commands: 
         
         `$ chown -R < web_server_user >:< group_of_web_server_user > < path_to_your_install_dir > `
 
         `$ chmod 755 -R < path_to_your_install_dir >`
 
-NB: If you don't want to set those specifics rights on your install folder, update from GUI will disabled. However, update from command line will still be available.
+Please note: if you don't want to set these specific rights on your install folder, updates from GUI will be disabled. However, updates from command line will still be available.
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
