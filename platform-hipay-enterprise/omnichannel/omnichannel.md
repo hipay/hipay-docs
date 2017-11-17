@@ -127,6 +127,14 @@ curl -X POST \
 
 You can also perform test API calls from [our live testing tool](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
+### Payment on mobile point of sale (mPOS)
+
+For making payments on a mPOS payment terminal plugged with an iPhone or iPod, then you need to use our iOS SDK. In order for the mPOS terminal to receive transactions, you need to call the `connect` method of the iOS SDK beforehand.
+
+Once a transaction has been initialized through the API mentioned in the previous sections, call the `wakeUp` method of the iOS SDK to force the mPOS payment terminal to get the transaction.
+
+For using the HiPay Enterprise SDK for iOS in your application to process transactions on a mPOS, please read [its documentation](/doc/hipay-enterprise-sdk-ios/).
+
 ### Transaction lifecycle
 
 When the transaction is initialized on the payment terminal, you may display a waiting screen on your application, indicating that the customer must pay on the terminal.
