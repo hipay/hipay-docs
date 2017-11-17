@@ -305,4 +305,54 @@ Please find below an example implementation.
 }                                             
 ```
 
+
+#### Swift
+```objectivec
+/* To start the connection, just call
+ * this code at the appropriate time */
+HPFPOSManager.shared().connect()
+
+/* Once connect is called, do not assume 
+ * the library has fully connected to 
+ * the device after this call, but 
+ * wait for the notifications. */
+
+        
+let nc = NotificationCenter.default
+nc.addObserver(self,
+               selector: #selector(ViewController.stateChangeNotification),
+               name: NSNotification.Name.HPFPOSStateChange,
+               object: nil)
+        
+nc.addObserver(self,
+               selector: #selector(ViewController.barCodeNotification),
+               name: NSNotification.Name.HPFPOSBarCode,
+               object: nil)
+                                             
+[...]
+
+// Notifies about the current connection state
+@objc func stateChangeNotification(notification:Notification) -> Void {
+        
+    let userInfo = notification.userInfo        
+    let state  = userInfo![HPFPOSConnectionStateKey] as? NSNumber        
+        
+    // Connection state
+    let connectionState = state?.intValue;
+}
+
+// Notification sent when barcode is successfuly read
+@objc func barCodeNotification(notification:Notification) -> Void {
+        
+    let userInfo = notification.userInfo        
+    
+    // Barcode
+    let barCode  = userInfo![HPFPOSBarCodeKey] as? String    
+    
+    // Barcode type
+    let barCodeType  = userInfo![HPFPOSBarCodeTypeKey] as? String 
+}                                     
+```
+
+
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899
