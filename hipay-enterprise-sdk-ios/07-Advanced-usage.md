@@ -242,11 +242,7 @@ To remove every tokens located in the iOS device keychain :
 
 ### Datecs library usage
 
-Once you added the podspec subspec Datecs-library, you got access to the HPFPOSManager.
-
-The card storage feature allows to register a `HPFPaymentCardToken` object in the iOS device *Keychain*, necessary to use the 1-click payment for your customers.
-
-Since the card storage option is turned ON, you have access to these four `HPFPOSManager` methods:
+Once you added the podspec subspec Datecs-library, you have access to the `HPFPOSManager` and its public methods:
 
 To connect the PPad in the background :  
 `connect` 
