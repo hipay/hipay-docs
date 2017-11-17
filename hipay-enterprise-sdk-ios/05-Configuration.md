@@ -121,28 +121,33 @@ You need an HiPay Enterprise account configured with Apple Pay to get this funct
 You can find more information about the Apple Pay configuring environment in the official developer documentation.  
 [https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1)
 
-In the case of an advanced integration, you must use the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
+You can find the implementation in the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
 
 
 ![App URL schemes - Step 8](images/apple_pay_capabilities.png)
 
+Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
 
 #### PayPlaza Datecs library
 
-If you enable the **Datecs option**, you need to add the subspec Datecs-Library.
---> pod install
+Add this line to your project's `Podfile`:
 
-Picture with Datecs.com.library in PList info
+	pod 'HiPayFullservice/Datecs-POS'
 
-Debug Information Format DWARF
+Then, run the following command in the same directory as your `Podfile`:
 
-POSManager accessible ?
+	$ pod install
 
+This will install the Datecs library components necessary to make the BluePad-500 work.  
 
-Please find the integration guide in [Datecs library usage](#usage-making-payments-core-wrapper-advanced-integration-datecs-library-usage) paragraph.  
+Then, add the item depicted below to the .plist file of your application.  
 
+![App URL schemes - Step 9](images/datecs_plist.png)  
 
-Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
+If you set the "Debug Information Format" setting to "DWARF", you get rid of three warnings.  
+
+To start using the BluePad-500, please find the integration guide in [Datecs library usage](#usage-making-payments-core-wrapper-advanced-integration-datecs-library-usage) paragraph.  
+
 
 ## Step 3 — Handle callback redirection
 
