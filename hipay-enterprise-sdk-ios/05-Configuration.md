@@ -146,6 +146,8 @@ Then, add the item depicted below to the .plist file of your application.
 
 If you set the "Debug Information Format" setting to "DWARF", you get rid of three warnings.  
 
+![App URL schemes - Step 10](images/datecs_dwarf.png)
+
 To start using the BluePad-500, please find the integration guide in [Datecs library usage](#usage-making-payments-core-wrapper-advanced-integration-datecs-library-usage) paragraph.  
 
 
