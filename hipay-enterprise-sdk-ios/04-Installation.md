@@ -24,3 +24,15 @@ This will install the core wrapper components as well as the built-in payment sc
 You can customize the installation if you don't need all the components. For example, if you don't need the built-in payment screen and just want to install the core wrapper, you may only add the following line to your `Podfile`:
 
 	pod 'HiPayFullservice/Core'
+
+### Using a physical payment terminal
+
+The SDK can be used for physical payments on a mobile point of sale (mPOS) payment terminal (such as the Datecs' BluePad-500).
+
+If you want to use the SDK in a mobile app installed on an iOS device plugged into a BluePad-500 payment terminal, then you have to customize the installation. 
+
+The underlying framework allowing the BluePad-500 payment terminal to process payments is not included by default. 
+In order to use the SDK for physical payments through such a terminal, add these two lines into the Podfile (instead of the default installation line `pod 'HiPayFullservice'`):
+
+	pod 'HiPayFullservice/Core'
+	pod 'HiPayFullservice/Datecs-POS'

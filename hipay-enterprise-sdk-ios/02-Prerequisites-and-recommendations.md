@@ -4,6 +4,12 @@
 
 The iOS target version is 8.0, which means that the SDK won't build on applications targeting a lower version of iOS.
 
+## E-commerce or in-store scenarios
+
+If you use the SDK for e-commerce payments (in-app payments through a payment form), then you can read the document in a linear way.
+
+If you need to use the SDK for processing payments on a physicial payment terminal (mPOS), then you just need to follow a few specific steps, mentioned in the "Installation", "Configuration" and "Advanced usage" sections of this documentation.
+
 ## Credentials
 
 You need to generate *API credentials* in order for the SDK to send requests to the HiPay Enterprise platform. To do so, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".

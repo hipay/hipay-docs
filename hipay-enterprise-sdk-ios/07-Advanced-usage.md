@@ -240,23 +240,23 @@ To remove every tokens located in the iOS device keychain :
 `clearPaymentCardTokens`
 
 
-### Datecs library usage
+## In-store physical payments with a mPOS
 
-Once you added the podspec subspec Datecs-library, you have access to the `HPFPOSManager` and its public methods:
+Before going through this part, make sure you have followed the specific installation section for using a mobile point of sale (mPOS) payment terminal.
 
-To connect the PPad in the background :  
-`connect` 
+In order to use the payment terminal, you need to leverage the `HPFPOSManager` which exposes several public methods mentioned below.
 
-Stops from trying to connect the PPad and breaks the existing connection :  
-`disconnect` 
+### Terminal connection
 
-Returns current connection state :  
-`connectionState`
+When your application is launched, use the `connect` method to allow the terminal to receive transactions. You may call the `disconnect` method if using the payment terminal is no longer relevant in the user flow. 
 
-Forces the PPad to get the latest informations :  
-`wakeUp`
+You can check the connection state by using the `connectionState` property. This can be useful for displaying a green light or red light to indicate to the user (basically the shopkeeper) that the connection with the terminal is working.
 
-Please find below an example implementation.
+### Barcode reader
+
+If the payment terminal has a built-in barcode reader, you can get the scanned codes by observing `HPFPOSBarCodeNotification` notifications. Please check the example below.
+
+### Implementation example
 
 #### Objective-C
 ```objectivec
@@ -303,7 +303,7 @@ Please find below an example implementation.
 
 
 #### Swift
-```objectivec
+```swift
 /* To start the connection, just call
  * this code at the appropriate time */
 HPFPOSManager.shared().connect()
@@ -350,5 +350,12 @@ nc.addObserver(self,
 }                                     
 ```
 
+### Processing transactions
+
+Once your terminal is connected (thanks to the `connect` method), you can initialize transactions on it. Transactions must be initialized through the [HiPay's omnichannel API](https://developer.hipay.com/getting-started/platform-hipay-enterprise/omnichannel/). 
+
+The SDK only allows you to make the payment terminal connected. Transactions must be initialized server-side by using the API mentioned above.
+
+For a better user experience, once the transaction has been initialized server-side, we recommend you to call the `wakeUp` method, which will force the payment terminal to get the newly initialized transaction. Otherwise, your shopkeeper will have to press a button on the payment terminal in order for it to get the pending transaction.
 
 [apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899

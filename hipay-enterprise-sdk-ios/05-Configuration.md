@@ -10,9 +10,7 @@ First and foremost, you need to add this line in order to use the SDK in an Obje
 #import <HiPayFullservice/HiPayFullservice.h>
 ```
 
-In the case of a Swift project, you must rely on an Objective-C bridging header to expose this framework (Objective-C files).
-
-[https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
+In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) to expose this framework (Objective-C files).
 
 ## Step 2 — Configure the SDK
 
@@ -128,19 +126,13 @@ You can find the implementation in the [Tokenizing an encrypted Apple Pay token]
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
 
-#### PayPlaza Datecs library
+#### In-store mobile point of sale option (mPOS)
 
-Add this line to your project's `Podfile`:
+This section is relevant only if you need to use the SDK for processing transactions in a physical store, on a mobile point of sale (mPOS).
 
-	pod 'HiPayFullservice/Datecs-POS'
+For using the payment terminal device provided by HiPay, follow these steps:
 
-Then, run the following command in the same directory as your `Podfile`:
-
-	$ pod install
-
-This will install the Datecs library components necessary to make the BluePad-500 work.  
-
-Then, add the item depicted below to the .plist file of your application.  
+Add the item depicted below to the .plist file of your application.  
 
 ![App URL schemes - Step 9](images/datecs_plist.png)  
 
@@ -148,8 +140,7 @@ If you set the "Debug Information Format" setting to "DWARF", you get rid of thr
 
 ![App URL schemes - Step 10](images/datecs_dwarf.png)
 
-To start using the BluePad-500, please find the integration guide in [Datecs library usage](#usage-making-payments-core-wrapper-advanced-integration-datecs-library-usage) paragraph.  
-
+To start using the mPOS payment terminal, please read the integration guide in the "[In-store physical payments with a mPOS](#usage-making-payments-in-store-physical-payments-with-a-mpos)" paragraph.
 
 ## Step 3 — Handle callback redirection
 
