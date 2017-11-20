@@ -81,6 +81,7 @@ On the `Settings` page, you will be able to:
 - Run commands,
 - Retrieve lists of executed batches,
 - Get technical information,
+- Update settings,
 - Update the application.
 
 ### Run commands
@@ -98,6 +99,16 @@ This section displays executed commands with their starting date and status.
 If an error occurs during the command, an error message can be displayed in this list.
 
 The list is refreshed every 30 seconds.
+
+### Update settings
+
+You can update some of the settings located in the parameters.yml file directly through the "" form.
+
+You can update the following parameters :
+
+|Name       | Description  |
+|-----------|--------------|
+| Github token  | A Github personnal access token, necessary for the sel-update feature. You can find instructions to create your Github token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). Follow steps 1 to 9 in the "Creating a token" section |
 
 ### Update the application
 
