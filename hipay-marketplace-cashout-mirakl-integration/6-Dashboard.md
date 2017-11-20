@@ -102,7 +102,7 @@ The list is refreshed every 30 seconds.
 
 ### Update settings
 
-You can update some of the settings located in the parameters.yml file directly through the "" form.
+You can update some of the settings located in the parameters.yml file directly through the "Settings" form.
 
 You can update the following parameters :
 
@@ -120,4 +120,6 @@ If a new security patch for the HiPay Marketplace cash-out library project has b
 
 You will be redirected to a page describing actions performed by the update process. This process may take a while: please do not refresh the web page.
 
-Please note: this update process requires specific rights on your [install folders](#installation). If you don't want to set these rights, please see the [update section](#update).
+Please note:
+- This update process requires specific rights on your [install folders](#installation). If you don't want to set these rights, please see the [update section](#update).
+- This update process requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings)  to set your Github token.
