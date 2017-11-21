@@ -260,6 +260,10 @@ If the payment terminal has a built-in barcode reader, you can get the scanned c
 
 #### Objective-C
 ```objectivec
+#import "HPFPOSManager.h"
+
+[...]
+
 /* To start the connection, just call
  * this code at the appropriate time */
 [[HPFPOSManager sharedManager] connect];
@@ -285,7 +289,7 @@ If the payment terminal has a built-in barcode reader, you can get the scanned c
     NSNumber *state = userInfo[HPFPOSConnectionStateKey];
     
     // Connection state
-    CONN_STATES connectionState = [state intValue];
+    HPFPOSConnectionState connectionState = [state unsignedIntegerValue];
 }
 
 // Notification sent when barcode is successfuly read
