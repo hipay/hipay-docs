@@ -25,7 +25,7 @@ Updating dependencies (including require-dev)
 
 ## Full project update procedure
 
-For more safety, it is highly recommanded to make a daily backup of your database.
+For more safety, it is highly recommended to make a daily backup of your database.
 
 There are 3 different ways to perform a full project update.
 
@@ -33,7 +33,7 @@ There are 3 different ways to perform a full project update.
 
 Please see the [dashboard section](#dashboard-settings-update-the-application).
 
-Note: Update through GUI requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings) to set your Github token.
+Please note: update through GUI requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings) to set your GitHub token.
 
 ### Update through command line
 
@@ -49,7 +49,7 @@ The command will perform the following actions:
 - Update dependencies,
 - Update database schema.
 
-Note: Update through command line requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings) to set your Github token.
+Please note: update through command line requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings) to set your GitHub token.
 
 ### Manual update
 
