@@ -23,7 +23,7 @@ Vendor logs are displayed with the following information:
 | Mirakl ID  | Store ID in the Mirakl back office |
 | Login  | Login for this store in the HiPay back office |
 | Status  | Status of the vendors in the HiPay Marketplace cash-out integration for Mirakl. Possible values are `success` or `warning`. |
-| Wallet account status  | Status of the HiPay wallet account. Possible values are `created`, `not created`, `identified` or `not identified`.  |
+| Wallet account status  | Status of the HiPay account. Possible values are `created`, `not created`, `identified` or `not identified`.  |
 | HiPay ID  | ID of the wallet account |
 | Date  | Date of log creation |
 | Documents sent  | Click on `Show details` to see the status of sent documents. |
@@ -104,11 +104,11 @@ The list is refreshed every 30 seconds.
 
 You can update some of the settings located in the parameters.yml file directly through the "Settings" form.
 
-You can update the following parameters :
+You can update the following parameters:
 
 |Name       | Description  |
 |-----------|--------------|
-| Github token  | A Github personnal access token, necessary for the sel-update feature. You can find instructions to create your Github token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). Follow steps 1 to 9 in the "Creating a token" section |
+| Github token  | GitHub personal access token, necessary for the self-update feature. You can find instructions on how to create your GitHub token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). Pease follow steps 1 to 9 in the "Creating a token" section. |
 
 ### Update the application
 
@@ -122,4 +122,4 @@ You will be redirected to a page describing actions performed by the update proc
 
 Please note:
 - This update process requires specific rights on your [install folders](#installation). If you don't want to set these rights, please see the [update section](#update).
-- This update process requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings)  to set your Github token.
+- This update process requires that the "Github token" setting has been set. Please refer to [this section](#dashboard-settings-update-settings) to set your GitHub token.
