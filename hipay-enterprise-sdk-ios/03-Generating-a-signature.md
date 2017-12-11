@@ -12,7 +12,7 @@ The signature parameter is necessary for security purposes and must be generated
 
 ## Signature calculation
 
-The signature is the **SHA-1 hash** of these four parameters concatenation:
+The signature is the **hash** of these four parameters concatenation:
 
 - Order ID,
 - Amount (formatted with two decimal places, example: 72.10),
@@ -22,7 +22,10 @@ The signature is the **SHA-1 hash** of these four parameters concatenation:
 The signature has to be generated beforehand on the **server side** in order not to show the **secret passphrase** in client code.  
 That is why the code examples below are executed in PHP/Python and not embedded in the iOS app directly. This code has to be hosted somewhere on your servers.
 
+![Hashing Algorithm example](images/hashing_algorithm.png)
+
 Please find below some code examples for signature generation.
+Note that we chose the **SHA-1**, you need to adapt your server side code accordingly to the **hashing algorithm** you selected.
 
 #### PHP
 ```PHP
