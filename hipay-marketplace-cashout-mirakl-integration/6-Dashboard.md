@@ -92,6 +92,13 @@ You can run the following commands through the `Fix errors` form:
 - `Transfer` corresponding to the [cashout:transfer](#general-usage-available-commands-transfer-processing) command,
 - `Withdraw` corresponding to the [cashout:withdraw](#general-usage-available-commands-withdraw-processing) command.
 
+For `Wallet account creation` and `Generate operations` commands, you can specify a date from which vendors or transactions will be retrieve from Mirakl platform.
+
+If you let it empty, the default behaviour will be :
+
+- For `Wallet account creation`, the batch will retrieve all vendors from Mirakl
+- For `Generate operations`, the batch will retrieve transactions with arguments from you parameters.yml ([see this section](#parameters-mirakl-cycles))
+
 ### Retrieve lists of executed batches
 
 This section displays executed commands with their starting date and status.
@@ -109,6 +116,7 @@ You can update the following parameters:
 |Name       | Description  |
 |-----------|--------------|
 | Github token  | GitHub personal access token, necessary for the self-update feature. You can find instructions on how to create your GitHub token [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token). Pease follow steps 1 to 9 in the "Creating a token" section. |
+| Minimal log level alert  | Minimum logging level at which email will be send to specified email address |
 
 ### Update the application
 
