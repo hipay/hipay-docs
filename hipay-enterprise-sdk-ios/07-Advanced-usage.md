@@ -239,6 +239,54 @@ To remove a specific token associated to a currency :
 To remove every tokens located in the iOS device keychain :  
 `clearPaymentCardTokens`
 
+### Card storage screen
+
+Our SDK allows to present/push the `HPFStoreCardViewController` to make the payment card storage easier.  
+
+In the example above, we push a `HPFStoreCardViewController` to our navigation controller and handle the navigation stack with the implemented methods of the `HPFStoreCardDelegate` protocol.
+
+#### Objective-C
+```objectivec
+#import "HPFStoreCardViewController.h"
+
+/* First we add our view 
+ * controller as a delegate */
+@interface HPFDemoTableViewController : UIViewController <HPFStoreCardDelegate>
+
+[...]
+
+/* We assume your paymentPageRequest 
+ * is not empty at this moment */
+HPFPaymentPageRequest *paymentPageRequest = [self paymentPageRequest];
+
+// we assume your paymentPageRequest is not empty
+HPFStoreCardViewController *storevc = [HPFStoreCardViewController storeCardViewControllerWithRequest:paymentPageRequest];
+storevc.storeCardDelegate = self;
+
+[self.navigationController pushViewController:storevc animated:YES];
+                                             
+[...]
+
+/* Then we implement the  
+ * delegate methods */
+
+- (void)storeCardViewController:(HPFStoreCardViewController *)viewController didEndWithCardToken:(HPFPaymentCardToken *)theToken
+{
+    // inspect the HPFPaymentCardToken object
+    [viewController.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)storeCardViewController:(HPFStoreCardViewController *)viewController didFailWithError:(NSError *)theError
+{
+    // inspect the NSError object
+}
+
+- (void)storeCardViewControllerDidCancel:(HPFStoreCardViewController *)viewController
+{
+    [viewController.navigationController popViewControllerAnimated:YES];
+}                                            
+```
+
 
 ## In-store physical payments with a mPOS
 
