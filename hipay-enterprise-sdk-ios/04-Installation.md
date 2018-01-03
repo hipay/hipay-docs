@@ -36,3 +36,6 @@ In order to use the SDK for physical payments through such a terminal, add these
 
 	pod 'HiPayFullservice/Core'
 	pod 'HiPayFullservice/Datecs-POS'
+
+Note that **Git LFS** is needed to install the Datecs-POS pod.
+[https://help.github.com/articles/installing-git-large-file-storage/](https://help.github.com/articles/installing-git-large-file-storage/)
