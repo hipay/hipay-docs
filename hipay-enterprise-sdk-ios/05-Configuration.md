@@ -4,10 +4,18 @@ You need to follow all the steps below before integrating the payment workflow.
 
 ## Step 1 — Import header files
 
-First and foremost, you need to add this line in order to use the SDK in an Objective-C app:
+First and foremost, if you choose the default installation, you need to add this line in order to use the SDK in an Objective-C app:
 
 ```objectivec
 #import <HiPayFullservice/HiPayFullservice.h>
+```
+
+If you added the Core instead of the default installation line (`pod 'HiPayFullservice/Core'`), you need to import directly the relevant sections.
+
+```objectivec
+#import <HiPayFullservice/Core.h>
+#import <HiPayFullservice/HPFErrors.h>
+#import <HiPayFullservice/HPFPOSManager.h>
 ```
 
 In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) to expose this framework (Objective-C files).
