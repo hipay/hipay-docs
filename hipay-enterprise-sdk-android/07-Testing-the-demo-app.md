@@ -16,7 +16,7 @@ First, you need to check out the repository. Go to your projects folder and type
 
 	$ git clone https://github.com/hipay/hipay-fullservice-sdk-android.git
 
-Then, import the `hipay-fullservice-sdk-android` project folder into Android Studio/Eclipse to open the demo project.
+Then, import the `hipay-fullservice-android` project folder into Android Studio/Eclipse to open the demo project.
 
 ### Adding the test credentials
 
