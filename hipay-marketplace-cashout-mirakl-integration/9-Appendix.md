@@ -5,7 +5,7 @@ Please find below the description of each operation status listed in the `operat
 | Name               | Value | Description                                    |
 |--------------------|-------|------------------------------------------------|
 | `CREATED`            | 1     | The operation has been created.               |
-| `INVALID_AMOUNT`     | -1     | The operation has an invalid amount (lower or equal toy 0), it will not be treated.  |
+| `INVALID_AMOUNT`     | -1     | The amount of the operation is invalid (lower than or equal to 0), it will not be processed.  |
 | `ADJUSTED_OPERATIONS` | 2    | The operation has been adjusted (concerns past negative operations).  |
 | `TRANSFER_SUCCESS`   | 3     | The transfer has been executed with success.  |
 | `TRANSFER_FAILED`    | -9    | The transfer has been executed and failed.    |
