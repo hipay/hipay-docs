@@ -1,7 +1,7 @@
 
 # HiPay Enterprise platform overview
 
-# About this guide 
+# About this guide
 
 ## Purpose
 
@@ -100,7 +100,7 @@ If it matches with the IP address supplied by the merchant at a previous stage (
 In case of missing or incorrect information, the server will respond with an appropriate error message, indicating the error in the request.
 
 **Important**: When your IP address is changed, do not forget to ensure that all new IP addresses are configured for your account. If not, your server requests will be rejected.
-  
+
 ## Authentication
 
 Only authenticated users and system components are allowed to access the Gateway API.
@@ -115,14 +115,14 @@ Only authenticated users and system components are allowed to access the Gateway
 
 ## About 3-D Secure
 
-**3-D Secure history**: In early 2001, VISA introduced a security protocol called 3-D Secure to improve online transaction performance and to accelerate the growth of electronic commerce through increased consumer confidence. 
+**3-D Secure history**: In early 2001, VISA introduced a security protocol called 3-D Secure to improve online transaction performance and to accelerate the growth of electronic commerce through increased consumer confidence.
 
 **Objective of 3-D Secure**: 3-D Secure aims to provide issuers with the ability to actually authenticate cardholders during online purchases, to reduce the likelihood of fraudulent usage of payment cards and to improve transaction performance to benefit merchants, customers and acquirers.
 VISA’s branded 3-D Secure program is commonly known as Verified By VISA (VbV). Services based on the protocol have also been adopted by MasterCard, under the name MasterCard SecureCode™ (MSC).
 
 ## Benefits for merchants
 
-**3-D Secure benefits**: The 3-D Secure process provides enhanced security when performing an authenticated transaction as well as a shift of liability in the event of fraudulent transactions. Authentication should strengthen your existing anti-fraud strategy and help protect your business, but bear in mind that the coverage of authentication programs is currently limited to Internet transactions. 
+**3-D Secure benefits**: The 3-D Secure process provides enhanced security when performing an authenticated transaction as well as a shift of liability in the event of fraudulent transactions. Authentication should strengthen your existing anti-fraud strategy and help protect your business, but bear in mind that the coverage of authentication programs is currently limited to Internet transactions.
 
 **Restriction**: This means that authentication programs do not cover fax, mail or phone orders (MO/TO), nor do they cover all card types. The additional security benefits and liability shift of authenticated transactions are currently only supported by Visa and MasterCard.
 
@@ -133,10 +133,10 @@ VISA’s branded 3-D Secure program is commonly known as Verified By VISA (VbV).
 Proceed as follows to carry out a transaction.
 
 1. The merchant calls the HiPay Enterprise API with an `authentication_indicator` value of `1` or `2` (or the Fraud Protection Service (*FPS*) asks for 3-D Secure). Please note that in case of an `authentication_indicator` value of `0`, 3-D Secure is not triggered.
-2. To complete the purchase, the cardholder clicks on the **Pay** button after filling in payment card details on the payment page: this activates the Merchant Plug-In (*MPI*) and initiates a transaction.    
+2. To complete the purchase, the cardholder clicks on the **Pay** button after filling in payment card details on the payment page: this activates the Merchant Plug-In (*MPI*) and initiates a transaction.
 3. The *MPI* identifies the card number and sends it to the Directory Server to determine if the card is in a participating card range.
 4. If the issuer is participating for the card range, the Directory Server sends a Verify Enrollment Request message to the issuer's Access Control Server (*ACS*) to determine if authentication is available for the account number.
-5. The *ACS* returns a Verify Enrollment Response to the Directory Server. 
+5. The *ACS* returns a Verify Enrollment Response to the Directory Server.
 	- If authentication is available for this card number, the response then provides the URL of the *ACS* where the cardholder can be authenticated.
 If the payment is on a hosted payment page, the redirection to the *ACS* will be done automatically.
 	- If authentication is not available, the HiPay server then receives a *Cardholder Not Enrolled* or *Unable to Authenticate* message and proceeds depending on  the `authentication_indicator` value:
@@ -188,11 +188,11 @@ The following table lists the authentication messages and statuses.
 ## Redirect pages setup
 
 **Description**: You can configure redirect pages in the *Integration -> Redirect Pages* section of your HiPay Enterprise back office.
-                
+
 You can overwrite the default redirect pages by sending custom URLs along with the order details in your requests to the payment gateway. Please refer to the [HiPay Enterprise Gateway API documentation](/doc-api/enterprise/gateway/).
 
 ## Default redirect pages
-  
+
 | Field name   |      Description    |
 |----------|-------------|
 | Accept page |  Page where to redirect your customer if the transaction was successful.
@@ -206,14 +206,14 @@ You can overwrite the default redirect pages by sending custom URLs along with t
 **Description**: Select this option in your HiPay Enterprise back office if you want HiPay Enterprise to send back transaction parameters to your redirect pages for further processing within your own website.
 
 **Procedure**: To activate this option, you MUST specify at least an “Accept page” URL. Sent parameters are included in your redirect pages on HTTP GET.
-  
-##  Sent fields 
+
+##  Sent fields
 
 The following table lists and describes the fields sent to your redirect pages.
 
 | Field name | Description
 | ---- | ---- |
-| `orderid` | Unique identifier of the order as provided by the merchant 
+| `orderid` | Unique identifier of the order as provided by the merchant
 | `cid` | Unique identifier of the customer as provided by the merchant
 | `state` | Transaction state. The value must be from the following list: `completed`, `pending`, `declined` or `error`.
 | `status` | Transaction status. A list of possible transaction statuses can be found in the [Transaction statuses section.](../appendix/#transaction-statuses)
@@ -246,20 +246,20 @@ The following table lists and describes the fields sent to your redirect pages.
 ## What is a server-to-server notification?
 
 **Description**: In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Enterprise platform can send your application a server-to-server notification.
- 
+
 ## Setup
 
 **Procedure**: To set your Notification URL, you must login into your HiPay Enterprise back office and go to “*Integration -> Notifications*”.
 
 ![Notifications configuration](images/image2.png)
- 
+
 ## Configuration parameters
 
 | Field name   |      Description    |
 |----------|-------------|
 | Notification URL |  The URL or IP address on which you want to receive server-to-server notifications
-| Request method |  The method with which you want to receive requests: XML / HTTP POST 
-| Desired notifications |  Here you can define which notifications you want to receive based on the transaction status. 
+| Request method |  The method with which you want to receive requests: XML / HTTP POST
+| Desired notifications |  Here you can define which notifications you want to receive based on the transaction status.
 
 [Please refer to the Transaction statuses section for a list of possible statuses](../appendix/#transaction-statuses)
 
@@ -305,7 +305,7 @@ The following table lists and describes the response fields received on the noti
 
 | Field name   |      Description    |
 |----------|:------------:|
-|`token`|Card token 
+|`token`|Card token
 |`brand`|Card brand (e.g., VISA, MASTERCARD, AMERICAN EXPRESS, MAESTRO).
 |`pan`| Card number (up to 19 characters)<br/>Please note that, due to the PCI DSS security standards, our system has to mask credit card numbers in any output (e.g., 549619******4769).
 |`card_holder`|Cardholder's name
@@ -415,7 +415,7 @@ The following are XML and HTTP Post response examples.
 
 ```xml
    	state = completed
-   	reason = 
+   	reason =
    	test = false
    	mid = 00001326581
    	attempt_id = 1
@@ -433,13 +433,13 @@ The following are XML and HTTP Post response examples.
    	currency = EUR
    	ip_address = 83.167.62.196
    	ip_country = FR
-   	device_id = 
+   	device_id =
    	cdata1 = My data 1
    	cdata2 = My data 2
    	cdata3 = My data 3
    	cdata4 = My data 4
-   	avs_result = 
-   	cvc_result = 
+   	avs_result =
+   	cvc_result =
    	eci = 7
    	payment_product = visa
    	payment_method[token] = ce5x096fx6xx05989x170x7x96f94432600491xx
@@ -448,8 +448,8 @@ The following are XML and HTTP Post response examples.
    	payment_method[card_holder] = John Doe
    	payment_method[card_expiry_month] = 07
    	payment_method[card_expiry_year] = 2018
-   	payment_method[issuer] = MYBANK 
-   	payment_method[country] = FR 
+   	payment_method[issuer] = MYBANK
+   	payment_method[country] = FR
    	three_d_secure[eci] = 5
    	three_d_secure[enrollment_status] = Y
    	three_d_secure[enrollment_message]=Authentication Available
@@ -459,7 +459,7 @@ The following are XML and HTTP Post response examples.
    	three_d_secure[xid]=
    	fraud_screening[scoring] = 120
    	fraud_screening[result] = accepted
-   	fraud_screening[review] = 
+   	fraud_screening[review] =
    	order[id] = 1381756231
    	order[date_created] = 2016-10-14T13:10:36+0000
    	order[attempts] = 1
@@ -480,7 +480,7 @@ The following are XML and HTTP Post response examples.
 **Directive**: It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection made to your servers. This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.
 
 A unique signature is sent each time HiPay contacts any merchant's URL, notification or redirection.
-        
+
 ## Setup
 
 First of all, you need to set a secret passphrase in your HiPay Enterprise back office under “*Integration -> Security Settings -> Secret Passphrase*”.
@@ -509,11 +509,11 @@ Please note: you must remove any personal parameter from the query to only inclu
 *PHP signature validation*:
 
 ```php
-   	$secretPassphrase = 'mypassphrase';       	
-   	//Secret Passphrase 
+   	$secretPassphrase = 'mypassphrase';
+   	//Secret Passphrase
    	$string2compute = '';
-   	
-   	if (isset($_GET['hash'])) {   		
+
+   	if (isset($_GET['hash'])) {
    		// If it is a redirection
    		$signature = $_GET['hash'];
    		$parameters = $_GET;
@@ -525,19 +525,19 @@ Please note: you must remove any personal parameter from the query to only inclu
    			}
    		}
    	}
-   	else {				
+   	else {
    		// If it is a notification
    		$signature = $_SERVER['HTTP_X_ALLOPASS_SIGNATURE'];
    		$string2compute = file_get_contents("php://input"). $secretPassphrase;
    	}
    	$computedSignature = sha1($string2compute);
-   	
+
    	// true if OK, false if not
    	if ($computedSignature == $signature) {
    	    $message = 'OK';
    	}
    	else {
-   	    $message = 'KO';27   	}
+   	    $message = 'KO';   	}
 ```
 
 # Device fingerprint integration
@@ -565,9 +565,9 @@ To integrate the client, you must specify a hidden field that the JavaScript wil
 **What NOT TO DO:**
 
 1.	DO NOT call HiPay Enterprise fingerprint JavaScript BEFORE including the hidden “ioBB” form field.
-2.	DO NOT cache or use local copies of the JavaScript (JavaScript is dynamically generated for each customer and caching the script may cause unrelated devices to be identified as the same computer. The script also uses domain cookies to identify devices across subscribers.) 
+2.	DO NOT cache or use local copies of the JavaScript (JavaScript is dynamically generated for each customer and caching the script may cause unrelated devices to be identified as the same computer. The script also uses domain cookies to identify devices across subscribers.)
 
-# Settlements 
+# Settlements
 
 If you need an overview of your settlements or a list of operations
 included in one of them, check out the [HiPay Enterprise Finance API interactive documentation](/doc-api/enterprise/settlement/).
@@ -580,7 +580,7 @@ included in one of them, check out the [HiPay Enterprise Finance API interactive
 
 **Procedure**: To set up your financial file transfer system, you must login into your HiPay Enterprise back office and go to *“Integration -> File Transfer*”.
 
-*Configuration screen*  
+*Configuration screen*
 ![](images/image4.jpg)
 
 ### Configuration parameters
@@ -680,7 +680,7 @@ This document is designed to provide you with details on how to integrate your b
 
 **Procedure** To set up your Financial Feedback Notification URL, you must login into your HiPay Enterprise back office and go to *“Integration -> Notifications -> Financial Feedback*”.
 
-*Configuration screen*   
+*Configuration screen*
 ![](images/image5.jpg)
 
 ### Configuration parameters
@@ -700,7 +700,7 @@ The following table lists and describes the response fields.
 
 | Field name   |      Description    |
 |----------|-------------|
-|`notification_type`|      Type of notification (only in POST request)   
+|`notification_type`|      Type of notification (only in POST request)
 |`account`   |               Account ID
 |`reference` |               Settlement ID
 |`sales`     |               Sales amount
@@ -716,7 +716,7 @@ The following table lists and describes the response fields.
 
 The following are XML, JSON and HTTP POST response examples.
 
-Response in XML format 
+Response in XML format
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <settlement>
@@ -734,10 +734,10 @@ Response in XML format
 </settlement>
 ```
 
-Response in JSON format        
+Response in JSON format
 ```json
-{  
-   "settlement":{  
+{
+   "settlement":{
       "account":"987654",
       "reference":"123456",
       "sales":2839,
@@ -752,7 +752,7 @@ Response in JSON format
 }
 ```
 
-Response in HTTP POST format   
+Response in HTTP POST format
 ``` shell
 notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=0&fees=90&chargeback=0&rolling=0&other=2748.040&amount=0.000&currency=EUR
 ```
@@ -845,7 +845,7 @@ mandate.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<response>  
+<response>
 	<forward_url>https://stage-secure-gateway.hipay-tpp.com/payment/web/pay/12...55</forward_url>
   	<test>true</test>
   	<mid>00001328877</mid>
@@ -868,10 +868,10 @@ mandate.
 
 At this point, the transaction status is `Authentication requested`. The merchant will redirect the customer to the HiPay payment page, which will redirect him or her to the pay4 payment page to complete the registration, as shown here.
 
-![](images/image6.png) 
+![](images/image6.png)
 
 After completing the registration, the customer is redirected to the success page specified by the merchant in the initial payment request (or to the error page in case of failure).
-                                                                                                                             
+
 The transaction status will change to `Authenticated`, then to `Authorization requested`. A few days later (approximately 5 bank working days), the transaction status will change from `Authorization requested` to `Captured` directly (due to the lack of information about the status change between the transmission and the receipt of the payment).
 
 ## Notification response in XML format
@@ -938,7 +938,7 @@ required to make another payment on an existing mandate.
   <date_authorized/>
   <status>142</status>
   <message>Authorization Requested</message>
-  . . . 
+  . . .
   <debit_agreement>
     <id>574</id>
     <status>available</status>
@@ -948,7 +948,7 @@ required to make another payment on an existing mandate.
 
 
 # Debit agreement statuses
-  
+
 | **Status**   |      **Description**    |
 |----------|-------------|
 | `pending` |  Created but not yet confirmed
