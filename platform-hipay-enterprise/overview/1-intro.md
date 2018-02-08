@@ -763,116 +763,91 @@ notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=
 
 This payment product can be used with the HiPay Enterprise Gateway API. **[Click here to access the full interactive documentation and live testing tools for the HiPay Enterprise Gateway API](/doc-api/enterprise/gateway/).**
 
-## Recurring payment request with client authentication
+## Recurring payment request
 
-To initiate a SEPA mandate for a recurring payment with client
-authentication, here are the parameters to add to a basic payment
-request.
+To initiate a new SEPA mandate that will be used for future recurring payments you must add the following parameters to a basic payment request:
 
-The bank account owner must be present to complete the SEPA
-registration.
+The bank account owner must be present to complete the SEPA registration.
 
-**Specific required fields**:
+**Specific required fields if your are using "order" API** : (bank info fields in your page)
 
 | Parameter name | Value |
 | --- | --- |
 | `payment_product` | `sdd`
 | `eci` | `7` (e-commerce)
 | `recurring_payment` | `1`
+| `iban` | `Iban`
+| `firstname` | `First name`
+| `lastname` | `Last name`
 
-
-## Recurring payment request without client authentication
-
-To initiate a SEPA mandate for a recurring payment without client
-authentication, here are the parameters to add to a basic payment
-request.
-
-The bank account owner must be present to complete the SEPA
-registration.
-
-**Specific required fields**
+**Specific required fields if your are using "hpayment" API** : (bank info fields in HiPay hosted page)
 
 | Parameter name | Value |
 | --- | --- |
 | `payment_product` | `sdd`
 | `eci` | `7` (e-commerce)
 | `recurring_payment` | `1`
-| `firstname` | First name
-| `lastname` | Last name
-| `authentication_indicator` | `0`
-| `gender` | `M`
-| `issuer_bank_id` | `MARKDEF1100`
-
-
-**New parameters**
-
-| Parameter name | Value |
-| --- | --- |
-| `iban` | `DE23100000001234567890`
-| `bank_name` | `Deutsche Bank`
 
 ## Recurring payment response
 
 See below the received response. Please pay attention to the field `debit_agreement_id`, which is the most important here.
+Merchants must save its value to make new recurring transactions on the same mandate.
+In case of Hpayment (HiPay hosted page), this value is sent in the "Authorization requested" notification and not in the API response.
 
-Merchants must save its value to make more transactions on the same
-mandate.
-
-## Response in XML format using order service
+## Response in XML format using "order" API
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
-  <state>forwarding</state>
-  <reason/>
-  	<forward_url>https://stage-secure-gateway.hipay-tpp.com/gateway/forward/c4ee.ac42c21</forward_url>
-  	<test>false</test>
-  	<mid>00035167042</mid>
-  	<attempt_id>1</attempt_id>
-  	<authorization_code/>
-  	<transaction_reference>806735728402</transaction_reference>
-    	. . .
-  	<debit_agreement>
-    		<id>574</id>
-    		<status>available</status>
-  	</debit_agreement>
+	<state>completed</state>
+	<forward_url/>
+	<test>false</test>
+	<mid>00001328877</mid>
+	<attempt_id>1</attempt_id>
+	<authorization_code/>
+	<transaction_reference>132256656670</transaction_reference>
+	<status>142</status>
+	<message>Authorization Requested</message>
+	. . .
+	<debit_agreement>
+		<id>18505</id>
+		<status>available</status>
+	</debit_agreement>
 </response>
 ```
 
-
-
-## Response in XML format using Hpayment service
+## Response in XML format using "hpayment" API
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
+<response> 
 	<forward_url>https://stage-secure-gateway.hipay-tpp.com/payment/web/pay/12...55</forward_url>
-  	<test>true</test>
-  	<mid>00001328877</mid>
-  	. . .
-  	<order>
-    		<id>5630ccbe32951</id>
-    		<date_created>2016-10-28T13:30:47+0000</date_created>
-    		<attempts>0</attempts>
-    		<amount>113.25</amount>
-    		<shipping>4.50</shipping>
-    		<tax>0.50</tax>
-    		<decimals>2</decimals>
-    		<currency>EUR</currency>
-    		<customer_id>test</customer_id>
-    		<language>fr_FR</language>
-    		<email>test@hipay.com</email>
-  	</order>
+	<test>true</test>
+	<mid>00001328877</mid>
+	. . .
+	<order>
+		<id>5630ccbe32951</id>
+		<date_created>2016-10-28T13:30:47+0000</date_created>
+		<attempts>0</attempts>
+		<amount>113.25</amount>
+		<shipping>4.50</shipping>
+		<tax>0.50</tax>
+		<decimals>2</decimals>
+		<currency>EUR</currency>
+		<customer_id>test</customer_id>
+		<language>fr_FR</language>
+		<email>test@hipay.com</email>
+	</order>
 </response>
 ```
 
-At this point, the transaction status is `Authentication requested`. The merchant will redirect the customer to the HiPay payment page, which will redirect him or her to the pay4 payment page to complete the registration, as shown here.
+The merchant will redirect the customer to the HiPay payment page to complete the registration, as shown here.
 
 ![](images/image6.png)
 
 After completing the registration, the customer is redirected to the success page specified by the merchant in the initial payment request (or to the error page in case of failure).
 
-The transaction status will change to `Authenticated`, then to `Authorization requested`. A few days later (approximately 5 bank working days), the transaction status will change from `Authorization requested` to `Captured` directly (due to the lack of information about the status change between the transmission and the receipt of the payment).
+The transaction status will change to `Authenticated`, then to `Authorization requested`. A few days later (approximately 10 bank working days for a first transaction and 5 bank working days for a recurring transaction), the transaction status will change from `Authorization requested` to `Captured` directly (due to the lack of information about the status change between the transmission and the receipt of the payment).
 
 ## Notification response in XML format
 
@@ -893,7 +868,6 @@ The transaction status will change to `Authenticated`, then to `Authorization re
   </debit_agreement>
 </notification>
 ```
-
 
 # Initiating a transaction on an existing mandate
 
