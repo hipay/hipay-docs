@@ -35,7 +35,7 @@ Once logged in, move your cursor over "*Configuration*" in order to display the 
 
 Then look for the HiPay integration and click on it:
 
-![WiziShop back office - Add HiPay](images/wizishop_hipay_fullservice.png)
+![WiziShop back office - Add HiPay](images/wizishop_hipay_enterprise.png)
 
 ## 2. Configuration
 
