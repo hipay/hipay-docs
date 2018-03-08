@@ -62,7 +62,7 @@ Status codes or HTTP codes indicate whether a request was successful or not.
 |Code   |Message                                                 |Description
 |--------------------- |----------------------------------------------------------- |------------
 |`0`|Success|Everything went well.|
-|`2`|Missing param|Both the front and back sides of Belgian and Italian ID cards are required.|
+|`2`|Missing param|Both the front and back sides of ID cards are required.|
 |`200`|OK|The request was successful.|
 |`400`|Bad request / Validation failed|Data error: one or several parameters sent to the API are not valid.|
 |`401`|Unauthorized|Login/password error: authentication with the wsLogin and wsPassword failed.|
@@ -124,7 +124,7 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |Label          |Description
 |------ |---------------|--------------
-|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
+|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
 |`2`    | Proof of address   |Proof of address issued within the last three months<br/>(e.g.: rent receipt, utility bill)
 |`6`    | Bank              | Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
 *Table 6: KYC documents for individuals*
@@ -134,7 +134,7 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
   
 |Type   |Label               |Description
 |------ |----------------------- |--------------------------------------------------------------------------------------------------------------
-|`1`      |ID proof           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
+|`1`      |ID proof           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
 |`4`      |Company Registration    |Document certifying company registration issued within the last three months (Kbis extract)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
 |`6`      |Bank                    |Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
@@ -144,7 +144,7 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |**Label**              |**Description**
 |------ |---------------------- |---------------------------------------------------------------------------
-|`1`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
+|`1`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
 |`8`      |Company Registration   |Document certifying registration issued within the last three months (Kbis extract)
 |`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
 |`6`      |Bank                   |Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
@@ -154,7 +154,7 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |**Label**                  |**Description**
 |------ |-------------------------- |---------------------------------------------------------------------------
-|`1`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of Belgian and Italian ID cards are required.)
+|`1`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
 |`11`     |President of association   |Document certifying who is the president of the association
 |`12`    |Official Journal           |Publication in the Official Journal
 |`13`     |Association status         |Document certifying the Association statutes
@@ -185,7 +185,7 @@ account different from the authenticated one.
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
 |`type`             |N            |12           |M          |Type of KYC document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
 |`file`             |AN           |255          |M          |KYC document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
-|`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>(only required for Belgian and Italian ID cards)<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
+|`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (type `1`) <br/>- Optional for other KYC documents
 |`user_space`      |N            |12            |          |ID of the user space (deprecated)
 *Table 11: KYC document upload related parameters*
