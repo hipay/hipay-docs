@@ -16,7 +16,7 @@ Additionally, a full range of other payment methods are supported.
 
 To enable a Salesforce Commerce Cloud store to use HiPay’s payment services, the
 developer has to install the cartridge and integrate it to the online
-store following the instructions provided in this document.For the integration to work properly, merchants should first contact
+store following the instructions provided in this document. For the integration to work properly, merchants should first contact
 HiPay and fill in an account request on
 [*https://hipay.com/*](https://hipay.com/).
 
@@ -25,13 +25,13 @@ Salesforce Commerce Cloud Business Manager and HiPay’s back office.
 
 The integration package contains the following elements:
 
--   a cartridge called `int_hipay` – which is the core integration cartridge
--   a cartridge called `bm_hipay` – which is an extension for the cartridge within Salesforce Commerce Cloud Business Manager
+-   a cartridge called `int_hipay_controllers` – which is the core integration cartridge
+-   a cartridge called `bm_hipay_controllers` – which is an extension for the cartridge within Salesforce Commerce Cloud Business Manager
 -   a `site-template` folder with metadata
 -   this document.
 
 The integration is based on the SiteGenesis demo store provided by
-Salesforce Commerce Cloud. The cartridge is compatible with SiteGenesis 16.7 and might require
+Salesforce Commerce Cloud. The cartridge is compatible with SiteGenesis 103.1.11 and might require
 updates and reviews for future versions and releases of SiteGenesis.
 
 #Component overview
@@ -51,7 +51,7 @@ it, they have to enter their credentials.
 
 **Hosted pages**
 
-The cartridge supports the hosted-payment-page-approach of entering
+The cartridge supports the hosted payment page approach of entering
 payment information directly on pages that are hosted and provided by
 HiPay. During checkout, merchants’ customers will therefore be
 redirected to the HiPay hosted payment pages, usually when they are
@@ -240,9 +240,9 @@ options.
     -   **FAILED** – all cases of Cancel and Decline.
 
 
-**UC – 1**                                                                                                                                                  
-This use case describes the main steps in which a registered/guest customer successfully creates an order as well as the order with the HiPay Hosted Page.   
-  
+**UC – 1**
+This use case describes the main steps in which a registered/guest customer successfully creates an order as well as the order with the HiPay Hosted Page.
+
 **HiPay Hosted Page**
 
 - Go to Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings.
@@ -257,18 +257,18 @@ This use case describes the main steps in which a registered/guest customer succ
 	7.  The customer can verify the Order Summary information.
 	8.  The merchant can verify the Order status in SCC BM.
 	9.  The merchant can verify the information in the HiPay Enterprise account.
-                                                                                                                                                               
+
 **Please note that a similar flow can be done for guest checkout.**
 
-**UC – 2**   
+**UC – 2**
 This use case describes the main steps in which a registered/guest customer successfully creates an order as well as the order with the HiPay Hosted Page with 3-D Secure.
 
 **HiPay Hosted Page with 3-D Secure**
-                                                                                                                                                       
+
 -   Go to Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings.
 -   For HiPay Operation Mode, select **hosted** (Hosted Page) and click on **Apply**.
 -   For 3-D Secure, select **1 (3-D Secure authentication if available)** and click on **Apply**.
-                                                                                                          
+
 	1.  A registered customer navigates on the site, adds an item to the cart and proceeds to the cart page.
 	2.  The customer clicks on the **Checkout** button and fills in the required shipping information.
 	3.  The customer clicks on the **Continue** button, fills in the required billing information and selects **HiPay Hosted** as the payment method.
@@ -280,15 +280,15 @@ This use case describes the main steps in which a registered/guest customer succ
 	9.  The customer can verify the Order Summary information.
 	10. The merchant can verify the Order status in SCC BM.
 	11. The merchant can verify the information in the HiPay Enterprise account.
-                                                                                                                                                                               
-**Please note that a similar flow can be done for guest checkout.**
-    
 
-**UC – 3**                                                                                                                                                       
+**Please note that a similar flow can be done for guest checkout.**
+
+
+**UC – 3**
 This use case describes the main steps in which a registered/guest customer successfully creates an order as well as the order with the HiPay API Integration.
 
 **HiPay API Integration**
-                                                                                                                                                                   
+
 -   Go to Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings.
 -   For HiPay Operation Mode, select **api** (API) and click on **Apply**.
                                                                                                                                                                    	1.  A registered customer navigates on the site, adds an item to the cart and proceeds to the cart page.
@@ -303,7 +303,7 @@ This use case describes the main steps in which a registered/guest customer succ
 	10. The merchant can verify the information in the HiPay Enterprise account.
 
 **Please note that a similar flow can be done for guest checkout.**
-  
+
 ##Limitations and constraints
 
 -   Merchants need a configured HiPay account.
@@ -317,8 +317,7 @@ The following features are out of scope:
 
 ##Compatibility
 
-The HiPay integration cartridge is compatible with Salesforce Commerce Cloud version
-16.7 or higher.
+The HiPay integration cartridge is compatible with Salesforce Commerce Cloud version 101.1.6.
 
 ##Payment data privacy
 
@@ -339,7 +338,7 @@ Examples:
 
 - HiPay Payment Product List: `dexia-directnet`
 
-HiPay Payment Category List: `realtime-banking`
+- HiPay Payment Category List: `realtime-banking`
 
 #Implementation guide
 
@@ -358,7 +357,7 @@ The following steps are needed to complete the integration:
 
 ###Installation
 
-Install the `int_hipay`, `bm_hipay` and `app_hipay` cartridges from
+Install the `int_hipay_controllers`, `bm_hipay_controllers` cartridges from
 the distributive zip-archive in a standard way using Salesforce Commerce Cloud
 UX-studio.
 
@@ -377,7 +376,7 @@ folder and rename it with the ID of your site. After site import, you
 will also need to check the ClearHungOrder schedule and Site assignment
 section (please see section *5.2.4 Schedules*).
 
-Please note that the `site`_template` folder also contains the
+Please note that the `site_template` folder also contains the
 `pin-price-lists.xml` with the pricebook. If you don’t need it, just
 remove this file and the `pricebook` folder before archiving the
 `site_template` folder.
@@ -386,15 +385,19 @@ Before importing the `site-template.zip`, check and save the cartridge
 paths of your site and Business Manager as they will be modified. That
 way, you will be able to configure them manually if something goes
 wrong. Also, check the fields that will be updated after importing the
-“site-template.zip” and make sure that there won’t be any conflict with
+`site-template.zip` and make sure that there won’t be any conflict with
 the existing fields.
 
 ##Configuration
 
--   Add `int_hipay` to the cartridge site path: `int_hipay:app_storefront_pipelines:app_storefront_core`
--   Add `bm_hipay to the cartridge BM path: `bm_hipay`
+-   Add `int_hipay_controllers` to the cartridge site path: `int_hipay_controllers:app_storefront_pipelines:app_storefront_core`
+-   Add `bm_hipay_controllers` to the cartridge BM path: `bm_hipay_controllers`
 -   Go to BM **Administration &gt; Site Development &gt; Site Import & Export** and import `site_template` (make a zip file).
 -   Custom site preferences (HiPay Settings): Go to **Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings**:
+
+	-   **HiPay Enabled –** Indicates whether the HiPay code will be executed or not.
+
+	-   **HiPay Enable One Click –** Indicates whether the One-Click payments will be executed or not.
 
 	-   **HiPay Operation Mode –** Defines which operation payment mode to
     use – these are HOSTED/IFRAME/API. When selecting the API mode, the
@@ -402,36 +405,36 @@ the existing fields.
     If HOSTED or IFRAME is selected, all API payment methods are hidden
     from the checkout page.
 
-	-   **Enable Tokenization Test Mode –** Test Mode: if enabled, the
+	-   **Enable Tokenization Test Mode** – Test Mode: if enabled, the
     module will use the HiPay Enterprise test platform.
 
 	-   **3-D Secure –** Allows the activation of 3-D Secure if the card has
     been enrolled.
 
-	-   **3-D Secure Threshold Rule** **–** If the Order total amount is
-    higher than the specified sum, 3-D Secure will then be forced. If 0
+	-   **3-D Secure Threshold Rule** – If the Order total amount is
+    higher than the specified sum, 3-D Secure will then be forced. If 0
     is specified, the rule is disabled.
 
-	-   **HiPay API Signature Passphrase –** API Signature passphrase
+	-   **HiPay API Signature Passphrase** – API Signature passphrase
     configured in HiPay’s back office, used to verify the requests made
     to SCC.
 
-	-   **Payment Action –** Please refer to *HiPay TPP – Payment Gateway
+	-   **Payment Action** – Please refer to *HiPay TPP – Payment Gateway
     API* documentation, chapter 3.1 *Request a New Order (Order
     Parameters – operation).*
 
-	-   **iFrame Height –** If the iFrame operating mode is chosen, you can
+	-   **iFrame Height** – If the iFrame operating mode is chosen, you can
     select your iFrame height to fit with your CSS.
 
-	-   **iFrame Width –** If the iFrame operating mode is chosen, you can
+	-   **iFrame Width** – If the iFrame operating mode is chosen, you can
     select your iFrame width to fit with your CSS.
 
-	-   **HiPay CSS content –** HiPay’s content with custom CSS to style the
+	-   **HiPay CSS content** – HiPay’s content with custom CSS to style the
     Hosted/iFrame pages. The content is displayed directly on the hosted
     page and any CSS should be wrapped with
     `<style></style>` tags.
 
-	-   **Display card selector –** Enables/disables the payment method
+	-   **Display card selector** – Enables/disables the payment method
     selector on iFrame and hosted pages.
 
 	-   **Hung Order Cleanup Time** – Number of minutes after which all
@@ -460,7 +463,7 @@ Services –** **Configurations for the HiPay multi-account feature***.
     **HiPay**, for the hosted solution and the integrated
     API respectively.
 
--   HiPay’s predefined log category
+-   HiPay’s predefined log category.
 
 Go to **Administration &gt; Operations &gt; Custom Log Settings**.
 
@@ -471,265 +474,311 @@ HiPay’s log category is called “HIPAY”. It can be added or removed from th
 ##Custom code
 
 
-For all custom code changes, an example is included in int\_hipay; each
+For all custom code changes, an example is included in int\_hipay\_controllers; each
 of them is also described in the current section.
 
-1.	`app_storefront_core/cartridge/templates/default/checkout/billing/creditcardjson.isml`            
+1.	`app_storefront_core/cartridge/templates/default/checkout/billing/creditcardjson.isml`
 
-See the int_hipay/cartridge/templates/default/checkout/billing/creditcardjson_sample.isml for an example
+See the int_hipay_controllers/cartridge/templates/default/checkout/billing/creditcardjson_sample.isml for an example
 
 Add:
 
-`uuid:pdict.SelectedCreditCrd.UUID`
+``` html
+<isset name="hipayEnabled" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnabled')}" scope="page"/> <isif condition="${hipayEnabled}"><iselse/></isif>
+```
 
 After:
 
-`expirationYear:pdict.SelectedCreditCard.creditCardExpirationYear`
+``` html
+<isinclude template="util/jsonmodule"/>
+```
+
+Put an existing `<isscript>...</isscript>` section between `<iselse/></isif>` lines and between `<isif condition="${hipayEnabled}"><iselse/>` lines.
+
+In the first `if-else` condition block add:
+
+``` html
+uuid:pdict.SelectedCreditCard.UUID
+```
+
+After:
+
+``` html
+expirationYear:pdict.SelectedCreditCard.creditCardExpirationYear
+```
 
 ![](images/image7.png)
 
 2.	`app_storefront_core/cartridge/templates/default/checkout/billing/paymentmethods.isml`
 
-See the int_hipay/cartridge/templates/default/checkout/billing/paymentmethods_sample.isml for an example
+See the int_hipay_controllers/cartridge/templates/default/checkout/billing/paymentmethods_sample.isml for an example
 
 Add:
 
 ``` html
-<!--- HIPAY INTEGRATION ------ BEGIN --->
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/hipay.css')}" />
-<isinclude template="checkout/components/devicefingerprint"/>
-<isscript>
-   var HiPayConfig = require('int_hipay/cartridge/scripts/lib/hipay/HiPayConfig.ds').HiPayConfig;
-   var isHiPayHostedMode = false;
-   if(HiPayConfig.hipayOperationMode == HiPayConfig.OPERATION.HOSTED || HiPayConfig.hipayOperationMode == HiPayConfig.OPERATION.IFRAME) {
-      isHiPayHostedMode = true;
-   }
-</isscript>
-<!--- HIPAY INTEGRATION ------ END --->
+<isset name="hipayEnabled" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnabled')}" scope="page"/> <isset name="hipayEnableOneClick" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnableOneClick')}" scope="page"/>
 ```
 
 After:
 
-``` xml
+``` html
+<isif condition="${pdict.OrderTotal > 0}">
+```
+
+Add:
+
+``` html
+<isif condition="${hipayEnabled}">
+	<link rel="stylesheet" href="${URLUtils.staticURL('/css/hipay.css')}" />
+	<isinclude template="checkout/components/devicefingerprint"/>
+		<isscript>
+		var HiPayConfig = require('int_hipay_controllers/cartridge/scripts/lib/hipay/HiPayConfig').HiPayConfig;
+		var isHiPayHostedMode = false;
+		if(HiPayConfig.hipayOperationMode == HiPayConfig.OPERATION.HOSTED || HiPayConfig.hipayOperationMode == HiPayConfig.OPERATION.IFRAME) {
+		isHiPayHostedMode = true;
+		}
+		</isscript>
+
+		<div class="payment-method-options form-indent">
+			<isloop items="${pdict.CurrentForms.billing.paymentMethods.selectedPaymentMethodID.options}" var="paymentMethodType">
+
+		<iscomment>Ignore GIFT_CERTIFICATE method, GCs are handled separately before other payment methods.</iscomment>
+		<isif condition="${paymentMethodType.value.equals(dw.order.PaymentInstrument.METHOD_GIFT_CERTIFICATE)}"><iscontinue/></isif>
+		<!--- HIPAY INTEGRATION ------ skip all non-HiPay methods if HiPay is enabled--->
+		<isif condition="${(paymentMethodType.value.indexOf('HIPAY') == -1)}" ><iscontinue/></isif>
+		<isif condition="${(paymentMethodType.value.indexOf('HIPAY') > -1)}">
+		<iscomment>Skip HIPAY_ payment methods if is in HOSTED operation mode.</iscomment>
+		<isif condition="${isHiPayHostedMode && paymentMethodType.value.indexOf('HIPAY_HOSTED') == -1}"><iscontinue/></isif>
+		<iscomment>Skip hosted page payment method if is in API operation mode.</iscomment>
+		<isif condition="${!isHiPayHostedMode && paymentMethodType.value.indexOf('HIPAY_HOSTED') > - 1}"> <iscontinue/></isif>
+		</isif>
+	<div class="form-row label-inline">
+		<isset name="radioID" value="${paymentMethodType.value}" scope="page"/>
+		<label for="is-${radioID}"> <isprint value="${Resource.msg(paymentMethodType.label,'forms',null)}"/>
+		<isscript>
+		var paymentMethod = dw.order.PaymentMgr.getPaymentMethod(paymentMethodType.value);
+		var hipayProductName = paymentMethod.custom.hipayProductName; if(!empty(hipayProductName)) { hipayProductName = hipayProductName.toLowerCase(); }
+		</isscript>
+		<isif condition="${!empty(hipayProductName)}">
+		<i class="payment-product-sprite-${hipayProductName}"></i>
+		</isif>
+		</label>
+		<div class="field-wrapper">
+		<input id="is-${radioID}" type="radio" class="input-radio" name="${pdict.CurrentForms.billing.paymentMethods.selectedPaymentMethodID.htmlName}" value="${paymentMethodType.htmlValue}" <isif condition="${paymentMethodType.value == pdict.CurrentForms.billing.paymentMethods.selectedPaymentMethodID.htmlValue}">checked="checked"</isif> />
+		</div>
+	</div>
+		</isloop>
+		</div>
+		<div class="form-row form-row-button">
+		<button id="payment-select-go" name="${pdict.CurrentForms.billing.paymentSelect.htmlName}" type="submit" value="Go" class="simple-submit">Select</button>
+		</div>
+
+		<isif condition="${!empty(pdict.MissingPaymentProcessor)}">
+		<div class="billing-error">${Resource.msg('billing.missingprocessorerror','checkout',null)}</div>
+		</isif><iselse/>
+```
+
+After:
+``` html
 <legend>
    ${Resource.msg('billing.paymentheader','checkout',null)}
-   <div class="dialog-required"> <span class="required-indicator">&#8226; <em>${Resource.msg('global.requiredfield','locale',null)}</em></span>
+   <div class="dialog-required"> <span class="required-indicator">&#8226;
+   <em>${Resource.msg('global.requiredfield','locale',null)}</em></span>
 </div>
 </legend>
-
 ```
 
 ![](images/image8.png)
 
-Add:
-
+After an existing code block for payment methods rendering add:
 ``` html
-<!--- HIPAY INTEGRATION ------ BEGIN --->
-<isif condition="${(paymentMethodType.value.indexOf('HIPAY') > -1)}"> 
-   <iscomment>Skip HIPAY_ payment methods if is in HOSTED operation mode.</iscomment>
-   <isif condition="${isHiPayHostedMode && paymentMethodType.value.indexOf('HIPAY_HOSTED') == -1}">
-<iscontinue/>
 </isif>
-   <iscomment>Skip hosted page payment method if is in API operation mode.</iscomment>
-   <isif condition="${!isHiPayHostedMode && paymentMethodType.value.indexOf('HIPAY_HOSTED') > - 1}"> <iscontinue/></isif>
-</isif>
-<!--- HIPAY INTEGRATION ------ END --->
-
 ```
 
-After:
+Add:
+``` html
+<!--- HIPAY INTEGRATION ------ skip all HiPay methods if HiPay is disabled--->
+	<isif condition="${paymentMethodType.value.indexOf('HIPAY') > -1}" ><iscontinue/></isif>
 
-``` xml
-<isif condition="${paymentMethodType.value.equals(dw.order.PaymentInstrument.METHOD_GIFT_CERTIFICATE)}"><iscontinue/></isif>
 ```
-
 ![](images/image9.png)
 
 Add:
-
 ``` html
-<label for="is-${radioID}">
-<isprint value="${Resource.msg(paymentMethodType.label,'forms',null)}"/> <isscript> 
-var paymentMethod = dw.order.PaymentMgr.getPaymentMethod(paymentMethodType.value); 
-var hipayProductName = paymentMethod.custom.hipayProductName; if(!empty(hipayProductName)) { hipayProductName = hipayProductName.toLowerCase(); } </isscript> 
-<isif condition="${!empty(hipayProductName)}"> <i class="payment-product-sprite-${hipayProductName}"></i> 
-</isif> 
-</label> 
+	<isif condition="${!hipayEnabled}">
 ```
-
-After:
-
-`<isset name="radioID" value="${paymentMethodType.value}" scope="page"/>`
-
-
+Before:
+``` html
+	<iscomment>
+		Credit card block
+	</iscomment>
+```
 ![](images/image10.png)
 
-Remove lines of code between the following lines
-
-From:
-
-```xml
-<iscomment>
-	Credit card block
-</iscomment>
+Add:
+``` html
+</isif>
 ```
-
-
-To:
-```xml
-<iscomment>
-	Bill me later
-</iscomment>
+After:
+``` html
+ <iscomment> Custom processor--------------------------------------------------------------</iscomment>
+		<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='PayPal'}">payment-method-expanded</isif>" data-method="Custom">
+		<!-- Your custom payment method implementation goes here.-->
+		${Resource.msg('billing.custompaymentmethod','checkout',null)}
+		</div>
 ```
-
-Remove:
-
-`${Resource.msg('billing.custompaymentmethod','checkout',null)}`
-
 ![](images/image11.png)
 
 Add:
+``` html
+<isif condition="${hipayEnabled}" >
+        <!--- HIPAY INTEGRATION ------ BEGIN --->
+        <iscomment>
+           HIPAY Credit card
+           --------------------------------------------------------------
+        </iscomment>
+        <div class="payment-method <isif condition="${(empty(pdict.selectedPaymentID) || pdict.selectedPaymentID=='HIPAY_CREDIT_CARD') && isHiPayHostedMode == false }">payment-method-expanded</isif>" data-method="HIPAY_CREDIT_CARD">
+           <iscomment>display select box with stored credit cards if customer is authenticated</iscomment>
+           <isif condition="${pdict.CurrentCustomer.authenticated && !empty(pdict.ApplicableCreditCards) && hipayEnableOneClick}">
+              <div class="form-row">
+                 <label class="label">${Resource.msg('billing.selectcreditcard','checkout',null)}</label>
+                 <div class="field-wrapper">
+                     <select name="${pdict.CurrentForms.billing.paymentMethods.creditCardList.htmlName}" id="creditCardList" class="input-select">
+                        <option value="">${Resource.msg('billing.creditcardlistselect','checkout',null)}</option>
+                        <isloop items="${pdict.ApplicableCreditCards}" var="creditCardInstr">
+                           <option value="${creditCardInstr.UUID}">(<isprint value="${creditCardInstr.creditCardType}"/>) <isprint value="${creditCardInstr.maskedCreditCardNumber}"/> - ${Resource.msg('billing.creditcardlistexp','checkout',null)} <isprint value="${creditCardInstr.creditCardExpirationMonth}" formatter="00" />.<isprint value="${creditCardInstr.creditCardExpirationYear}" formatter="0000" /></option>
+                        </isloop>
+                     </select>
+                 </div>
+              </div>
+              <div class="form-row form-row-button">
+                 <button id="credit-card-select-go" name="${pdict.CurrentForms.billing.creditCardSelect.htmlName}" type="submit" value="Go" class="simple-submit">Select</button>
+              </div>
+              <iscomment>
+                 <isloop items="${pdict.ApplicableCreditCards}" var="creditCardInstr">
+                    <a href="${URLUtils.https('COBilling-UpdateCreditCardSelection', 'creditCardUUID', creditCardInstr.UUID)}">
+                       (<isprint value="${creditCardInstr.creditCardType}"/>)
+                       <isprint value="${creditCardInstr.maskedCreditCardNumber}"/>
+                       - ${Resource.msg('billing.creditcardlistexp','checkout',null)}
+                       <isprint value="${creditCardInstr.creditCardExpirationMonth}" formatter="00" />
+                       .<isprint value="${creditCardInstr.creditCardExpirationYear}" formatter="0000" />
+                    </a>
+                 </isloop>
+              </iscomment>
+           </isif>
+           <div class="ccfields-wrap">
+               <isset name="selectedCreditCardType" value="${ pdict.CurrentForms.billing.paymentMethods.creditCard.type.selectedOptionObject ? pdict.CurrentForms.billing.paymentMethods.creditCard.type.selectedOptionObject.cardType : null}" scope="page" />
+               <div class="owner-wrap">
+                  <div class="owner-split  ${selectedCreditCardType != 'Amex' ? 'hide' : ''}">
+                     <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.ownerfirst}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
+                     <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.ownerlast}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
+                  </div>
+                  <div class="owner-single  ${selectedCreditCardType == 'Amex' ? 'hide' : ''}">
+                     <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.owner}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
+                  </div>
+               </div>
+               <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.type}" type="select"/>
+               <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.number}" type="input" attribute1="autocomplete" value1="off"/>
+               <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.uuid}" type="hidden" attribute1="autocomplete" value1="off"/>
+               <div class="form-label-text"><span class="required-indicator">${Resource.msg('billing.requiredindicator','checkout',null)}</span>${Resource.msg('billing.creditcardlistexpdate', 'checkout', null)}</div>
+               <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.expiration.month}" type="select" rowclass="month"/>
+               <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.expiration.year}" type="select"  rowclass="year"/>
+               <div class="cvn-wrap ${selectedCreditCardType === 'BancontactMisterCash' ? 'hide' : ''}">
+                  <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.cvn}" type="input" rowclass="cvn" attribute1="autocomplete" value1="off" helpcid="checkout-security-code" helplabel="${Resource.msg('billing.linkcvn', 'checkout', null)}"/>
+               </div>
+               <isif condition="${pdict.CurrentCustomer.authenticated && hipayEnableOneClick}">
+                  <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.saveCard}" type="checkbox" rowclass="label-inline form-indent save-card"/>
+               </isif>
+           </div>
+        </div>
 
-```html
-<!--- HIPAY INTEGRATION ------ BEGIN --->
-<iscomment>
-   HIPAY Credit card
-   ------------------------------------------------------------------------------------------------
-</iscomment>
-<div class="payment-method <isif condition="${(empty(pdict.selectedPaymentID) || pdict.selectedPaymentID=='HIPAY_CREDIT_CARD') && isHiPayHostedMode == false }">payment-method-expanded</isif>" data-method="HIPAY_CREDIT_CARD">
-   <iscomment>display select box with stored credit cards if customer is authenticated</iscomment>
-   <isif condition="${pdict.CurrentCustomer.authenticated && !empty(pdict.ApplicableCreditCards)}">
-      <div class="form-row">
-         <label class="label">${Resource.msg('billing.selectcreditcard','checkout',null)}</label>
-         <select name="${pdict.CurrentForms.billing.paymentMethods.creditCardList.htmlName}" id="creditCardList" class="input-select">
-            <option value="" selected="selected">${Resource.msg('billing.creditcardlistselect','checkout',null)}</option>
-            <isloop items="${pdict.ApplicableCreditCards}" var="creditCardInstr">
-               <option value="${creditCardInstr.UUID}">(<isprint value="${creditCardInstr.creditCardType}"/>) <isprint value="${creditCardInstr.maskedCreditCardNumber}"/> - ${Resource.msg('billing.creditcardlistexp','checkout',null)} <isprint value="${creditCardInstr.creditCardExpirationMonth}" formatter="00" />.<isprint value="${creditCardInstr.creditCardExpirationYear}" formatter="0000" /></option>
-            </isloop>
-         </select>
-      </div>
-      <div class="form-row form-row-button">
-         <button id="credit-card-select-go" name="${pdict.CurrentForms.billing.creditCardSelect.htmlName}" type="submit" value="Go" class="simple-submit">Select</button>
-      </div>
-      <iscomment>
-         <isloop items="${pdict.ApplicableCreditCards}" var="creditCardInstr">
-            <a href="${URLUtils.https('COBilling-UpdateCreditCardSelection', 'creditCardUUID', creditCardInstr.UUID)}">
-               (<isprint value="${creditCardInstr.creditCardType}"/>)
-               <isprint value="${creditCardInstr.maskedCreditCardNumber}"/>
-               - ${Resource.msg('billing.creditcardlistexp','checkout',null)}
-               <isprint value="${creditCardInstr.creditCardExpirationMonth}" formatter="00" />
-               .<isprint value="${creditCardInstr.creditCardExpirationYear}" formatter="0000" />
-            </a>
-         </isloop>
-      </iscomment>
-   </isif>
-   <isset name="selectedCreditCardType" value="${ pdict.CurrentForms.billing.paymentMethods.creditCard.type.selectedOptionObject ? pdict.CurrentForms.billing.paymentMethods.creditCard.type.selectedOptionObject.cardType : null}" scope="page" />
-   <div class="owner-wrap">
-      <div class="owner-split  ${selectedCreditCardType != 'Amex' ? 'hide' : ''}"> 
-         <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.ownerfirst}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
-         <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.ownerlast}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
-      </div>
-      <div class="owner-single  ${selectedCreditCardType == 'Amex' ? 'hide' : ''}">
-         <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.owner}" type="input" attribute1="autocomplete" value1="off" xhtmlclass="owner"/>
-      </div>
-   </div>
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.type}" type="select"/>
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.number}" type="input" attribute1="autocomplete" value1="off"/>
-   <div class="form-label-text"><span class="required-indicator">${Resource.msg('billing.requiredindicator','checkout',null)}</span>${Resource.msg('billing.creditcardlistexpdate', 'checkout', null)}</div>
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.month}" type="select" rowclass="month"/>
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.year}" type="select"  rowclass="year"/>
-   <div class="cvn-wrap ${selectedCreditCardType === 'BancontactMisterCash' ? 'hide' : ''}">
-      <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.cvn}" type="input" rowclass="cvn" attribute1="autocomplete" value1="off" helpcid="checkout-security-code" helplabel="${Resource.msg('billing.linkcvn', 'checkout', null)}"/>
-   </div>
-   <!--- HIPAY INTEGRATION ------ COMMENTED Add when One-Click payments are implemented 
-   <isif condition="${pdict.CurrentCustomer.authenticated}">
-      <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.creditCard.saveCard}" type="checkbox" rowclass="label-inline form-indent save-card"/>
-   </isif>
-   --->
-</div>
+        <iscomment>Belfius Direct Net</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_DEXIA_DIRECTNET'}">payment-method-expanded</isif>" data-method="HIPAY_DEXIA_DIRECTNET">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>Belfius Direct Net</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_DEXIA_DIRECTNET'}">payment-method-expanded</isif>" data-method="HIPAY_DEXIA_DIRECTNET">
-   <!--- No form is applied --->
-</div>
+        <iscomment>Giropay</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_GIROPAY'}">payment-method-expanded</isif>" data-method="HIPAY_GIROPAY">
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
+        </div>
 
-<iscomment>Giropay</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_GIROPAY'}">payment-method-expanded</isif>" data-method="HIPAY_GIROPAY">
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
-</div>
+        <iscomment>Hosted Pages</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_HOSTED'}">payment-method-expanded</isif>" data-method="HIPAY_HOSTED">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>Hosted Pages</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_HOSTED'}">payment-method-expanded</isif>" data-method="HIPAY_HOSTED">
-   <!--- No form is applied --->        
-</div>
+        <iscomment>iDEAL</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_IDEAL'}">payment-method-expanded</isif>" data-method="HIPAY_IDEAL">
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.issuer_bank_id}" type="select" />
+        </div>
 
-<iscomment>iDEAL</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_IDEAL'}">payment-method-expanded</isif>" data-method="HIPAY_IDEAL">
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.issuer_bank_id}" type="select" />
-</div>
+        <iscomment>ING HomePay</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_ING_HOMEPAY'}">payment-method-expanded</isif>" data-method="HIPAY_ING_HOMEPAY">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>ING HomePay</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_ING_HOMEPAY'}">payment-method-expanded</isif>" data-method="HIPAY_ING_HOMEPAY">
-   <!--- No form is applied --->
-</div>
+        <iscomment>Klarna</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_KLARNA'}">payment-method-expanded</isif>" data-method="HIPAY_KLARNA">
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
+        </div>
 
-<iscomment>Klarna</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_KLARNA'}">payment-method-expanded</isif>" data-method="HIPAY_KLARNA">
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
-</div>
+        <iscomment>Przelewy24</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_PRZELEWY24'}">payment-method-expanded</isif>" data-method="HIPAY_PRZELEWY24">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>Przelewy24</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_PRZELEWY24'}">payment-method-expanded</isif>" data-method="HIPAY_PRZELEWY24">
-   <!--- No form is applied --->
-</div>
+        <iscomment>QIWI Wallet</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_QIWI_WALLET'}">payment-method-expanded</isif>" data-method="HIPAY_QIWI_WALLET">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>QIWI Wallet</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_QIWI_WALLET'}">payment-method-expanded</isif>" data-method="HIPAY_QIWI_WALLET">
-   <!--- No form is applied --->
-</div>
+        <iscomment>Sisal</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_SISAL'}">payment-method-expanded</isif>" data-method="HIPAY_SISAL">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>Sisal</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_SISAL'}">payment-method-expanded</isif>" data-method="HIPAY_SISAL">
-   <!--- No form is applied --->
-</div>
+        <iscomment>Sofort Uberweisung</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_SOFORT_UBERWEISUNG'}">payment-method-expanded</isif>" data-method="HIPAY_SOFORT_UBERWEISUNG">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>Sofort Uberweisung</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_SOFORT_UBERWEISUNG'}">payment-method-expanded</isif>" data-method="HIPAY_SOFORT_UBERWEISUNG">
-   <!--- No form is applied --->              
-</div>
+        <iscomment>WebMoney Transfer</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_WEBMONEY_TRANSFER'}">payment-method-expanded</isif>" data-method="HIPAY_WEBMONEY_TRANSFER">
+           <!--- No form is applied --->
+        </div>
 
-<iscomment>WebMoney Transfer</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_WEBMONEY_TRANSFER'}">payment-method-expanded</isif>" data-method="HIPAY_WEBMONEY_TRANSFER">
-   <!--- No form is applied --->
-</div>
+        <iscomment>Yandex Money</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_YANDEX'}">payment-method-expanded</isif>" data-method="HIPAY_YANDEX">
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
+           <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
+        </div>
 
-<iscomment>Yandex Money</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='HIPAY_YANDEX'}">payment-method-expanded</isif>" data-method="HIPAY_YANDEX">
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.username}" type="input" />
-   <isinputfield formfield="${pdict.CurrentForms.billing.paymentMethods.hipaymethods.password}" type="input" />
-</div>
+        <iscomment>PayPal</iscomment>
+        <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='PayPal'}">payment-method-expanded</isif>" data-method="PayPal">
+           <!--- No form is applied --->
+        </div>
+        <!--- HIPAY INTEGRATION ------ END --->
 
-<iscomment>PayPal</iscomment>
-<div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='PayPal'}">payment-method-expanded</isif>" data-method="PayPal">
-   <!--- No form is applied --->
-</div>
-<!--- HIPAY INTEGRATION ------ END --->
+</isif>
 ```
 
 After:
-
-```html
+``` html
 <div class="payment-method <isif condition="${!empty(pdict.selectedPaymentID) && pdict.selectedPaymentID=='PayPal'}">payment-method-expanded</isif>" data-method="Custom">
    <!--- Your custom payment method implementation goes here. --->
+${Resource.msg('billing.custompaymentmethod','checkout',null)}
 </div>
+</isif>
+
 ```
+![](images/image12.png)
 
 
 3.  **Create a devicefingerprint.isml file in `app_storefront_core/cartridge/templates/default/checkout/components/devicefingerprint.isml`**
 
-See the int_hipay/cartridge/templates/default/checkout/components/devicefingerprint_sample.isml for an example
+See the int_hipay_controllers/cartridge/templates/default/checkout/components/devicefingerprint_sample.isml for an example
 
 ```html
 <!-- hidden field to store blackbox -->
@@ -742,22 +791,28 @@ See the int_hipay/cartridge/templates/default/checkout/components/devicefingerpr
 
 4. **`app_storefront_core/cartridge/templates/default/checkout/summary/summary.isml`**
 
-See the int_hipay/cartridge/templates/default/checkout/summary/summary_sample.isml for an example
+See the int_hipay_controllers/cartridge/templates/default/checkout/summary/summary_sample.isml for an example
 
-Change:
+Add:
 
-```xml
-<isif condition="${pdict.PlaceOrderError != null}">
-	<div class="error-form">
-		${Resource.msg(pdict.PlaceOrderError.code,'checkout',null)}
-	</div>
+```html
+<isset name="hipayEnabled" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnabled')}" scope="page"/>
+<isif condition="${hipayEnabled}" >
+<iselse/>
 </isif>
 ```
+Before:
+```html
+<isif condition="${pdict.PlaceOrderError != null}">
+		<div class="error-form">
+		${Resource.msg(pdict.PlaceOrderError.code,'checkout',null)}
+		</div>
+	</isif>
+```
+Put an existing `<isif condition="${pdict.PlaceOrderError != null}">...</isif>` section between just added `<iselse/></isif>` lines.
 
-
-To:
-
-```xml
+In the first `if-else` condition block add:
+```html
 <isscript>
 var paymentStatus = null;
 if ( pdict.CurrentHttpParameterMap.status != null ) {
@@ -767,59 +822,121 @@ if ( pdict.CurrentHttpParameterMap.status != null ) {
 <isif condition="${pdict.PlaceOrderError != null || paymentStatus != null}">
    <isif condition="${paymentStatus === 'cancel'}">
       <div class="error-form">${Resource.msg('hipay.paymant.cancel','hipay',null)}</div>
-   <iselseif condition="${paymentStatus === 'decline'}"> 
+   <iselseif condition="${paymentStatus === 'decline'}">
       <div class="error-form">${Resource.msg('hipay.payment.decline','hipay',null)}</div>
-   <iselseif condition="${paymentStatus === 'error'}"> 
+   <iselseif condition="${paymentStatus === 'error'}">
       <div class="error-form">${Resource.msg('hipay.payment.error','hipay',null)}</div>
-   <iselse>   
+   <iselse>
       <div class="error-form">${Resource.msg(pdict.PlaceOrderError.code,'checkout',null)}</div>
    </isif>
 </isif>
-
 ```
+![](images/image13.png)
 
-![](images/image12.png)
 
 5. **app_storefront_core/cartridge/js/pages/checkout/billing.js**
 
-Change: `var $creditCard = $('[data-method="CREDIT_CARD"]');`
-
-To: `var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');`
-
-![](images/image13.png)
-
 Change:
-
-```js
-// default payment method to 'CREDIT_CARD'
-updatePaymentMethod((selectedPaymentMethod) ? selectedPaymentMethod : 'CREDIT_CARD');
-$selectPaymentMethod.on('click', 'input[type="radio"]', function () {
-	updatePaymentMethod($(this).val());
-});
+```html
+var $creditCard = $('[data-method="CREDIT_CARD"]');
 ```
 
 To:
-
-```js
-// select payment method if available
-if(selectedPaymentMethod){
-   updatePaymentMethod(selectedPaymentMethod);
-}
-$selectPaymentMethod.on('click', 'label', function () {
-   var radio = $(this).parent().find('input[type="radio"]');
-   radio.prop('checked', true);
-   updatePaymentMethod($(radio).val());
-});
+```html
+if (SitePreferences.HIPAY_ENABLED) {
+		var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');
+$creditCard.find('input[name$="uuid"]').val(data.uuid).trigger('change');
+	} else {
+		var $creditCard = $('[data-method="CREDIT_CARD"]');
+	}
 ```
+![](images/image14.jpg)
 
-![](images/image14.png)
 
+Create `clearCCFields` function after `setCCFields` function:
+```html
+/**
+ * @function
+ * @description Clears the Credit Card form and show fields
+ */
+function clearCCFields() {
+    var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');
+    $creditCard.find('input[name$="creditCard_owner"]').val('').trigger('change');
+    $creditCard.find('input[name$="creditCard_uuid"]').val('').trigger('change');
+    $creditCard.find('select[name$="_type"]').val('').trigger('change');
+    $creditCard.find('input[name*="_creditCard_number"]').val('').trigger('change');
+    $creditCard.find('[name$="_month"]').val('').trigger('change');
+    $creditCard.find('[name$="_year"]').val('').trigger('change');
+    $creditCard.find('input[name$="_cvn"]').val('').trigger('change');
+}
+```
 ![](images/image15.png)
 
 Add:
+```html
+if (SitePreferences.HIPAY_ENABLED && SitePreferences.HIPAY_ENABLE_ONECLICK) {
+                $('[data-method="HIPAY_CREDIT_CARD"]').find('.ccfields-wrap').hide();
+                formPrepare.validateForm();
+            }
+```
+After:
+```html
+setCCFields(data);
+```
+![](images/image16.png)
 
-```js
-// --------- HIPAY INTEGRATION -----------
+
+Change:
+
+```html
+// default payment method to 'CREDIT_CARD'
+    updatePaymentMethod((selectedPaymentMethod) ? selectedPaymentMethod : 'CREDIT_CARD');
+    $selectPaymentMethod.on('click', 'input[type="radio"]', function () {
+        updatePaymentMethod($(this).val());
+    });
+```
+To:
+```html
+if (SitePreferences.HIPAY_ENABLED) {
+      // select payment method if available
+      if(selectedPaymentMethod){
+          updatePaymentMethod(selectedPaymentMethod);
+      }
+      $selectPaymentMethod.on('click', 'label', function () {
+          var radio = $(this).parent().find('input[type="radio"]');
+          radio.prop('checked', true);
+          updatePaymentMethod($(radio).val());
+      });
+  } else {
+      // default payment method to 'CREDIT_CARD'
+     updatePaymentMethod((selectedPaymentMethod) ? selectedPaymentMethod : 'CREDIT_CARD');
+    $selectPaymentMethod.on('click', 'input[type="radio"]', function () {
+        updatePaymentMethod($(this).val());
+    });
+}
+```
+![](images/image17.png)
+
+Add:
+```html
+if (SitePreferences.HIPAY_ENABLED && SitePreferences.HIPAY_ENABLE_ONECLICK) {
+                clearCCFields();
+                var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');
+                $creditCard.find('.ccfields-wrap').show();
+                formPrepare.validateForm();
+            }
+```
+Inside:
+```html
+if (!cardUUID) {...}
+```
+![](images/image18.png)
+
+
+Add:
+
+```html
+if (SitePreferences.HIPAY_ENABLED) {
 // hide cvv for Mister Cash
 var $creditCard = $('[data-method="HIPAY_CREDIT_CARD"]');
 $creditCard.find('select[name$="_type"]').on('change', function () {
@@ -831,7 +948,7 @@ $creditCard.find('select[name$="_type"]').on('change', function () {
       $creditCard.find('input[name$="_cvn"]').val('').trigger('change');
       cvv.show();
    }
-   
+
    if($(this).val() == "Amex"){
       $(".owner-single").addClass("hide");
       $(".owner-split").removeClass("hide");
@@ -840,148 +957,145 @@ $creditCard.find('select[name$="_type"]').on('change', function () {
       $(".owner-single").removeClass("hide");
    }
 });
-
+}
 ```
 
-
 Before:
+```html
+	$('#check-giftcert').on('click', function (e) {
+```
+![](images/image19.png)
 
-`$('#check-giftcert').on('click', function (e) {`
 
-![](images/image16.png)
+6. **app_storefront_core/cartridge/forms/default/billing.xml**
 
-6. **app_storefront_core/cartridge/forms/default/billing.xml** 
+See the int_hipay_controllers/cartridge/forms/default/billing_sample.xml for an example
 
-See the int_hipay/cartridge/forms/default/billing_sample.xml for an example
+Change: `<field formid="selectedPaymentMethodID" type="string" default-value="CREDIT_CARD">`
 
-Change: `<field formid="selectedPaymentMethodID" type="string" default-value="CREDIT_CARD"> `
-
-To: `<field formid="selectedPaymentMethodID" type="string" default-value="HIPAY_CREDIT_CARD"> `
+To: `<field formid="selectedPaymentMethodID" type="string" default-value="HIPAY_CREDIT_CARD">`
 
 Add:
 
-```html
-<!-- HiPay fingerprint --> 
+```xml
+<!-- HiPay fingerprint -->
 <field formid="deviceFingerprint" type="string" />
-
 ```
 
 Before:
-
-```html
-<!-- list of available credit cards to select from --> 
-<list formid="creditCardList"> 
+```xml
+<!-- list of available credit cards to select from -->
+<list formid="creditCardList">
 ```
 
 Add:
 
-```html
-<!-- fields for HiPay custom payment methods selection --> 
-<include formid="hipaymethods" name="hipaymethods"/> 
+```xml
+<!-- fields for HiPay custom payment methods selection -->
+<include formid="hipaymethods" name="hipaymethods"/>
 ```
 
 After:
 
-```html
-<!-- fields for BML selection --> 
-<include formid="bml" name="bml"/> 
+```xml
+<!-- fields for BML selection -->
+<include formid="bml" name="bml"/>
 ```
+![](images/image20.png)
 
-![](images/image17.png)
 
 7. **app_storefront_core/cartridge/forms/default/creditcard.xml**
 
-See the int_hipay/cartridge/forms/default/creditcard_sample.xml for an example
+See the int_hipay_controllers/cartridge/forms/default/creditcard_sample.xml for an example
 
 Change:
 
 ```xml
-<field formid="number" label="creditcard.number" type="string" mandatory="true" masked="4" max-length="16" 
-description="creditcard.numberexample" binding="creditCardNumber" 
-missing-error="creditcard.numbermissingerror" value-error="creditcard.numbervalueerror"/> 
+<field formid="number" label="creditcard.number" type="string" mandatory="true" masked="4" max-length="16"
+description="creditcard.numberexample" binding="creditCardNumber"
+missing-error="creditcard.numbermissingerror" value-error="creditcard.numbervalueerror"/>
 ```
 
 To:
 
 ```xml
-<field formid="number" label="creditcard.number" type="string" mandatory="true" masked="4" max-length="17" description="creditcard.numberexample" binding="creditCardNumber" missing-error="creditcard.numbermissingerror" value-error="creditcard.numbervalueerror"/> 
+<field formid="number" label="creditcard.number" type="string" mandatory="true" masked="4" max-length="17" description="creditcard.numberexample" binding="creditCardNumber" missing-error="creditcard.numbermissingerror" value-error="creditcard.numbervalueerror"/>
 ```
+![](images/image21.png)
 
-![](images/image18.png)
 
 Change:
 
 ```xml
-<field formid="owner" label="creditcard.ownerlabel" type="string" mandatory="true" max-length="40" binding="creditCardHolder" 
-missing-error="creditcard.ownermissingerror"/> 
+<field formid="owner" label="creditcard.ownerlabel" type="string" mandatory="true" max-length="40" binding="creditCardHolder"
+missing-error="creditcard.ownermissingerror"/>
 ```
 
 To:
 
 ```xml
-<field formid="owner" label="creditcard.ownerlabel" type="string" mandatory="false" max-length="40" binding="creditCardHolder" missing-error="creditcard.ownermissingerror"/> 
+<field formid="owner" label="creditcard.ownerlabel" type="string" mandatory="false" max-length="40" binding="creditCardHolder" missing-error="creditcard.ownermissingerror"/>
 ```
+![](images/image22.png)
 
-![](images/image19.png)
 
 Add:
 
 ```xml
-<!-- field for credit card owner first name --> 
-		<field formid="ownerfirst" label="creditcard.ownerlabel.first" type="string" mandatory="false" max-length="40" missing-error="creditcard.ownermissingerror"/> 
-<!-- field for credit card owner last name--> 
-		<field formid="ownerlast" label="creditcard.ownerlabel.last" type="string" mandatory="false" max-length="40" missing-error="creditcard.ownermissingerror"/> 
+<!-- field for credit card owner first name -->
+		<field formid="ownerfirst" label="creditcard.ownerlabel.first" type="string" mandatory="false" max-length="40" missing-error="creditcard.ownermissingerror"/>
+<!-- field for credit card owner last name-->
+		<field formid="ownerlast" label="creditcard.ownerlabel.last" type="string" mandatory="false" max-length="40" missing-error="creditcard.ownermissingerror"/>
 ```
 
 Before:
 
 ```xml
-<!-- field for credit card security code --> 
-		<field formid="cvn" label="creditcard.cvnlabel" type="string" mandatory="true" masked="0" missing-error="creditcard.cvnmissingerror" value-error="creditcard.cvnrangeerror"/> 
-
+<!-- field for credit card security code -->
+		<field formid="cvn" label="creditcard.cvnlabel" type="string" mandatory="true" masked="0" missing-error="creditcard.cvnmissingerror" value-error="creditcard.cvnrangeerror"/>
 ```
 
-![](images/image20.png)
+![](images/image23.png)
 
 Add:
 
 ```xml
-<!-- field for UUID of selected card --> 
-		<field formid="uuid" label="" type="string" mandatory="false" masked="0" missing-error="" value-error=""/> 
+<!-- field for UUID of selected card -->
+		<field formid="uuid" label="" type="string" mandatory="false" masked="0" missing-error="" value-error=""/>
 ```
 
 Before:
 
 ```xml
-<!-- optional flags --> 
+<!-- optional flags -->
 		<field formid="saveCard" label="creditcard.savecard" type="boolean" mandatory="false" default-value="true" />
 ```
 
-![](images/image21.png)
+![](images/image24.png)
 
-8. **Create an app_storefront_core/cartridge/forms/default/hipaymethods.xml file** 
+8. **Create an app_storefront_core/cartridge/forms/default/hipaymethods.xml file**
 
-See the int_hipay/cartridge/forms/default/hipaymethods_sample.xml for an example
+See the int_hipay_controllers/cartridge/forms/default/hipaymethods_sample.xml for an example
 
 Add the following code to the `hipaymethods.xml file`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.demandware.com/xml/form/2008-04-19">
-	<field formid="username" 
-			label="hipay.label.username" 
-			description="resource.5_100characters" 
-			type="string" 
-			mandatory="true" 
-			binding="login" 
-			regexp="^[-＼w＼.@_ ]{5,100}$" 
+	<field formid="username"
+			label="hipay.label.username"
+			description="resource.5_100characters"
+			type="string"
+			mandatory="true"
+			binding="login"
+			regexp="^[-\w\.@_ ]{5,100}$"
 			parse-error="profile.usernameerror"
 			value-error="profile.usernametaken" />
-			   
+
 		<field formid="password" label="hipay.label.password" description="resource.8_255characters" type="string" mandatory="true" min-length="8" max-length="255"
 			   range-error="resource.8_255characters" />
-		
-		<field formid="issuer_bank_id" label="hipay.label.issuer_bank_id" default="ABNANL2A" type="string" mandatory="true" >		   
+
+		<field formid="issuer_bank_id" label="hipay.label.issuer_bank_id" default="ABNANL2A" type="string" mandatory="true" >
 			<options>
 			<option optionid="" label="resource.select" value=""/>
 			<option optionid="ABNANL2A" value="ABNANL2A" label="ABN AMRO"/>
@@ -994,83 +1108,198 @@ Add the following code to the `hipaymethods.xml file`:
 			<option optionid="RBRBNL21" value="RBRBNL21" label="SNS Regio Bank"/>
 			<option optionid="TRIONL2U" value="TRIONL2U" label="Triodos bank"/>
 			<option optionid="FVLBNL22" value="FVLBNL22" label="Van Lanschot"/>
-			</options>	
+			</options>
 		</field>
 </form>
 ```
 
-9. **app_storefront_pipelines/cartridge/pipelines/COBilling.xml**
+9. **app_storefront_core/cartridge/scripts/util/Resource.ds**
+Add next lines into the preferences object:
+```html
+HIPAY_ENABLED: Site.getCurrent().getCustomPreferenceValue('hipayEnabled'),
+HIPAY_ENABLE_ONECLICK: Site.getCurrent().getCustomPreferenceValue('hipayEnableOneClick')
+```
+![](images/image25.png)
+
+###The following steps should be applied only to pipeline storefront version. For controllers storefront version please jump to step 12.
+
+10. **app_storefront_pipelines/cartridge/pipelines/COBilling.xml**
 
 There is a change in COBilling-ResetPaymentForms due to the fact that
 multiple HiPay’s payment methods have been added. This change removes
 the existing payment instruments, if any, and only applies the selected
 one.
 
-Replace the existing COBilling-ResetPaymentForms with the nodes
-described hereafter.
+After the Cart-GetExistingBasket add the Decision node. The `no` transition goes to the default implementation for case if HiPay is disabled.
 
-![](images/image22.png)
+For case if HiPay is enabled add the script node set to HiPayResetPayments.js and two end nodes as described below.
 
-![](images/image23.png)
+1.  Decision Key : dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnabled')
+2.  Script Node : int_hipay_controllers:pipelets/HiPayResetPaymentForms.js
 
-1.  Pipeline: Cart-GetExistingBasket
-2.  Decision Key: Basket.getPaymentInstruments().size() == 0
-3.  Set the following properties:
-   	-  From_0:
-        CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value
-   -  From_1: 0
-   -  From_2: Basket.getPaymentInstruments().size()
-   -  From_3: Basket.getPaymentInstruments()
-   -  To_0: SelectedPaymentInstrument
-   -  To_1: count
-   -  To_2: size
-   -  To_3: PaymentInstruments
-4.  Set the following properties:
-    a.  From_0: PaymentInstruments\[count\]
-    b.  To_0: CurrentPaymentInstrument
-5.  Add a pipelet node with the following values:
-    a. PaymentInstrument: null
-    b. PaymentInstruments: Basket.getPaymentInstruments(CurrentPaymentInstrument.getPaymentMethod())
-6.  Set the following properties:
-    a.  From_0: count + 1
-    b.  To_0: count
-7.  Decision Key: count &lt; size
-8.  Decision Key: CurrentPaymentInstrument.getPaymentMethod() == SelectedPaymentInstrument
-9.  Decision Key: CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value.equals("PayPal")
-10. Decision Key: !CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value.equals(dw.order.PaymentInstrument.METHOD\_CREDIT\_CARD)
-11. Decision Key: !CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value.equals(dw.order.PaymentInstrument.METHOD\_BML)
-12. FormElement: CurrentForms.billing.paymentMethods.creditCard
-13. FormElement: CurrentForms.billing.paymentMethods.bml
-14. FormElement: CurrentForms.billing.paymentMethods.creditCard
-15. FormElement: CurrentForms.billing.paymentMethods.bml
-16. Decision Key: CurrentForms.billing.paymentMethods.bml.ssn.valid
-17. Name: error
-18. End Node with empty Description and Name values
+![](images/image26.png)
 
 To split the cardholder’s name for American Express cards to First name
 and Last name, the validation logic was changed in
 COBilling-ValidateBilling. Replace the existing
 COBilling-ValidateBilling with the nodes described below.
 
-![](images/image24.png)
+After the ValidateBilling start node add the Decision node. The `no` transition goes to the default implementation for case if HiPay is disabled.
+For case if HiPay is enabled add the script node set to HiPayValidateBilling.js and two end nodes as described below.
 
-![](images/image25.png)
+1.  Decision Key : dw.system.Site.getCurrent().getCustomPreferenceValue('hipayEnabled')
+2.  Script Node : int_hipay_controllers:pipelets/HiPayValidateBilling.js
+![](images/image27.png)
 
-1.  Decision Key: CurrentForms.billing.billingAddress.valid
-2.  Decision Key: !empty(CurrentHttpParameterMap.noPaymentNeeded.value)
-3.  End Node with empty Description and Name values
-4.  Decision Key: !(!empty(CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value)&&CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value.equals(dw.order.PaymentInstrument.METHOD\_CREDIT\_CARD))
-5.  Decision Key: CurrentForms.billing.paymentMethods.creditCard.type.value == 'Amex'
-6.  Decision Key: CurrentForms.billing.paymentMethods.creditCard.owner.value
-7.  FormElement: CurrentForms.billing.paymentMethods.creditCard.owner
-8.  Decision Key: CurrentForms.billing.paymentMethods.creditCard.ownerfirst.value
-9.  FormElement: CurrentForms.billing.paymentMethods.creditCard.ownerfirst
-10. Decision Key: CurrentForms.billing.paymentMethods.creditCard.ownerlast.value
-11. FormElement: CurrentForms.billing.paymentMethods.creditCard.ownerlast
-12. Name: Error
-13. Decision Key: CurrentForms.billing.valid
-14. Name: Error
-15. End node with empty Description and Name values
+There is a change made in COBilling-InitCreditCardList to initialize the credit cards list  using saved customer payment instruments of type hipay credit card.
+After the first Decision Node (expression CurrentCustomer.authenticated) add another Decision node as described in the picture below. The ‘no’ transition goes to the default implementation for case if HiPay or HiPay One-Click is disabled.
+For case if HiPay and HiPay One-Click is enabled add the script node set to HiPayGetApplicableCreditCards.js as described below.
+1.  Decision Key : dw.system.Site.getCurrent().getCustomPreferenceValue("hipayEnabled") && dw.system.Site.getCurrent().getCustomPreferenceValue("hipayEnableOneClick")
+2.  Script Node :
+	2.1. Script File: int_hipay_controllers:pipelets/HiPayGetApplicableCreditCards.js
+	2.2. CountryCode: CountryCode
+	2.3. PaymentAmount: PaymentAmount
+	2.4. ValidPaymentInstruments: ApplicableCreditCards
+![](images/image28.png)
+
+There is a change made in COBilling-HandlePaymentSelection to call HAYPAY or HAYPAY_HOSTED controller responsible for specific validation and payment instrument creation.
+After the `Handle Pipeline Assignment` Assign Node add a Decision node as described in the picture below. The `no` transition goes to the default implementation for case if HandlePipeline is not “HIPAY_HOSTED” and “HIPAY”.
+For case if HandlePipeline is “HIPAY_HOSTED” or “HIPAY” add the script node set to HiPayCallHandle.js and two end nodes as described below
+1.  Decision Key : HandlePipeline == "HIPAY_HOSTED" || HandlePipeline == "HIPAY"
+2.  Script Node :
+
+	1. Script File: int_hipay_controllers:pipelets/HiPayCallHandle.js
+	2. Cart: Basket
+	3. PaymentMethodID: CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value
+	4. ProcessorID:dw.order.PaymentMgr.getPaymentMethod(CurrentForms.billing.paymentMethods.selectedPaymentMethodID.value).paymentProcessor.ID
+![](images/image29.png)
+
+11. **app_storefront_pipelines/cartridge/pipelines/COPlaceOrder.xml**
+There is a change made in COPlaceOrder-ProcessPersonalInformation to skip the default call to COBilling-SaveCreditCard.
+After the ProcessPersonalInformation start node add a decision node. The `no` transition goes to the default implementation for case if HiPay and HiPay One-Click is disabled.
+For case if HiPay and HiPay One-Click is enabled add the end node described below
+1)	Decision Key: dw.system.Site.getCurrent().getCustomPreferenceValue("hipayEnabled") && dw.system.Site.getCurrent().getCustomPreferenceValue("hipayEnableOneClick")
+![](images/image30.png)
+
+There is a change made in COPlaceOrder-HandlePayments to call HAYPAY or HAYPAY_HOSTED controller responsible for authorize HiPay payment.
+After the “Authorization Pipeline Assignment” Assign Node add a Decision node as described in the picture below. The `no` transition goes to the default implementation for case if AuthorizationPipeline is not “HIPAY_HOSTED” and “HIPAY”.
+For case if AuthorizationPipeline is “HIPAY_HOSTED” or “HIPAY” add the script node set to HiPayCallHandle.js, one end node, one decision node and a stop node as described below
+1.  Decision Key : AuthorizationPipeline == "HIPAY_HOSTED" || AuthorizationPipeline == "HIPAY"
+2.  Script Node :
+
+	1. Script File: int_hipay_controllers:pipelets/HiPayCallAuthorize.js
+	2. Order: Order
+	3. PaymentInstrument: PaymentInstrument
+	4. PaymentMethodID: PaymentInstrument.paymentMethod
+	5. ProcessorID: dw.order.PaymentMgr.getPaymentMethod(PaymentInstrument.paymentMethod).paymentProcessor.ID
+	6. AuthorizationResult: AuthorizationResult
+
+3.  Decision Key : AuthorizationResult.authorized
+![](images/image31.png)
+
+
+###The steps 12 and 13 should be applied only to controller storefront version.
+12. **app_storefront_controllers/cartridge/controllers/COBilling.js**
+
+Add:
+```html
+var sitePrefs   = dw.system.Site.getCurrent().getPreferences();
+```
+After:
+```html
+var app         = require('~/cartridge/scripts/app');
+var guard       = require('~/cartridge/scripts/guard');
+```
+![](images/image32.png)
+
+There is a change made in the `resetPaymentForms()` function due to the fact that multiple HiPay payment methods have been added. This change removes the existing payment instruments, if any, and applies only the selected one for case if HiPay enabled.
+In the `resetPaymentForms()` function  insert the following lines as described in the example bellow.
+
+```html
+if (sitePrefs.custom["hipayEnabled"]) {
+    return require('int_hipay_controllers/cartridge/scripts/lib/hipay/HiPayCheckoutModule').resetPaymentForms();
+}
+```
+![](images/image33.png)
+
+To split the full Card Holder name for American Express cards into First Name and Last Name the validation logic was changed in the validateBilling() function.
+In the validateBilling() function insert the following lines as described in the example bellow.
+```html
+if (sitePrefs.custom["hipayEnabled"]) {
+    return require('int_hipay_controllers/cartridge/scripts/lib/hipay/HiPayCheckoutModule').validateBilling();
+}
+```
+![](images/image34.png)
+
+There is a change made in the `initCreditCardList(cart)` function to initialize the credit cards list  using saved customer payment instruments of hipay credit card type.
+
+Replace next code:
+```html
+if (customer.authenticated) {
+    var profile = app.getModel('Profile').get();
+    if (profile) {
+        applicableCreditCards = profile.validateWalletPaymentInstruments(countryCode, paymentAmount.getValue()).ValidPaymentInstruments;
+    }
+}
+```
+With next code:
+```html
+if (customer.authenticated) {
+    if (sitePrefs.custom["hipayEnabled"] && sitePrefs.custom["hipayEnableOneClick"]) { /* if hipay and one click payment enabled */
+        applicableCreditCards = require('int_hipay_controllers/cartridge/scripts/lib/hipay/HiPayCheckoutModule').getApplicableCreditCards(countryCode, paymentAmount.getValue()).ValidPaymentInstruments;
+    } else {
+        var profile = app.getModel('Profile').get();
+        if (profile) {
+            applicableCreditCards = profile.validateWalletPaymentInstruments(countryCode, paymentAmount.getValue()).ValidPaymentInstruments;
+        }
+    }
+}
+```
+![](images/image35.png)
+
+There is a change made in the `saveCreditCard()` function to skip the default implementation.
+
+In the `saveCreditCard()` function insert the following lines as described in the example bellow.
+```html
+if (sitePrefs.custom["hipayEnabled"] && sitePrefs.custom["hipayEnableOneClick"]) {
+    return true;
+}
+```
+![](images/image36.png)
+
+
+13. **app_storefront_controllers/cartridge/controllers/COPlaceOrder.js**
+
+Add:
+```html
+var sitePrefs = dw.system.Site.getCurrent().getPreferences();
+```
+After:
+```html
+var PaymentProcessor = app.getModel('PaymentProcessor');
+```
+![](images/image37.png)
+
+In the `handlePayments(order)` function to define if the payment was authorized or redirected.
+Add:
+```html
+if (sitePrefs.custom["hipayEnabled"] && authorizationResult.authorized) {
+    return {
+        authorized : true
+    }
+}
+```
+
+After:
+```html
+if (authorizationResult.not_supported || authorizationResult.error) {
+    return {
+        error: true
+    };
+}
+```
+![](images/image38.png)
+
 
 ###3.4.1 Configurations for the HiPay multi-account feature
 
@@ -1079,7 +1308,7 @@ this step.
 
 In order to provide the possibility to handle multiple HiPay accounts
 for each site, you should add 4 service configurations per site in
-hiPayServiceInit.ds:
+hiPayServiceInit.js:
 
 -   hipay.rest.createtoken.{siteID}
 -   hipay.rest.hpayment.{siteID}
@@ -1088,7 +1317,7 @@ hiPayServiceInit.ds:
 
 The siteID is the ID of the site for which you wish to add a new HiPay
 account. The code example for the new HiPay account is added in
-hiPayServiceInit.ds, located in the int\_hipay/cartridge/scripts/init
+hiPayServiceInit.js, located in the int_hipay_controllers/cartridge/scripts/init
 folder. You need to copy and paste in the same file the default service
 code and then change in each service configuration the line where the
 name of the service is defined:
@@ -1097,7 +1326,7 @@ Default: `ServiceRegistry.configure("hipay.rest.hpayment", {`
 
 Example: `ServiceRegistry.configure("hipay.rest.hpayment.SiteGenesis", {`
 
-You can find a full example added and commented in hiPayServiceInit.ds.
+You can find a full example added and commented in hiPayServiceInit.js.
 After extending the code with the new service registry configurations,
 you will need to provide new service configurations in BM as well. This
 step is described in section ***5.2.3 Services**.*
@@ -1118,7 +1347,7 @@ Please refer to the use cases in section 2.2. If you have any issues, the *HiPay
 
 HiPay Enterprise sends notifications for each event that occurred. In order to handle all notifications, notes are added to the order. There should be 1 event for each notification.
 
-![](images/image26.png)
+![](images/image40.png)
 
 ###ClearHungOrders job
 
@@ -1129,20 +1358,17 @@ is performed. In order to handle these orders, a ClearHungOrders job has
 been created and can be configured to change the order to the “Failed”
 state according to the configured timeframe (every 30 minutes, for
 example).
-
-![](images/image27.png)
+![](images/image41.png)
 
 ##Availability
 
 The HiPay integration cartridges use the following services:
 
-![](images/image28.png)
-
-![](images/image29.png)
+![](images/image42.png)
 
 All of them use the following Profile configuration:
 
-![](images/image30.png)
+![](images/image43.png)
 
 The circuit breaker suspends platform calls to a web service if a
 certain number of calls fail within a specified time interval. It can be
@@ -1177,25 +1403,25 @@ capture amounts for orders already authorized.
 1.  Go to ***Administration &gt; Organization &gt; Roles & Permissions &gt; Administrator - Business Manager Modules**.*
 2.  Select your site context and click on **Apply**.
 
-![](images/image31.png)
+![](images/image44.png)
 
 3.  Tick off the ***HiPay Integration*** module and click on ***Update***.
 
-![](images/image32.png)
+![](images/image45.png)
 
 4.  Go to **Business Manager&gt; Merchant Tools&gt;**: the HiPay module should be displayed.
 
-![](images/image33.png)
+![](images/image46.png)
 
 **Usage**
 
 - Go to ***HiPay Integration &gt; Order capture.***
 
-![](images/image34.jpg)
+![](images/image47.png)
 
 - Enter a given order ID and click on **Load**.
 
-![](images/image28.png)
+![](images/image48.png)
 
 - Partial or full captures can be requested. If the requested amount is captured, a HiPay notification will be sent to Salesforce Commerce Cloud and the **Captured amount** will be updated too.
 
@@ -1203,17 +1429,20 @@ capture amounts for orders already authorized.
 
 Go to **Merchant Tools &gt; Site Preferences &gt; Custom Preferences &gt; HiPay Settings**.
 
-![](images/image35.jpg)
+![](images/image49.png)
+![](images/image50.png)
 
-Please find hereafter the options for the HiPay configuration.
+Please find here the options for the HiPay configuration.
+
+
 
 | Property name   |      Possible values    |      Default value     |      Description    |
 |----------|:-------------:|:-------------:|:-------------:|
-|HiPay Operation Mode |           hosted *(Hosted page)*<br/>iframe (iFrame)<br/>api (API) |  hosted *(Hosted page)* | Defines which operation payment mode to use
+|HiPay Operation Mode |           hosted *(Hosted page)*<br/>iframe (iFrame)<br/>api (API) |  hosted *(Hosted page)* | Defines which operation payment mode to use
 |Enable Tokenization Test Mode|   true / false|false|Test Mode: If enabled, the module will use the HiPay Enterprise test platform
-|3-D Secure|0 *(Bypass 3-D Secure authentication)*<br/>1 (3-D Secure authentication,<br/>if available)<br/>2 (3-D Secure authentication mandatory)|0 *(Bypass 3-D Secure authentication)*|Allows the activation of 3-D Secure if the card has been enrolled
+|3-D Secure|0 *(Bypass 3-D Secure authentication)*<br/>1 (3-D Secure authentication,<br/>if available)<br/>2 (3-D Secure authentication mandatory)|0 *(Bypass 3-D Secure authentication)*|Allows the activation of 3-D Secure if the card has been enrolled
 |HiPay API Signature Passphrase|String|-|API Signature passphrase configured in HiPay’s back office to verify the requests made to SCC
-|Payment Action|Sale *(Authorization * *+ Capture)* Authorization (Authorization only)|-|Please refer to *HiPayTPP-GatewayAPI* documentation, chapter 3.1 *Request a New Order (Order Parameters – operation)*
+|Payment Action|Sale *(Authorization * *+ Capture)* Authorization (Authorization only)|-|Please refer to *HiPayTPP-GatewayAPI* documentation, chapter 3.1 *Request a New Order (Order Parameters – operation)*
 |HiPay CSS content|Text|hipaycss|HiPay’s content with custom CSS
 |Display card selector|true / false|false|Enables/disables the payment method selector on iFrame and Hosted pages
 |Available payment products|String|bcmc, cb, ideal, maestro, mastercard, przelewy24, sofort|List of payment products separated by a comma (“,”)<br/>(e.g.: visa,mastercard,americanexpress)
@@ -1226,7 +1455,7 @@ Please find hereafter the options for the HiPay configuration.
 
 Go to **Administration &gt; Operations &gt; Services**.
 
-![](images/image36.png)
+![](images/image51.png)
 
 There are four services implemented. Each one corresponds to a different
 HiPay service, as follows:
@@ -1275,11 +1504,11 @@ be assigned:
 
 Please find below an example with Services configured for two different sites and two HiPay accounts.
 
-![](images/image37.png)
+![](images/image52.png)
 
- ![](images/image38.png)
+ ![](images/image53.png)
 
-![](images/image39.png)
+![](images/image54.png)
 
 ###Schedules
 
@@ -1289,8 +1518,7 @@ configurable time period.
 
 Go to **Administration &gt; Operations &gt; Job Schedules &gt;
 ClearHungOrders – Details**.
-
-![](images/image40.png)
+![](images/image55.png)
 
 ###Payment processors
 
@@ -1304,7 +1532,7 @@ iDEAL, ING Home’Pay, Giropay, Klarna, etc.
 
 Go to **Merchant Tools &gt; Ordering &gt; Payment Processors**.
 
-![](images/image41.png)
+![](images/image56.png)
 
 ###Payment methods
 
@@ -1313,7 +1541,7 @@ to work, they should also be activated in HiPay Enterprise.
 
 Go to **Merchant Tools &gt; Ordering &gt; Payment Methods**.
 
-![](images/image42.png)
+![](images/image57.png)
 
 ###Logs
 
@@ -1378,14 +1606,14 @@ When using this method, the storefront functionality will be the same as
 the standard one for credit cards in Site Genesis. The card is
 authorized online during checkout, directly on the merchant’s website.
 
-![](images/image43.png)
+![](images/image58.png)
 
 ###HiPay API payments – Credit cards (with 3-D Secure)
 
 When using this method, customers still select what type of card they
 wish to use on the billing page.
 
-![](images/image44.png)
+![](images/image59.png)
 
 After submitting the order from the Summary page, if the card is enrolled by the customer’s bank for 3-D
 Secure, they will be directed to the 3-D Secure page.
@@ -1399,7 +1627,7 @@ When using the following methods, if the currency is applicable to one
 of them, the bank payment option will be displayed (each one of them
 only works in specific currencies).
 
-![](images/image45.png)
+![](images/image60.png)
 
 After submitting the order from the Summary page, the customer is
 redirected to the third-party website.
@@ -1415,13 +1643,13 @@ and the customer is asked to select a different payment method.
 
 On the billing page, the customer selects Hosted Credit Cards.
 
-![](images/image46.png)
+![](images/image61.png)
 
 After customers submit an order, they are redirected to a Payment page
 hosted and provided by HiPay, featuring the credit card form on which
 end-customers can enter the payment details:
 
-![](images/image47.png)
+![](images/image62.png)
 
 After completing the payment with HiPay, the customer is redirected back
 to the Storefront.
@@ -1434,13 +1662,13 @@ page.
 On the billing page, the customer selects Hosted Credit Cards or another
 payment method.
 
-![](images/image48.png)
+![](images/image63.png)
 
 After submitting the order from the Summary page, the customer is taken
 to a Payment page, where the HiPay credit card form appears inside an
 iFrame:
 
-![](images/image49.png)
+![](images/image64.png)
 
 When the payment is complete, the customer is directed to the
 Confirmation page, as usual. If the payment is successful, the customer

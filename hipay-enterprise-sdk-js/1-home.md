@@ -13,7 +13,7 @@ Payment data (card number, card verification code and so on) will never hit your
 The easiest way to use the SDK is to install it using [Bower](http://bower.io). To do so, type the following command into a terminal window:
 
 ```sh
-$ bower install hipay-fullservice-sdk-js
+$ bower install hipay-fullservice-sdk-js#1.*
 ```
 
 ### Cloning the repository
@@ -22,6 +22,7 @@ You can clone the repository by typing the following command into a terminal win
 
 ```sh
 $ git clone git://github.com/hipay/hipay-fullservice-sdk-js
+$ git checkout 1.0.3
 ```
 
 ### Downloading the archive

@@ -13,7 +13,7 @@ Dans ce document, nous décrivons la méthode pour activer et utiliser le module
 
 -   Il est possible de télécharger le module en cas de réinstallation ou
     de mise à jour à cette adresse :
-    [*http://addons.prestashop.com/en/payments-gateways-prestashop-modules/1746-hipay.html*](http://addons.prestashop.com/en/payments-gateways-prestashop-modules/1746-hipay.html)
+    [http://addons.prestashop.com/en/payments-gateways-prestashop-modules/1746-hipay.html](http://addons.prestashop.com/en/payments-gateways-prestashop-modules/1746-hipay.html)
 
 -   Le module gère uniquement le paiement à l’acte. Hipay propose
     également un service d’abonnement, il faut dans ce cas nous
@@ -26,22 +26,23 @@ Dans ce document, nous décrivons la méthode pour activer et utiliser le module
     Remplissez le formulaire et choisissez la devise désirée.
     Attention : il faut inscrire votre site sur chaque sous-compte.
 
--   Le module gère uniquement notre plateforme de production. Vous ne
-    pouvez donc pas utiliser vos identifiants de la plateforme de test.
+-   Le module gère notre plateforme de production ainsi que la plateforme de test.
 
 #Pré-requis
 
 ##Inscription d’un compte marchand
 
-Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. Rendez vous sur [*www.hipay.com*](http://www.hipay.com), dans le cadre « Vous êtes Marchand » cliquez sur « Ouvrir un compte » et suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
+Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est un processus simple qui se fait directement en ligne. Rendez vous sur [https://www.hipaydirect.com/registration/register](https://www.hipaydirect.com/registration/register), puis suivez les instructions. Une fois que vous aurez créé votre compte Hipay, vous recevrez une confirmation par email avec les instructions pour finaliser votre inscription.
 
-![HiPay Professional Dashboard](images/dashboard.png) 
+![HiPay Professional Création d'un compte](images/hipay-professional-creation-compte.png)
+
+Après avoir finalisé votre inscription, vous pourrez vous connecter sur votre compte via l'url suivante : [https://professional.hipay.com/](https://professional.hipay.com/)
+
+![HiPay Professional Dashboard](images/dashboard-new.png) 
 
 #Inscrivez votre site internet
 
 Inscrivez votre site internet dans votre compte marchand
-
-- Cliquez sur “Création de bouton”: https://www.hipay.com/website et cliquez sur "Enregistrer un nouveau site".
 
 Les informations demandées sont utilisés pour distinguer les
 différents sites internet enregistrés dans votre compte.
@@ -49,13 +50,7 @@ différents sites internet enregistrés dans votre compte.
 Entrez le nom de votre site, l’URL, le thème principal et secondaire,le mot de passe marchand, l’email de contact et le téléphone
 (optionnel).
 
-![HiPay Professional edit your website](images/edit_website.png)
-
-Vous pouvez également insérer un CSS (Cascading Style Sheet) pour
-personnaliser votre page de paiement Hipay (elle doit être validée par nos techniciens avant son activation).
-
-Il n’est pas nécessaire de créer un bouton de paiement pour utiliser Hipay sur Prestashop. Vous pouvez donc revenir sur la liste de vos sites une fois votre site inscrit.
-  
+![HiPay Professional edit your website](images/edit_website-new.png)
 
 #Installation et configuration
 
@@ -66,44 +61,46 @@ Prestashop.
 
 Cliquez sur « Modules » et sur « Paiement ». Au niveau du module Hipay,cliquez sur « Installer » :
 
-![](images/image7.png)
+![](images/install-sdk.png)
 
 Cliquez ensuite sur « Configurer »
 
-![](images/image8.png)
+Vous devrez alors renseigner les identifiants API que vous trouverez sur votre compte préalableblement créé sur le Backoffice HiPay. Vous trouverez vos identifiants en cliquant sur l'onglet "Compte > Informations > Identifiants API" (![Compte API](images/api-compte.png))
 
-![](images/module1.png)
+#Configuration du compte de test
 
-![](images/module2.png)
-![](images/module3.png)
+Si vous le souhaitez, il est possible de créer et configurer un compte de test. Pour cela il est nécessaire de se rendre sur le BO de test à l'adresse suivante : [https://test-www.hipaydirect.com/registration/register](*https://test-www.hipaydirect.com/registration/register*)
+Vous devrez alors créer un compte de la même manière que le compte de production, puis renseigner les identifiants en cliquant sur le bouton "CONNECTER LE COMPTE DE TEST".
+Vous pourrez alors switcherentre le compte de production et le compte de test.
 
-Le **numéro de compte** se trouve en haut à droite sur votre compte
-Hipay
+![Switch compte de test et de Production](bouton-compte-test.png)
 
-![legend](images/account_id.png)
+#Paiement
 
-Le **mot de passe marchand** est le mot de passe que vous avez choisi lors de l’inscription de votre site.
-Si vous l’avez oublié, vous pouvez le renouveler en vous connectant sur votre compte Hipay, en cliquant sur « Création de bouton » et « Editer » à coté de votre site.
+##Type de paiement
 
-![legend](images/edit_website.png)
+Vous avez ici le choix entre le paiement en "Redirection" (page hébergée) ou en "Iframe" (sur votre site).
 
-L’**id du site** est l’id de votre site inscrit sur Hipay. Vous pouvez le trouver en cliquant sur « Création de bouton »
+- Avec option "Redirection", lorsque l'utilisateur clique sur le bouton "payer", il est redirigé vers la page de paiement HiPay. Une fois la transaction terminée, l'utilisateur est redirigé vers votre magasin.
+- Avec option "Iframe", lorsque l'utilisateur clique sur le bouton "payer", le formulaire de paiement s'affiche dans une iFrame. Cela signifie que l'utilisateur ne quitte pas votre magasin.
 
-![legend](images/list_websites.png)
+![Type de paiement](images/hosted-iframe.png)
 
+##Type de capture
 
-#Choix du bouton de paiement
+Vous avez le choix entre plusieurs mode de capture pour les commandes reçues.
 
-Choisissez le bouton de paiement que vous souhaitez voir apparaître sur votre page de commande et cliquez sur « Enregistrer les modifications »
+- Avec le mode de capture automatique, votre client sera immédiatement facturé / débité une fois l'achat effectué.
+- Avec le mode de capture manuelle, votre client ne sera pas débité immédiatement. Au lieu de cela, une autorisation sera faite, vous permettant de confirmer le débit plus tard. Par exemple, ce mode est approprié lorsque vous souhaitez facturer votre client uniquement lorsque les articles ont été expédiés.
 
-![](images/module4.png)
+![Type de paiement](images/type-de-capture.png)
 
-#Choix des zones
+##Bouton de paiement
 
-Choisissez les zones dans lesquelles vous souhaitez proposer Hipay et validez.
+Choisissez le bouton de paiement que vous souhaitez voir apparaître sur votre page de commande et cliquez sur « Enregistrer les modifications ».
+Vous pouvez également choisir un bouton de paiement personnalisé mais celui-ci doit restecter les dimentions autorisées (400px x 400px et 300 Ko maximum).
 
-![](images/module5.png)
-
+![](images/bouton-de-paiement.png)
 
 #Points de blocages
 

@@ -44,13 +44,25 @@ Please note: if you don't want to set these specific rights on your install fold
 
 During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
+## Webserver configuration
+
+This configuration depends on the web server software you rely on (Apache, Nginx, etc.).
+
+This software is based on the [Silex PHP micro-framework](http://silex.sensiolabs.org/).
+
+Therefore you can find a guide to configure your webserver at the following [link](https://silex.symfony.com/doc/1.3/web_servers.html).
+
+Make sure your webserver is pointing to the web folder at the root of the application.
+
+Note: if you are using Apache, `.htaccess` file must be created in the `web` folder of the application
+
 ## HiPay cash-out notifications
 
 This section describes how to provide HiPay with information on how to reach your server in order to automatically inform your application upon transaction status update (for example, when a withdrawal has been validated). HiPay notifies your application through HTTP requests.
 
-1. Configure your web server so that HiPay can reach the `web/index.php` through HTTP. This configuration is beyond the scope of the present guide and depends on the web server software you rely on (Apache, Nginx, etc.).
+1. Configure your web server so that HiPay can reach the `web/index.php` through HTTP ([previous section](#installation-webserver-configuration)).
 
-2. Note the URL from which the `web/index.php/` is reachable (example: `https://cashout.merchant-example.com/index.php/`). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
+2. Note the URL from which the `web/index.php/` is reachable (example: `https://cashout.merchant-example.com/index.php/` or `https://cashout.merchant-example.com/` depending of your webserver configuration). Then, [contact HiPay's Business IT Services](https://support.hipay.com) by submitting a request to configure this URL as your marketplace notification URL.
 
 ## Initialization and final check
 
