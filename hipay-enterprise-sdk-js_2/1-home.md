@@ -76,11 +76,9 @@ Then, you need to add a payment form to your checkout page. Here is a basic HTML
 
 ```html
 <div id="main" class="container">
-
-        <div class="row">
-            <div class="col-sm-12 col-lg-7">
-
-                <!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+        <div class="col-sm-12 col-lg-7">
+            <!-- Main component for a primary marketing message or call to action -->
             <div class="scontainer" id ="infos-txt" class="">
                 <h1 class="main-title" id="price">HiPay Direct Post Tokenization Simulator</h1>
                 <p id="order">Submit the form in order to tokenize the credit card details using the HiPay Enterprise SDK for JavaScript (payment details won't hit the server). Please see the HiPay Enterprise platform response below.</p>
@@ -183,90 +181,63 @@ Another example without jQuery:
 
 ```html
 <div id="main" class="container">
-
-
-
-
-                <!-- Main component for a primary marketing message or call to action -->
-            <div class="scontainer" id ="infos-txt" class="">
-                <h1 class="main-title" id="price">HiPay Direct Post Tokenization Simulator</h1>
-                <p id="order">Submit the form in order to tokenize the credit card details using the HiPay Enterprise SDK for JavaScript (payment details won't hit the server). Please see the HiPay Enterprise platform response below.</p>
-                <div id="code"></div>
-                <p id="link-area">
-                    <a class="" role="link" href="#null" id="link">Click here</a> to fill the form with sample payment details.
-                </p>
-                <p id="charge" >
-                    <a class="btn btn-lg btn-primary" role="button" href="#null" id="charge-button" style="display: none;">Create a test charge on this token (server-side PHP SDK)</a>
-                </p>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="scontainer" id="infos-txt" class="">
+        <h1 class="main-title" id="price">HiPay Direct Post Tokenization Simulator</h1>
+        <p id="order">Submit the form in oder to tokenize the credit card details using the HiPay Fullservice SDK for JavaScript (payment details won't hit the server). You will see the HiPay Fullservice platform response below.</p>
+        <div id="code"></div>
+        <p id="link-area">
+            <a class="" role="link" href="#null" id="link">Click here</a> to fill the form with sample payment details.
+        </p>
+        <p id="charge">
+            <a class="btn btn-lg btn-primary" role="button" href="#null" id="charge-button" style="display: none;">Create a test charge on this token (server-side PHP SDK)</a>
+        </p>
+    </div>
+    <div class="scontainer" id="form">
+        <p class="form-description details">
+            Enter your payment details:
+        </p>
+        <div class="row">
+            <label class="sr-only" for="input-name-custom">Prénom Nom</label>
+            <div class="input-group">
+                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+                <input type="text" class="form-control" id="input-name-custom" autocomplete="cc-name" x-autocompletetype="cc-name" placeholder="" value="" data-hipay-id="card-holder" data-hipay-tabable="true">
             </div>
-
-
-
-            <div class="scontainer" id="form">
-
-                <p class="form-description details">
-                    Enter your payment details:
-                </p>
-
-                <div class="row">
-
-                            <label class="sr-only" for="input-name-custom">First name Name</label>
-                            <div class="input-group">
-                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
-
-                                <input type="text" class="form-control" id="input-name-custom" autocomplete="cc-name" x-autocompletetype="cc-name" placeholder="" value="" data-hipay-id="card-holder" data-hipay-tabable="true">
-                            </div>
-
-                </div>
-                <div class="row">
-
-                            <label class="sr-only" for="input-card-custom">Card number</label>
-                            <div class="input-group">
-                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></div>
-                                <input type="tel" class="form-control" id="input-card-custom" autocomplete="cc-number" x-autocompletetype="cc-number" placeholder="" pattern="\d*" name="cardNumber" value="" data-hipay-id="card-number" data-hipay-tabable="true">
-                            </div>
-                            <div id="creditCardNumberMessageContainer" class="inputMessageContainer"></div>
-
-                </div>
-
-
-
-                <div class="row">
-
-                            <label class="sr-only" for="input-expiry-date">MM / YY</label>
-                            <div class="input-group">
-                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
-                                <input type="text" class="form-control" id="input-expiry-date" value="" data-hipay-id="card-expiry-date" data-hipay-tabable="true">
-                               </div>
-                            <div id="creditCardExpiryDateMessageContainer" class="inputMessageContainer">
-
-                            </div>
-
-                </div>
-
-                <div class="row">
-
-                            <label class="sr-only" for="input-cvv">123</label>
-                            <div id="container-cvv" class="input-group">
-                                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-                                <input class="form-control" id="input-cvv" placeholder="123" maxlength="3" value="" data-hipay-id="card-cvv" data-hipay-tabable="true">
-                                <span id="cvv-button" class="input-group-addon"><button id="cvv-modal" type="button" data-toggle="modal" data-target="#cvv-modal">?</button></span>
-                            </div>
-                            <div id="creditCardCVVMessageContainer" class="inputMessageContainer">
-                                <p id="container-cvv-help-message"></p><img id="cvv-img">
-                            </div>
-
-                </div>
-
-
-                <div class="row">
-                        <div id="submit-zone">
-                            <div id="error-container"></div>
-                            <button class="btn btn-large" type="button" data-toggle="modal" data-target="#other-method-modal" id="pay-button" data-hipay-id="pay-button">Tokenize</button>
-                        </div>
-                </div>
-
+        </div>
+        <div class="row">
+            <label class="sr-only" for="input-card-custom">Card number</label>
+            <div class="input-group">
+                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></div>
+                <input type="tel" class="form-control" id="input-card-custom" autocomplete="cc-number" x-autocompletetype="cc-number" placeholder="" pattern="\d*" name="cardNumber" value="" data-hipay-id="card-number" data-hipay-tabable="true">
             </div>
+            <div id="creditCardNumberMessageContainer" class="inputMessageContainer"></div>
+        </div>
+        <div class="row">
+            <label class="sr-only" for="input-expiry-date">MM / YY</label>
+            <div class="input-group">
+                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></div>
+                <input type="text" class="form-control" id="input-expiry-date" value="" data-hipay-id="card-expiry-date" data-hipay-tabable="true">
+            </div>
+            <div id="creditCardExpiryDateMessageContainer" class="inputMessageContainer"></div>
+        </div>
+        <div class="row">
+            <label class="sr-only" for="input-cvv">123</label>
+            <div id="container-cvv" class="input-group">
+                <div class="input-group-addon-icon input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                <input class="form-control" id="input-cvv" placeholder="123" maxlength="3" value="" data-hipay-id="card-cvv" data-hipay-tabable="true">
+                <span id="cvv-button" class="input-group-addon"><button id="cvv-modal" type="button" data-toggle="modal" data-target="#cvv-modal">?</button></span>
+            </div>
+            <div id="creditCardCVVMessageContainer" class="inputMessageContainer">
+                <p id="container-cvv-help-message"></p><img id="cvv-img">
+            </div>
+        </div>
+        <div class="row">
+            <div id="submit-zone">
+                <div id="error-container"></div>
+                <button class="btn btn-large" type="button" data-toggle="modal" data-target="#other-method-modal" id="pay-button" data-hipay-id="pay-button">Tokenize</button>
+            </div>
+        </div>
+    </div>
 </div>
 ```
 
@@ -311,19 +282,19 @@ HiPay.Form.change(function() {
 Example without jQuery:
 ```js
 HiPay.Form.change(function() {
-           // Information on card CVV
-           // CVV message
-           document.getElementById('container-cvv-help-message').innerHTML = HiPay.Form.CVVHelpText();
-           // CVV image
-           var myImgCVV = document.getElementById("cvv-img");
-           cvvInfo = HiPay.getCVVInformation();
-           console.log("cvvInfo");
-           console.log(cvvInfo);
-           myImgCVV.src = "./img/cvv-type/cvv_"+cvvInfo['length']+".png";
-           var isDisabled =!HiPay.Form.paymentFormDataIsValid();
-           document.getElementById("pay-button").disabled = isDisabled;
-           var errorCollection = HiPay.Form.paymentFormDataGetErrors();
-       });
+    // Information on card CVV
+    // CVV message
+    document.getElementById('container-cvv-help-message').innerHTML = HiPay.Form.CVVHelpText();
+    // CVV image
+    var myImgCVV = document.getElementById("cvv-img");
+    cvvInfo = HiPay.getCVVInformation();
+    console.log("cvvInfo");
+    console.log(cvvInfo);
+    myImgCVV.src = "./img/cvv-type/cvv_" + cvvInfo['length'] + ".png";
+    var isDisabled = !HiPay.Form.paymentFormDataIsValid();
+    document.getElementById("pay-button").disabled = isDisabled;
+    var errorCollection = HiPay.Form.paymentFormDataGetErrors();
+});
 
 ```
 
@@ -334,32 +305,30 @@ In case of success, a card token is returned. In any other case, an error is ret
 
 Example with jQuery: 
 ```js
- $("#pay-button").click(function() {
+$("#pay-button").click(function() {
 
     // disable the submit button and display loader
     $("#form :input").prop("disabled", true);
     $("#form :button").prop("disabled", true);
     $("#error").text("");
-
     $("#pay-button").text("Loading…");
 
     // set target and credentials
     HiPay.setTarget('stage'); // default is production/live
-    HiPay.setCredentials('<?php echo $credentials['public']['username']; ?>', '<?php echo $credentials['public']['password']; ?>');
-
+    HiPay.setCredentials('<?php echo $credentials["public"]["username"]; ?>', '<?php echo $credentials["public"]["password"]; ?>');
 
     HiPay.Form.tokenizePaymentFormData()
         .then(function(cardToken) {
-        token = cardToken.token;
-        $("#pay-button").text("Tokenize");
-        $("#order").text("The token has been created using the JavaScript SDK (client side).");
+            token = cardToken.token;
+            $("#pay-button").text("Tokenize");
+            $("#order").text("The token has been created using the JavaScript SDK (client side).");
 
-        $('#code').text(JSON.stringify(cardToken, null, 4));
-        $('#link-area').text('');
+            $('#code').text(JSON.stringify(cardToken, null, 4));
+            $('#link-area').text('');
 
-        $("#charge-button").show();
-    })
-        .catch(function(error){
+            $("#charge-button").show();
+        })
+        .catch(function(error) {
             if (error.code === HiPay.ErrorReason.APIIncorrectCredentials) { // equal to 1000001
                 console.log("Invalid credentials");
             }
@@ -368,11 +337,9 @@ Example with jQuery:
                 console.log("Invalid card token");
             }
 
-
             $("#pay-button").text("Tokenize");
             $("#form :input").prop("disabled", false);
             $("#form :button").prop("disabled", false);
-
 
             if (error.errorCollection != undefined && error.errorCollection.length > 0) {
                 for (var i = 0; i < error.errorCollection.length; i++) {
@@ -390,41 +357,31 @@ Example with jQuery:
 
 Example without jQuery: 
 ```js
-
-addCustomEventListener(document.getElementById("pay-button"), "click",function() {
-           document.getElementById("pay-button").disabled = true;
-           document.getElementById("error-container").innerHTML = "";
-
-           document.getElementById("pay-button").innerHTML = "Loading…";
-
-            HiPay.Form.tokenizePaymentFormData()
-                .then(function(cardToken) {
-                    token = cardToken.token;
-
-                    document.getElementById("pay-button").innerHTML = "Tokenize";
-                    document.getElementById("order").innerHTML = "The token has been created using the JavaScript SDK (client side).";
-
-                    document.getElementById("code").innerHTML = JSON.stringify(cardToken, null, 4);
-                    document.getElementById("link-area").innerHTML = "";
-
-                    document.getElementById("charge-button").style.display = 'block';
-                })
-                .catch(function(error){
-                    if (error.code === HiPay.ErrorReason.APIIncorrectCredentials) { // equal to 1000001
-                        console.log("Invalid credentials");
-                    }
-
-                    if (error.code === HiPay.ErrorReason.InvalidCardToken) { // equal to 1012003
-                        console.log("Invalid card token");
-                    }
-
-                    document.getElementById("pay-button").innerHTML = "Tokenize";
-                    document.getElementById("pay-button").disabled = false;
-               });
-            return false;
+addCustomEventListener(document.getElementById("pay-button"), "click", function() {
+    document.getElementById("pay-button").disabled = true;
+    document.getElementById("error-container").innerHTML = "";
+    document.getElementById("pay-button").innerHTML = "Loading…";
+    HiPay.Form.tokenizePaymentFormData()
+        .then(function(cardToken) {
+            token = cardToken.token;
+            document.getElementById("pay-button").innerHTML = "Tokenize";
+            document.getElementById("order").innerHTML = "The token has been created using the JavaScript SDK (client side).";
+            document.getElementById("code").innerHTML = JSON.stringify(cardToken, null, 4);
+            document.getElementById("link-area").innerHTML = "";
+            document.getElementById("charge-button").style.display = 'block';
+        })
+        .catch(function(error) {
+            if (error.code === HiPay.ErrorReason.APIIncorrectCredentials) { // equal to 1000001
+                console.log("Invalid credentials");
+            }
+            if (error.code === HiPay.ErrorReason.InvalidCardToken) { // equal to 1012003
+                console.log("Invalid card token");
+            }
+            document.getElementById("pay-button").innerHTML = "Tokenize";
+            document.getElementById("pay-button").disabled = false;
         });
-
-    };
+    return false;
+});
 ```
 
 Once the token is retrieved, you can process a payment on the server side. Please see the example app's source code for more information.
