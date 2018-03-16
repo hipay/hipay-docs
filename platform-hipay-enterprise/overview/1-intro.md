@@ -608,8 +608,8 @@ settlement file.
 |----------|-------------|
 |Account |                 HiPay’s account number
 |Account name |            HiPay’s account name
-|Date |                    Date of collect
-|Date value|               Transaction date value
+|Date |                    Date of collection
+|Date value|               Acquirers' value date
 |Invoice reference|        HiPay’s invoice reference
 |Settlement ID|            Settlement ID
 |Transaction ID|           HiPay’s transaction ID
@@ -619,9 +619,9 @@ settlement file.
 |Settled    |              Settled transaction (0/1)
 |Original amount |         Original amount of the operation
 |Original currency |       Original currency of the operation
-|Amount (Excl. Tax) |      Amount of the operation excluding tax
+|Amount (Excl. Tax) |      Amount of the operation excluding taxes
 |Tax amount        |       Tax amount of the operation
-|Amount (Incl. Tax)|       Amount of the operation including tax
+|Amount (Incl. Tax)|       Amount of the operation including taxes
 |Currency          |       Invoice currency
 |Operation        |        Operation type. Please refer to “*Operation types*” below.
 |Settled amount   |        Settled amount
@@ -629,6 +629,14 @@ settlement file.
 |Original settlement ID|   Original settlement ID (if applicable)
 |Customer ID          |    Unique identifier of the customer as provided by the merchant
 |Merchant operation ID|    Operation ID sent in maintenance operation
+|Reporting data 1|    	   Settlement custom data 1
+|Reporting data 2|    	   Settlement custom data 2
+|Reporting data 3|    	   Settlement custom data 3
+|Reporting data 4|    	   Settlement custom data 4
+|Reporting data 5|    	   Settlement custom data 5
+|Collect Mode|    	   Transaction collect mode
+|Transfer|    	   	   Settlement transfer date
+|Operation date|    	   Date of operation request
 
 ## Operation types
 
