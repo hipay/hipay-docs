@@ -38,7 +38,7 @@ Pour utiliser Hipay, vous avez besoin de posséder un compte marchand. C’est u
 
 Après avoir finalisé votre inscription, vous pourrez vous connecter sur votre compte via l'url suivante : [https://professional.hipay.com/](https://professional.hipay.com/)
 
-![HiPay Professional Dashboard](images/dashboard-new.png) 
+![HiPay Professional Dashboard](images/dashboard-new.png)
 
 #Inscrivez votre site internet
 
@@ -65,7 +65,9 @@ Cliquez sur « Modules » et sur « Paiement ». Au niveau du module Hipay,c
 
 Cliquez ensuite sur « Configurer »
 
-Vous devrez alors renseigner les identifiants API que vous trouverez sur votre compte préalableblement créé sur le Backoffice HiPay. Vous trouverez vos identifiants en cliquant sur l'onglet "Compte > Informations > Identifiants API" (![Compte API](images/api-compte.png))
+Vous devrez alors renseigner les identifiants API que vous trouverez sur votre compte préalableblement créé sur le Backoffice HiPay. Vous trouverez vos identifiants en cliquant sur l'onglet "Compte > Informations > Identifiants API"
+
+![Compte API](images/api-compte.png)
 
 #Configuration du compte de test
 
