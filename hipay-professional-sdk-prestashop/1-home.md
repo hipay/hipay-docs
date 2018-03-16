@@ -73,7 +73,7 @@ Si vous le souhaitez, il est possible de créer et configurer un compte de test.
 Vous devrez alors créer un compte de la même manière que le compte de production, puis renseigner les identifiants en cliquant sur le bouton "CONNECTER LE COMPTE DE TEST".
 Vous pourrez alors switcherentre le compte de production et le compte de test.
 
-![Switch compte de test et de Production](bouton-compte-test.png)
+![Switch compte de test et de Production](images/bouton-compte-test.png)
 
 #Paiement
 
