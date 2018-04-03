@@ -84,3 +84,24 @@ NOTE: It only works for total refunds (not partial).
 	<i class="fa fa-times-circle"></i>
 If you make a partial capture or refund from your HiPay Enterprise back office, it will not be possible to make a capture or refund from your PrestaShop back office.
 </div>
+
+
+## MO/TO Payment ( Mail Order/Telephone Order )
+
+To make an order for your customers in a MO/TO process and thus use the correct ECI and the identifiers you have entered in the module configuration you will need:
+
+- In the Summary tab of the order before confirming the order,
+enter the value of **Payment** with *"Hipay Enterprise"* and the value of **Order Status** to *"Waiting for payment MO/TO"* and confirm the order with the button "Create the order"
+
+- Refresh the order and access the *"Hipay Action"* tab and confirm the order with the **"Pay Order MO/TO"** button. You will be redirected to a payment page or you will be able to fill in the information provided by your customers.
+
+![legend](images/moto_actions.png)
+
+<div class="alert alert-danger">
+	<i class="fa fa-times-circle"></i>
+ If you use the button "Send an email to the customer with the link to process the payment", will not be considered MO/TO.
+</div>
+
+
+
+	
