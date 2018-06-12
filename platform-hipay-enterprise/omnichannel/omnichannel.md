@@ -112,13 +112,13 @@ curl -X POST \
 -F eci=10 \
 -F description='Blue shirt' \
 -F currency=EUR \
--F amount=1.2 \
+-F amount=10.90 \
 -F language=fr_FR \
 -F email=customer@example.com \
 -F firstname=John \
 -F lastname=Doe \
 -F initialize_payment_terminal=1 \
--F pos_transaction_lifetime=600 \
+-F pos_transaction_lifetime=60 \
 -F payment_terminal_id=62 \
 -F store_id=1 \
 -F order_point=store \
@@ -151,7 +151,7 @@ In that case, the workflow would be:
 
 1. The transaction is initialized, its state is set to **`pending`** and its status to **`174`** (Awaiting Terminal).
 2. The customer pays the transaction on the payment terminal.
-3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`completed`** and its *status* to **`117`** (Capture Requested).
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`completed`** and its *status* to **`118`** (Captured).
 
 #### The transaction is declined on the terminal
 
