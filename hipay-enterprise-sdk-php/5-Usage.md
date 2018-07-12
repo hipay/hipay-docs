@@ -14,7 +14,7 @@ You need to instantiate 4 objects to make a request:
 
 - A configuration object which implements [ConfigurationInterface](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/HTTP/Configuration/ConfigurationInterface.php)
 - A client provider inherited from abstract class [\HiPay\Fullservice\HTTP\ClientProvider](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/HTTP/ClientProvider.php)
-- A [Secure Vault](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/SecureVault/Client/SecureVaultClient.php) or [Gateway](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client
+- A [Gateway](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/Gateway/Client/GatewayClient.php) client
 - An [order request](https://github.com/hipay/hipay-fullservice-sdk-php/blob/master/lib/HiPay/Fullservice/Gateway/Request/Order/OrderRequest.php)
 
 #### Gateway example:
@@ -40,26 +40,7 @@ $transaction = $gatewayClient->requestNewOrder($orderRequest);
 
 ```
 
-#### Secure Vault example:
-
-```php
-//Create a configuration object
-$config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
-
-//Instantiate client provider with configuration object
-$clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
-
-//Create your gateway client
-$vaultClient = new \HiPay\Fullservice\SecureVault\Client\SecureVaultClient($clientProvider);
-
-//Instantiate Secure Vault request
-$generateTokenRequest = new \HiPay\Fullservice\SecureVault\Request\GenerateTokenRequest();
-$generateTokenRequest->card_number = "4111111111111111";
-$generateTokenRequest->card_expiry_month = "02";
-$generateTokenRequest->card_expiry_year = "2017";
-//etc.
-
-//Make a request and return HiPay\Fullservice\SecureVault\Model\PaymentCardToken.php object
-$paymentCardToken=  $vaultClient->requestGenerateToken($generateTokenRequest);
-
-```
+<div class="alert alert-danger">
+<i class="fa fa-exclamation-triangle"></i>
+Server side tokenization is deprecated. Please refer to our <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-js/">SDK JS</a>, <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-ios">SDK IOS</a> or <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-android">SDK Android</a> documentations to use client side tokenization (Direct Post).
+</div>

@@ -1,6 +1,6 @@
 # Requirements
 
-- `PHP >= 5.3.0`
+- `PHP >= 5.6.0`
 - `Composer >= 1.0.0`
 
 # Credentials
