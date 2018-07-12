@@ -21,6 +21,9 @@ You need to instantiate 4 objects to make a request:
 
 ```php
 //Create a configuration object
+// By default Configuration object is configured in Stage mode (Configuration::API_ENV_STAGE)
+// To use Production mode, the third argument of the constructor must be Configuration::API_ENV_PRODUCTION
+// Ex : $config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password", Configuration::API_ENV_PRODUCTION);
 $config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
 
 //Instantiate client provider with configuration object
