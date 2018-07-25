@@ -92,11 +92,23 @@ If defined, these identifiers will be used when making payments via the back off
 ![legend](images/module-settings-api-configuration.png)
 
 
+
 #### Sandbox configuration
 
 The interface is similar to the production configuration.
 
 **These identifiers are used if your module is configured in test mode.**
+
+#### Hash Algorithm
+
+The **hash algorithm** is used when checking the signature.
+You can configure it in your back office Hipay the algorithm of your choice.
+
+This interface makes it easy to synchronize the configuration made on your back office HiPay.
+
+Configurations are retrieved from your identifiers in "Production configuration" and "Sandbox configuration"
+
+![legend](images/hash_algorithm.png)
 
 #### Technical configuration (Proxy settings)
 

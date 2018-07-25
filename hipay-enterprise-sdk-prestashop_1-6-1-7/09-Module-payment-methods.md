@@ -15,6 +15,7 @@ This general configuration will be applied whatever the payment methods being us
  |  Keep cart when payment fails        | Defines if the client's basket must be reloaded when an error occurs during payment. |"Yes"/"No"|
  | Logs information                           | Activates debug logs.  ||
  |  Activate 3-D Secure | Enables and configures 3DS rules. | You can choose between 5 options: <br /> - **Disabled** (to bypass 3-D Secure authentication) <br /> - **Try to enable for all transactions** <br /> - **Try to enable for configured 3ds rules** <br /> - **Force for configured 3ds rules** <br /> - **Force for all transactions**|
+|  Send url Notification | If so, then the url used by HiPay to send the notifications is directly filled in the order transaction. | "Yes"/"No" |
 
 When you choose the "**_Hosted page_**" as operating mode, you have access to additional settings.
 
