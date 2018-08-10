@@ -8,6 +8,22 @@ Payment data (e.g.: card number, card verification code...) will never hit your 
 
 # Installation
 
+### Using npm
+
+The easiest way to use the SDK is to install it using [npm](https://www.npmjs.com). To do so, type the following command into a terminal window:
+
+```sh
+$ npm install hipay-fullservice-sdk-js
+```
+
+### Using Yarn
+
+The easiest way to use the SDK is to install it using [Yarn](https://yarnpkg.com). To do so, type the following command into a terminal window:
+
+```sh
+$ yarn add hipay-fullservice-sdk-js
+```
+
 ### Using Bower
 
 The easiest way to use the SDK is to install it using [Bower](http://bower.io). To do so, type the following command into a terminal window:
