@@ -37,6 +37,11 @@ You have two options: `Refund Offline` (not relevant in our case) or `Refund`.
 
 Choose the amount and click on `Refund`. If successful, the credit memo is created and the refund is validated.
 
+<div class="alert alert-warning">
+	<i class="fa fa-warning"></i>
+	For notification to work as expected, please refer to this <a href="#platform-configuration-customized-notifications">section</a>
+</div>
+
 ## One-click (only available for credit card payment methods)
 
 If the one-click option is activated, it enables your system to create an `alias` of the credit card. That way, after their first transaction, customers can use a saved credit card without having to fill in all the payment data again.

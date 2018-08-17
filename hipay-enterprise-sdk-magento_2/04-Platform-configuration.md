@@ -49,4 +49,7 @@ Don’t forget to replace {your-domain.com} with your own domain.
 
 ![legend](images/notification_url.png)
 
+## Customized notifications
+
+If you choose to customize the fields send in the notification, be aware that *"operation"* field is mandatory. Refunds depends on it.
 

@@ -46,3 +46,7 @@ Click on the *`Integration`* tab, then on *`Notifications`*.
 -   I want to be notified for the following transaction statuses: `ALL`
 
 Don’t forget to change `{your-domain.com}` by your own domain and specify the store code if you have enabled it on your Magento configuration.
+
+## Customized notifications
+
+If you choose to customize the fields send in the notification, be aware that *"operation"* field is mandatory. Refunds depends on it.
