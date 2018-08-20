@@ -25,3 +25,8 @@ You can also do the "refund" directly in your HiPay Enterprise back office. The 
 NOTE: It only works for total refunds (not partial).
 
 ![legend](images/refund_manual_tpp.png)
+
+<div class="alert alert-warning">
+	<i class="fa fa-warning"></i>
+	For notification to work as expected, please refer to this <a href="#platform-configuration-customized-notifications">section</a>
+</div>
