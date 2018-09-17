@@ -1,4 +1,4 @@
-# HiPay Marketplace - REST API to upload KYC documents
+# HiPay Marketplace – Identification API
 
 ## Document conventions
 
@@ -40,7 +40,7 @@ that define a data element.
 |`A`                     |Alphabetic characters only (a-z, A-Z)                       |&nbsp;|
 |`N`                     |Numeric characters only                                     |&nbsp;|
 |`R`                     |Decimal number with explicit decimal point, signed          |`12.34`
-|`DT`                    |Date in the format YYYY-MM-DD                               |`2017-01-31`
+|`DT`                    |Date in the format YYYY-MM-DD                               |`2018-01-31`
 |`TM`                    |Time in the format HH:MM with optional seconds (HH:MM:SS)   |`15:30`
 *Table 3: Available formats of data elements*
 
@@ -52,6 +52,7 @@ The following acronyms and abbreviations are used in this guide.
 |---------------------- |---------------------------------
 |`REST`                   |Representational State Transfer
 |`KYC`                    |Know your customer
+|`KYB`                    |Know your business
 |`NA`                     |Not applicable
 *Table 4: Acronyms and abbreviations*
 
@@ -73,13 +74,13 @@ Status codes or HTTP codes indicate whether a request was successful or not.
 |`500`|Server error||
 |`503`|Service unavailable||
 
-#How to upload KYC documents with the specific REST API
+#How to upload KYC/KYB documents with this specific REST API
 
-This web service enables you to upload KYC documents to a HiPay user
+This web service enables you to upload KYC/KYB documents to a HiPay user
 account.
 
-Sent KYC documents are automatically processed in real time if the
-documents provided are usable. Otherwise, a manual check is done within 72 hours (working days).
+Sent KYC/KYB documents are automatically processed in real time if the
+documents provided are usable. Otherwise, a manual review is performed within 72 hours (working days).
 
 If a document is uploaded and sent by mistake, please wait until it is
 refused to re-submit the right document.
@@ -91,7 +92,7 @@ law.
 ##Document constraints
 
 -   Accepted formats: `JPG, GIF, PDF, PNG`
--   Maximum file size: `5 MB`
+-   Maximum file size: `15 MB`
 -   A certified translation is required for documents in a non-Latin language
 
 ##Service endpoints
@@ -103,8 +104,8 @@ There are two endpoints (base URLs) to which you can make your API calls.
 
 |Environment   |Endpoint
 |------------- |----------
-|`Stage`        |[*https://test-merchant.hipaywallet.com/api/identification*](https://test-merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
-|`Production`    |[*https://merchant.hipaywallet.com/api/identification*](https://merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
+|`Stage`        |[*https://test-professional.hipay.com/api/identification*](https://test-professional.hipay.com/api/identification)<br/>{format} (POST)
+|`Production`    |[*https://professional.hipay.com/api/identification*](https://professional.hipay.com/api/identification)<br/>{format} (POST)
 *Table 5: Service endpoints*
 
 ##Format
@@ -118,55 +119,53 @@ By default, the response is in JSON format.
 
 This web service requires a **basic HTTP** authentication, with the HiPay technical account wsLogin and wsPassword.
 
-##Types of KYC documents
+##Types of KYC/KYB documents
 
-### For individuals
+### For individual accounts
 
 |Type   |Label          |Description
 |------ |---------------|--------------
 |`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
-|`2`    | Proof of address   |Proof of address issued within the last three months<br/>(e.g.: rent receipt, utility bill)
-|`6`    | Bank              | Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
-*Table 6: KYC documents for individuals*
+|`2`    | Proof of address   |Proof of address issued within the last 3 months<br/>(e.g.: utility/phone bill, rent receipt)
+|`6`    | Bank              | Personal bank account identification document (RIB/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+*Table 6: KYC/KYB documents for individual accounts*
 
-### For professionals (corporations)
+### For professional accounts (corporations)
 
   
 |Type   |Label               |Description
 |------ |----------------------- |--------------------------------------------------------------------------------------------------------------
 |`1`      |ID proof           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
-|`4`      |Company Registration    |Document certifying company registration issued within the last three months (Kbis extract)
+|`4`      |Company Registration    |Certificate of incorporation (document certifying Company registration) issued within the last 3 months (Kbis extract or any equivalent document)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
-|`6`      |Bank                    |Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
-*Table 7: KYC documents for professionals (corporations)*
+|`6`      |Bank                    |Professional bank account identification document (RIB/IBAN) in the name of the company / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+*Table 7: KYC/KYB documents for professional accounts (corporations)*
 
-### For professionals (persons)
+### For professional accounts (persons)
 
 |Type   |**Label**              |**Description**
 |------ |---------------------- |---------------------------------------------------------------------------
 |`1`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
-|`8`      |Company Registration   |Document certifying registration issued within the last three months (Kbis extract)
+|`8`      |Company Registration   |Registration number with the Registry of Companies (SIREN number or its equivalent)
 |`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
-|`6`      |Bank                   |Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
-*Table 8: KYC documents for professionals (persons)*
+|`6`      |Bank                   |Professional bank account identification document (RIB/IBAN) in the name of the individual / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+*Table 8: KYC/KYB documents for professional accounts (persons)*
 
-### For associations
+### For association accounts
 
 |Type   |**Label**                  |**Description**
 |------ |-------------------------- |---------------------------------------------------------------------------
 |`1`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
-|`11`     |President of association   |Document certifying who is the president of the association
-|`12`    |Official Journal           |Publication in the Official Journal
+|`11`     |President of association   |Document certifying the function and the name of the legal representative of the association
+|`12`    |Official Journal           |Publication in the dedicated register (or equivalent) or a receipt of the registration of the association issued by public authorities
 |`13`     |Association status         |Document certifying the Association statutes
-|`6`      |Bank                       |Bank account details (“RIB”/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
-*Table 9: KYC documents for associations*
+|`6`      |Bank                       |Bank account identification document (RIB/IBAN) in the name of the association / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+*Table 9: KYC/KYB documents for association accounts*
 
-**Please note:** each category of account also requires a document
-entitled “Identification of Controlling Stakeholders”, duly completed,
+**Please note:** Professional (corporations) and association accounts also require a document
+entitled “Identification of Ultimate Beneficial Owners”, duly completed,
 signed and accompanied by supporting identification documents of
-beneficial owners (currently to be sent by email to
-*wallet-ubo@hipay.com* until the feature under development to send it by
-API is completed).
+beneficial owners (to be sent through [*https://professional.hipay.com/login*](https://professional.hipay.com/login): to access this platform, please contact your HiPay account manager).
 
 ##Request header 
 
@@ -175,27 +174,27 @@ account different from the authenticated one.
 
 |Field name                  |**Format**   |**Length**   |**Req.**   |**Description**
 |--------------------------- |------------ |------------ |---------- |------------------------------------------------------------------------
-|`php-auth-subaccount-id`      |N            |12           |C          |Account ID of the HiPay account for which to upload the KYC documents
-|`php-auth-subaccount-login`   |AN           |255          |C          |Email login of the HiPay account for which to upload the KYC documents
-*Table 10: KYC document upload related header*
+|`php-auth-subaccount-id`      |N            |12           |C          |Account ID of the HiPay account for which to upload the KYC/KYB documents
+|`php-auth-subaccount-login`   |AN           |255          |C          |Email login of the HiPay account for which to upload the KYC/KYB documents
+*Table 10: KYC/KYB document upload related header*
 
 ##Request parameters
 
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
-|`type`             |N            |12           |M          |Type of KYC document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
-|`file`             |AN           |255          |M          |KYC document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
-|`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `5 MB`
-|`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (type `1`) <br/>- Optional for other KYC documents
+|`type`             |N            |12           |M          |Type of KYC/KYB document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`file`             |AN           |255          |M          |KYC/KYB document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
+|`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
+|`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (type `1`) <br/>- Optional for other KYC/KYB documents
 |`user_space`      |N            |12            |          |ID of the user space (deprecated)
-*Table 11: KYC document upload related parameters*
+*Table 11: KYC/KYB document upload related parameters*
 
 
 ###Example of a cURL request 
 
 ```curl
 curl -v -X POST
-https://merchant.hipaywallet.com/api/identification.json
+https://professional.hipay.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"
 -H "php-auth-subaccount-id: 543210"
 -F "file=@/home/johndoe/Desktop/Projects/uploads/DSCF1131.jpg"
@@ -206,7 +205,7 @@ https://merchant.hipaywallet.com/api/identification.json
 ###Example of a PHP request
 
 ```php
-define('API_ENDPOINT', 'https://merchant.hipaywallet.com/api/identification');
+define('API_ENDPOINT', 'https://professional.hipay.com/api/identification');
 define('API_USERNAME', 'XX12xxab000b00ab0101010abcd0a0xx');
 define('API_PASSWORD', 'abc0abcd1ee1ff6789abc2345fff0000');
 $credentials = API_USERNAME . ':' . API_PASSWORD;
@@ -388,9 +387,9 @@ class="anchor"></span></span></span>
 </result>
 ```
 
-#How to request the status of sent KYC documents  
+#How to request the status of sent KYC/KYB documents  
 
-This web service enables you to request the list of sent KYC documents
+This web service enables you to request the list of sent KYC/KYB documents
 as well as their status.
 
 ##Service endpoints
@@ -405,8 +404,8 @@ calls.
 
 |Environment   |Endpoint
 |------------- |----------
-|`Stage`        |[*https://test-merchant.hipaywallet.com/api/identification*](https://test-merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
-|`Production`    |[*https://merchant.hipaywallet.com/api/identification*](https://merchant.hipaywallet.com/api/identification)<br/>{format} (POST)
+|`Stage`        |[*https://test-professional.hipay.com/api/identification*](https://test-professional.hipay.com/api/identification)<br/>{format} (POST)
+|`Production`    |[*https://professional.hipay.com/api/identification*](https://professional.hipay.com/api/identification)<br/>{format} (POST)
 *Table 12: Service endpoints*
 
 ##Format 
@@ -427,15 +426,15 @@ You may use the Account ID or the Account email login to select an account diffe
 
 |**Field name**              |**Format**   |**Length**   |**Req.**   |**Description**
 |--------------------------- |------------ |------------ |---------- |-------------------------------------------------------------------------------------------------------
-|`php-auth-subaccount-id`    |  N          |  12         |  C        | Account ID of the HiPay account for which to request the list of sent KYC documents and their status
-|`php-auth-subaccount-login` |  AN         |  255        |  C        | Email login of the HiPay account for which to request the list of sent KYC documents and their status
-*Table 13: KYC document status request related header*
+|`php-auth-subaccount-id`    |  N          |  12         |  C        | Account ID of the HiPay account for which to request the list of sent KYC/KYB documents and their status
+|`php-auth-subaccount-login` |  AN         |  255        |  C        | Email login of the HiPay account for which to request the list of sent KYC/KYB documents and their status
+*Table 13: KYC/KYB document status request related header*
 
 ### Example of a cURL request 
 
 ```curl
 curl -v -X GET
-https://merchant.hipaywallet.com/api/identification.json
+https://professional.hipay.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"
 -H "php-auth-subaccount-id: 543210"
 ```
@@ -443,7 +442,7 @@ https://merchant.hipaywallet.com/api/identification.json
 ### Example of a PHP request 
 
 ```php
-define('API_ENDPOINT', 'https://merchant.hipaywallet.com/api/identification.json');
+define('API_ENDPOINT', 'https://professional.hipay.com/api/identification.json');
 define('API_USERNAME', 'XX12xxab000b00ab0101010abcd0a0xx');
 define('API_PASSWORD', 'abc0abcd1ee1ff6789abc2345fff0000');
 $credentials = API_USERNAME . ':' . API_PASSWORD;
@@ -494,8 +493,8 @@ curl_close($curl);
 |`code`                     |Indicates if the API call has been done without errors (0 = success)
 |`message`                  |Displays the message related to the code
 |`user_space`               |ID of the user space being verified <br/>- Deprecated: will be removed soon
-|`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual check is being performed to identify the user space
-|`documents`                |All the required KYC documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
+|`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual review is being performed to identify the user space
+|`documents`                |All the required KYC/KYB documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
 *Table 14: Response fields*
 
 ##Status codes and status labels
@@ -517,7 +516,7 @@ class="anchor"></span></span>
 
 ##Response examples 
 
-If the web service responds with the success code (0), all the required KYC documents are detailed in a JSON message as follows.
+If the web service responds with the success code (0), all the required KYC/KYB documents are detailed in a JSON message as follows.
 
 ### Example of an ok response in JSON format
 
@@ -600,12 +599,11 @@ If an error occurs, the API returns status code 4xx or 5xx, with a descriptive m
 
 ##What is a server-to-server notification?
 
-In order to inform you of events related to KYC document validation, the
+In order to inform you of events related to KYC/KYB document validation, the
 HiPay platform can send your application a server-to-server
 notification.
 
-To set your notification URL, you must send it by email to the HiPay
-support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
+To set your notification URL, please [submit a request](https://support.hipay.com/hc/en-us/requests/new) to our Support team (specifying HiPay Marketplace).
 
 ##Response fields 
 |Field name              |**Description**
@@ -616,9 +614,9 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 |`message`                 |Description of the status
 |`date`                    |Date of the notification (`YYYY-MM-DD`)
 |`time`                    |Time of the notification (`HH:MM:SS Time zone`)
-|`document_type`           |Type of KYC document<br/>(please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
-|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyc-documents-with-the-specific-rest-api-types-of-kyc-documents) for a detailed description)
-|`account_id`              |HiPay account ID for which the KYC was uploaded
+|`document_type`           |Type of KYC/KYB document<br/>(please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`account_id`              |HiPay account ID for which the KYC/KYB was uploaded
 *Table 16: Response fields*
 
 ##Callback messages by document type 
@@ -648,7 +646,7 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
 *(deprecated)
 ##Response example 
 
-### Example of a KYC document notification in XML format 
+### Example of a KYC/KYB document notification in XML format 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -658,7 +656,7 @@ support team at [*support.mkp@hipay.com*](mailto:support.mkp@hipay.com).
       <operation>document_validation</operation>
       <status>nok</status>
       <message>Not a proof of address</message>
-      <date>2016-06-29</date>
+      <date>2018-06-29</date>
       <time>16:39:42 Europe/Paris+0200</time>
       <document_type>2</document_type>
       <document_type_label>Proof of address</document_type_label>
