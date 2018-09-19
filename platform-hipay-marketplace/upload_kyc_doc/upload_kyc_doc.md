@@ -125,9 +125,9 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 
 |Type   |Label          |Description
 |------ |---------------|--------------
-|`1`    | ID proof      | Copy of a valid identification document<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
+|`1`    | ID proof      |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the account holder (person)
 |`2`    | Proof of address   |Proof of address issued within the last 3 months<br/>(e.g.: utility/phone bill, rent receipt)
-|`6`    | Bank              | Personal bank account identification document (RIB/IBAN) / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+|`6`    | Bank              |Personal bank account identification document (RIB/IBAN)<br/>– Deprecated: please use the Bank-info API instead.
 *Table 6: KYC/KYB documents for individual accounts*
 
 ### For professional accounts (corporations)
@@ -135,31 +135,31 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
   
 |Type   |Label               |Description
 |------ |----------------------- |--------------------------------------------------------------------------------------------------------------
-|`1`      |ID proof           |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
+|`1`      |ID proof           |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the legal representative
 |`4`      |Company Registration    |Certificate of incorporation (document certifying Company registration) issued within the last 3 months (Kbis extract or any equivalent document)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
-|`6`      |Bank                    |Professional bank account identification document (RIB/IBAN) in the name of the company / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+|`6`      |Bank                    |Professional bank account identification document (RIB/IBAN) in the name of the company<br/>– Deprecated: please use the Bank-info API instead.
 *Table 7: KYC/KYB documents for professional accounts (corporations)*
 
 ### For professional accounts (persons)
 
 |Type   |**Label**              |**Description**
 |------ |---------------------- |---------------------------------------------------------------------------
-|`1`      |ID proof               |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
+|`1`      |ID proof               |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the individual
 |`8`      |Company Registration   |Registration number with the Registry of Companies (SIREN number or its equivalent)
 |`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
-|`6`      |Bank                   |Professional bank account identification document (RIB/IBAN) in the name of the individual / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+|`6`      |Bank                   |Professional bank account identification document (RIB/IBAN) in the name of the individual<br/>– Deprecated: please use the Bank-info API instead.
 *Table 8: KYC/KYB documents for professional accounts (persons)*
 
 ### For association accounts
 
 |Type   |**Label**                  |**Description**
 |------ |-------------------------- |---------------------------------------------------------------------------
-|`1`      |ID proof                   |Copy of a valid identification document of the legal representative<br/>(e.g.: passport or ID card – Both the front and back sides of ID cards are required.)
+|`1`      |ID proof                   |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the legal representative
 |`11`     |President of association   |Document certifying the function and the name of the legal representative of the association
 |`12`    |Official Journal           |Publication in the dedicated register (or equivalent) or a receipt of the registration of the association issued by public authorities
-|`13`     |Association status         |Document certifying the Association statutes
-|`6`      |Bank                       |Bank account identification document (RIB/IBAN) in the name of the association / Account statement /… <br/>– Deprecated: please use the Bank-info API instead.
+|`13`     |Association status         |A copy of the association statutes
+|`6`      |Bank                       |Bank account identification document (RIB/IBAN) in the name of the association<br/>– Deprecated: please use the Bank-info API instead.
 *Table 9: KYC/KYB documents for association accounts*
 
 **Please note:** Professional (corporations) and association accounts also require a document
@@ -502,13 +502,11 @@ curl_close($curl);
 |status_code        |status_label        |Description
 |------------------ |------------------- |--------------------------------------------------------------------------------
 |`-1`               |`NA`                | No document has been uploaded
-|`0`                |`New`               | The document has been uploaded but not sent
 |`1`                |`Waiting`           | The document has been sent to HiPay
 |`2`                |`Validated`         | The document has been validated for identification
 |`3`                |`Refused`           | The document has been refused because it is falsified, expired or inconsistent
 |`5`                |`Waiting`           | The document is being reviewed
 |`8`                |`Refused`           | The document has been refused
-|`9`                |`Waiting`           | A new review of the document is in progress
 *Table 15: Status codes and status labels*
 
 <span id="_Toc458697235" class="anchor"><span id="_Toc474760795"
@@ -619,31 +617,26 @@ To set your notification URL, please [submit a request](https://support.hipay.co
 |`account_id`              |HiPay account ID for which the KYC/KYB was uploaded
 *Table 16: Response fields*
 
-##Callback messages by document type 
+##Callback messages 
 
-|Type              |**Message**
+|EN           |FR
 |---------------   |-------------------------------------------
-|`6*`               |Bank outside of perimeter
-|`1,2,4,8`     |Expired
-|`2,4,6*,8`         |Falsified
-|`1`           |Falsified or under age
-|`2,4,8`           |Incoherence: error with address
-|`2`               |Incoherence: error with holder
-|`4,8`             |Incoherence: error with name
-|`1,6*`         |Incoherence: name and first name reversed
-|`1,6*`         |Incoherence: other error
-|`6*`               |Not a bank ID
-|`2`               |Not a proof of address
-|`1`           |Not an ID
-|`1`           |One side missing
-|`2`               |Supplier outside of perimeter
-|`1,2,4,6*,8`   |Unreadable or cut
-|`1,2,4,6*,8`   |Valid and certified
-|`1`           |Valid but not certifiable
-|`2,6*`             |Verified except holder’s first name
-|`1,2,4,6*,8`   |Waiting
-*Table 17: Callback messages by document type*
-*(deprecated)
+|Invalid date               |Date invalide
+|Unreadable     |Illisible
+|Missing data         |Informations manquantes
+|Inconsistency: {personalized-msg}           |Incohérence : {msg-personnalisé}
+|Not verified: missing document           |Non vérifié : document manquant
+|Invalid document type               |Mauvais type de document
+|Falsified             |Falsifié
+|Front missing         |Verso seul
+|Supplier outside the scope               |Fournisseur hors périmètre
+|Bank outside the scope               |Banque hors périmètre
+|Inconsistent           |Non cohérent
+|Other           |Autre
+|Invalid Address               |Adresse incorrecte
+|Expired   |Expiré
+*Table 17: Callback messages
+
 ##Response example 
 
 ### Example of a KYC/KYB document notification in XML format 
