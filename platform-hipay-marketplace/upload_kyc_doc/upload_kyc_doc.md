@@ -617,25 +617,28 @@ To set your notification URL, please [submit a request](https://support.hipay.co
 |`account_id`              |HiPay account ID for which the KYC/KYB was uploaded
 *Table 16: Response fields*
 
-##Callback messages 
+##Callback messages
 
-|EN           |FR
-|---------------   |-------------------------------------------
-|Invalid date               |Date invalide
-|Unreadable     |Illisible
-|Missing data         |Informations manquantes
-|Inconsistency: {personalized-msg}           |Incohérence : {msg-personnalisé}
-|Not verified: missing document           |Non vérifié : document manquant
-|Invalid document type               |Mauvais type de document
-|Falsified             |Falsifié
-|Front missing         |Verso seul
-|Supplier outside the scope               |Fournisseur hors périmètre
-|Bank outside the scope               |Banque hors périmètre
-|Inconsistent           |Non cohérent
-|Other           |Autre
-|Invalid Address               |Adresse incorrecte
-|Expired   |Expiré
-*Table 17: Callback messages
+Please find hereafter the various reasons for refusal provided by notification.
+
+|Reasons for refusal|
+|---------------|
+|Invalid date|
+|Unreadable|
+|Missing data|
+|Inconsistency: {personalized-msg}|
+|Not verified: missing document|
+|Invalid document type|
+|Falsified|
+|Front missing|
+|Supplier outside the scope|
+|Bank outside the scope|
+|Inconsistent|
+|Other|
+|Invalid Address|
+|Expired|
+
+*Table 17: Callback messages (reasons for refusal)
 
 ##Response example 
 
