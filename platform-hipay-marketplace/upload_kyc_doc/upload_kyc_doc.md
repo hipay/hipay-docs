@@ -147,7 +147,6 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 |------ |---------------------- |---------------------------------------------------------------------------
 |`1`      |ID proof               |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the individual
 |`8`      |Company Registration   |Registration number with the Registry of Companies (SIREN number or its equivalent)
-|`9`      |Tax status             |Document certifying tax status (“auto-entrepreneur” / independent /…)
 |`6`      |Bank                   |Professional bank account identification document (RIB/IBAN) in the name of the individual<br/>– Deprecated: please use the Bank-info API instead.
 *Table 8: KYC/KYB documents for professional accounts (persons)*
 
