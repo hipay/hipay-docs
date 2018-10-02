@@ -67,7 +67,7 @@ In order to test the example app, open a terminal and execute setup.sh with init
 Copy the file `example/config/credentials.php.dist` to `example/config/credentials.php` and open it to put your own HiPay Enterprise private credentials. Follow the instructions inserted in PHP comments.
 Then, copy the file `example/public/credentials_public.json.dist` to `example/public/credentials_public.json` and open it to put your own HiPay Enterprise public credentials.
 
-Finally, open your web browser and go to http://localhost:8080. 
+Finally, open your web browser and go to http://localhost:8888. 
 You should see the form shown in the screenshot above.
 
 # Integration guide
