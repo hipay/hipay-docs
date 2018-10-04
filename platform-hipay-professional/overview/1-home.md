@@ -6,7 +6,7 @@ This document is designed to provide you details on how to integrate your busine
 While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay. HiPay has made every effort to ensure the accuracy of this material. 
 
 #Technical support 
-If you need any complementary information concerning the technical implementation of HiPay Professional don’t hesitate to contact our Technical Support team: Email: support.tpp@hipay.com Telephone: +33 (0)1 53 44 15 07
+If you need any complementary information concerning the technical implementation of HiPay Professional please [submit a request](https://support.hipay.com/hc/en-us/requests/new) to our Support team.
 
 #About this Guide 
 
