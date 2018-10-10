@@ -84,6 +84,13 @@ This command will initialize the database with the needed tables. You should get
 | miraklId | int(11)      | NO   | UNI | NULL    |                |
 | email    | varchar(255) | NO   | UNI | NULL    |                |
 | hipayId  | int(11)      | NO   | UNI | NULL    |                |
+| hipayUserSpaceId  | int(11)    | NO   | UNI | NULL    |         |
+| hipayIdentified  | int(11)     | NO   | UNI | NULL    |         |
+| vatNumber  | VARCHAR(255)      | NO   | UNI | NULL    |         |
+| callbackSalt  | VARCHAR(255)   | NO   | UNI | NULL    |         |
+| enabled  | TINYINT(1)          | NO   | UNI | NULL    |         |
+| country  | VARCHAR(255)        | NO   | UNI | NULL    |         |
+| paymentBlocked  | TINYINT(1)   | NO   | UNI | NULL    |         |
 
 ### Operations
 
@@ -165,5 +172,8 @@ This command will initialize the database with the needed tables. You should get
 | message             | varchar(255) | YES  |     | NULL    |                |
 | nbDoc               | int(11)      | NO   |     | NULL    |                |
 | date                | datetime     | NO   |     | NULL    |                |
+| enabled             | TINYINT(1)   | NO   | UNI | NULL    |                |
+| country             | VARCHAR(255) | NO   | UNI | NULL    |                |
+| paymentBlocked      | TINYINT(1)   | NO   | UNI | NULL    |                |
 
 To verify that your software is properly installed and configured, please go to the URL you sent to HiPay (example: `https://cashout.merchant-example.com/index.php/dashboard`). **The login page of the dashboard should be displayed**. If that's not the case, make sure that you properly configured the `parameters.yml` file and that all the information provided in it is correct.
