@@ -2,15 +2,15 @@
 
 Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](#prerequisites-and-recommendations) section. 
 
-You have to use CocoaPods to install the HiPay Enterprise SDK for iOS.
+You have to use [CocoaPods](#https://cocoapods.org/) to install the HiPay Enterprise SDK for iOS.
 
 ## Using CocoaPods
 
 Add this line to your project's `Podfile`:
 
 	pod 'HiPayFullservice'
-	
-Optionally, if you want the SDK to calculate the Device Fingerprint, add this line as well:
+
+Optionally, if you want the SDK to calculate the [Device Fingerprint](#https://en.wikipedia.org/wiki/Device_fingerprint) (useful for fraud), add this line as well:
 
 	pod 'HiPayFullservice/Device-Print'
 
@@ -37,5 +37,4 @@ In order to use the SDK for physical payments through such a terminal, add these
 	pod 'HiPayFullservice/Core'
 	pod 'HiPayFullservice/Datecs-POS'
 
-Note that **Git LFS** is needed to install the Datecs-POS pod.
-[https://help.github.com/articles/installing-git-large-file-storage/](https://help.github.com/articles/installing-git-large-file-storage/)
+Note that [Git LFS](#https://help.github.com/articles/installing-git-large-file-storage/) is needed to install the Datecs-POS pod.

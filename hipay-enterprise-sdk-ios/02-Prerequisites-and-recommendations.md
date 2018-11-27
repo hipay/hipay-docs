@@ -2,13 +2,13 @@
 
 ## Build settings
 
-The iOS target version is 8.0, which means that the SDK won't build on applications targeting a lower version of iOS.
+The iOS target version is 9.0, which means that the SDK won't build on applications targeting a lower version of iOS.
 
 ## E-commerce or in-store scenarios
 
 If you use the SDK for e-commerce payments (in-app payments through a payment form), then you can read the document in a linear way.
 
-If you need to use the SDK for processing payments on a physicial payment terminal (mPOS), then you just need to follow a few specific steps, mentioned in the "Installation", "Configuration" and "Advanced usage" sections of this documentation.
+If you need to use the SDK for processing payments on a physical payment terminal (mPOS), then you just need to follow a few specific steps, mentioned in the "Installation", "Configuration" and "Advanced usage" sections of this documentation.
 
 ## Credentials
 
@@ -27,10 +27,10 @@ To be sure that your credentials have the proper accessibility:
 
 Your credentials must be granted to:
 
-- Tokenize a card,
-- Get transaction details,
-- Process an order, 
-- Create a payment page.
+- Tokenize a card
+- Get transaction details
+- Process an order
+- Create a payment page
 
 ## Checkout workflow integration
 

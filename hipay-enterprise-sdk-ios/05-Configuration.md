@@ -18,7 +18,7 @@ If you added the Core instead of the default installation line (`pod 'HiPayFulls
 #import <HiPayFullservice/HPFPOSManager.h>
 ```
 
-In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) to expose this framework (Objective-C files).
+In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to expose this framework (Objective-C files).
 
 ## Step 2 — Configure the SDK
 
@@ -26,13 +26,13 @@ Then, you need to provide the SDK with a few parameters, such as the credentials
 
 ### Credentials
 
-Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) page.
+Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
 ### Determine your app URL scheme
 
 Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK. 
 
-To do so, the SDK presents your users with a `SafariViewController` web page (on iOS 9+). Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
+To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
 
 To find your app URL schemes, open your Xcode project settings:
 
