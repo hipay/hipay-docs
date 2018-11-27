@@ -30,7 +30,7 @@ Get a valid HiPay Enterprise API username and password. If you don't have any, p
 
 ### Determine your app URL scheme
 
-Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK. 
+Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK.
 
 To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
 
@@ -73,6 +73,7 @@ The following code allows you to configure the SDK. We recommend putting it in y
                                       password:@"YOUR API PASSWORD"
                                       appURLscheme:@"myshoppingapp"];
 
+/** Optional
 [[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
 
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
@@ -80,6 +81,7 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
                                       privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
                                       merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
+**/
 ```
 
 #### Swift
@@ -92,16 +94,18 @@ HPFClientConfig.shared()
     password: "YOUR API PASSWORD",
     appURLscheme: "myshoppingapp")
 
+/** Optional
 HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
 
 HPFClientConfig.shared().isPaymentCardScanEnabled = true
 
 HPFClientConfig.shared().setApplePayEnabled(false, privateKeyPassword: "YOUR P12 CERTIFICATE PASSWORD", merchantIdentifier: "YOUR MERCHANT IDENTIFIER")
+**/
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
 
-#### Payment card storage option
+#### Payment card storage [OPTIONAL]
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
@@ -110,7 +114,7 @@ You can find more information in the [Card storage feature](#usage-making-paymen
 
 ![App URL schemes - Step 6](images/card_storage.png)    
 
-#### Payment card scan option
+#### Payment card scan [OPTIONAL]
 
 At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.    
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
@@ -118,7 +122,7 @@ You must add the NSCameraUsageDescription key to your Info.plist with a string v
 
 ![App URL schemes - Step 7](images/card_scan_privacy.png)    
 
-#### Apple Pay option
+#### Apple Pay option [OPTIONAL]
 
 If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your **Merchant ID** to make it work.
 
@@ -134,7 +138,7 @@ You can find the implementation in the [Tokenizing an encrypted Apple Pay token]
 
 Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
 
-#### In-store mobile point of sale option (mPOS)
+#### In-store mobile point of sale option (mPOS) [OPTIONAL]
 
 This section is relevant only if you need to use the SDK for processing transactions in a physical store, on a mobile point of sale (mPOS).
 
@@ -167,7 +171,7 @@ In order for the SDK to be aware of the redirection and to receive the callback 
 
 ### Swift
 ```Swift
-// AppDelegate.swift 
+// AppDelegate.swift
 
 func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
     return HPFGatewayClient.sharedClient().handleOpenURL(url)
