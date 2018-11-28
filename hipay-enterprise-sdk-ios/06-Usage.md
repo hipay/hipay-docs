@@ -13,7 +13,7 @@ This method is used by the demo application. Do not hesitate to test the demo ap
 
 In this example, we assume that you will test the integration in a controller named `DemoViewController`, but it can be anywhere in your code base.
 
-Please find below the full code example. Details can be found in comments as well.
+Please find below the full code example (you may copy and paste all or part of the example above). Details can be found in comments as well.
 
 #### Objective-C
 
@@ -144,12 +144,9 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
 ```
 
 ### Implementation note
-The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
+The *signature* parameter is required for security purposes in the HPFPaymentScreenViewController initialization. Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
 
 This example will present the built-in payment screen to your users when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol methods will be called.
-
-You may copy and paste all or part of the example above.
 
 Please find below some additional details.
 

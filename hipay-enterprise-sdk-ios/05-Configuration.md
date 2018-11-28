@@ -174,7 +174,7 @@ In order for the SDK to be aware of the redirection and to receive the callback 
 // AppDelegate.swift
 
 func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
-    return HPFGatewayClient.sharedClient().handleOpenURL(url)
+    return HPFGatewayClient.shared().handleOpen(url)
 }
 ```
 
