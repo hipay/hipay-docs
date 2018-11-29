@@ -20,7 +20,7 @@ The signature is the [hash](#https://en.wikipedia.org/wiki/Cryptographic_hash_fu
 - Secret passphrase
 
 The signature has to be generated beforehand on the **server side** in order not to show the **secret passphrase** in client code.  
-That is why the code examples below are executed in PHP/Python somewhere on your servers and not embedded in the iOS app directly.
+This is the reason why the code examples below are executed in PHP/Python on your servers and not embedded in the iOS app directly.
 
 ![Hashing Algorithm example](images/hashing_algorithm.png)
 
@@ -193,5 +193,5 @@ func requestSignature() {
     }
 ```
 
-For the sake of this example, we assume that the response is in JSON format.
+On this example, we assume that the response is in JSON format.
 Once you get the signature, you can create a `HPFPaymentPageRequest` with the necessary parameters and then present the `HPFPaymentScreenViewController` screen. You will get more details about the *payment screen* in the next sections.

@@ -2,11 +2,11 @@
 
 Basically, there are two ways to make payments:
 
-- The [easiest integration](##easiest-integration), allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
+- The [fastest integration](##fastest-integration), allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
 - The [advanced integration](##advanced-integration) using the *core wrapper*. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
-## Easiest integration
+## fastest integration
 
 ### Code example
 This method is used by the demo application. Do not hesitate to test the demo app for a comprehensive example of the built-in payment screen integration.

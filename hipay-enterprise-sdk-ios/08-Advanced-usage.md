@@ -275,7 +275,7 @@ Our SDK allows to present/push the `HPFStoreCardViewController` to make the paym
 
 In the example above, we push a `HPFStoreCardViewController` to our navigation controller and handle the navigation stack with the implemented methods of the `HPFStoreCardDelegate` protocol.
 
-The `storeCardViewController:shouldValidateCardToken:withCompletionHandler:` is an optional delelegate method. Its purpose is to asynchronously let the merchant check the payment card validity.
+The `storeCardViewController:shouldValidateCardToken:withCompletionHandler:` is an optional delegate method. Its purpose is to let the merchant check the payment card validity asynchronously.
 
 The completionBlock takes a boolean as parameter.  
 `NO` causes a call to the `storeCardViewController:didFailWithError:` method, while  
