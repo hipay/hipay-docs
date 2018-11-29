@@ -80,7 +80,7 @@ The following code allows you to configure the SDK. We recommend putting it in y
 
 [[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
                                       privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
-                                      merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
+                                      merchantIdentifier:@"YOUR MERCHANT IDENTIFIER"];
 **/
 ```
 
