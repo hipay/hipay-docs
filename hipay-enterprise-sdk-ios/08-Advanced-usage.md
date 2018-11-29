@@ -1,4 +1,4 @@
-## Core wrapper (advanced integration)
+## Advanced integration
 
 The HiPay Enterprise SDK for iOS contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Enterprise platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
 

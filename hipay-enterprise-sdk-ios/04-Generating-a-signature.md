@@ -1,4 +1,4 @@
-# Generating a server-side signature
+# Signature
 
 In order to perform some actions with the HiPay Enterprise SDK for iOS, such as making a payment or getting transaction details, you need to generate a *signature* on the server side beforehand.
 
