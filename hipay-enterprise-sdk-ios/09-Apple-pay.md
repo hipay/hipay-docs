@@ -8,19 +8,19 @@ Apple Pay gives a secure and easy way to pay within apps and websites. Before st
 ### Merchant ID creation
 
 To use Apple Pay, you have to create an unique identifier, named **Merchant ID**.
-firstly, log in to your Apple developer account in certificate section at https://developer.apple.com/account/ios/certificate/. From the left menu, choose **Merchant IDs** in **Identifiers** section. Then, enter the merchant description to identify between all. The **Identifier** field must to be unique and starting with the string "merchant" like. It recommended to use the reverse domain name like **merchant.com.yourcompany**. Then click on **Continue** button and
+firstly, log in to your Apple developer account in certificate section at https://developer.apple.com/account/ios/certificate/. Choose **Merchant IDs** from the left menu in **Identifiers** section, then, enter the merchant description. The Identifier field has to be unique and begin with "merchant". It is recommended to use the reverse domain name like the following example : **merchant.com.yourcompany**. Then click on **Continue** button.
 
 We recommend to use two merchant ID, one for the production environment and one for the staging environment.
 
 ![Register Merchant ID](images/apple_pay_register_merchant.jpg)
 
-Verify entered information before to click on **Register** button.
+Verify the filled informations before to click on **Register** button.
 
 ![confirmation Merchant ID](images/apple_pay_register_merchant_confirmation.jpg)
 
 ### Apple Pay Payment Processing certificate generation
 
-This certificate is associated with the merchant ID and used to encrypt payment information between Apple Pay servers and HiPay. Every 25 months, this certificate expires. So you may revoked it before its expiration and recreate it.
+This certificate is associated with the merchant ID and used to encrypt payment's information between Apple Pay servers and HiPay. Every 25 months, this certificate expires. So you should revoke it before it expire and recreate it.
 
 1. Select the Merchant ID and click on **Edit** button in **Merchant IDs** section.
 
@@ -30,9 +30,9 @@ This certificate is associated with the merchant ID and used to encrypt payment 
 
 ![create certificate](images/apple_pay_create_certificate.jpg)
 
-3. Follow exactly Apple instructions below **Create a CSR file. (Opional)** title.
+3. Follow exactly Apple's information below **Create a CSR file. (Optional)** title.
 
-4. When you have the **Certificate Signing Request (CSR)** file saved on your disk, click on **Continue** button.
+4. When the **Certificate Signing Request (CSR)** file is save on your disk, click on **Continue** button.
 
 5. Click on **Choose File** button and select the certificate file with the **.certSigningRequest** extension.
 6. Click **Continue**.
@@ -40,24 +40,24 @@ This certificate is associated with the merchant ID and used to encrypt payment 
 8. Click **Done**
 9. Repeat all steps for all your environment
 
-Your new Apple Pay Payment Processing certificate can be found in production certificate list.
+Your new Apple Pay Payment Processing certificate can be found in the production certificate list.
 
 ![create certificate](images/apple_pay_certificate_list.jpg)
 
-More information on certificate signing request creation : https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f
+You can find more informations about certificate signing request creation here : https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f
 
 ### Export the certificate
 
-HiPay will decrypt token sent by Apple Pay because of your Apple Pay Payment Processing certificate. To do that, you have to export your private and public key to HiPay servers. After the reception, we add it to our back office.
+HiPay will decrypt token sent by Apple Pay thanks to your Apple Pay Payment Processing certificate. In order, to do that, you have to export your private and public key to HiPay's servers. After the reception, we will add it to our back office.
 
-1. Launch Keychain on your Mac
-2. Search your **Apple Pay Payment Processing certificate** and the private key associated (it has be generated when you created the certificate)
+1. Launch Keychain on your Mac.
+2. Search your **Apple Pay Payment Processing certificate** and the private key associated (it has be generated when you created the certificate).
 3. Select two items and export them.
 
 ![export keychain](images/apple_pay_export_keychain.jpg)
 
-4. Name the file and export it in **.p12** extension
-5. Protect the file with a strong password
+4. Name the file and export it in **.p12** extension.
+5. Protect the file with a strong password.
 
 ### Edit App ID
 
