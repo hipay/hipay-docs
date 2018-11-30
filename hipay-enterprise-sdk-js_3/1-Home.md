@@ -1,36 +1,34 @@
-# HiPay Entreprise Javascript SDK
+# HiPay Enterprise JavaScript SDK
 
-The HiPay Javascript SDK allows you to tokenize credit or debit cards using the HiPay Enterprise payment platform, directly from your web browser. It enables you to offer a unified payment workflow to your customers while remaining PCI compliant.
+The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards using the HiPay Enterprise payment platform, directly from your web browser. It enables you to offer a unified payment workflow to your customers while remaining PCI DSS compliant.
 
-## Hostedfields
+## Hosted Fields
 
-[HiPay Hostedfields](https://hipay.com/fr/hosted-fields) help you to integrate easily your payment forms. It handle the collect of sensitive information and tokenize them without having it touch your server.
+The [HiPay Hosted Fields](https://hipay.com/fr/hosted-fields) help you to easily integrate your payment forms by collecting sensitive data and tokenizing them without going through your server.
 
-Hostedfields main features: 
+Hosted Fields' main features: 
 
-* Reduce PCI requirements
-* SAQ-A compliant
-* Fully customizable
-* Real-time field validation
-* Formatting and Masking
-* Browser autofill support
-* Responsive
-* Translated error messages
+* Easy and secure integration
+* Simplified PCI DSS requirements/SAQ A eligibility
+* Fully customizable and responsive solution
 * Card brand identification
-* Easy integration
+* Real-time field validation
+* Data formatting and masking
+* Browser autofill support
+* Translated error messages
 * Automatic updates
 
-[Hostedfields integration guide](#hipay-hostedfields-integration-guide)
+Go to: [Hosted Fields integration guide](#hipay-hostedfields-integration-guide)
 
 
-[//]: <> (### Hostedfields examples)
+[//]: <> (### Hosted Fields examples)
 
-[//]: <> (Hostedfields are fully customizable to match perfectly your style guides.)
+[//]: <> (Hosted Fields are fully customizable to perfectly match your style guides.)
 
 [//]: <> (Let's have a look at our [Demonstration page]() to see different payment form integrations.)
 
 
 ## Direct POST
 
-Direct POST allows you to tokenize manually your sensitive information with the [tokenize function](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams).
-If you are looking for reducing PCI requirements or incrinsing your security, you may prefer [Hostedfields](#hostedfields)
+Direct POST allows you to manually tokenize sensitive information with the [tokenize function](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams).
+If you aim at reducing PCI DSS requirements or increasing your security, you may prefer [Hosted Fields](#hostedfields).
