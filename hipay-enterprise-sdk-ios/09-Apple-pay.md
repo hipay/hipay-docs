@@ -84,10 +84,10 @@ After the Apple Pay bundle assignment, Provisioning Profiles must be regenerated
 ![create certificate](images/apple_pay_provisionning_profile.jpg)
 
 1. Click on **All** in **Provisioning Profiles** section.
-2. Select the Profile
-3. Click on **Edit**
-4. Click on **Generate**
-5. Click on it to add to XCode
+2. Select the Profile.
+3. Click on **Edit**.
+4. Click on **Generate**.
+5. Click on it to add to XCode.
 
 ## Setup SDK
 
@@ -103,7 +103,7 @@ Then add the same Merchant ID than created before by clicking on the **(+)** but
 
 ### Integration code
 
-To use Apple Pay in your application, Apple provided a framework named **PassKit**. All classes used in the framework are prefixed by **PK**.
+In order to use Apple Pay in your application,  you will have to use Apple's framework name **PassKit**. All classes used in the framework are prefixed by **PK**.
 
 #### AppDelegate
 
@@ -125,17 +125,17 @@ HPFClientConfig.shared().setApplePayEnabled(true,
                                             merchantIdentifier: "merchant.com.your.company.app")
 ```
 
-- `merchantIdentifier` : Your merchant ID created in [Merchant ID creation](#merchant-id-creation) section
+- `merchantIdentifier` : Your merchant ID created in [Merchant ID creation](#merchant-id-creation) section.
 
--  `privateKeyPassword` It's the same password used in [certificate export section](#export-the-certificate) section
+-  `privateKeyPassword` It's the same password used in [certificate export section](#export-the-certificate) section.
 
 #### Apple Pay Button
 
-Read these Apple Pay guidelines provided by Apple before continue : https://developer.apple.com/apple-pay/marketing/
+You should read theses Apple Pay's guidelines provided by Apple before continuing : https://developer.apple.com/apple-pay/marketing/
 
 We use the **PKPaymentButton** class to show the official Apple Pay button. You can customize it with its type (**PKPaymentButtonType**) and its style (**PKPaymentButtonStyle**) parameters.
 
-In this example below, we use the `canMakePayments` method of the **PKPaymentAuthorizationViewController** class to determine the style of the button in accordance with if the device can make payments with particular networks.
+In this example below, we use the `canMakePayments` method of the **PKPaymentAuthorizationViewController** class to determine the button's style in accordance with the capacity of the device to make payments with particular networks.
 
 **Objective-C**
 ```objc
@@ -191,9 +191,9 @@ class MyApplePayViewController: UIViewController, PKPaymentAuthorizationViewCont
 
 ### Payment Screen
 
-Then, we create an object of type **PKPaymentSummaryItem** which contains a description of the item purchased with its price.
+Then, we create an object of type **PKPaymentSummaryItem** which contains a description of the purchased item with its price.
 
-To initialize the payment controller, you must first create a request of the **PKPaymentRequest** class. We configure its attributes : `merchantIdentifier` , `countryCode`, `supportedNetworks`, `paymentSummaryItems` and many more.
+To initialize the payment controller, you must create a request of the **PKPaymentRequest** class first. You can configure its attributes : `merchantIdentifier` , `countryCode`, `supportedNetworks`, `paymentSummaryItems` and many more.
 After the request creation, we present the **PKPaymentAuthorizationViewController** Apple Pay controller to the user with this request.
 
 More informations about request : https://developer.apple.com/library/archive/ApplePay_Guide/CreateRequest.html
@@ -237,8 +237,7 @@ if let paymentAuthorizationVC = PKPaymentAuthorizationViewController(paymentRequ
 
 ### Apple Pay token
 
-When the user authorizes a payment request, the **PassKit** framework creates a payment token by coordinating with Apple’s server and the Secure Element. This token must be to sent to our HiPay servers. To obtain Apple Pay token, your Apple Pay controller should be conforms to the **PKPaymentAuthorizationViewControllerDelegate** protocol. so we use the `paymentAuthorizationViewController:didAuthorizePayment:completion` delegate's method to retrieve this token. This method more precisely returns an object of type **PKPayment** when the user has validated his payment by Touch ID or Face ID. This object of type **PKPayment** contains an attribute of **PKPaymentToken** class named **token**, which contains **paymentData** attribute.
-
+When the user authorizes a payment request, the **PassKit** framework creates a payment token by coordinating with Apple’s server and the Secure Element. This token has to be sent to our HiPay's servers. To obtain Apple Pay's token, your Apple Pay controller should be conform to the **PKPaymentAuthorizationViewControllerDelegate** protocol. so we use the `paymentAuthorizationViewController:didAuthorizePayment:completion` delegate's method to retrieve this token. More precisely, this method returns an object of type **PKPayment** when the user validated his payment by Touch ID or Face ID. This object of type **PKPayment** contains an attribute of **PKPaymentToken** class named **token**, which contains **paymentData** attribute.
 
 This response can be serialized in JSON file and sent to the **apple-pay/token** endpoint with the **generateTokenWithApplePayToken: privateKeyPassword:andCompletionHandler** SecureVaultClient method. The return object of the method is a **HPFPaymentCardToken** token type. Then, We will be able to create a **Order** and complete the payment. To decrypt the Apple Pay token and retrieve payment informations, back office uses the private key of the certificate **Apple Pay Payment Processing**.
 
