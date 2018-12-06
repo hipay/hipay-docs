@@ -77,10 +77,6 @@ The following code allows you to configure the SDK. We recommend putting it in y
 [[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
 
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
-
-[[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
-                                      privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
-                                      merchantIdentifier:@"YOUR MERCHANT IDENTIFIER"];
 **/
 ```
 
@@ -98,8 +94,6 @@ HPFClientConfig.shared()
 HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
 
 HPFClientConfig.shared().isPaymentCardScanEnabled = true
-
-HPFClientConfig.shared().setApplePayEnabled(false, privateKeyPassword: "YOUR P12 CERTIFICATE PASSWORD", merchantIdentifier: "YOUR MERCHANT IDENTIFIER")
 **/
 ```
 
@@ -121,22 +115,6 @@ You must add the NSCameraUsageDescription key to your Info.plist with a string v
 
 
 ![App URL schemes - Step 7](images/card_scan_privacy.png)    
-
-#### Apple Pay option [OPTIONAL]
-
-If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your **Merchant ID** to make it work.
-
-You need an HiPay Enterprise account configured with Apple Pay to get this functionality. Please contact the HiPay support team.
-
-You can find more information about the Apple Pay configuring environment in the official developer documentation.  
-[https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1)
-
-You can find the implementation in the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
-
-
-![App URL schemes - Step 8](images/apple_pay_capabilities.png)
-
-Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
 
 #### In-store mobile point of sale option (mPOS) [OPTIONAL]
 
