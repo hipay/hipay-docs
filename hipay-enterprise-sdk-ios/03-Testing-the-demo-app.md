@@ -46,10 +46,10 @@ Open the `HiPayFullservice.xcworkspace` workspace by typing the following comman
 
 ### Adding the test credentials
 
-To try the demo application with our HiPay Enterprise API test credentials, open the `parameters.plist` file and set these API username and password:
+To try the demo application with our HiPay Enterprise API test credentials, open the `parameters.plist` file and set these API credentials:
 
-`94666899.stage-secure-gateway.hipay-tpp.com`  
-`Test_6j6SVHimlA5o0NIBdBQH6SVm`
+- Username : `94666899.stage-secure-gateway.hipay-tpp.com`
+- Password : `Test_6j6SVHimlA5o0NIBdBQH6SVm`
 
 ![Setting API credentials for the demo app](images/credentials.png)
 
@@ -59,3 +59,11 @@ Finally, build and run the `HiPayFullservice-Example` target.
 
 [repo]: https://github.com/hipay/hipay-fullservice-sdk-ios
 [cocoapods]: https://cocoapods.org/
+
+### Unit tests
+
+Unit tests are included as part of the demo app. If you want to run the unit tests, you first need to install the demo app by following this guide: [Testing the demo app](#testing-the-demo-app).
+
+When the project is opened in Xcode, make sure that the `HiPayFullservice-Example` target is selected.
+
+Finally, click on *Product* and *Test* to run the unit tests.

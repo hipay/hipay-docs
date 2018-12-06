@@ -2,39 +2,40 @@
 
 ## Build settings
 
-The iOS target version is 8.0, which means that the SDK won't build on applications targeting a lower version of iOS.
+The iOS target version is 9.0, which means that the SDK won't build on applications targeting a lower version of iOS.
 
 ## E-commerce or in-store scenarios
 
 If you use the SDK for e-commerce payments (in-app payments through a payment form), then you can read the document in a linear way.
 
-If you need to use the SDK for processing payments on a physicial payment terminal (mPOS), then you just need to follow a few specific steps, mentioned in the "Installation", "Configuration" and "Advanced usage" sections of this documentation.
+If you need to use the SDK for processing payments on a physical payment terminal (mPOS), then you just need to follow a few specific steps, mentioned in the "Installation", "Configuration" and "Advanced usage" sections of this documentation.
 
 ## Credentials
 
-You need to generate *API credentials* in order for the SDK to send requests to the HiPay Enterprise platform. To do so, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".
+You need to generate *API credentials* in order for the SDK to send requests to the HiPay Enterprise platform.
 
-**Warning: credentials included in the iOS SDK must have a public accessibility, NOT a private accessibility.**  
+**Warning: credentials included in the iOS SDK must have a public accessibility, NOT a private accessibility.**
+
 To be sure that your credentials have the proper accessibility:
 
-- Go to the "Integration" section of your HiPay Enterprise back office.
+- Go to the "Integration" section of your [HiPay Enterprise back office](#https://hipay-tpp.com).
 - Then, click on "Security Settings".
 - Scroll down to "Api credentials".
-- Click on the edit icon next to the credentials you want to use. 
+- Click on the edit icon next to the credentials you want to use.
 - **Finally, make sure that the credentials are set up as displayed on the screenshot below**.
 
 ![Credentials accessibility](images/credentials_accessibility.png)
 
 Your credentials must be granted to:
 
-- Tokenize a card,
-- Get transaction details,
-- Process an order, 
-- Create a payment page.
+- Tokenize a card
+- Get transaction details
+- Process an order
+- Create a payment page
 
 ## Checkout workflow integration
 
-This section informs you about the scope of the HiPay Enterprise SDK for iOS. Some parts of the checkout are integrated on the client side (i.e., your mobile app, thanks to the SDK) while some other parts must be integrated on the server side.
+This section informs you about the HiPay Enterprise SDK’s scope for iOS. Some parts of the checkout are integrated on the client side (i.e., your mobile app, thanks to the SDK) while some other parts must be integrated on the server side.
 
 ### Authentication
 
@@ -48,7 +49,7 @@ Please refer to the diagram below (Mobile checkout workflow) to know when the si
 
 ### Order processing
 
-Order information should not be generated on the client side. Most of the time, orders are generated on the server side (on your servers), following actions performed by your users on your mobile app. The HiPay Enterprise SDK for iOS allows you to present a payment page to your users and process transactions directly on your mobile app. 
+Order information should not be generated on the client side. Most of the time, orders are generated on the server side (on your servers), following actions performed by your users on your mobile app. The HiPay Enterprise SDK for iOS allows you to present a payment page to your users and process transactions directly on your mobile app.
 
 Thus, your mobile app will receive a confirmation with a transaction status indicating that the payment was successfully completed. You may display a confirmation screen upon this confirmation, but you must not process order on the server side following this confirmation. For security reasons, orders must always be confirmed on your systems following the server-to-server notification.
 

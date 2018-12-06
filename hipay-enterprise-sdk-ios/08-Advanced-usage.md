@@ -1,4 +1,4 @@
-## Core wrapper (advanced integration)
+## Advanced integration
 
 The HiPay Enterprise SDK for iOS contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Enterprise platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
 
@@ -23,37 +23,29 @@ This step is mandatory in order to make payments with credit or debit cards, eit
                     multiUse:YES
         andCompletionHandler:^(HPFPaymentCardToken * _Nullable cardToken,
                                NSError * _Nullable error) {
-     
+
      /* The cardToken object should be defined with your token
       * if the tokenization was completed successfully.
       * Otherwise, the error object will be defined */
-     
+
  }];
 ```
 
-### Tokenizing an encrypted Apple Pay token
+#### Swift
+```swift
+HPFSecureVaultClient.shared()
+                .generateToken(withCardNumber: "4111111111111111",
+                               cardExpiryMonth: "12",
+                               cardExpiryYear: "2020",
+                               cardHolder: "John Doe",
+                               securityCode: "496",
+                               multiUse: true,
+                               andCompletionHandler: { (cardToken, error) in
 
-You can tokenize the Apple Pay token using the Secure Vault client as well.
-
-#### Objective-C
-```objectivec
-
-/* We assume you received a PKPayment object
- * from the Apple PassKit delegate method */
-NSString *decodedString = [[NSString alloc] initWithData:payment.token.paymentData
-												encoding:NSUTF8StringEncoding];
-
-[[HPFSecureVaultClient sharedClient]
- generateTokenWithApplePayToken:decodedString
-             privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
-        andCompletionHandler:^(HPFPaymentCardToken * _Nullable cardToken,
-                               NSError * _Nullable error) {
-     
-     /* The cardToken object should be defined with your token
-      * if the tokenization was completed successfully.
-      * Otherwise, the error object will be defined. */
-     
- }];
+                        /* The cardToken object should be defined with your token
+                        * if the tokenization was completed successfully.
+                        * Otherwise, the error object will be defined */
+                })
 ```
 
 ### Updating a token or retrieving information about a token
@@ -78,7 +70,7 @@ request.currency = @"EUR";
 request.orderId = @"TEST_9641952";
 request.shortDescription = @"Outstanding shirt";
 request.operation = HPFOrderRequestOperationSale;
-    
+
 /* Below, optional properties are defined as well.
  * Check the HPFPaymentPageRequest documentation
  * for the full list of parameters */
@@ -86,7 +78,7 @@ request.customer.country = @"FR";
 request.customer.firstname = @"John";
 request.customer.lastname = @"Doe";
 request.customer.email = @"yourclient@domain.com";
-    
+
 /* Payment method info, in this case,
  * we re-use the token which has been
  * generated in the previous section */
@@ -95,14 +87,14 @@ request.paymentMethod = [HPFCardTokenPaymentMethodRequest
     cardTokenPaymentMethodRequestWithToken:@"f39bfab2b6c96fa30dcc0e55aa3da4125a49ab03"
                                        eci:HPFECISecureECommerce
                    authenticationIndicator:HPFAuthenticationIndicatorBypass];
-    
+
 [[HPFGatewayClient sharedClient] requestNewOrder:request signature:signature
                            withCompletionHandler:^(HPFTransaction * _Nullable transaction,
                                                    NSError * _Nullable error) {
     /* Check the transaction object, particularly transaction.state.
      * Or check the error object if the request failed. */
 }];
-    
+
 ```
 
 #### Swift
@@ -114,8 +106,8 @@ request.amount = 155.50;
 request.currency = "EUR"
 request.orderId = "TEST_859674"
 request.shortDescription = "Outstanding shirt"
-request.operation = HPFOrderRequestOperation.Sale
-    
+request.operation = HPFOrderRequestOperation.sale
+
 /* Below, optional properties are defined as well.
  * Check the HPFPaymentPageRequest documentation
  * for the full list of parameters */
@@ -123,7 +115,7 @@ request.customer.country = "FR"
 request.customer.firstname = "John"
 request.customer.lastname = "Doe"
 request.customer.email = "yourclient@domain.com"
-    
+
 /* Payment method info, in this case,
  * we re-use the token which has been
  * generated in the previous section */
@@ -131,38 +123,36 @@ request.paymentProductCode = HPFPaymentProductCodeVisa
 request.paymentMethod = HPFCardTokenPaymentMethodRequest(
     token: "f39bfab2b6c96fa30dcc0e55aa3da4125a49ab03",
     eci: HPFECI.HPFECISecureECommerce,
-    authenticationIndicator: HPFAuthenticationIndicator.Bypass)
-    
-HPFGatewayClient.sharedClient()
-    .requestNewOrder(request, signature: signature) { (
-        transaction: HPFTransaction?,
-        error: NSError?) -> Void in
-    /* Check the transaction object, particularly transaction.state. 
-     * Or check the error object if the request failed. */
-}
+    authenticationIndicator: HPFAuthenticationIndicator.bypass)
+
+    HPFGatewayClient.shared().requestNewOrder(request,
+                                              signature: signature,
+                                              withCompletionHandler: { (transaction, error) in
+        /* Check the transaction object, particularly transaction.state.
+         * Or check the error object if the request failed. */
+    })
 ```
 
 
-### Implementation note 
-The signature parameter is needed for security purposes.  
-Please refer to the [Generating a server-side signature](#generating-a-server-side-signature)  section for details.
+### Implementation note
+The *signature* parameter is required for security. Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
 
 When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes][apple-scheme] (e.g.: `myapp://order-result`).
 
 ### Getting the payment products enabled on your account
 
-In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest:withCompletionHandler:` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using  `HPFPaymentPageRequest` because the list of payment products may change depending on order-related information (i.e. the currency)). 
+In order to get the exact list of payment methods enabled on your account, you can leverage the `getPaymentProductsForRequest:withCompletionHandler:` method of the *Gateway Client*. You need to provide this endpoint with information about your order (by using  `HPFPaymentPageRequest` because the list of payment products may change depending on order-related information (i.e. the currency)).
 
 #### Objective-C
 ```objectivec
 HPFPaymentPageRequest *request = [[HPFPaymentPageRequest alloc] init];
 request.amount = @(155.50);
 request.currency = @"EUR";
-    
+
 // We just want the payment card products
 request.paymentProductCategoryList = @[HPFPaymentProductCategoryCodeCreditCard,
                                        HPFPaymentProductCategoryCodeDebitCard];
-    
+
 [[HPFGatewayClient sharedClient] getPaymentProductsForRequest:request
                                         withCompletionHandler:^(NSArray<HPFPaymentProduct *> * _Nonnull paymentProducts,
                                                                 NSError * _Nullable error) {
@@ -175,24 +165,22 @@ request.paymentProductCategoryList = @[HPFPaymentProductCategoryCodeCreditCard,
 let request = HPFPaymentPageRequest();
 request.amount = 155.50;
 request.currency = "EUR";
-    
+
 // We just want the payment card products
 request.paymentProductCategoryList = [
     HPFPaymentProductCategoryCodeCreditCard,
     HPFPaymentProductCategoryCodeDebitCard
 ]
-    
-HPFGatewayClient.sharedClient()
-    .getPaymentProductsForRequest(request) { (
-        paymentProducts: [HPFPaymentProduct],
-        error: NSError?) -> Void in
+
+HPFGatewayClient.shared().getPaymentProducts(for: request,
+                                             withCompletionHandler: { (paymentProducts, error) in
     // Check the paymentProducts array
-}
+})
 ```
 
 ### Requesting information about a transaction (checking transaction state)
 
-You can get the transactions related to an order or get information about a specific transaction by using the following methods: 
+You can get the transactions related to an order or get information about a specific transaction by using the following methods:
 
 - `getTransactionWithReference:withCompletionHandler:`
 - `getTransactionsWithOrderId:withCompletionHandler:`
@@ -210,16 +198,15 @@ Please find below an example with the transactions linked to the merchant order 
 
 #### Swift
 ```Swift
-HPFGatewayClient.sharedClient()
-    .getTransactionsWithOrderId("TEST_89897", signature: signature) { (
-        transactions: [HPFTransaction]?,
-        error: NSError?) -> Void in
-    // Check the transactions array
-}
+HPFGatewayClient.shared().getTransactionsWithOrderId("TEST_89897",
+                                                     signature: signature,
+                                                     withCompletionHandler: { (transactions, error) in
+       // Check the transactions array
+})
 ```
 
 
-### Implementation note 
+### Implementation note
 The *signature* parameter is required for security purposes.  
 Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
 
@@ -230,14 +217,11 @@ The card storage feature allows to register a `HPFPaymentCardToken` object in th
 
 Since the card storage option is turned ON, you have access to these three `HPFPaymentCardTokenDatabase` class methods:
 
-To get every tokens associated to a currency :  
-`paymentCardTokensForCurrency:` 
+- `paymentCardTokensForCurrency:` To get every tokens associated to a currency
 
-To remove a specific token associated to a currency :  
-`delete:forCurrency` 
+- `delete:forCurrency` To remove a specific token associated to a currency
 
-To remove every tokens located in the iOS device keychain :  
-`clearPaymentCardTokens`
+- `clearPaymentCardTokens` To remove every tokens located in the iOS device keychain
 
 ### Card storage screen
 
@@ -245,7 +229,7 @@ Our SDK allows to present/push the `HPFStoreCardViewController` to make the paym
 
 In the example above, we push a `HPFStoreCardViewController` to our navigation controller and handle the navigation stack with the implemented methods of the `HPFStoreCardDelegate` protocol.
 
-The `storeCardViewController:shouldValidateCardToken:withCompletionHandler:` is an optional delelegate method. Its purpose is to asynchronously let the merchant check the payment card validity.
+The `storeCardViewController:shouldValidateCardToken:withCompletionHandler:` is an optional delegate method. Its purpose is to let the merchant check the payment card validity asynchronously.
 
 The completionBlock takes a boolean as parameter.  
 `NO` causes a call to the `storeCardViewController:didFailWithError:` method, while  
@@ -255,13 +239,13 @@ The completionBlock takes a boolean as parameter.
 ```objectivec
 #import "HPFStoreCardViewController.h"
 
-/* First we add our view 
+/* First we add our view
  * controller as a delegate */
 @interface HPFDemoTableViewController : UIViewController <HPFStoreCardDelegate>
 
 [...]
 
-/* We assume your paymentPageRequest 
+/* We assume your paymentPageRequest
  * is not empty at this moment */
 HPFPaymentPageRequest *paymentPageRequest = [self paymentPageRequest];
 
@@ -270,7 +254,7 @@ HPFStoreCardViewController *storevc = [HPFStoreCardViewController storeCardViewC
 storevc.storeCardDelegate = self;
 
 [self.navigationController pushViewController:storevc animated:YES];
-                                             
+
 [...]
 
 /* Then we implement the  
@@ -294,11 +278,59 @@ storevc.storeCardDelegate = self;
 
 // optional delegate method
 - (void) storeCardViewController:(HPFStoreCardViewController *)viewController shouldValidateCardToken:(HPFPaymentCardToken *)theCardToken withCompletionHandler:(HPFStoreCardViewControllerValidateCompletionHandler)completionBlock {
-    
+
     // typically an async call to check the payment card validity before calling the completionBlock.
     completionBlock(YES);
 }                                            
 ```
+
+#### Swift
+``` Swift
+class HPFDemoTableViewController : UIViewController, HPFStoreCardDelegate {
+
+    //[...]
+
+    func foo() {
+
+        //[...]
+
+        /* We assume your paymentPageRequest
+         * is not empty at this moment */
+
+        let paymentPageRequest = self.paymentPageRequest()
+
+        let storeVC = HPFStoreCardViewController.init(request: paymentPageRequest)
+        storeVC.delegate = self
+
+        self.navigationController?.pushViewController(storeVC, animated: true)
+
+        //[...]
+    }
+
+
+    /* Then we implement the
+     * delegate methods */
+
+    func storeCardViewController(_ viewController: HPFStoreCardViewController, didEndWith theToken: HPFPaymentCardToken) {
+        // inspect the HPFPaymentCardToken object
+        viewController.navigationController?.popViewController(animated: true)
+    }
+
+    func storeCardViewController(_ viewController: HPFStoreCardViewController, didFailWithError theError: Error?) {
+        // inspect the NSError object
+    }
+
+    func storeCardViewControllerDidCancel(_ viewController: HPFStoreCardViewController) {
+        viewController.navigationController?.popViewController(animated: true)
+    }
+
+    // optional delegate method
+    func storeCardViewController(_ viewController: HPFStoreCardViewController, shouldValidate theCardToken: HPFPaymentCardToken, withCompletionHandler completionBlock: @escaping HPFStoreCardViewControllerValidateCompletionHandler) {
+        // typically an async call to check the payment card validity before calling the completionBlock.
+        completionBlock(true);
+    }
+```
+
 
 
 ## In-store physical payments with a mPOS
@@ -309,7 +341,7 @@ In order to use the payment terminal, you need to leverage the `HPFPOSManager` w
 
 ### Terminal connection
 
-When your application is launched, use the `connect` method to allow the terminal to receive transactions. You may call the `disconnect` method if using the payment terminal is no longer relevant in the user flow. 
+When your application is launched, use the `connect` method to allow the terminal to receive transactions. You may call the `disconnect` method if using the payment terminal is no longer relevant in the user flow.
 
 You can check the connection state by using the `connectionState` property. This can be useful for displaying a green light or red light to indicate to the user (basically the shopkeeper) that the connection with the terminal is working.
 
@@ -329,18 +361,18 @@ If the payment terminal has a built-in barcode reader, you can get the scanned c
  * this code at the appropriate time */
 [[HPFPOSManager sharedManager] connect];
 
-/* Once connect is called, do not assume 
- * the library has fully connected to 
- * the device after this call, but 
+/* Once connect is called, do not assume
+ * the library has fully connected to
+ * the device after this call, but
  * wait for the notifications. */
-[[NSNotificationCenter defaultCenter] addObserver:self 
+[[NSNotificationCenter defaultCenter] addObserver:self
                                          selector:@selector(stateChangeNotification:)
                                              name:HPFPOSStateChangeNotification object:nil];
-    
-[[NSNotificationCenter defaultCenter] addObserver:self 
+
+[[NSNotificationCenter defaultCenter] addObserver:self
                                          selector:@selector(barCodeNotification:)
                                              name:HPFPOSBarCodeNotification object:nil];
-                                             
+
 [...]
 
 // Notifies about the current connection state
@@ -348,19 +380,19 @@ If the payment terminal has a built-in barcode reader, you can get the scanned c
 {
     NSDictionary *userInfo = [notification userInfo];
     NSNumber *state = userInfo[HPFPOSConnectionStateKey];
-    
+
     // Connection state
     HPFPOSConnectionState connectionState = [state unsignedIntegerValue];
 }
 
-// Notification sent when barcode is successfuly read
+// Notification sent when barcode is successfully read
 - (void)barCodeNotification:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
-    
+
     // Barcode
     NSString *barCode = userInfo[HPFPOSBarCodeKey];
-    
+
     // Barcode type
     NSString *barCodeType = userInfo[HPFPOSBarCodeTypeKey];
 }                                             
@@ -373,51 +405,51 @@ If the payment terminal has a built-in barcode reader, you can get the scanned c
  * this code at the appropriate time */
 HPFPOSManager.shared().connect()
 
-/* Once connect is called, do not assume 
- * the library has fully connected to 
- * the device after this call, but 
+/* Once connect is called, do not assume
+ * the library has fully connected to
+ * the device after this call, but
  * wait for the notifications. */
 
-        
+
 let nc = NotificationCenter.default
 nc.addObserver(self,
-               selector: #selector(ViewController.stateChangeNotification),
+               selector: #selector(stateChangeNotification),
                name: NSNotification.Name.HPFPOSStateChange,
                object: nil)
-        
+
 nc.addObserver(self,
-               selector: #selector(ViewController.barCodeNotification),
+               selector: #selector(barCodeNotification),
                name: NSNotification.Name.HPFPOSBarCode,
                object: nil)
-                                             
+
 [...]
 
 // Notifies about the current connection state
 @objc func stateChangeNotification(notification:Notification) -> Void {
-        
+
     let userInfo = notification.userInfo        
     let state  = userInfo![HPFPOSConnectionStateKey] as? NSNumber        
-        
+
     // Connection state
     let connectionState = state?.intValue;
 }
 
-// Notification sent when barcode is successfuly read
+// Notification sent when barcode is successfully read
 @objc func barCodeNotification(notification:Notification) -> Void {
-        
+
     let userInfo = notification.userInfo        
-    
+
     // Barcode
     let barCode  = userInfo![HPFPOSBarCodeKey] as? String    
-    
+
     // Barcode type
-    let barCodeType  = userInfo![HPFPOSBarCodeTypeKey] as? String 
+    let barCodeType  = userInfo![HPFPOSBarCodeTypeKey] as? String
 }                                     
 ```
 
 ### Processing transactions
 
-Once your terminal is connected (thanks to the `connect` method), you can initialize transactions on it. Transactions must be initialized through the [HiPay's omnichannel API](https://developer.hipay.com/getting-started/platform-hipay-enterprise/omnichannel/). 
+Once your terminal is connected (thanks to the `connect` method), you can initialize transactions on it. Transactions must be initialized through the [HiPay's omnichannel API](https://developer.hipay.com/getting-started/platform-hipay-enterprise/omnichannel/).
 
 The SDK only allows you to make the payment terminal connected. Transactions must be initialized server-side by using the API mentioned above.
 

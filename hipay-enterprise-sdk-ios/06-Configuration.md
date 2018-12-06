@@ -18,7 +18,7 @@ If you added the Core instead of the default installation line (`pod 'HiPayFulls
 #import <HiPayFullservice/HPFPOSManager.h>
 ```
 
-In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html) to expose this framework (Objective-C files).
+In the case of a Swift project, you must rely on [an Objective-C bridging header](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift) to expose this framework (Objective-C files).
 
 ## Step 2 — Configure the SDK
 
@@ -26,13 +26,13 @@ Then, you need to provide the SDK with a few parameters, such as the credentials
 
 ### Credentials
 
-Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) page.
+Get a valid HiPay Enterprise API username and password. If you don't have any, please refer to the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
 ### Determine your app URL scheme
 
-Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK. 
+Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK.
 
-To do so, the SDK presents your users with a `SafariViewController` web page (on iOS 9+). Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
+To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
 
 To find your app URL schemes, open your Xcode project settings:
 
@@ -73,13 +73,11 @@ The following code allows you to configure the SDK. We recommend putting it in y
                                       password:@"YOUR API PASSWORD"
                                       appURLscheme:@"myshoppingapp"];
 
+/** Optional
 [[HPFClientConfig sharedClientConfig] setPaymentCardStorageEnabled:YES withTouchID:YES];
 
 [[HPFClientConfig sharedClientConfig] setPaymentCardScanEnabled:YES];
-
-[[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
-                                      privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
-                                      merchantIdentifier:"YOUR MERCHANT IDENTIFIER"];
+**/
 ```
 
 #### Swift
@@ -92,16 +90,16 @@ HPFClientConfig.shared()
     password: "YOUR API PASSWORD",
     appURLscheme: "myshoppingapp")
 
+/** Optional
 HPFClientConfig.shared().setPaymentCardStorageEnabled(true, withTouchID: true)
 
 HPFClientConfig.shared().isPaymentCardScanEnabled = true
-
-HPFClientConfig.shared().setApplePayEnabled(false, privateKeyPassword: "YOUR P12 CERTIFICATE PASSWORD", merchantIdentifier: "YOUR MERCHANT IDENTIFIER")
+**/
 ```
 
 Do not forget to **replace the username and password arguments with your API username and password**. Also, **pass your own URL scheme** (determined in the previous section).
 
-#### Payment card storage option
+#### Payment card storage [OPTIONAL]
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
@@ -110,7 +108,7 @@ You can find more information in the [Card storage feature](#usage-making-paymen
 
 ![App URL schemes - Step 6](images/card_storage.png)    
 
-#### Payment card scan option
+#### Payment card scan [OPTIONAL]
 
 At the same time, if you enable the **payment scan card option**, since iOS 10 you must **declare access to camera** to make it work or the app will crash.    
 You must add the NSCameraUsageDescription key to your Info.plist with a string value explaining to the user how the app uses this data. (e.g. "To scan credit cards.")    
@@ -118,23 +116,7 @@ You must add the NSCameraUsageDescription key to your Info.plist with a string v
 
 ![App URL schemes - Step 7](images/card_scan_privacy.png)    
 
-#### Apple Pay option
-
-If you enable the **Apple Pay option**, you need to **turn on Apple Pay in the Capabilities section of your project** and add your **Merchant ID** to make it work.
-
-You need an HiPay Enterprise account configured with Apple Pay to get this functionality. Please contact the HiPay support team.
-
-You can find more information about the Apple Pay configuring environment in the official developer documentation.  
-[https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html#//apple_ref/doc/uid/TP40014764-CH2-SW1)
-
-You can find the implementation in the [Tokenizing an encrypted Apple Pay token](#usage-making-payments-core-wrapper-advanced-integration-tokenizing-an-encrypted-apple-pay-token) page.    
-
-
-![App URL schemes - Step 8](images/apple_pay_capabilities.png)
-
-Once your app goes live, you need to set the environment to `HPFEnvironmentProd`.
-
-#### In-store mobile point of sale option (mPOS)
+#### In-store mobile point of sale option (mPOS) [OPTIONAL]
 
 This section is relevant only if you need to use the SDK for processing transactions in a physical store, on a mobile point of sale (mPOS).
 
@@ -167,10 +149,10 @@ In order for the SDK to be aware of the redirection and to receive the callback 
 
 ### Swift
 ```Swift
-// AppDelegate.swift 
+// AppDelegate.swift
 
 func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
-    return HPFGatewayClient.sharedClient().handleOpenURL(url)
+    return HPFGatewayClient.shared().handleOpen(url)
 }
 ```
 
