@@ -38,7 +38,7 @@ This certificate is associated with the merchant ID and used to encrypt payment'
 6. Click **Continue**.
 7. Click on **Download** button and add the certificate (**.cer**) to your keychain by clicking on it.
 8. Click **Done**
-9. Repeat all steps for all your environment
+9. Repeat all steps for all your environments.
 
 Your new Apple Pay Payment Processing certificate can be found in the production certificate list.
 
@@ -58,6 +58,7 @@ HiPay will decrypt token sent by Apple Pay thanks to your Apple Pay Payment Proc
 
 4. Name the file and export it in **.p12** extension.
 5. Protect the file with a strong password.
+6. Send a mail to support@hipay.com and include the file.
 
 ### Edit App ID
 
@@ -70,7 +71,7 @@ After merchant ID creation and the Apple Pay Processing certificate. You must as
 
 ![create certificate](images/apple_pay_edit_appid.jpg)
 
-5. Assign your Merchant ID to the Apple Pay bundle
+5. Assign your Merchant ID to the Apple Pay bundle.
 
 ![create certificate](images/apple_pay_assign_merchant.jpg)
 
