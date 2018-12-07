@@ -10,7 +10,7 @@ Add this line to your project's `Podfile`:
 
 	pod 'HiPayFullservice'
 
-Optionally, if you want the SDK to calculate the [Device Fingerprint](#https://en.wikipedia.org/wiki/Device_fingerprint) (useful for fraud), add this line as well:
+Optionally, if you want the SDK to calculate the [Device Fingerprint](https://en.wikipedia.org/wiki/Device_fingerprint) (useful for fraud), add this line as well:
 
 	pod 'HiPayFullservice/Device-Print'
 
@@ -20,10 +20,13 @@ Then, run the following command in the same directory as your `Podfile`:
 
 This will install the core wrapper components as well as the built-in payment screen and other utility components.
 
-### Customizing the CocoaPods installation (advanced)
+### Using advanced integration
+
 You can customize the installation if you don't need all the components. For example, if you don't need the built-in payment screen and just want to install the core wrapper, you may only add the following line to your `Podfile`:
 
 	pod 'HiPayFullservice/Core'
+
+Please refer to the [Advanced integration](#usage-making-payments-advanced-integration) section.
 
 ### Using a physical payment terminal
 
@@ -37,4 +40,4 @@ In order to use the SDK for physical payments through such a terminal, add these
 	pod 'HiPayFullservice/Core'
 	pod 'HiPayFullservice/Datecs-POS'
 
-Note that [Git LFS](#https://help.github.com/articles/installing-git-large-file-storage/) is needed to install the Datecs-POS pod.
+Note that [Git LFS](https://help.github.com/articles/installing-git-large-file-storage/) is needed to install the Datecs-POS pod.

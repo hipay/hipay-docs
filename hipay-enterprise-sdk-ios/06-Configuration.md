@@ -32,7 +32,7 @@ Get a valid HiPay Enterprise API username and password. If you don't have any, p
 
 Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK.
 
-To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][apple-scheme].
+To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899].
 
 To find your app URL schemes, open your Xcode project settings:
 
@@ -103,7 +103,7 @@ Do not forget to **replace the username and password arguments with your API use
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
-You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage-feature) page.    
+You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage) page.    
 
 
 ![App URL schemes - Step 6](images/card_storage.png)    
@@ -157,5 +157,3 @@ func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
 ```
 
 And that's it: the HiPay Enterprise SDK for iOS is properly configured.
-
-[apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899

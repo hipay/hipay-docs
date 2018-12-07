@@ -1,5 +1,7 @@
 ## Advanced integration
 
+Before going through this part, make sure you have followed the specific [installation section](#installation-using-cocoapods-using-advanced-integration)
+
 The HiPay Enterprise SDK for iOS contains a layer referred to as the *core wrapper*, which is basically a helpful wrapper of the HiPay Enterprise platform's REST API. By using it, you won't have to send HTTP requests or deal with XML or JSON deserialization. The core wrapper will take care of this for you.
 
 It exposes models and methods that allow you to easily send payment requests. In fact, the built-in payment screen itself relies on the core wrapper for performing order requests, retrieving transaction details, etc.
@@ -47,8 +49,6 @@ HPFSecureVaultClient.shared()
                         * Otherwise, the error object will be defined */
                 })
 ```
-
-### Updating a token or retrieving information about a token
 
 You can also update a token by using the *Secure Vault* method named `updatePaymentCardWithToken:requestID:setCardExpiryMonth:cardExpiryYear:cardHolder:completionHandler:`.
 
@@ -134,10 +134,11 @@ request.paymentMethod = HPFCardTokenPaymentMethodRequest(
 ```
 
 
-### Implementation note
-The *signature* parameter is required for security. Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
+**Implementation note**
 
-When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes][apple-scheme] (e.g.: `myapp://order-result`).
+The *signature* parameter is required for security purposes. Please refer to the [Signature](#signature) section for details.
+
+When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes][https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899] (e.g.: `myapp://order-result`).
 
 ### Getting the payment products enabled on your account
 
@@ -178,7 +179,7 @@ HPFGatewayClient.shared().getPaymentProducts(for: request,
 })
 ```
 
-### Requesting information about a transaction (checking transaction state)
+**Requesting information about a transaction (checking transaction state)**
 
 You can get the transactions related to an order or get information about a specific transaction by using the following methods:
 
@@ -206,12 +207,12 @@ HPFGatewayClient.shared().getTransactionsWithOrderId("TEST_89897",
 ```
 
 
-### Implementation note
-The *signature* parameter is required for security purposes.  
-Please refer to the [Generating a server-side signature](#generating-a-server-side-signature) section for details.
+**Implementation note**
+
+The *signature* parameter is required for security purposes. Please refer to the [Signature](#signature) section for details.
 
 
-### Card storage feature
+### Card storage
 
 The card storage feature allows to register a `HPFPaymentCardToken` object in the iOS device *Keychain*, necessary to use the 1-click payment for your customers.
 
@@ -222,8 +223,6 @@ Since the card storage option is turned ON, you have access to these three `HPFP
 - `delete:forCurrency` To remove a specific token associated to a currency
 
 - `clearPaymentCardTokens` To remove every tokens located in the iOS device keychain
-
-### Card storage screen
 
 Our SDK allows to present/push the `HPFStoreCardViewController` to make the payment card storage easier.  
 
@@ -449,10 +448,8 @@ nc.addObserver(self,
 
 ### Processing transactions
 
-Once your terminal is connected (thanks to the `connect` method), you can initialize transactions on it. Transactions must be initialized through the [HiPay's omnichannel API](https://developer.hipay.com/getting-started/platform-hipay-enterprise/omnichannel/).
+Once your terminal is connected (thanks to the `connect` method), you can initialize transactions on it. Transactions must be initialized through the [HiPay's omnichannel API](https://support.hipay.com/hc/fr/articles/115005221285-HiPay-Enterprise-API-omnicanal).
 
 The SDK only allows you to make the payment terminal connected. Transactions must be initialized server-side by using the API mentioned above.
 
 For a better user experience, once the transaction has been initialized server-side, we recommend you to call the `wakeUp` method, which will force the payment terminal to get the newly initialized transaction. Otherwise, your shopkeeper will have to press a button on the payment terminal in order for it to get the pending transaction.
-
-[apple-scheme]: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899

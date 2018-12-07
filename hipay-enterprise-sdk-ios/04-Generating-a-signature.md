@@ -8,11 +8,11 @@ This *signature* will be used as an additional **parameter** for these `HPFGatew
 - Initialize a hosted payment page
 - Get transaction details
 
-The signature parameter is necessary for security purposes and must be generated on your server beforehand for each order to be paid on the HiPay Enterprise SDK for iOS. You can get more details about these methods in the ["Advanced usage"](#usage-making-payments-core-wrapper-advanced-integration) section.
+The signature parameter is necessary for security purposes and must be generated on your server beforehand for each order to be paid on the HiPay Enterprise SDK for iOS. You can get more details about these methods in the ["Advanced usage"](#usage-making-payments-advanced-integration) section.
 
 ## Signature calculation
 
-The signature is the [hash](#https://en.wikipedia.org/wiki/Cryptographic_hash_function) of these four parameters concatenation:
+The signature is the [hash](https://en.wikipedia.org/wiki/Cryptographic_hash_function) of these four parameters concatenation:
 
 - Order ID
 - Amount (formatted with two decimal places, example: 72.10)
