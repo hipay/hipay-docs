@@ -2,13 +2,12 @@
 
 Basically, there are two ways to make payments:
 
-- The [fastest integration](##fastest-integration), allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
+- The [Fastest integration](#usage-making-payments-fastest-integration), allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
-- The [advanced integration](##advanced-integration) using the *core wrapper*. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
+- The [Advanced integration](#usage-making-payments-advanced-integration) using the *core wrapper*. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
-## fastest integration
+## Fastest integration
 
-### Code example
 This method is used by the demo application. Do not hesitate to test the demo app for a comprehensive example of the built-in payment screen integration.
 
 In this example, we assume that you will test the integration in a controller named `DemoViewController`, but it can be anywhere in your code base.
@@ -143,8 +142,8 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
 }
 ```
 
-### Implementation note
-The *signature* parameter is required for security purposes in the HPFPaymentScreenViewController initialization. Please refer to the [Generating a server-side signature](#generating-a--signature) section for details.
+**Implementation note**
+The *signature* parameter is required for security purposes in the HPFPaymentScreenViewController initialization. Please refer to the [Signature](#signature) section for details.
 
 This example will present the built-in payment screen to your users when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol methods will be called.
 

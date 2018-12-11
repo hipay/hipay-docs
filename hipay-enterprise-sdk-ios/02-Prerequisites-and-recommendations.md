@@ -18,7 +18,7 @@ You need to generate *API credentials* in order for the SDK to send requests to 
 
 To be sure that your credentials have the proper accessibility:
 
-- Go to the "Integration" section of your [HiPay Enterprise back office](#https://hipay-tpp.com).
+- Go to the "Integration" section of your [HiPay Enterprise back office](https://hipay-tpp.com).
 - Then, click on "Security Settings".
 - Scroll down to "Api credentials".
 - Click on the edit icon next to the credentials you want to use.
@@ -43,7 +43,7 @@ When you redirect users to the HiPay iOS SDK's payment page, the SDK will proces
 
 However, credentials are not sufficient. For each order processed by the iOS SDK, the HiPay Enterprise platform must authenticate the call and validate that the merchant has allowed it. To do so, HiPay Enterprise leverages a signature mechanism. Once your app needs to process a payment, it must contact your own server in order to get a signature, specific to the order to be processed.
 
-To know how to generate a signature on the server side, please refer to the ["Generating a server-side signature"](#generating-a-server-side-signature) section.
+To know how to generate a signature on the server side, please refer to the [Signature](#signature) section.
 
 Please refer to the diagram below (Mobile checkout workflow) to know when the signature should be generated in the checkout workflow.
 
