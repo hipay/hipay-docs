@@ -138,7 +138,7 @@ request.paymentMethod = HPFCardTokenPaymentMethodRequest(
 
 The *signature* parameter is required for security purposes. Please refer to the [Signature](#signature) section for details.
 
-When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes][https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899] (e.g.: `myapp://order-result`).
+When requesting a new order, do not forget to check the state of the newly created transaction. Moreover, you may need to redirect your users to a web page if the *forwardUrl* property is defined. In this case, you need to define the redirect URL properties on your order request object: *acceptURL*, *declineURL*, etc. In order for the HiPay platform to properly redirect users to your app, we advise you to use redirect URLs based on [iOS app URL schemes](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899) (e.g.: `myapp://order-result`).
 
 ### Getting the payment products enabled on your account
 

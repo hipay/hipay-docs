@@ -126,9 +126,9 @@ HPFClientConfig.shared().setApplePayEnabled(true,
                                             merchantIdentifier: "merchant.com.your.company.app")
 ```
 
-- `merchantIdentifier` : Your merchant ID created in [Merchant ID creation](#merchant-id-creation) section.
+- `merchantIdentifier` : Your merchant ID created in [Merchant ID creation](#apple-pay-configuration-merchant-id-creation) section.
 
--  `privateKeyPassword` It's the same password used in [certificate export section](#export-the-certificate) section.
+-  `privateKeyPassword` It's the same password used in [Certificate export](#apple-pay-configuration-export-the-certificate) section.
 
 #### Apple Pay Button
 
