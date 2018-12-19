@@ -32,7 +32,7 @@ Get a valid HiPay Enterprise API username and password. If you don't have any, p
 
 Sometimes, your users may be redirected to web pages, for example to follow the 3-D Secure workflow or to process payments with payment methods which cannot be natively supported by the SDK.
 
-To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme][https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899].
+To do so, the SDK presents your users with a `SafariViewController` web page. Eventually, your users will be redirected back to your app using an [app URL scheme](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899).
 
 To find your app URL schemes, open your Xcode project settings:
 
