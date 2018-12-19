@@ -51,8 +51,8 @@ You can find more informations about certificate signing request creation here :
 HiPay will decrypt token sent by Apple Pay thanks to your Apple Pay Payment Processing certificate. In order, to do that, you have to export your private and public key to HiPay's servers. After the reception, we will add it to our back office.
 
 1. Launch Keychain on your Mac.
-2. Search your **Apple Pay Payment Processing certificate** and the private key associated (it has be generated when you created the certificate).
-3. Select two items and export them.
+2. Search your **Apple Pay Payment Processing certificate** with the private key associated (it has be generated when you created the certificate).
+3. Select item and export it.
 
 ![export keychain](images/apple_pay_export_keychain.jpg)
 
