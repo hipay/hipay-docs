@@ -113,7 +113,7 @@ All types require a list of `fields` with a configuration. Other parameters are 
 |----------|------------|
 | fields  <br> <small>object `required`</small> | Object with the fields to generate into your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
-| multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activate the multi_use option to add the one-click payment feature. |
+| multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
 
 #### Fields configuration
 
@@ -126,7 +126,7 @@ Fields have a common set of options and some field-specific options. Some fields
 | helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
 | uppercase  <br> <small>boolean `optional`</small><br><small>`only cardHolder`</small> | Automatically capitalizes all alphabetical cardholder characters<br><br> default: `true`    |
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
-| defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenate defaultFirstname and defaultLastname.    |
+| defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
 
 #### Styles configuration
