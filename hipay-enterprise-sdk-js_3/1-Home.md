@@ -18,7 +18,7 @@ Hosted Fields' main features:
 * Translated error messages
 * Automatic updates
 
-Go to: [Hosted Fields integration guide](#hipay-hostedfields-integration-guide)
+Go to: [HiPay Hosted Fields integration guide](#hipay-hostedfields-integration-guide)
 
 
 [//]: <> (### Hosted Fields examples)
