@@ -170,6 +170,10 @@ This page (hosted & iFrame) can be customized with the merchants’ CSS styleshe
 With the HiPay Enterprise Credit Card API Hosted Fields (direct API integration), customers complete their banking information directly on the merchant's site but the form fields are hosted by HiPay.
 The module calls the HiPay Enterprise API to validate the transaction and the merchant’s website displays the transaction `confirmation` / `refused` / `pending` message.
 
+With the HiPay Enterprise Credit Card API Hosted Fields, PCI compliance is not required.
+
+More about [Hosted fields](https://hipay.com/fr/hosted-fields)
+
 You can configure the following parameters specific to the HiPay Enterprise Credit Card Hosted Fields payment method:
 
 |  Name    |
