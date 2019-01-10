@@ -40,14 +40,14 @@ Create an instance of the HiPay JavaScript SDK using your HiPay public credentia
 ## The HiPay instance
 
 
-* [hipay.tokenize(params)](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams)
-* [hipay.create(type, options)](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options) *Recommended*
+* [hipay.tokenize(params)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams)
+* [hipay.create(type, options)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options) *Recommended*
 
 
 ### hipay.tokenize(params)
 
 Directly call the tokenization API in order to tokenize credit card information. The function calls the API only if parameters are valid.
-You may prefer the `Hosted Fields integration` with [hipay.create()](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options).
+You may prefer the `Hosted Fields integration` with [hipay.create()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options).
 
 #### Tokenization request
 
@@ -217,8 +217,8 @@ var card = hipay.create('card', options);
 
 Payment product instances are created by hipay.create().
 
-* [instance.on(‘event’, callback)](#hipay-sdk-js-reference-the-payment-product-instance-instanceonevent-callback)
-* [instance.createToken()](#hipay-sdk-js-reference-the-payment-product-instance-instancecreatetoken)
+* [instance.on(‘event’, callback)](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instanceonevent-callback)
+* [instance.createToken()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetoken)
 
 ### instance.on('event', callback)
 
@@ -251,7 +251,7 @@ card.on('change', function(response){
 
 Use this function to get a token generated from the Hosted Fields values. This token can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
-When successful, it returns the same object as [hipay.tokenize()](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams).
+When successful, it returns the same object as [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams).
 <br>
 In case of an error, it returns a `translated error message` as text <small>(e.g.: 'Card number is missing').</small>
 

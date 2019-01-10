@@ -35,8 +35,8 @@ The HiPay Javascript SDK allows you to tokenize credit or debit cards using the 
                 <div class="sectionBody">
                     <p class="align-left">This section will help you to integrate the Javascript SDK. It contains all the functions that will allows you create a HiPay Hosted fields instance and to directly tokenise the credit card informations.</p>
                     <p>Note about Direct POST :</p>
-                    <p class="align-left">Direct POST allows you to tokenize manually your sensitive information with the <a href="../Reference/#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams">tokenize function</a>.</p>
-                    <p class="align-left">If you are looking for reducing PCI requirements or incrinsing your security, you may prefer <a href="../Integration-Guide/#hipay-hostedfields-integration-guide">Hostedfields</a>.</p>
+                    <p class="align-left">Direct POST allows you to tokenize manually your sensitive information with the <a href="../Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams">tokenize function</a>.</p>
+                    <p class="align-left">If you are looking for reducing PCI requirements or incrinsing your security, you may prefer <a href="../Integration-Guide/#hipay-hosted-fields-integration-guide">Hostedfields</a>.</p>
                 </div>
                 <div class="sectionFooter">
                     <button class="btn blue square btn-lg" onclick="window.location.assign('../Reference/');">JavaScript SDK Reference</button>
