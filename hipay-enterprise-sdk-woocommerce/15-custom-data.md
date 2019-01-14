@@ -1,6 +1,7 @@
 # Custom data
 
 It is possible to send additional information in the transaction that can then be viewed on the HiPay back office. For this, you can use the the filter functionality from Wordpress.
+Custom data can be received and processed later in HiPay notifications.
 
 Please see the documentation on Devdocs: https://developer.wordpress.org/reference/functions/add_filter/
 

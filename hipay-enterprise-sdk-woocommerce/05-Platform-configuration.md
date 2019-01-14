@@ -14,7 +14,18 @@ When changing your IP addresses, make sure that all the new ones are configured 
 
 ## Configure notification URLs
 
-To use the HiPay Enterprise plugin, you need to configure the notification URLs in your HiPay Enterprise back office, from the "_Integration_" tab, in the "_Notifications_" section.
+To use the HiPay Enterprise plugin, you need to configure the notification URLs. 
+
+For this two methods are possible:
+
+### 1. Let the CMS send the notification URL in the transaction (Recommended)
+
+You need to enable the option "_Send url Notification_" in the **HiPay Enterprise Credit Card** payment method 
+configuration panel and under the Payment Method tab. 
+
+### 2. Configure the URL in the HiPay Enterprise back office
+
+In your HiPay Enterprise back office, from the "_Integration_" tab, in the "_Notifications_" section.
 
 - Notification URL:    http://www.{your-domain.com}/wc-api/WC_HipayEnterprise
 - Request method:      HTTP POST

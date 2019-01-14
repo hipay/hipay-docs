@@ -6,18 +6,22 @@ To configure your HiPay Enterprise plugin, click on "_WooCommerce -> Settings ->
 
 ![legend](images/plugin-configuration.png)
 
+
+You have found the general configuration of the module and the configuration of payment by credit card.
+Before accessing the configuration you can now activate the payment method.
+
 ## Preamble
 
 The new configuration interface of the plugin is divided into four tabs:
 
 - **Plugin settings**: Configure API IDs to use the HiPay Gateway. You can also configure whether the plugin is in production or test mode. 
-- **Payment methods**: Configure the payment methods to be activated and how payments must be processed: page hosted by HiPay or form on your checkout page.
+- **Payment methods**: Configure the payment methods to be activated and how payments must be processed: Hosted Fields or Hosted page
 - **Fraud**: Configure recipients' email addresses for "challenged" payment notifications.
 - **FAQ**: Find answers to frequently asked questions on how to use the plugin
 
-## Plugin settings
+## 1. Plugin settings
 
-You must first fill in this information after the plugin has been installed.
+You must start fill in this information after the plugin has been installed.
 This screen allows you to configure the API IDs required to run the HiPay services.
 
 This screen is comprised of three elements:
@@ -48,9 +52,9 @@ Private credentials are used to process payments on the HiPay API. These identif
 
 | Name               | Description |
 |:------------|:------------|
-| Username                      | Your HiPay Enterprise production account API username      |
-| Password                      | Your HiPay Enterprise production account API password     |
-| Secret passphrase               | Your HiPay Enterprise secret passphrase   |
+| **Username**                      | Your HiPay Enterprise production account API username      |
+| **Password**                      | Your HiPay Enterprise production account API password     |
+| **Secret passphrase**               | Your HiPay Enterprise secret passphrase   |
 
 
 **Tokenization (Public)**
@@ -60,8 +64,8 @@ Public credentials are used as part of the JavaScript tokenization. These identi
 
 | Name               | Description |
 |:------------|:------------|
-| Username                      | Your HiPay Enterprise production account API username      |
-| Password                      | Your HiPay Enterprise production account API password    |
+| **Username**                      | Your HiPay Enterprise production account API username      |
+| **Password**                      | Your HiPay Enterprise production account API password    |
 
 #### Sandbox configuration
 

@@ -4,7 +4,7 @@
 
 Download the ZIP package of the latest release at this address [https://github.com/hipay/hipay-enterprise-sdk-woocommerce/releases](https://github.com/hipay/hipay-enterprise-sdk-woocommerce/releases).
 
-The ZIP package of the plugin is the one named hipay-enterprise-sdk-woocommerce-{version-number}.zip
+The ZIP package of the plugin is the one named **hipay-enterprise-sdk-woocommerce-{version-number}.zip**
 
 ## Upload the plugin via the Wordpress plugin management page
 
@@ -25,10 +25,9 @@ You must have a file transfer software like "_FileZilla_" for example.
 
 ## Activate the plugin 
 
-After 
-
 1. Go to "_Plugins -> Installed Plugins_". 
 2. Search for the "_WooCommerce HiPay Enterprise_" plugin.
-3. Click on “Activate” in the plugin description.
+3. Verify the plugin version. 
+3. Click on “_Activate_” in the plugin description.
 
 ![legend](images/activate-plugin.png)

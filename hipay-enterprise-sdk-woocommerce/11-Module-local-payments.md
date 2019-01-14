@@ -14,10 +14,12 @@ To configure your HiPay Enterprise plugin, click on "_WooCommerce -> Settings ->
 
 ## Local payment method settings
 
-Configuration is done as for [credit cards](#global-plugin-and-credit-card-configuration-payment-methods-credit-card), except for certain local payments: "currencies" and "countries" cannot be modified.
+Configuration is done as for [credit cards](#global-plugin-and-credit-card-configuration-payment-methods-credit-card), 
+except for certain local payments: "currencies" and "countries" cannot be modified because they are imposed by the payment 
+method. 
 
 You can also define the following elements for each payment method:
 
    | Name          | Description | Value |
    |:--------------|:------------|:-----|
-   | Display name  |  Name displayed on the PrestaShop checkout page | String  |
+   | Display name  |  Displayed on the Woocommerce checkout page | String  |
