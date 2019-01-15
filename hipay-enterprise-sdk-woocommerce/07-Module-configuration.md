@@ -7,8 +7,7 @@ To configure your HiPay Enterprise plugin, click on "_WooCommerce -> Settings ->
 ![legend](images/plugin-configuration.png)
 
 
-You have found the general configuration of the module and the configuration of payment by credit card.
-Before accessing the configuration you can now activate the payment method.
+Before accessing the configuration you have to activate the payment method by clicking on the switch.
 
 ## Preamble
 
