@@ -53,7 +53,7 @@ status will be executed when the command changes to processing, complete.
 
 ## Refund
 
-We support the native feature. So to do an refund please : 
+We support the native feature. So process a refund please : 
 
 1. Go to: "_WooCommerce > Orders_"
 2. Select the order you wish to refund.
@@ -62,7 +62,7 @@ We support the native feature. So to do an refund please :
 5. Add refund notes, if desired.
 6. Click Refund $X via HiPay
 
-The status of the order to evolve:
+The status of the order will evolve to:
 - **Partially refunded**: If you have not refunded all of the items in the order
 - **Refunded**: If you have refunded all of the items
 
