@@ -181,7 +181,7 @@ account different from the authenticated one.
 
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
-|`type`             |N            |12           |M          |Type of KYC/KYB document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`type`             |N            |12           |M          |Type of KYC/KYB document (please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
 |`file`             |AN           |255          |M          |KYC/KYB document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
 |`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (type `1`) <br/>- Optional for other KYC/KYB documents
@@ -493,7 +493,7 @@ curl_close($curl);
 |`message`                  |Displays the message related to the code
 |`user_space`               |ID of the user space being verified <br/>- Deprecated: will be removed soon
 |`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual review is being performed to identify the user space
-|`documents`                |All the required KYC/KYB documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
+|`documents`                |All the required KYC/KYB documents for this user space:<br/>- type: please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
 *Table 14: Response fields*
 
 ##Status codes and status labels
@@ -611,8 +611,8 @@ To set your notification URL, please [submit a request](https://support.hipay.co
 |`message`                 |Description of the status
 |`date`                    |Date of the notification (`YYYY-MM-DD`)
 |`time`                    |Time of the notification (`HH:MM:SS Time zone`)
-|`document_type`           |Type of KYC/KYB document<br/>(please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
-|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`document_type`           |Type of KYC/KYB document<br/>(please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
+|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
 |`account_id`              |HiPay account ID for which the KYC/KYB was uploaded
 *Table 16: Response fields*
 

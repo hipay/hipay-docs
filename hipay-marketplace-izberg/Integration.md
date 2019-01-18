@@ -7,7 +7,7 @@ HiPay is fully integrated into Izberg, allowing you to manage both cash-in and c
 
 ## HiPay Marketplace solution information
 
-Before going through this documentation, you may [read information about the HiPay Marketplace offer](https://developer.hipay.com/getting-started/platform-hipay-marketplace/overview/).
+Before going through this documentation, you may [read information about the HiPay Marketplace offer](/getting-started/platform-hipay-marketplace/overview/).
 
 ## Izberg account
 
@@ -25,7 +25,7 @@ You need your HiPay Marketplace account information (e-wallet details). These in
 
 # Objective
 
-The HiPay Marketplace integration for Izberg covers all your needs related to payments and financial matters. The whole solution is compliant with European regulations ([click here for more information](https://developer.hipay.com/getting-started/platform-hipay-marketplace/overview/)).
+The HiPay Marketplace integration for Izberg covers all your needs related to payments and financial matters. The whole solution is compliant with European regulations ([click here for more information](/getting-started/platform-hipay-marketplace/overview/)).
 
 The integration addresses all the marketplace financial needs:
 
@@ -117,7 +117,7 @@ Then copy and paste the *Username* value into the *REST API Login* field and cop
 
 ![Izberg back office - Payment config - Payment form style](images/bo_izberg_payment_form_style.png)
 
-You may customize the cash-in payment page by uploading your own CSS (cascading style sheet) file. For more information, refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-fullservice/overview/).
+You may customize the cash-in payment page by uploading your own CSS (cascading style sheet) file. For more information, refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-enterprise/overview/).
 
 The *Payment Form Template* option allows you to choose whether you want the end user to be fully redirected to our payment page or if you want the payment form to be integrated into the checkout.
 

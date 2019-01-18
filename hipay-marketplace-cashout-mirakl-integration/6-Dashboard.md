@@ -90,7 +90,7 @@ You can run the following commands through the `Fix errors` form:
 - `Wallet account creation` corresponding to the [vendor:process](#general-usage-available-commands-vendor-processing) command,
 - `Generate operations` corresponding to the [cashout:generate:process](#general-usage-available-commands-cash-out-generation) command,
 - `Transfer` corresponding to the [cashout:transfer](#general-usage-available-commands-transfer-processing) command,
-- `Withdraw` corresponding to the [cashout:withdraw](#general-usage-available-commands-withdraw-processing) command.
+- `Withdraw` corresponding to the [cashout:withdraw](#general-usage-available-commands-withdrawal-processing) command.
 
 For `Wallet account creation` and `Generate operations` commands, you can specify a date from which vendors or transactions will be retrieved from the Mirakl platform.
 

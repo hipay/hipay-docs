@@ -17,7 +17,7 @@ The following acronyms and abbreviations are used in this document.
 
 ## Overview
 
-First of all, we invite you to visit our [corporate website](https://hipay.com/en/omnichannel-payment-services) for an overview of HiPay's omnichannel solutions.
+First of all, we invite you to visit our [corporate website](https://hipay.com/en/hipay-omnicanal) for an overview of HiPay's omnichannel solutions.
 
 The HiPay Enterprise platform centralizes payment management both for your online and physical stores. The HiPay Gateway allows you to process electronic payments from your online store as well as to initialize transactions on in-store payment terminals, through a single platform.
 
@@ -77,7 +77,7 @@ Implementing POS scenarios through HiPay is thus easier if you are already famil
 
 #### Creating transactions
 
-To initialize a transaction, you need to send a request to the **`POST /order`** service endpoint. You can find the full list of parameters for this endpoint as well as live testing tools in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder). This API is the same as the one used to process e-commerce payments.
+To initialize a transaction, you need to send a request to the **`POST /order`** service endpoint. You can find the full list of parameters for this endpoint as well as live testing tools in the [HiPay Omnichannel Order API section](/doc-api/omnichannel/api/#!/payments/requestNewOrder). This API is the same as the one used to process e-commerce payments.
 
 In order to initialize transactions on payment terminals, you:
 
@@ -97,7 +97,7 @@ These parameters are listed below.
 | `order_point` | Alphabetic | No | No | Order point used by customers to place orders. This parameter accepts two values: `web` or `store`. If your customer is ordering from a tablet in your store, you must provide `store` (the `web` value is only useful for e-reservation orders). **Providing a value is strongly recommended.**
 | `pos_transaction_lifetime` | Numeric | No | Yes | Lifetime of the transaction on the payment terminal, in seconds. If the transaction has not been processed within this timeframe, it will transition to the *expired* status. We recommend you to provide a value of `60`, which equals to 1 minute.
 
-You also need to send other global parameters related to the order, such as the amount, the customer's e-mail address, etc. All these parameters are documented in the [HiPay Enterprise Gateway API section](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+You also need to send other global parameters related to the order, such as the amount, the customer's e-mail address, etc. All these parameters are documented in the [HiPay Omnichannel Gateway API section](/doc-api/omnichannel/api/#!/payments/requestNewOrder).
 
 #### Call example
 
@@ -125,7 +125,7 @@ curl -X POST \
 'https://stage-secure-gateway.hipay-tpp.com/rest/v1/order'
 ```
 
-You can also perform test API calls from [our live testing tool](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+You can also perform test API calls from [our live Omnichannel testing tool](/doc-api/omnichannel/api/#!/payments/requestNewOrder).
 
 ### Payment on mobile point of sale (mPOS)
 
@@ -135,7 +135,7 @@ Once a transaction has been initialized through the API mentioned in the previou
 
 For using the HiPay Enterprise SDK for iOS in your application to process transactions on a mPOS, please read [its documentation](/doc/hipay-enterprise-sdk-ios/).
 
-The mPOS does not manage receipt printing. This receipt is present in the notification (upon the Authorization) and [transaction API](/doc-api/enterprise/gateway/#!/transaction).
+The mPOS does not manage receipt printing. This receipt is present in the notification (upon the Authorization) and [transaction API](/doc-api/omnichannel/api/#!/transaction/getOrderTransactions).
 
 ### Examples
 

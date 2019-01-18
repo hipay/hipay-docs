@@ -104,7 +104,7 @@ The payment methods in question are **Klarna Invoice** and **Oney Facily Pay**.
 Oney's Fraud system requires additional configuration for shipping method and product categories.
 The configuration is explained in the following paragraph.
 
-Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*] (https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
+Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
 
 Please assume that  **"Adjustment Fee"** or **"Adjustment Refund"** are not supported with baskets for refunds.
 

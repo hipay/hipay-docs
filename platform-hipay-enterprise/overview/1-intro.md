@@ -54,7 +54,7 @@ The Gateway API allows you to get paid as well as to manage orders and transacti
 
 The HiPay Enterprise JavaScript SDK for tokenization allows you to tokenize credit or debit cards using the HiPay Enterprise payment platform, directly from the web browser. This method (called Direct Post in the PCI Council terminology) enables you to offer a unified payment workflow to your customers while remaining PCI compliant.
 
-**[Click here to access the full documentation for the HiPay Enterprise JavaScript SDK for tokenization (Direct Post)](/doc/hipay-enterprise-sdk-js/#hipay-enterprise-sdk-for-javascript-direct-post).**
+**[Click here to access the full documentation for the HiPay Enterprise JavaScript SDK for tokenization (Direct Post)](/doc/hipay-enterprise-sdk-js_3/Home/).**
 
 ## Finance API
 
@@ -109,7 +109,7 @@ Only authenticated users and system components are allowed to access the Gateway
 
 ## Introduction
 
-**Overview**: This chapter describes how to implement <a href="https://hipay.com/en/3d-secure-system" target="_blank">3-D Secure authentication.</a>
+**Overview**: This chapter describes how to implement <a href="https://hipay.com/en/3d-secure-en" target="_blank">3-D Secure authentication.</a>
 
 **Description**: This process involves redirecting customers to an authentication page. This page is provided and hosted by the customer's card issuer. Therefore, we have no control over its appearance or functionality.
 

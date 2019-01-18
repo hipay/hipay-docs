@@ -37,7 +37,7 @@ All methods have basic configuration like native Magento 2 payment methods confi
 |Order status when payment refused|Status to set to the order when the transaction fails. *On Hold* by default.|
 |Order status when payment cancelled|Status to set to the order when the transaction is canceled by the user. *Canceled* by default.|
 |HiPay status to validate order|By default, all orders are validated/invoiced upon notification when the *Capture* status  (118) is sent from the HiPay Enterprise platform (~10 min. after capture is requested). You can change this pattern by selecting "Capture Requested". In this case, the order is validated/invoiced directly upon *Capture Requested* (117) status.|
-|Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [[Cron configuration and task information]] section.|
+|Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [Cron configuration and task information](#cron-configuration-and-task-information) section.|
 |Payment products|Allowed payment products. E.g.: Visa, MasterCard, SisalPay...|
 |Use 3D Secure|Configures 3-D Secure. See more configuration details below.|
 |Rules 3D Secure|Configures custom rules to activate or not 3-D Secure mode.|
@@ -119,7 +119,7 @@ If the authorization fails, the customer is redirected to an error page and the 
 
 If the authorization is successful, the customer is redirected to the success page and the status is defined as "_AUTHORIZED_".
 
-To capture the transaction, please see [[Manual capture and refund]].
+To capture the transaction, please see [Manual capture and refund](#manual-capture-and-refund).
 
 ## One-click (only available for credit card payment methods)
 

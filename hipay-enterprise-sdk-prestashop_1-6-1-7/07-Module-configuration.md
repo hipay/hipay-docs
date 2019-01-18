@@ -51,9 +51,9 @@ We strongly advise you to perform tests before launching your site in production
 Use this interface to specify the credentials linked to your HiPay account.
 **These identifiers are used if your module is configured in production mode.**
 
-Generated in your [HiPay Enterprise back office] (https://merchant.hipay-tpp.com) (go to "Integration” => “Security Settings” => “Api credentials” => “Credentials accessibility”), these API credentials are required to use the HiPay Enterprise module.
+Generated in your [HiPay Enterprise back office](https://merchant.hipay-tpp.com) (go to "Integration” => “Security Settings” => “Api credentials” => “Credentials accessibility”), these API credentials are required to use the HiPay Enterprise module.
 
-For more information about credentials generation, please refer to the section on [Credentials](#Credentials).
+For more information about credentials generation, please refer to the section on [Credentials](#prerequisites-and-recommendations-credentials).
 
 **Account (Private)**
 
