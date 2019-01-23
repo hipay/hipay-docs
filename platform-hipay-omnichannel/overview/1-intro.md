@@ -110,15 +110,15 @@ curl -X POST \
 --header 'Authorization: Basic OTQ2NTgzNjUuc3RhZ2Utc2VjdXJlLWdhdGV3YXkuaGlwYXktdHBwLmNvbTpUZXN0X1JoeXBWdktpUDY4VzNLQUJ4eUdoS3Zlcw==' \
 -F orderid=1502198470978 \
 -F eci=10 \
--F description='Blue shirt' \
+-F description='SLIM FIT DOBBY OXFORD SHIRT' \
 -F currency=EUR \
--F amount=1.2 \
+-F amount=140.00 \
 -F language=fr_FR \
 -F email=customer@example.com \
 -F firstname=John \
 -F lastname=Doe \
 -F initialize_payment_terminal=1 \
--F pos_transaction_lifetime=600 \
+-F pos_transaction_lifetime=60 \
 -F payment_terminal_id=62 \
 -F store_id=1 \
 -F order_point=store \
@@ -164,8 +164,8 @@ Response in XML format
   <16>'Auth. code:       7CD700'</16>
   <17>'Auth. resp. code:     00'</17>
   <18>''</18>
-  <19>'AMOUNT:       EUR 125</19>
-  <20>75'</20>
+  <19>'AMOUNT:       EUR 140</19>
+  <20>00'</20>
   <21>'REF:        800000074628'</21>
   <22>''</22>
   <23>'Payment agreement        '</23>
@@ -199,8 +199,8 @@ Response in JSON format
       "16": "'Auth. code:       7CD700'",
       "17": "'Auth. resp. code:     00'",
       "18": "''",
-      "19": "'AMOUNT:       EUR 125",
-      "20": "75'",
+      "19": "'AMOUNT:       EUR 140",
+      "20": "00'",
       "21": "'REF:        800000074628'",
       "22": "''",
       "23": "'Payment agreement        '",
@@ -228,7 +228,7 @@ In that case, the workflow would be:
 
 1. The transaction is initialized, its state is set to **`pending`** and its status to **`174`** (Awaiting Terminal).
 2. The customer pays the transaction on the payment terminal.
-3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`completed`** and its *status* to **`117`** (Capture Requested).
+3. Your server receives a HTTP notification with a status update. The transaction *state* is set to **`completed`** and its *status* to **`118`** (Captured).
 
 #### The transaction is declined on the terminal
 

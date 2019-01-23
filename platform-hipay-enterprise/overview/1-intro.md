@@ -372,7 +372,7 @@ The following are XML and HTTP Post response examples.
 	  <eci>9</eci>
 	  <payment_product>visa</payment_product>
 	  <payment_method>
-	    <token>ce5x096fx6xx05989x170x7x96f94432600491xx</token>
+	    <token>xb6axde89e9xxe50fe2xe9ba408xx0011804dx7be05x6x55576c0xb14cx641xx</token>
 	    <brand>VISA</brand>
 	    <pan>400000******0000</pan>
 	    <card_holder>John Doe</card_holder>
@@ -442,7 +442,7 @@ The following are XML and HTTP Post response examples.
    	cvc_result =
    	eci = 7
    	payment_product = visa
-   	payment_method[token] = ce5x096fx6xx05989x170x7x96f94432600491xx
+   	payment_method[token] = xb6axde89e9xxe50fe2xe9ba408xx0011804dx7be05x6x55576c0xb14cx641xx
    	payment_method[brand] = VISA
    	payment_method[pan] = 400000******0000
    	payment_method[card_holder] = John Doe
