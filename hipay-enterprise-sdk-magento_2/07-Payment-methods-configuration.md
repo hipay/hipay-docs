@@ -18,10 +18,17 @@ Before describing the configuration fields for each payment method, please note 
 A *HOSTED* payment method will redirect your customers to a hosted payment page with a payment form or will display it in iFrame (according to the configuration).  
 For this type of payment method, PCI compliance is not required.
 
-#### API mode
+### API mode
 
 An *API* payment method will embed a payment form directly on your website.  
 For this type of payment method, your website needs to be PCI compliant.
+
+### Hosted fields mode
+
+An *Hosted fields* payment method will embed a payment form directly on your website but the form fields are hosted by HiPay.  
+For this type of payment method, PCI compliance is not required.
+
+More about [Hosted fields](https://hipay.com/hosted-fields) 
 
 ## General configuration
 
@@ -82,6 +89,27 @@ API configuration specific field
 
 ![legend](images/api_config.png)
 
+## Hosted fields mode configuration
+
+Hosted fields configuration specific field
+
+|  Field    |
+|----------|
+|  color    |
+|  fontFamily |
+| fontSize | 
+| fontWeight |
+| placeholder Color|
+| caretColor |
+| iconColor |
+
+![legend](images/hf_config.png)
+
+Those parameters allows you to override default CSS properties in hosted form fields.
+
+To override the default template, please refer to the magento 2 documentation ([doc.](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html)) and the HiPay SDK JS documentation ([doc.](/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
+
+![legend](images/hf_form.png)
 
 # More configuration details
 
@@ -103,7 +131,7 @@ Rules configuration follows the same process as Magento 2 price rules.
 
 ## "Sales" mode (direct capture)
 
-When making a purchase with the "Sales" mode, the capture is automatically requested right after authorization. Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the "Sales" mode, the capture is automatically requested right after authorization. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
 If the payment fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
 
@@ -111,7 +139,7 @@ If the payment is successful, the customer is redirected to the success page and
 
 ## "Authorization" mode
 
-When making a purchase with the "Authorization" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the "Authorization" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
 Customers are not charged directly: you have 7 days to "capture" the order and charge the customer. Otherwise, the order is cancelled.
 

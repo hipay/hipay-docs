@@ -164,6 +164,32 @@ Your website must run with the `HTTPS` protocol to use an iFrame hosted page.
 
 This page (hosted & iFrame) can be customized with the merchants’ CSS stylesheet to fit their website look and feel.
 
+### HiPay Enterprise Credit Card Hosted Fields
+(only available for credit card and debit card payment methods)
+
+With the HiPay Enterprise Credit Card API Hosted Fields (direct API integration), customers complete their banking information directly on the merchant's site but the form fields are hosted by HiPay.
+The module calls the HiPay Enterprise API to validate the transaction and the merchant’s website displays the transaction `confirmation` / `refused` / `pending` message.
+
+With the HiPay Enterprise Credit Card API Hosted Fields, PCI compliance is not required.
+
+More about [Hosted fields](https://hipay.com/hosted-fields)
+
+You can configure the following parameters specific to the HiPay Enterprise Credit Card Hosted Fields payment method:
+
+|  Name    |
+|----------|
+|  color    |
+|  fontFamily |
+| fontSize | 
+| fontWeight |
+| placeholder Color|
+| caretColor |
+| iconColor |
+
+Those parameters allows you to override default CSS properties in hosted form fields.
+
+To override the [default template](#front-end-payment-examples-hipay-enterprise-credit-card-hosted-fields), please refer to the magento 1 documentation ([doc.](https://devdocs.magento.com/guides/m1x/magefordev/mage-for-dev-4.html)) and the HiPay SDK JS documentation ([doc.](/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
+
 ### HiPay Enterprise Hosted Page Split Payment
 (only available for credit card and debit card payment methods)
 

@@ -66,6 +66,10 @@ Here are the instructions to follow when merchants need to create a new order an
 |  Payment Email Sender   | Chooses the sender of the email with the payment link.
 |  Payment Template   | Chooses the email template.
 
+- Under `System > Configuration > Payment Methods`, make sure that the `HiPay Enterprise Hosted MO/TO` payment method is enabled. 
+
+![](images/moto-mg1.png)
+
 ### MO/TO payment for hosted methods
 
 - Create a new order in your Magento back office.
@@ -121,3 +125,6 @@ Split payment statuses:
 You can change the due date or force payment immediately for pending or failed split payments:
 
 ![](images/image15.png)
+
+
+
