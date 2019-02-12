@@ -23,3 +23,7 @@
 ## HiPay Enterprise Hosted Page with iFrame
 
 ![](images/image21.jpg)
+
+## HiPay Enterprise Credit Card Hosted Fields
+
+![](images/hf-front-mg1.png)

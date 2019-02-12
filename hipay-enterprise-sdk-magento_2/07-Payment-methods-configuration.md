@@ -18,10 +18,17 @@ Before describing the configuration fields for each payment method, please note 
 A *HOSTED* payment method will redirect your customers to a hosted payment page with a payment form or will display it in iFrame (according to the configuration).  
 For this type of payment method, PCI compliance is not required.
 
-#### API mode
+### API mode
 
 An *API* payment method will embed a payment form directly on your website.  
 For this type of payment method, your website needs to be PCI compliant.
+
+### Hosted fields mode
+
+An *Hosted fields* payment method will embed a payment form directly on your website but the form fields are hosted by HiPay.  
+For this type of payment method, PCI compliance is not required.
+
+More about [Hosted fields](https://hipay.com/hosted-fields) 
 
 ## General configuration
 
@@ -82,6 +89,27 @@ API configuration specific field
 
 ![legend](images/api_config.png)
 
+## Hosted fields mode configuration
+
+Hosted fields configuration specific field
+
+|  Field    |
+|----------|
+|  color    |
+|  fontFamily |
+| fontSize | 
+| fontWeight |
+| placeholder Color|
+| caretColor |
+| iconColor |
+
+![legend](images/hf_config.png)
+
+Those parameters allows you to override default CSS properties in hosted form fields.
+
+To override the default template, please refer to the magento 2 documentation ([doc.](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html)) and the HiPay SDK JS documentation ([doc.](https://developer.hipay.com/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
+
+![legend](images/hf_form.png)
 
 # More configuration details
 
