@@ -54,7 +54,7 @@ With these components, sensitive information filled in by customers never hits y
 
 You can now integrate your HTML page. 
 
-### Mode auto
+### Automatic mode
 
 You simply have to place a `div` with a unique `id` in your page. The form will be injected inside automatically.
 
@@ -73,7 +73,7 @@ You simply have to place a `div` with a unique `id` in your page. The form will 
 </form>
 ```
 
-### Mode custom
+### Custom mode
  
 You simply have to replace `ìnput` elements by `div` elements. These elements need to have a unique `id`.
 
@@ -112,7 +112,7 @@ In this example, the HiPay Enterprise JavaScript SDK will generate a hosted fiel
 
 ## 3 - Create the payment product instance
 
-### Mode auto
+### Automatic mode
 
 Now that the HTML div is ready, we can generate all the fields with their label inside.
 ```html
@@ -125,7 +125,7 @@ Now that the HTML div is ready, we can generate all the fields with their label 
 </script>
 ```
 
-### Mode custom
+### Custom mode
 
 Now that the HTML form is ready, we can generate fields inside. To do so, you need to create an instance of a credit card with the HiPay Enterprise JavaScript SDK instance previously initialized.
 
