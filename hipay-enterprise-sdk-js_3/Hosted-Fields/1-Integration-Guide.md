@@ -1,10 +1,16 @@
-# HiPay Hosted Fields integration guide
+# HiPay Hosted Fields quickstart
 
-This guide will walk you through the creation of a payment form using the HiPay Hosted Fields.
+
+This guide will walk you through the creation of a credit card payment form using the HiPay Hosted Fields.
 
 You will see how to create your payment form, customize it, interact with it, and securely get a `token` generated from sensitive card information. This token will enable you to make a transaction using the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
+This guide show you the 2 integration modes:
+- Auto-generated form with material design
+- Custom form
+
 Please follow these 6 steps to create your payment form with the HiPay Hosted Fields:
+
 
 1. [Set up the HiPay Enterprise JavaScript SDK](#hipay-hosted-fields-integration-guide-1-set-up-the-hipay-enterprise-javascript-sdk)
 2. [Set up your HTML form](#hipay-hosted-fields-integration-guide-2-set-up-your-html-form)
@@ -46,7 +52,30 @@ To collect sensitive information securely, the HiPay Enterprise JavaScript SDK w
 <br>
 With these components, sensitive information filled in by customers never hits your page or your web server.
 
-You can now integrate your HTML page. You simply have to replace `ìnput` elements by `div` elements. These elements need to have a unique `id`.
+You can now integrate your HTML page. 
+
+### Automatic mode
+
+You simply have to place a `div` with a unique `id` in your page. The form will be injected inside automatically.
+
+
+```html
+<form id="hipay-form">
+    <div id="hipay-hostedfields-form">
+        /* All the form will be inserted here */
+    </div>
+    
+    <button type="submit" id="hipay-submit-button" disabled="true">
+        PAY
+    </button>
+    
+    <div id="hipay-error-message"></div>
+</form>
+```
+
+### Custom mode
+ 
+You simply have to replace `ìnput` elements by `div` elements. These elements need to have a unique `id`.
 
 ```html
 <form id="hipay-form">
@@ -82,6 +111,21 @@ You can now integrate your HTML page. You simply have to replace `ìnput` elemen
 In this example, the HiPay Enterprise JavaScript SDK will generate a hosted field in the `hipay-card-holder`, `hipay-card-number`, `hipay-expiry-date`, `hipay-cvc` divs.
 
 ## 3 - Create the payment product instance
+
+### Automatic mode
+
+Now that the HTML div is ready, we can generate all the fields with their label inside.
+```html
+<script>
+    var config = {
+        selector: 'hipay-hostedfields-form' // form container div id
+    };
+    
+    var cardInstance = hipay.create('card', config);
+</script>
+```
+
+### Custom mode
 
 Now that the HTML form is ready, we can generate fields inside. To do so, you need to create an instance of a credit card with the HiPay Enterprise JavaScript SDK instance previously initialized.
 
@@ -138,21 +182,7 @@ These CSS properties are set during Step 3. Let's now add styles to our previous
 ```html
 <script>
     var config = {
-        fields: {
-            cardHolder: {
-                selector: 'hipay-card-holder' // card holder div id
-            },
-            cardNumber: {
-                selector: 'hipay-card-number' // card number div id
-            },
-            expiryDate: {
-                selector: 'hipay-expiry-date' // expiry date div id
-            },
-            cvc: {
-                selector: 'hipay-cvc', // cvc div id
-                helpButton: true // activate the help button
-            }
-        }
+        selector: 'hipay-hostedfields-form',
         styles: {
             base: { // default field styling
               color: "#000000",
@@ -200,11 +230,11 @@ Go to: [instance.on(‘event’, callback)](../Reference/#hipay-enterprise-javas
 
 To securely transmit sensitive information, the HiPay Hosted Fields convert it into a token to be sent to the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) to process your payment. With this token, you will never be able to retrieve the card information.
 
-You can tokenize the information of the card you initialized previously by calling the `createToken()` function. 
+You can tokenize the information of the card you initialized previously by calling the `getPaymentData()` function. 
 <br>
 The best way to tokenize is to add an event listener on the `submit` event of your form.
 
-The `card.createToken()` function returns a `Promise`. When successful, it returns an object with the token. When rejected, it returns the error as string.
+The `card.getPaymentData()` function returns a `Promise`. When successful, it returns an object with the token and all the payment data. When rejected, it returns the list of errors.
  
  ```html
 <script>
@@ -215,36 +245,37 @@ The `card.createToken()` function returns a `Promise`. When successful, it retur
     cardForm.addEventListener("submit", function(event) {
       event.preventDefault();
       /* Tokenize your card information when the submit button is clicked */
-      cardInstance.createToken().then(
+      cardInstance.getPaymentData().then(
         function(response) {
           /* Send token to your server to process payment */
           handlePayment(response.token);
         },
-        function(error) {
-          /* Display error */
-          document.getElementById("hipay-error-message").innerHTML = error;
+        function(errors) {
+          /* Display first error */
+          document.getElementById("hipay-error-message").innerHTML = errors[0].error;
         }
       );
     });
 </script>
 ```
 
-Here is the response from getToken():
+Here is the response from getPaymentData():
 
 ```json
 { 
-     "token": "a12bcab3d4d56ef78abc0d99aa1bc4321a56ab78", 
-     "request_id": "0", 
-     "card_hash": "a12bcab3d4d56ef78abc0d99aa1bc4321a56ab78", 
-     "brand": "VISA", 
-     "pan": "411111xxxxxx1111", 
-     "card_holder": "DOE", 
-     "card_expiry_month": "12", 
-     "card_expiry_year": "2021", 
-     "issuer": "ANY BANK", 
-     "country": "US", 
-     "card_type": "CREDIT" 
+    "payment_product": "visa",
+    "token": "f39bfab2b6fs0q4der3435a49ab03",
+    "request_id": "0",
+    "brand": "VISA",
+    "pan": "411111xxxxxx1111",
+    "card_holder": "JOHN DOE",
+    "card_expiry_month": "12",
+    "card_expiry_year": "2031",
+    "issuer": "JPMORGAN CHASE BANK, N.A.",
+    "country": "US",
+    "card_type": "CREDIT",
+    "device_fingerprint": "..." 
 }
 ```
 
-Go to: [instance.createToken()](../Reference/#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetoken)
+Go to: [instance.getPaymentData()](../Reference/#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancegetpaymentdata)
