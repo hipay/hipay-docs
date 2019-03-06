@@ -46,8 +46,8 @@ The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards
     </div>
 </div>
 
-[//section Hostedfields]: <> (### Hostedfields examples)
+[//section Hostedfields]: <> (### Hosted Fields examples)
 
-[//section Hostedfields]: <> (Hostedfields are fully customizable to match perfectly your style guides.)
+[//section Hostedfields]: <> (Hosted Fields are fully customizable to perfectly match your style guides.)
 
 [//section Hostedfields]: <> (Let's have a look at our [Demonstration page]() to see different payment form integrations.)
