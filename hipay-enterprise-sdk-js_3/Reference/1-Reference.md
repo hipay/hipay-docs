@@ -13,8 +13,8 @@ The first step to use the HiPay Enterprise JavaScript SDK is to include it on yo
 
 The SDK is exposed as a function in a global variable named `HiPay`.
 
-If you use only Hosted Fields via custom fields configuration, you can skip this step.
-Else, you may manually include the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-stylesheet) to increase loading performance. It will be included automatically if you skip this step.
+If you only use Hosted Fields via custom fields configuration, you can skip this step.
+Otherwise, you can manually include the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-stylesheet) to increase loading performance. It will be included automatically if you skip this step.
 
 ```html
 <link href="https://libs.hipay.com/css/base-stylesheet.css" rel="stylesheet" />
@@ -96,14 +96,14 @@ In case of an error, the function returns an error code describing what went wro
 
 ### hipay.updateToken(params)
 
-Directly call the tokenization API in order to update the token previously tokenized with [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams).
+Directly call the tokenization API in order to update the token previously created with [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams).
 
-Please refer to the following documentation for parameters. ([update token API reference](https://developer.hipay.com/doc-api/enterprise/token/))
+Please refer to the following documentation for parameters ([update token API reference](https://developer.hipay.com/doc-api/enterprise/token/)).
 
 
 ### hipay.getDeviceFingerprint()
 
-Get the device fingerprint of the final user in order to send it to HiPay API.
+Get the device fingerprint of the final user in order to send it to the HiPay API.
 
 ### hipay.injectBaseStylesheet()
 
@@ -116,7 +116,7 @@ Remove the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-sty
 
 ### hipay.create(type, options)
 
-Create function is the entrypoint of **Hosted Fields** instances.
+The create function is the entry point of **Hosted Field** instances.
 
 ```js
 var card = hipay.create(type, options);
@@ -168,22 +168,22 @@ Please note that each type has required options.
 | sdd | SEPA form <br><br> required fields: [`gender`, `firstname`, `lastname`, `iban`, `issuer_bank_id`] <br> optional fields: [`bank_name`] |
 | sisal | [] (redirection) |
 | sofort-uberweisung | [] (redirection) |
-| webmoney-transfert | [] (redirection) |
+| webmoney-transfer | [] (redirection) |
 | yandex | [] (redirection) |
 
 #### Options
 
-There are two ways to create Hosted Fields configs:
+There are two ways to create Hosted Field configurations:
 
-- using `selector`, to generated the HTML form template automatically. 
-- using `fields`, to create custom HTML template.
+- using `selector`, to generate the HTML form template automatically, 
+- using `fields`, to create a custom HTML template.
 
-You can't use these options together.
+You cannot use these options together.
 
 | Option | Description |
 |----------|------------|
-| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form in. |
-| fields  <br> <small>object `optional`</small> | Object with the fields to generate into your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
+| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form. |
+| fields  <br> <small>object `optional`</small> | Object with the fields to generate within your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
 | multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
 
@@ -193,13 +193,13 @@ Fields have a common set of options and some field-specific options. Some fields
 
 | Option | Description |
 |----------|------------|
-| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the hosted field. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
+| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Field. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
 | placeholder  <br> <small>string `optional`</small> | Customizes the placeholder text. <br> Be careful, default placeholders are translated according to the lang configuration.   |
-| helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
-| uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters<br><br> default: `true`    |
+| helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of the field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
+| uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
-| defaultText  <br> <small>string `optional`</small><br><small>`only text fields`</small> | Prefill the text field with the value. <small>(Use defaultFirstName and defaultLastName for cardHolder)</small>    |
+| defaultText  <br> <small>string `optional`</small><br><small>`only text fields`</small> | Prefills the text field with the value. <small>(Uses defaultFirstName and defaultLastName for cardHolder.)</small>    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
 
 #### Styles configuration
@@ -325,18 +325,18 @@ card.on('change', function(response){
 
 ### instance.createToken() [DEPRECATED]
 
-This function will be deprecated. Please use [instance.getPaymentData()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancegetpaymentdata)
+This function has been deprecated. Please use [instance.getPaymentData()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancegetpaymentdata) instead.
 
 ### instance.getPaymentData() 
 
-Use this function to get data from the Hosted Fields iframes. These data can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+Use this function to get data from the Hosted Field iFrames. These data can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
-When successful, it returns the same object as [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams) for cards and return an object with fields data for others types.
-<br>In addition, it return always the payment product and the device fingerprint inside this object
+When successful, it returns the same object as [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams) for cards and returns an object with field data for other types.
+<br>In addition, it always returns the payment product and the device fingerprint inside this object.
 
-In case of an error, it returns the list of errors.
+In case of error(s), it returns the list of error(s).
 
-Example for a credit card Hosted Fields instance.
+Example for a credit card Hosted Field instance.
 
 ```js
 card.getPaymentData().then(
@@ -353,14 +353,14 @@ Result
 ```json
 {
   "payment_product": "visa",
-  "token": "f39bfaxxxxxxxxxxxxxxxxxxxa12345a49ab03",
+  "token": "f39bfaxxxxxxxxxxxxxxxxxxxa12345a67ab89",
   "request_id": "0",
   "brand": "VISA",
   "pan": "411111xxxxxx1111",
   "card_holder": "JOHN DOE",
   "card_expiry_month": "12",
   "card_expiry_year": "2021",
-  "issuer": "JPMORGAN CHASE BANK, N.A.",
+  "issuer": "ANY BANK",
   "country": "US",
   "card_type": "CREDIT",
   "device_fingerprint": "..."
@@ -385,9 +385,9 @@ Error
 
 ### instance.destroy()
 
-Use this function to `destroy` properly the Hosted Fields instance.
+Use this function to properly `destroy` Hosted Field instances.
  
-It will remove active event listeners and clean iframes containers. If you generated your form automatically via `selector` config. It will clean the container.
+It will remove active event listeners and clean iFrame containers. If you generated your form automatically via `selector` configuration, it will clean the container.
 
 ```js
 card.destroy();
@@ -429,7 +429,7 @@ To help you with styling, the following classes are toggled on `div` containers 
 | HiPayField--valid | Applied when the field value is valid |
 | HiPayField--invalid | Applied when the field value is invalid (and not empty) |
 
-In your style sheet, you can add rules like:
+In your stylesheet, you can add rules like:
 
 
 ```css
@@ -446,7 +446,7 @@ In your style sheet, you can add rules like:
 
 Base stylesheet refers to the default CSS stylesheet loaded when you use Hosted Payments or Hosted Fields with `selector`.
 
-This stylesheet is automatically added in the `<head>` of your HTML page but you include it manually to increase loading performance.
+This stylesheet is automatically added in the `<head>` of your HTML page, but you can include it manually to increase loading performance.
 
 ```html
 <link href="https://libs.hipay.com/css/base-stylesheet.css" rel="stylesheet" />
