@@ -1,13 +1,13 @@
-# HiPay Hosted Fields quickstart
+# HiPay Hosted Fields integration guide
 
 
 This guide will walk you through the creation of a credit card payment form using the HiPay Hosted Fields.
 
 You will see how to create your payment form, customize it, interact with it, and securely get a `token` generated from sensitive card information. This token will enable you to make a transaction using the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
-This guide show you the 2 integration modes:
-- Auto-generated form with material design
-- Custom form
+This guide will show you the two possible integration modes:
+- the automatic mode (auto-generated form with Material Design),
+- the custom mode (custom form).
 
 Please follow these 6 steps to create your payment form with the HiPay Hosted Fields:
 
@@ -62,7 +62,7 @@ You simply have to place a `div` with a unique `id` in your page. The form will 
 ```html
 <form id="hipay-form">
     <div id="hipay-hostedfields-form">
-        /* All the form will be inserted here */
+        /* The whole form will be inserted here */
     </div>
     
     <button type="submit" id="hipay-submit-button" disabled="true">
@@ -108,7 +108,7 @@ You simply have to replace `ìnput` elements by `div` elements. These elements n
 </form>
 ```
 
-In this example, the HiPay Enterprise JavaScript SDK will generate a hosted field in the `hipay-card-holder`, `hipay-card-number`, `hipay-expiry-date`, `hipay-cvc` divs.
+In this example, the HiPay Enterprise JavaScript SDK will generate a Hosted Field in the `hipay-card-holder`, `hipay-card-number`, `hipay-expiry-date`, `hipay-cvc` divs.
 
 ## 3 - Create the payment product instance
 
@@ -125,7 +125,7 @@ Now that the HTML div is ready, we can generate all the fields with their label 
 </script>
 ```
 
-### Custom mode
+### Custom mode
 
 Now that the HTML form is ready, we can generate fields inside. To do so, you need to create an instance of a credit card with the HiPay Enterprise JavaScript SDK instance previously initialized.
 
@@ -238,7 +238,7 @@ The `card.getPaymentData()` function returns a `Promise`. When successful, it re
  
  ```html
 <script>
-    /* Get form */
+    /* Get the form */
     let cardForm = document.getElementById("hipay-form");
     
     /* Add event listener on the submit button when clicked */
@@ -264,14 +264,14 @@ Here is the response from getPaymentData():
 ```json
 { 
     "payment_product": "visa",
-    "token": "f39bfab2b6fs0q4der3435a49ab03",
+    "token": "f12bfab3b4fs5q6der7895a98ab76",
     "request_id": "0",
     "brand": "VISA",
     "pan": "411111xxxxxx1111",
     "card_holder": "JOHN DOE",
     "card_expiry_month": "12",
     "card_expiry_year": "2031",
-    "issuer": "JPMORGAN CHASE BANK, N.A.",
+    "issuer": "ANY BANK",
     "country": "US",
     "card_type": "CREDIT",
     "device_fingerprint": "..." 
