@@ -172,7 +172,7 @@ The module calls the HiPay Enterprise API to validate the transaction and the me
 
 With the HiPay Enterprise Credit Card API Hosted Fields, PCI compliance is not required.
 
-More about [Hosted fields](https://hipay.com/hosted-fields)
+More about [Hosted fields](https://hipay.com/fr/ressources/hosted-fields)
 
 You can configure the following parameters specific to the HiPay Enterprise Credit Card Hosted Fields payment method:
 

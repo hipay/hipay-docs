@@ -28,7 +28,7 @@ For this type of payment method, your website needs to be PCI compliant.
 An *Hosted fields* payment method will embed a payment form directly on your website but the form fields are hosted by HiPay.  
 For this type of payment method, PCI compliance is not required.
 
-More about [Hosted fields](https://hipay.com/hosted-fields) 
+More about [Hosted fields](https://hipay.com/fr/ressources/hosted-fields)
 
 ## General configuration
 
