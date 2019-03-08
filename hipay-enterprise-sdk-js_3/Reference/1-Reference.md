@@ -98,7 +98,7 @@ In case of an error, the function returns an error code describing what went wro
 
 Directly call the tokenization API in order to update the token previously created with [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams).
 
-Please refer to the following documentation for parameters ([update token API reference](https://developer.hipay.com/doc-api/enterprise/token/)).
+Please refer to the following documentation for parameters ([update token API reference](/doc-api/enterprise/token/)).
 
 
 ### hipay.getDeviceFingerprint()
@@ -291,7 +291,7 @@ var card = hipay.create('card', options);
 Payment product instances are created by [hipay.create()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options).
 
 * [instance.on(‘event’, callback)](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instanceonevent-callback)
-* [instance.createToken() [DEPRECATED]](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetokendeprecated)
+* [instance.createToken() [DEPRECATED]](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetoken-deprecated)
 * [instance.getPaymentData()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancegetpaymentdata)
 * [instance.destroy()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancedestroy)
 
