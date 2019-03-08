@@ -116,7 +116,7 @@ Remove the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-sty
 
 ### hipay.create(type, options)
 
-The create function is the entry point of **Hosted Field** instances.
+The create function is the entry point of **Hosted Fields** instances.
 
 ```js
 var card = hipay.create(type, options);
@@ -173,7 +173,7 @@ Please note that each type has required options.
 
 #### Options
 
-There are two ways to create Hosted Field configurations:
+There are two ways to create Hosted Fields configurations:
 
 - using `selector`, to generate the HTML form template automatically, 
 - using `fields`, to create a custom HTML template.
@@ -193,7 +193,7 @@ Fields have a common set of options and some field-specific options. Some fields
 
 | Option | Description |
 |----------|------------|
-| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Field. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
+| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Fields. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
 | placeholder  <br> <small>string `optional`</small> | Customizes the placeholder text. <br> Be careful, default placeholders are translated according to the lang configuration.   |
 | helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of the field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
 | uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
@@ -329,14 +329,14 @@ This function has been deprecated. Please use [instance.getPaymentData()](#hipay
 
 ### instance.getPaymentData() 
 
-Use this function to get data from the Hosted Field iFrames. These data can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+Use this function to get data from the Hosted Fields iFrames. These data can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
 When successful, it returns the same object as [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams) for cards and returns an object with field data for other types.
 <br>In addition, it always returns the payment product and the device fingerprint inside this object.
 
 In case of error(s), it returns the list of error(s).
 
-Example for a credit card Hosted Field instance.
+Example for a credit card Hosted Fields instance.
 
 ```js
 card.getPaymentData().then(
@@ -385,7 +385,7 @@ Error
 
 ### instance.destroy()
 
-Use this function to properly `destroy` Hosted Field instances.
+Use this function to properly `destroy` Hosted Fields instances.
  
 It will remove active event listeners and clean iFrame containers. If you generated your form automatically via `selector` configuration, it will clean the container.
 
