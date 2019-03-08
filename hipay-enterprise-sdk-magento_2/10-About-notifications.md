@@ -2,9 +2,9 @@
 
 During the payment workflow, the order status is updated only through HiPay Enterprise notifications.   
 The endpoint for notifications is `http://yourawesomewebsite.com/hipay/notify/index`.  
-It is protected by an encrypted passphrase: don't forget to enter it in your Magento Admin Panel ([[Module configuration]]) and HiPay Enterprise back office ([[Platform configuration]]).  
+It is protected by an encrypted passphrase: don't forget to enter it in your Magento Admin Panel ([Module configuration](#module-configuration)) and HiPay Enterprise back office ([Platform configuration](#platform-configuration)).  
 
-For more information, please see the process in the [Notify](https://github.com/hipay/hipay-fullservice-sdk-magento2/blob/master/src/Model/Notify.php) model.
+For more information, please see the process in the [Notify](https://github.com/hipay/hipay-fullservice-sdk-magento2/blob/master/Model/Notify.php) model.
 
 ## Transaction statuses
 

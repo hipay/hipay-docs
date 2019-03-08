@@ -45,5 +45,5 @@ $transaction = $gatewayClient->requestNewOrder($orderRequest);
 
 <div class="alert alert-danger">
 <i class="fa fa-exclamation-triangle"></i>
-Server side tokenization is deprecated. Please refer to our <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-js/">SDK JS</a>, <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-ios">SDK IOS</a> or <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-android">SDK Android</a> documentations to use client side tokenization (Direct Post).
+Server side tokenization is deprecated. Please refer to our <a href="/doc/hipay-enterprise-sdk-js/">SDK JS</a>, <a href="/doc/hipay-enterprise-sdk-ios">SDK IOS</a> or <a href="/doc/hipay-enterprise-sdk-android">SDK Android</a> documentations to use client side tokenization (Direct Post).
 </div>

@@ -10,7 +10,7 @@ The order is fully invoiced (but not fully captured in the HiPay Enterprise plat
 
 The first installment is always debited on the payment date in Capture mode or when you capture manually in Authorization mode.
 
-Then, with a Cron task (please see [[Cron configuration and task information]]), each installment is debited on its respective payment date.
+Then, with a Cron task (please see [Cron configuration and task information](#cron-configuration-and-task-information)), each installment is debited on its respective payment date.
 
 ## Split payment methods
 
@@ -53,7 +53,7 @@ Don't forget to save the information.
 
 Once you have at least one payment profile, you can configure a split payment method.
 
-For general configuration, please refer to [[Payment methods configuration]].
+For general configuration, please refer to [Payment methods configuration](#payment-methods-configuration).
 
 Specific configuration:
 
@@ -70,7 +70,7 @@ A split payment overview is available in your Magento Admin Panel in `HiPay Ente
 For each installment, you can edit, delete or pay it immediately.  
 You can also change the payment date or the amount to pay.
 
-**Be careful: if you are not sure what to do, please submit a request ([*https://support.hipay.com/hc/en-us/requests/new*] (https://support.hipay.com/hc/en-us/requests/new)) to our Support team.**
+**Be careful: if you are not sure what to do, please submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.**
 
 ![legend](images/split_payment_list.png)
 

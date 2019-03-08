@@ -9,7 +9,7 @@ HiPay Enterprise is fully integrated into WiziShop, allowing you to accept payme
 
 You need a HiPay Enterprise account. The HiPay Enterprise platform will process your customers' payments with a wide variety of payment methods (major credit and debit cards such as Visa, MasterCard and American Express as well as local payment methods).
 
-If you don't have an account yet, please create a test account by clicking on the "Sign Up" button on the [HiPay website](https://hipay.com/product-enterprise/) and [contact us](https://hipay.com/company/offices/).
+If you don't have an account yet, please create a test account by clicking on the "Sign Up" button on the [HiPay website](https://hipay.com/en/enterprise) and [contact us](https://hipay.com/en/contact-us).
 
 ## WiziShop account
 
@@ -47,7 +47,7 @@ At the end of the configuration, you should have filled in the form as follows:
 
 ## 3. Payment workflow customization (optional)
 
-You may customize the payment page by uploading your own CSS (cascading style sheet) file. For more information, please refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-fullservice/overview/). You will be able to upload your CSS file by using the appropriate button on the WiziShop back office.
+You may customize the payment page by uploading your own CSS (cascading style sheet) file. For more information, please refer to the [HiPay Enterprise platform documentation](/getting-started/platform-hipay-enterprise/overview/). You will be able to upload your CSS file by using the appropriate button on the WiziShop back office.
 
 Optionally, you can customize the payment workflow by clicking on the link allowing you to do so in the WiziShop back office. For example, these options allow you to change the payment logo as well as its label. These options are visible by clicking on the link at the bottom of the page, above the "Sauvegarder" button.
 

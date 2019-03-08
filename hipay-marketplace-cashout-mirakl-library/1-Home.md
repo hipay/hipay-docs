@@ -12,4 +12,4 @@ As stated in the previous section, this library needs to be integrated. In most 
 ## Objective
 This library is an implementation of both the HiPay and the Mirakl APIs. It allows you to retrieve payment operations from Mirakl, to transfer funds and to perform withdrawals to bank accounts by using the relevant HiPay Wallet API. In other words, this library allows you to perform withdrawals corresponding to Mirakl's payment operations by leveraging the HiPay Wallet payment solution.
 
-[repo-integration]: https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration
+[repo-integration]: /doc/hipay-marketplace-cashout-mirakl-integration

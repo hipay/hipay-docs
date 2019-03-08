@@ -1,6 +1,6 @@
 # Installation
 
-Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) and [Mirakl account configuration](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#mirakl-account-configuration) sections. 
+Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) and [Mirakl account configuration](/doc/hipay-marketplace-cashout-mirakl-integration/#mirakl-account-configuration) sections. 
 
 Please note that **all relative paths are relative to the root directory of the installation**.
 
@@ -42,7 +42,7 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 
 Please note: if you don't want to set these specific rights on your install folder, updates from GUI will be disabled. However, updates from command line will still be available.
 
-During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](https://developer.hipay.com/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
+During the installation, Composer will ask you to provide some parameters, including your HiPay account credentials and your Mirakl API credentials. Please go to the [Prerequisites and recommendations](/doc/hipay-marketplace-cashout-mirakl-integration/#prerequisites-and-recommendations) section if you need more information about these parameters.
 
 ## Webserver configuration
 

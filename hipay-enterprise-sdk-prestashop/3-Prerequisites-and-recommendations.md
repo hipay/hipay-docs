@@ -15,3 +15,5 @@ The following table shows the acronyms and abbreviations used in this guide and 
 | PAN     | Primary Account Number |
 | PCI DSS | Payment Card Industry Data Security Standards |
 | REST    | Representational State Transfer |
+
+[hipay-fullservice-bo]: https://merchant.hipay-tpp.com/
