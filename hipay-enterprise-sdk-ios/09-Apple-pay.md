@@ -112,7 +112,7 @@ In your AppDelegate file, add this following method to enable Apple Pay with the
 
 **Objective-C**
 
-```objc
+```objectivec
 [[HPFClientConfig sharedClientConfig] setApplePayEnabled:YES
                                       privateKeyPassword:@"YOUR P12 CERTIFICATE PASSWORD"
                                       merchantIdentifier:@"merchant.com.your.company.app"];
@@ -120,7 +120,7 @@ In your AppDelegate file, add this following method to enable Apple Pay with the
 
 **Swift**
 
-```objc
+```swift
 HPFClientConfig.shared().setApplePayEnabled(true,
                                             privateKeyPassword: "YOUR P12 CERTIFICATE PASSWORD",
                                             merchantIdentifier: "merchant.com.your.company.app")
@@ -139,7 +139,7 @@ We use the **PKPaymentButton** class to show the official Apple Pay button. You 
 In this example below, we use the `canMakePayments` method of the **PKPaymentAuthorizationViewController** class to determine the button's style in accordance with the capacity of the device to make payments with particular networks.
 
 **Objective-C**
-```objc
+```objectivec
 #import <UIKit/UIKit.h>
 #import <PassKit/PassKit.h>
 
@@ -167,7 +167,7 @@ In this example below, we use the `canMakePayments` method of the **PKPaymentAut
 ```
 
 **Swift**
-```objc
+```swift
 import PassKit
 
 class MyApplePayViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
@@ -200,7 +200,7 @@ After the request creation, we present the **PKPaymentAuthorizationViewControlle
 More informations about request : https://developer.apple.com/library/archive/ApplePay_Guide/CreateRequest.html
 
 **Objective-C**
-```objc
+```objectivec
 PKPaymentSummaryItem *item = [PKPaymentSummaryItem summaryItemWithLabel:@"Item description" amount:<#PRICE#>];
 
 PKPaymentRequest *paymentRequest = [[PKPaymentRequest alloc] init];
@@ -218,7 +218,7 @@ paymentAuthorizationVC.delegate = self;
 ```
 
 **Swift**
-```objc
+```swift
 let item = PKPaymentSummaryItem.init(label: "Item description", amount: <#PRICE#>)
 
 let paymentRequest = PKPaymentRequest.init()
@@ -246,7 +246,7 @@ More information about Apple Pay token : https://developer.apple.com/library/arc
 
 **Objective-C**
 
-```objc
+```objectivec
 - (void) paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller
                         didAuthorizePayment:(PKPayment *)payment
                                  completion:(void (^)(PKPaymentAuthorizationStatus))completion
@@ -265,7 +265,7 @@ More information about Apple Pay token : https://developer.apple.com/library/arc
 ```
 
 **Swift**
-```objc
+```swift
 func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController,
     didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
 

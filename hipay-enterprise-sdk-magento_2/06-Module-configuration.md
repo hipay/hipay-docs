@@ -6,7 +6,7 @@ Before using the HiPay Enterprise module for Magento 2, the following settings a
 2. Fraud emails configuration.
 
 In your Magento Admin Panel, select:  
-```
+```nohighlight
 Stores => Configuration => Sales [HiPay Enterprise]
 ```
 

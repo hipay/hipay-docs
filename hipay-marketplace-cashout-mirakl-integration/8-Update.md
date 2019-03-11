@@ -16,7 +16,7 @@ This will install the new version of the HiPay Marketplace cash-out integration 
 
 The output should look like:
 
-```
+```nohighlight
 Loading composer repositories with package information
 Updating dependencies (including require-dev)
   - Updating hipay/hipay-wallet-cashout-mirakl-library
@@ -39,7 +39,7 @@ Please note: update through GUI requires that the "Github token" setting has bee
 
 You can update your application by running the following command: 
         
-        $ php bin/console app:update
+	$ php bin/console app:update
 
 The command will perform the following actions:
 
@@ -63,11 +63,11 @@ Make sure you have a backup before updating the full project. You may copy the f
 
 Go to the root directory of the project (where `composer.json` is) and check if there is a `.git` directory by running the following command:
 
-	ls -al .git
+	$ ls -al .git
 	
 The output should look like:
 
-````
+```nohighlight
 drwxr-xr-x  8 root root 4096 May  4 08:16 .
 drwxr-xr-x 10 root root 4096 May  4 08:13 ..
 -rw-r--r--  1 root root   41 May  4 08:13 HEAD
@@ -76,14 +76,14 @@ drwxr-xr-x  2 root root 4096 May  4 08:13 branches
 -rw-r--r--  1 root root   73 May  4 08:13 description
 drwxr-xr-x  2 root root 4096 May  4 08:13 hooks
 ...
-````
+```
 
 **If you get an output like this, go to the next section ("Update the project").**
 
 If you get an error message like `ls: cannot access .git: No such file or directory`, run the following commands to initialize Git:
 
-	git init
-	git remote add origin https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
+	$ git init
+	$ git remote add origin https://github.com/hipay/hipay-wallet-cashout-mirakl-integration
 
 #### 3. Update the project
 
@@ -132,7 +132,7 @@ Run the following commands:
 
 If there are existing vendors in the database but no logs linked to them, you can generate logs by running the following command:
     
-        $ php bin/console logs:vendors:recover
+  $ php bin/console logs:vendors:recover
 
 You may check if the upgrade was successful by trying a simple command, for example: 
 

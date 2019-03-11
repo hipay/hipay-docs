@@ -76,13 +76,13 @@ $ docker-compose up -d
 - Your container is loading: wait for a few seconds while Docker installs PrestaShop and the HiPay module.*
 - You can now test the HiPay Enterprise module in a browser with this URL:
 
-```
+```nohighlight
  http://localhost:8085/
 ```
 
 - To connect to the back office, go to this URL:
 
-```
+```nohighlight
  http://localhost:8085/admin-hipay/
 ```
 

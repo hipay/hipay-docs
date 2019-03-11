@@ -186,7 +186,7 @@ side respectively.
 
 ###Example of a cURL request 
 
-```curl
+```shell
 curl -v -X POST
 https://merchant.hipaywallet.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"
@@ -426,7 +426,7 @@ You may use the Account ID or the Account email login to select an account diffe
 
 ### Example of a cURL request 
 
-```curl
+```shell
 curl -v -X GET
 https://merchant.hipaywallet.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"
