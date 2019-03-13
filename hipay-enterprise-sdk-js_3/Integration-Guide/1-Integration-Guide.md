@@ -115,9 +115,11 @@ In this example, the HiPay Enterprise JavaScript SDK will generate a Hosted Fiel
 ### Automatic mode
 
 Now that the HTML div is ready, we can generate all the fields with their label inside.
+Set template to `auto` to activate automatic mode and set the `id` in selector.
 ```html
 <script>
     var config = {
+        template: 'auto',
         selector: 'hipay-hostedfields-form' // form container div id
     };
     
@@ -182,6 +184,7 @@ These CSS properties are set during Step 3. Let's now add styles to our previous
 ```html
 <script>
     var config = {
+        template: 'auto',
         selector: 'hipay-hostedfields-form',
         styles: {
             base: { // default field styling
