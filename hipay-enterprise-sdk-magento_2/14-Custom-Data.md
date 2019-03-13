@@ -32,6 +32,6 @@ Create a class CustomDataPlugin and implement a method:
 You can put what you want in $result variable.
 You can get inspiration from our CustomDataPlugin plugin located in our module:
 
-https://github.com/hipay/hipay-fullservice-sdk-magento2/blob/master/src/Plugin/CustomDataPlugin.php
+https://github.com/hipay/hipay-fullservice-sdk-magento2/blob/master/Plugin/CustomDataPlugin.php
 
 

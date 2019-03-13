@@ -2,7 +2,7 @@
 
 ## “Sale” mode
 
-When making a purchase with the `sale` mode, the capture is automatically requested right after the authorization. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
+When making a purchase with the `sale` mode, the capture is automatically requested right after the authorization. *Please refer to our [requestNewOrder](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 If the payment fails, the customer is redirected to the error page and the status is defined as configured in the module configuration.
 
@@ -13,7 +13,7 @@ If the payment is successful, the customer is redirected to the success page. Th
 
 ## “Authorization” mode
 
-When making a purchase with the `Authorization` mode, the transaction will be on `waiting capture`. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
+When making a purchase with the `Authorization` mode, the transaction will be on `waiting capture`. *Please refer to our [requestNewOrder](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 The customer is not charged directly: you have 7 days to "capture" the transaction and charge the customer. Otherwise, the order will be cancelled.
 
@@ -65,6 +65,10 @@ Here are the instructions to follow when merchants need to create a new order an
 |  Send an email to customer for paying    |  If "YES", an email with a payment link is sent to the customer for hosted payment. If "NO", the payment has to be done by the administrator in the back office.
 |  Payment Email Sender   | Chooses the sender of the email with the payment link.
 |  Payment Template   | Chooses the email template.
+
+- Under `System > Configuration > Payment Methods`, make sure that the `HiPay Enterprise Hosted MO/TO` payment method is enabled. 
+
+![](images/moto-mg1.png)
 
 ### MO/TO payment for hosted methods
 
@@ -121,3 +125,6 @@ Split payment statuses:
 You can change the due date or force payment immediately for pending or failed split payments:
 
 ![](images/image15.png)
+
+
+

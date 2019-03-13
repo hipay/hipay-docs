@@ -40,14 +40,14 @@ Create an instance of the HiPay JavaScript SDK using your HiPay public credentia
 ## The HiPay instance
 
 
-* [hipay.tokenize(params)](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams)
-* [hipay.create(type, options)](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options) *Recommended*
+* [hipay.tokenize(params)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams)
+* [hipay.create(type, options)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options) *Recommended*
 
 
 ### hipay.tokenize(params)
 
 Directly call the tokenization API in order to tokenize credit card information. The function calls the API only if parameters are valid.
-You may prefer the `Hosted Fields integration` with [hipay.create()](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options).
+You may prefer the `Hosted Fields integration` with [hipay.create()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options).
 
 #### Tokenization request
 
@@ -86,7 +86,7 @@ In case of an error, the function returns an error code describing what went wro
 
 ### hipay.create(type, options)
 
-Create a **HiPay Hosted fields** instance.
+Create a **HiPay Hosted Fields** instance.
 
 
 ```js
@@ -123,8 +123,8 @@ Fields have a common set of options and some field-specific options. Some fields
 |----------|------------|
 | selector  <br> <small>string `optional`</small> | Unique div `id` to generate the hosted field. <br> All fields have a default selector `hipay-{PAYMENT_PRODUCT}-{field}` in snake case. <small>(cardHolder => hipay-card-card-holder)</small> |
 | placeholder  <br> <small>string `optional`</small> | Customizes the placeholder text. <br> Be careful, default placeholders are translated according to the lang configuration.   |
-| helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
-| uppercase  <br> <small>boolean `optional`</small><br><small>`only cardHolder`</small> | Automatically capitalizes all alphabetical cardholder characters<br><br> default: `true`    |
+| helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of the field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
+| uppercase  <br> <small>boolean `optional`</small><br><small>`only cardHolder`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
@@ -217,8 +217,8 @@ var card = hipay.create('card', options);
 
 Payment product instances are created by hipay.create().
 
-* [instance.on(‘event’, callback)](#hipay-sdk-js-reference-the-payment-product-instance-instanceonevent-callback)
-* [instance.createToken()](#hipay-sdk-js-reference-the-payment-product-instance-instancecreatetoken)
+* [instance.on(‘event’, callback)](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instanceonevent-callback)
+* [instance.createToken()](#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetoken)
 
 ### instance.on('event', callback)
 
@@ -249,9 +249,9 @@ card.on('change', function(response){
 
 ### instance.createToken()
 
-Use this function to get a token generated from the Hosted Fields values. This token can be securely sent to your server to call the [HiPay Order API](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+Use this function to get a token generated from the Hosted Fields values. This token can be securely sent to your server to call the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
-When successful, it returns the same object as [hipay.tokenize()](#hipay-sdk-js-reference-the-hipay-instance-hipaytokenizeparams).
+When successful, it returns the same object as [hipay.tokenize()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams).
 <br>
 In case of an error, it returns a `translated error message` as text <small>(e.g.: 'Card number is missing').</small>
 

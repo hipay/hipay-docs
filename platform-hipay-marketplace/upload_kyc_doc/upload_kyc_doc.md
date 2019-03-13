@@ -127,7 +127,6 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 |------ |---------------|--------------
 |`1`    | ID proof      |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the account holder (person)
 |`2`    | Proof of address   |Proof of address issued within the last 3 months<br/>(e.g.: utility/phone bill, rent receipt)
-|`6`    | Bank              |Personal bank account identification document (RIB/IBAN)<br/>– Deprecated: please use the Bank-info API instead.
 *Table 6: KYC/KYB documents for individual accounts*
 
 ### For professional accounts (corporations)
@@ -138,7 +137,6 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 |`1`      |ID proof           |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the legal representative
 |`4`      |Company Registration    |Certificate of incorporation (document certifying Company registration) issued within the last 3 months (Kbis extract or any equivalent document)
 |`5`      |Distribution of power   |Signed Articles of Association with the division of powers (featuring the address of the head office, the name of the company and the name of the legal representative)
-|`6`      |Bank                    |Professional bank account identification document (RIB/IBAN) in the name of the company<br/>– Deprecated: please use the Bank-info API instead.
 *Table 7: KYC/KYB documents for professional accounts (corporations)*
 
 ### For professional accounts (persons)
@@ -147,7 +145,6 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 |------ |---------------------- |---------------------------------------------------------------------------
 |`1`      |ID proof               |A copy of front and back sides of a valid identification document<br/>(ID card or passport) of the individual
 |`8`      |Company Registration   |Registration number with the Registry of Companies (SIREN number or its equivalent)
-|`6`      |Bank                   |Professional bank account identification document (RIB/IBAN) in the name of the individual<br/>– Deprecated: please use the Bank-info API instead.
 *Table 8: KYC/KYB documents for professional accounts (persons)*
 
 ### For association accounts
@@ -158,7 +155,6 @@ This web service requires a **basic HTTP** authentication, with the HiPay techni
 |`11`     |President of association   |Document certifying the function and the name of the legal representative of the association
 |`12`    |Official Journal           |Publication in the dedicated register (or equivalent) or a receipt of the registration of the association issued by public authorities
 |`13`     |Association status         |A copy of the association statutes
-|`6`      |Bank                       |Bank account identification document (RIB/IBAN) in the name of the association<br/>– Deprecated: please use the Bank-info API instead.
 *Table 9: KYC/KYB documents for association accounts*
 
 **Please note:** Professional (corporations) and association accounts also require a document
@@ -181,11 +177,10 @@ account different from the authenticated one.
 
 |Field name       |**Format**   |**Length**   |**Req.**   |**Description**
 |---------------- |------------ |------------ |---------- |-----------------------------------------------------------------
-|`type`             |N            |12           |M          |Type of KYC/KYB document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`type`             |N            |12           |M          |Type of KYC/KYB document (please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
 |`file`             |AN           |255          |M          |KYC/KYB document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
 |`back`             |AN           |255          |C          |Back side of the identification document to upload<br/>- Accepted formats:<br/>`JPG, GIF, PDF, PNG`<br/>- Maximum file size: `15 MB`
 |`validity_date`   |D            |10            |C           |Document expiry date<br/>(`YYYY-MM-DD` format)<br/>- Mandatory for identification documents (type `1`) <br/>- Optional for other KYC/KYB documents
-|`user_space`      |N            |12            |          |ID of the user space (deprecated)
 *Table 11: KYC/KYB document upload related parameters*
 
 
@@ -493,7 +488,7 @@ curl_close($curl);
 |`message`                  |Displays the message related to the code
 |`user_space`               |ID of the user space being verified <br/>- Deprecated: will be removed soon
 |`identification_status`    |User space identification status<br/>- Unidentified: the user space is not identified, documents are missing<br/>- Identified<br/>- Identification in progress: a manual review is being performed to identify the user space
-|`documents`                |All the required KYC/KYB documents for this user space:<br/>- type: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
+|`documents`                |All the required KYC/KYB documents for this user space:<br/>- type: please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description<br/>- label: please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description<br/>- status_code: please see table 15 for a detailed description<br/>- status_label: please see table 15 for a detailed description
 *Table 14: Response fields*
 
 ##Status codes and status labels
@@ -611,8 +606,8 @@ To set your notification URL, please [submit a request](https://support.hipay.co
 |`message`                 |Description of the status
 |`date`                    |Date of the notification (`YYYY-MM-DD`)
 |`time`                    |Time of the notification (`HH:MM:SS Time zone`)
-|`document_type`           |Type of KYC/KYB document<br/>(please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
-|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyc/kyb-documents-with-this-specific-rest-api-types-of-kyc/kyb-documents) for a detailed description)
+|`document_type`           |Type of KYC/KYB document<br/>(please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
+|`document_type_label`     |Description of the document (please see [here](#how-to-upload-kyckyb-documents-with-this-specific-rest-api-types-of-kyckyb-documents) for a detailed description)
 |`account_id`              |HiPay account ID for which the KYC/KYB was uploaded
 *Table 16: Response fields*
 

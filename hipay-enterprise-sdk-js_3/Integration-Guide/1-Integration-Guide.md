@@ -2,16 +2,16 @@
 
 This guide will walk you through the creation of a payment form using the HiPay Hosted Fields.
 
-You will see how to create your payment form, customize it, interact with it, and securely get a `token` generated from sensitive card information. This token will enable you to make a transaction using the [HiPay Order API](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+You will see how to create your payment form, customize it, interact with it, and securely get a `token` generated from sensitive card information. This token will enable you to make a transaction using the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
 Please follow these 6 steps to create your payment form with the HiPay Hosted Fields:
 
-1. [Set up the HiPay Enterprise JavaScript SDK](#hipay-hostedfields-integration-guide-1-set-up-the-javascript-sdk)
-2. [Set up your HTML form](#hipay-hostedfields-integration-guide-2-set-up-your-html-form)
-3. [Create the payment product instance](#hipay-hostedfields-integration-guide-3-create-the-payment-product-instance)
-4. [Customize your payment form](#hipay-hostedfields-integration-guide-4-style-your-payment-form)
-5. [Interact with the form](#hipay-hostedfields-integration-guide-5-interact-with-the-form)
-6. [Tokenize card information](#hipay-hostedfields-integration-guide-6-tokenize-your-card)
+1. [Set up the HiPay Enterprise JavaScript SDK](#hipay-hosted-fields-integration-guide-1-set-up-the-hipay-enterprise-javascript-sdk)
+2. [Set up your HTML form](#hipay-hosted-fields-integration-guide-2-set-up-your-html-form)
+3. [Create the payment product instance](#hipay-hosted-fields-integration-guide-3-create-the-payment-product-instance)
+4. [Customize your payment form](#hipay-hosted-fields-integration-guide-4-customize-your-payment-form)
+5. [Interact with the form](#hipay-hosted-fields-integration-guide-5-interact-with-the-form)
+6. [Tokenize card information](#hipay-hosted-fields-integration-guide-6-tokenize-card-information)
   
 ## 1 - Set up the HiPay Enterprise JavaScript SDK
 
@@ -38,9 +38,9 @@ You must replace `HIPAY-PUBLIC-LOGIN` and `HIPAY-PUBLIC-PASSWORD` with your own 
 </script>
 ```
 
-Go to: [HiPay Enterprise JavaScript SDK reference](#hipay-sdk-js-reference-including-hipay-sdk)
+Go to: [HiPay Enterprise JavaScript SDK reference](../Reference/#hipay-enterprise-javascript-sdk-reference-including-the-hipay-enterprise-javascript-sdk)
 
-## 2 - Set up your HTML form
+## 2 - Set up your HTML form
 
 To collect sensitive information securely, the HiPay Enterprise JavaScript SDK will generate components hosted by HiPay on your page. 
 <br>
@@ -96,7 +96,7 @@ Now that the HTML form is ready, we can generate fields inside. To do so, you ne
                 selector: 'hipay-card-number' // card number div id
             },
             expiryDate: {
-                selector: 'hipay-date-expiry' // expiry date div id
+                selector: 'hipay-expiry-date' // expiry date div id
             },
             cvc: {
                 selector: 'hipay-cvc', // cvc div id
@@ -109,7 +109,7 @@ Now that the HTML form is ready, we can generate fields inside. To do so, you ne
 </script>
 ```
 
-Go to: [hipay.create(type, options)](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options) to see all supported configurations.
+Go to: [hipay.create(type, options)](../Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options) to see all supported configurations.
 
 
 ## 4 - Customize your payment form
@@ -122,12 +122,12 @@ To best match your style guides, the `external` styling (`height`, `border`, `ba
 
 To help you with this integration, the following classes have been added to the container field:
 
-* `HiPayField--empty `
-* `HiPayField--focused `
-* `HiPayField--valid `
-* `HiPayField--invalid `
+* `HiPayField--empty `
+* `HiPayField--focused `
+* `HiPayField--valid `
+* `HiPayField--invalid `
 
-Go to: [Hosted Fields container](#hipay-sdk-js-reference-hostedfield-container)
+Go to: [Hosted Fields container](../Reference/#hipay-enterprise-javascript-sdk-reference-hosted-fields-container)
 
 #### Internal styling
 
@@ -146,7 +146,7 @@ These CSS properties are set during Step 3. Let's now add styles to our previous
                 selector: 'hipay-card-number' // card number div id
             },
             expiryDate: {
-                selector: 'hipay-date-expiry' // expiry date div id
+                selector: 'hipay-expiry-date' // expiry date div id
             },
             cvc: {
                 selector: 'hipay-cvc', // cvc div id
@@ -173,7 +173,7 @@ These CSS properties are set during Step 3. Let's now add styles to our previous
 </script>
 ```
 
-Go to: [Styles configuration](#hipay-sdk-js-reference-the-hipay-instance-hipaycreatetype-options)
+Go to: [Styles configuration](../Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options)
 
 
 ## 5 - Interact with the form
@@ -194,11 +194,11 @@ Here is how to enable your submit button when your form is valid and show the er
 </script>
 ```
 
-Go to: [instance.on(‘event’, callback)](#hipay-sdk-js-reference-the-payment-product-instance-instanceonevent-callback)
+Go to: [instance.on(‘event’, callback)](../Reference/#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instanceonevent-callback)
 
 ## 6 - Tokenize card information
 
-To securely transmit sensitive information, the HiPay Hosted Fields convert it into a token to be sent to the [HiPay Order API](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) to process your payment. With this token, you will never be able to retrieve the card information.
+To securely transmit sensitive information, the HiPay Hosted Fields convert it into a token to be sent to the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) to process your payment. With this token, you will never be able to retrieve the card information.
 
 You can tokenize the information of the card you initialized previously by calling the `createToken()` function. 
 <br>
@@ -247,4 +247,4 @@ Here is the response from getToken():
 }
 ```
 
-Go to: [instance.createToken()](#hipay-sdk-js-reference-the-payment-product-instance-instancecreatetoken)
+Go to: [instance.createToken()](../Reference/#hipay-enterprise-javascript-sdk-reference-payment-product-instances-instancecreatetoken)

@@ -2,7 +2,7 @@
 
 Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](#prerequisites-and-recommendations) section.
 
-You have to use [CocoaPods](#https://cocoapods.org/) to install the HiPay Enterprise SDK for iOS.
+You have to use [CocoaPods](https://cocoapods.org/) to install the HiPay Enterprise SDK for iOS.
 
 ## Using CocoaPods
 

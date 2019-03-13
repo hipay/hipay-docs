@@ -55,7 +55,7 @@ If you are a developer or a QA developer, you can use this project with Docker a
 Requirements for your environment:
 
 - Git (https://git-scm.com/)
-- Docker (https://docs.docker.com/engine/installation/)
+- Docker (https://docs.docker.com/install/)
 - Docker Compose (https://docs.docker.com/compose/)
 
 Here is the procedure to be applied to a Linux environment:

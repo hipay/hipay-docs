@@ -51,7 +51,7 @@ The payment methods in question are **Klarna Invoice** and **Oney Facily Pay**.
 Oney's Fraud system requires additional configuration for shipping method and product categories.
 The configuration is explained in the following paragraph.
 
-Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request] (https://support.hipay.com/hc/en-us/requests/new) to our Support team.
+Please note that this feature is still in beta version. For questions relating to installation and configuration, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request](https://support.hipay.com/hc/en-us/requests/new) to our Support team.
 
 ![](images/image-basket.png)
 
@@ -164,6 +164,32 @@ Your website must run with the `HTTPS` protocol to use an iFrame hosted page.
 
 This page (hosted & iFrame) can be customized with the merchants’ CSS stylesheet to fit their website look and feel.
 
+### HiPay Enterprise Credit Card Hosted Fields
+(only available for credit card and debit card payment methods)
+
+With the HiPay Enterprise Credit Card API Hosted Fields (direct API integration), customers complete their banking information directly on the merchant's site but the form fields are hosted by HiPay.
+The module calls the HiPay Enterprise API to validate the transaction and the merchant’s website displays the transaction `confirmation` / `refused` / `pending` message.
+
+With the HiPay Enterprise Credit Card API Hosted Fields, PCI compliance is not required.
+
+More about [Hosted fields](https://hipay.com/fr/ressources/hosted-fields)
+
+You can configure the following parameters specific to the HiPay Enterprise Credit Card Hosted Fields payment method:
+
+|  Name    |
+|----------|
+|  color    |
+|  fontFamily |
+| fontSize | 
+| fontWeight |
+| placeholder Color|
+| caretColor |
+| iconColor |
+
+Those parameters allows you to override default CSS properties in hosted form fields.
+
+To override the [default template](#front-end-payment-examples-hipay-enterprise-credit-card-hosted-fields), please refer to the magento 1 documentation ([doc.](https://devdocs.magento.com/guides/m1x/magefordev/mage-for-dev-4.html)) and the HiPay SDK JS documentation ([doc.](/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
+
 ### HiPay Enterprise Hosted Page Split Payment
 (only available for credit card and debit card payment methods)
 
@@ -188,11 +214,11 @@ If you want to offer on your website other payment methods than credit card or d
 |Order status when payment cancelled by customer|   Status to be assigned to the order
 |HiPay status to validate order| HiPay status for a Magento transaction to be validated
 |Redirect page pending status| If the transaction result is pending, the customer can be redirected to a pending, success or failure page.
-|Payment Action| Sets the payment mode: *Authorization + Capture* (*Sale*) or*: Authorization Only*.<br/>Please refer to [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).<br/>Must be set to `Sale` for split payment method.
+|Payment Action| Sets the payment mode: *Authorization + Capture* (*Sale*) or*: Authorization Only*.<br/>Please refer to [requestNewOrder](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).<br/>Must be set to `Sale` for split payment method.
 |Credit Card Types|                                 Card types allowed on the payment form
 |Display card owner|                                Enables/disables the cardholder input field on the payment form
 |Credit Card Verification|                          Enables/disables Magento credit card verification
-|Css Url| URL for merchant style sheet for iFrame or Hosted page operating modes.<br/>Important, **HTTPS** protocol is required. Please refer to [generateHostedPaymentPage](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/generateHostedPaymentPage)
+|Css Url| URL for merchant style sheet for iFrame or Hosted page operating modes.<br/>Important, **HTTPS** protocol is required. Please refer to [generateHostedPaymentPage](/doc-api/enterprise/gateway/#!/payments/generateHostedPaymentPage)
 |Page payment template|For iFrame and Hosted page operating modes, you can choose your basic template to show:<br/>**Basic:** Basic responsive design.<br/>**Basic-js:** Advanced responsive design.
 |Display hosted page in iFrame|                     Activates iFrame mode on hosted page. *Please refer to chapter 4.2.*
 |iFrame Height|                                     If iFrame operating mode is chosen, you can select your iFrame height to fit with your CSS.

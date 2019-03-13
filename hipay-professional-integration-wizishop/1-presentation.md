@@ -37,7 +37,7 @@ If you don't have a HiPay Professional account yet, create one by clicking on th
 
 ## 3. HiPay Professional back office
 
-Log in to your HiPay Professional back office. To do so, go to the [HiPay website](https://hipay.com/product-professional/), click on "Login" and choose "Professional".
+Log in to your HiPay Professional back office. To do so, go to the [HiPay website](https://hipay.com/en/hipay-professional), click on "Login" and choose "Professional".
 
 ## 4. API credentials
 

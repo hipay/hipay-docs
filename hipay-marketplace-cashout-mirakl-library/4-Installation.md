@@ -1,6 +1,6 @@
 # Installation
 
-Before starting the installation, please read all instructions and make sure you've gone through the [[Prerequisites and recommendations]] section. 
+Before starting the installation, please read all instructions and make sure you've gone through the [Prerequisites and recommendations](#prerequisites-and-recommendations) section. 
 
 ## Composer
 The installation is best done with [Composer, the PHP package manager][composer].
