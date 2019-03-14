@@ -18,7 +18,7 @@ The new configuration interface of the plugin is divided into four tabs:
 - **Fraud**: Configure recipients' email addresses for "challenged" payment notifications.
 - **FAQ**: Find answers to frequently asked questions on how to use the plugin
 
-## 1. Plugin settings
+## Plugin settings
 
 You must start fill in this information after the plugin has been installed.
 This screen allows you to configure the API IDs required to run the HiPay services.

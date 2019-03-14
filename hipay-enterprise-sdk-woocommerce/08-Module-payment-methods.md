@@ -44,7 +44,7 @@ When you choose the "**_Hosted Fields_**"  as operating mode, you have access to
 | iconColor |
 
 Those parameters allows you to override default CSS properties in hosted form fields.
-For more information, please read the  [ HiPay SDK JS documentation](https://developer.hipay.com/doc/hipay-enterprise-sdk-js_3/Reference/).
+For more information, please read the  [ HiPay SDK JS documentation](/doc/hipay-enterprise-sdk-js_3/Reference/).
 
 To override the default template, please refer to the [Woocommerce documentation](https://docs.woocommerce.com/document/template-structure/). 
 
