@@ -194,7 +194,7 @@ Fields have a common set of options and some field-specific options. Some fields
 
 | Option | Description |
 |----------|------------|
-| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Fields. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
+| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Fields. <br> All fields have a default selector `hipay-{payment product}-field-{field name}`. <small>(cardHolder => hipay-card-field-cardHolder)</small> |
 | placeholder  <br> <small>string `optional`</small> | Customizes the placeholder text. <br> Be careful, default placeholders are translated according to the lang configuration.   |
 | helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of the field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
 | uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
