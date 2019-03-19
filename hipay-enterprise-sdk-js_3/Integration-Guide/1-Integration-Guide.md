@@ -108,7 +108,7 @@ You simply have to replace `ìnput` elements by `div` elements. These elements n
 </form>
 ```
 
-In this example, the HiPay Enterprise JavaScript SDK will generate a Hosted Fields in the `hipay-card-holder`, `hipay-card-number`, `hipay-expiry-date`, `hipay-cvc` divs.
+In this example, the HiPay Enterprise JavaScript SDK will generate a Hosted Field in the `hipay-card-holder`, `hipay-card-number`, `hipay-expiry-date`, `hipay-cvc` divs.
 
 ## 3 - Create the payment product instance
 
