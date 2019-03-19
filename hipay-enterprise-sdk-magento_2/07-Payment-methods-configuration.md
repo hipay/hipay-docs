@@ -28,7 +28,7 @@ For this type of payment method, your website needs to be PCI compliant.
 An *Hosted fields* payment method will embed a payment form directly on your website but the form fields are hosted by HiPay.  
 For this type of payment method, PCI compliance is not required.
 
-More about [Hosted fields](https://hipay.com/hosted-fields) 
+More about [Hosted fields](https://hipay.com/fr/ressources/hosted-fields)
 
 ## General configuration
 
@@ -44,7 +44,7 @@ All methods have basic configuration like native Magento 2 payment methods confi
 |Order status when payment refused|Status to set to the order when the transaction fails. *On Hold* by default.|
 |Order status when payment cancelled|Status to set to the order when the transaction is canceled by the user. *Canceled* by default.|
 |HiPay status to validate order|By default, all orders are validated/invoiced upon notification when the *Capture* status  (118) is sent from the HiPay Enterprise platform (~10 min. after capture is requested). You can change this pattern by selecting "Capture Requested". In this case, the order is validated/invoiced directly upon *Capture Requested* (117) status.|
-|Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [[Cron configuration and task information]] section.|
+|Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [Cron configuration and task information](#cron-configuration-and-task-information) section.|
 |Payment products|Allowed payment products. E.g.: Visa, MasterCard, SisalPay...|
 |Use 3D Secure|Configures 3-D Secure. See more configuration details below.|
 |Rules 3D Secure|Configures custom rules to activate or not 3-D Secure mode.|
@@ -107,7 +107,7 @@ Hosted fields configuration specific field
 
 Those parameters allows you to override default CSS properties in hosted form fields.
 
-To override the default template, please refer to the magento 2 documentation ([doc.](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html)) and the HiPay SDK JS documentation ([doc.](https://developer.hipay.com/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
+To override the default template, please refer to the magento 2 documentation ([doc.](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html)) and the HiPay SDK JS documentation ([doc.](/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
 
 ![legend](images/hf_form.png)
 
@@ -131,7 +131,7 @@ Rules configuration follows the same process as Magento 2 price rules.
 
 ## "Sales" mode (direct capture)
 
-When making a purchase with the "Sales" mode, the capture is automatically requested right after authorization. Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the "Sales" mode, the capture is automatically requested right after authorization. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
 If the payment fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
 
@@ -139,7 +139,7 @@ If the payment is successful, the customer is redirected to the success page and
 
 ## "Authorization" mode
 
-When making a purchase with the "Authorization" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. Please refer to https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the "Authorization" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
 Customers are not charged directly: you have 7 days to "capture" the order and charge the customer. Otherwise, the order is cancelled.
 
@@ -147,7 +147,7 @@ If the authorization fails, the customer is redirected to an error page and the 
 
 If the authorization is successful, the customer is redirected to the success page and the status is defined as "_AUTHORIZED_".
 
-To capture the transaction, please see [[Manual capture and refund]].
+To capture the transaction, please see [Manual capture and refund](#manual-capture-and-refund).
 
 ## One-click (only available for credit card payment methods)
 

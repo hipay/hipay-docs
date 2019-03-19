@@ -103,7 +103,7 @@ Do not forget to **replace the username and password arguments with your API use
 
 Note that if you enable the **payment card storage option**, since XCode 8.0 you need to **turn on the Keychain sharing in the Capabilities section of your project** to make it work.
 
-You can find more information in the [Card storage feature](#usage-making-payments-core-wrapper-advanced-integration-card-storage) page.    
+You can find more information in the [Card storage feature](#usage-making-payments-advanced-integration-card-storage) page.    
 
 
 ![App URL schemes - Step 6](images/card_storage.png)    

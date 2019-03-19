@@ -12,11 +12,11 @@ To configure your HiPay Enterprise module, click on "_Modules -> Modules_” in 
 
 **Notification URL:** 
 
-Here you can see the notification URL you configured in your HiPay Enterprise back office. Please refer to [[Platform configuration]].
+Here you can see the notification URL you configured in your HiPay Enterprise back office. Please refer to [Platform configuration](/doc/hipay-enterprise-sdk-prestashop/#platform-configuration).
 
 **IP address of your server:**
 
-Here you can see the IP address of your server, which must be authorized in your HiPay Enterprise back office. Please refer to [[Platform configuration]].
+Here you can see the IP address of your server, which must be authorized in your HiPay Enterprise back office. Please refer to [Platform configuration](/doc/hipay-enterprise-sdk-prestashop/#platform-configuration).
 
 You can find your HiPay Enterprise API credentials in your HiPay Enterprise back office (https://merchant.hipay-tpp.com), under "_Integration -> Security Settings -> Api credentials_".
 

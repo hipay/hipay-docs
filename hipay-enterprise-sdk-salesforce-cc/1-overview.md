@@ -1378,7 +1378,7 @@ added for each service.
 ##Support
 
 In case of problems with the integration, missing features, etc., please
-contact HiPay’s Business IT Services at [*http://help.hipay.com*](http://help.hipay.com) or your HiPay’s account manager.
+contact HiPay’s Business IT Services at [*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us) or your HiPay’s account manager.
 
 #User guide
 

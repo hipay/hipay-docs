@@ -11,7 +11,7 @@ for your PrestaShop webshop.
 1. [Disclaimer](#disclaimer)
 2. [Prerequisites and recommendations](#prerequisites-and-recommendations)
 3. [Platform configuration](#platform-configuration)
-4. [Module installation](#prestaShop-module-management)
+4. [Module installation](#prestashop-module-management)
 5. [Module configuration](#module-configuration)
 6. [Payment configuration](#payment-configuration)
 

@@ -9,13 +9,13 @@ There are 4 main commands that need to be run automatically by relying on *cron*
 - [Vendor processing](#general-usage-available-commands-vendor-processing),
 - [Cash-out generation](#general-usage-available-commands-cash-out-generation),
 - [Transfer processing](#general-usage-available-commands-transfer-processing),
-- [Withdrawal processing](#general-usage-available-commands-withdraw-processing).
+- [Withdrawal processing](#general-usage-available-commands-withdrawal-processing).
 
 There are also two debug and one update commands that do not need to be run using a *cron* job:
 
-- [Listing wallet accounts](#general-usage-available-commands-listing-of-wallet-accounts),
+- [Listing wallet accounts](#general-usage-available-commands-listing-wallet-accounts),
 - [Getting bank information](#general-usage-available-commands-getting-bank-information),
-- [Recovering vendor logs from past executed cron](#general-usage-available-commands-recover-vendors-logs).
+- [Recovering vendor logs from past executed cron](#general-usage-available-commands-recovering-vendor-logs-from-past-executed-cron).
 
 ## Notifications
 

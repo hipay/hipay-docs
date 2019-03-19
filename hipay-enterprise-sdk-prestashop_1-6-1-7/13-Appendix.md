@@ -2,14 +2,14 @@
 
 ### "Capture" mode
 
-When making a purchase in "capture" mode, the capture is automatically requested right after authorization. For more information about requesting a new order (operation), please refer to our [Developer Portal] (https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+When making a purchase in "capture" mode, the capture is automatically requested right after authorization. For more information about requesting a new order (operation), please refer to our [Developer Portal](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
    - If the payment fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
    - If the payment is successful, the customer is redirected to the success page and the status is defined as "_CAPTURE REQUESTED_".
 
 ### "Automatic" mode
 
-When making a purchase in "automatic" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. For more information about requesting a new order (operation), please refer to our [Developer Portal] (https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+When making a purchase in "automatic" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. For more information about requesting a new order (operation), please refer to our [Developer Portal](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 Customers are not charged directly: you have 7 days to "capture" the order and charge the customer. Otherwise, the order is canceled.
 
   - If the authorization fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
