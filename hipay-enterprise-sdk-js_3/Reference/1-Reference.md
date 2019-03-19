@@ -17,7 +17,7 @@ If you only use Hosted Fields via custom fields configuration, you can skip this
 Otherwise, you can manually include the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-stylesheet) to increase loading performance. It will be included automatically if you skip this step.
 
 ```html
-<link href="https://libs.hipay.com/css/base-stylesheet.css" rel="stylesheet" />
+<link href="https://libs.hipay.com/themes/material.css" rel="stylesheet" />
 ```
 
 ### HiPay (options)
@@ -450,7 +450,7 @@ Base stylesheet refers to the default CSS stylesheet loaded when you use Hosted 
 This stylesheet is automatically added in the `<head>` of your HTML page, but you can include it manually to increase loading performance.
 
 ```html
-<link href="https://libs.hipay.com/shared/base-stylesheet.css" rel="stylesheet" />
+<link href="https://libs.hipay.com/themes/material.css" rel="stylesheet" />
 ```
 
 You can override necessary classes with your own CSS stylesheet to customize your forms.
