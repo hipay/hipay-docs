@@ -17,7 +17,7 @@ If you only use Hosted Fields via custom fields configuration, you can skip this
 Otherwise, you can manually include the [base stylesheet](#hipay-enterprise-javascript-sdk-reference-base-stylesheet) to increase loading performance. It will be included automatically if you skip this step.
 
 ```html
-<link href="https://libs.hipay.com/css/base-stylesheet.css" rel="stylesheet" />
+<link href="https://libs.hipay.com/themes/material.css" rel="stylesheet" />
 ```
 
 ### HiPay (options)
@@ -175,14 +175,15 @@ Please note that each type has required options.
 
 There are two ways to create Hosted Fields configurations:
 
-- using `selector`, to generate the HTML form template automatically, 
+- using `template`, to generate the HTML form template automatically, 
 - using `fields`, to create a custom HTML template.
 
 You cannot use these options together.
 
 | Option | Description |
 |----------|------------|
-| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form. |
+| template <br> <small>string `optional`</small>| If set to `auto`, it activates the generation of the HTML form template automatically. |
+| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form when `template: 'auto'` is set. |
 | fields  <br> <small>object `optional`</small> | Object with the fields to generate within your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
 | multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
@@ -193,7 +194,7 @@ Fields have a common set of options and some field-specific options. Some fields
 
 | Option | Description |
 |----------|------------|
-| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Fields. <br> All fields have a default selector `hipay-field-{field name}`. <small>(cardHolder => hipay-field-cardHolder)</small> |
+| selector  <br> <small>string `optional`</small> | Unique div `id` to generate the Hosted Fields. <br> All fields have a default selector `hipay-{payment product}-field-{field name}`. <small>(cardHolder => hipay-card-field-cardHolder)</small> |
 | placeholder  <br> <small>string `optional`</small> | Customizes the placeholder text. <br> Be careful, default placeholders are translated according to the lang configuration.   |
 | helpButton  <br> <small>boolean `optional`</small> | Adds a clickable help button at the end of the field. An event is triggered on click. <br>For CVC, we also send a generic help message in this event. <br><br> default: `false`    |
 | uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
@@ -387,7 +388,7 @@ Error
 
 Use this function to properly `destroy` Hosted Fields instances.
  
-It will remove active event listeners and clean iFrame containers. If you generated your form automatically via `selector` configuration, it will clean the container.
+It will remove active event listeners and clean iFrame containers. If you generated your form automatically via `template: 'auto'` configuration, it will clean the container.
 
 ```js
 card.destroy();
@@ -444,12 +445,12 @@ In your stylesheet, you can add rules like:
 
 ## Base stylesheet
 
-Base stylesheet refers to the default CSS stylesheet loaded when you use Hosted Payments or Hosted Fields with `selector`.
+Base stylesheet refers to the default CSS stylesheet loaded when you use Hosted Payments or Hosted Fields with `template: 'auto'`.
 
 This stylesheet is automatically added in the `<head>` of your HTML page, but you can include it manually to increase loading performance.
 
 ```html
-<link href="https://libs.hipay.com/css/base-stylesheet.css" rel="stylesheet" />
+<link href="https://libs.hipay.com/themes/material.css" rel="stylesheet" />
 ```
 
 You can override necessary classes with your own CSS stylesheet to customize your forms.
