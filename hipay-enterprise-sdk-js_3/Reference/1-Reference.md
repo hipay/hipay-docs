@@ -182,8 +182,8 @@ You cannot use these options together.
 
 | Option | Description |
 |----------|------------|
-| template <br> <small>string `optional`</small>| If set to `auto`, activate the generation of HTML template with CSS automatically. |
-| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form when `template: 'auto'` set. |
+| template <br> <small>string `optional`</small>| If set to `auto`, it activates the generation of the HTML form template automatically. |
+| selector <br> <small>string `optional`</small>| Unique div `id` to generate the form when `template: 'auto'` is set. |
 | fields  <br> <small>object `optional`</small> | Object with the fields to generate within your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
 | multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
