@@ -1,13 +1,5 @@
 # How to use
 
-## Autoloading
-
-For libraries that specify autoload information, Composer generates a vendor/autoload.php file. You can simply include this file to get autoloading for free.  
-`require __DIR__ . '/vendor/autoload.php';`
-
-For more information: https://getcomposer.org/doc/01-basic-usage.md#autoloading
-
-
 ## How to make a request
 
 You need to instantiate 4 objects to make a request:  
@@ -19,14 +11,12 @@ You need to instantiate 4 objects to make a request:
 
 The sdk allows you to call the different Hipay APIs that allow you to perform a transaction.
 
-You can therefore interact with different endpoint: **/order**, **/hpayment** and **/maintenance**.
+You can therefore interact with our different APIS : **/order**, **/hpayment** and **/maintenance**.
 Whatever the request, you must instantiate a client gateway in the following way.
 
 ```php
 //Create a configuration object
 // By default Configuration object is configured in Stage mode (Configuration::API_ENV_STAGE)
-// To use Production mode, the third argument of the constructor must be Configuration::API_ENV_PRODUCTION
-// Ex : $config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password", Configuration::API_ENV_PRODUCTION);
 $config = new \HiPay\Fullservice\HTTP\Configuration\Configuration("username","password");
 
 //Instantiate client provider with configuration object
@@ -35,6 +25,8 @@ $clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
 //Create your gateway client
 $gatewayClient = new \HiPay\Fullservice\Gateway\Client\GatewayClient($clientProvider);
 ```
+
+To swith on Production mode, please init the configuration with:  **Configuration::API_ENV_PRODUCTION**
 
 #### Request New Order API (POST Order) 
 
