@@ -8,8 +8,15 @@
 
 The plugin supports the following payment methods:
 
-| Country           | Payment methods | 
+| Country           | payment methods | 
 |-------------------|-----------------|
 | Worldwide         | Visa, MasterCard, Amex, BCMC, Maestro |
+| Europe            | iDEAL, ING Home'Pay, PayPal, SEPA Direct Debit |
 | France            | Oney Facily Pay |
-
+| Switzerland       | PostFinance Card, PostFinance E-finance |
+| Belgium           | Belfius / Dexia Direct Net |
+| Italy             | SisalPay |
+| Germany           | Giropay, Klarna Invoice, SOFORT Überweisung |
+| Brazil and Mexico | Itaú, Bradesco, Banco do Brasil, Santander HomeBanking, Aura, Caixa, OXXO, BBVA Bancomer, Banamex,Santander Cash |
+| Russia            | Visa WebMoney Transfer, Yandex.Money |
+| Poland            | Przelewy24 |
