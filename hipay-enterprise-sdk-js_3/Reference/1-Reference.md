@@ -42,7 +42,7 @@ Create an instance of the HiPay JavaScript SDK using your HiPay public credentia
 | username <br> <small>string `required`</small>| Public HiPay username |
 | password <br> <small>string `required`</small>| Public HiPay password |
 | environment <br> <small>string `optional`</small> | Corresponds to the HiPay API environment you want to use. <br> Use `stage` to test your integration and use `production` to make real payments. <br><br> values: `stage`, `production` <br> default: `production` |
-| lang <br> <small>string `optional`</small> | Languages to translate placeholders or error messages in Hosted Fields. <br><br> values: `en`, `fr`, `es`, `it`, `de`, `cz`, `pl`, `pt` <br> default: `fr` |
+| lang <br> <small>string `optional`</small> | Languages to translate placeholders or error messages in Hosted Fields. <br><br> values: `en`, `fr`, `es`, `it`, `de`, `cz`, `pl`, `pt`, `hu` <br> default: `fr` |
 
 ## The HiPay instance
 
