@@ -36,7 +36,7 @@ The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards
                     <p class="align-left">This section will help you to integrate the HiPay Enterprise JavaScript SDK. It contains all the functions that will allow you to create a HiPay Hosted Fields instance and directly tokenize credit card information.</p>
                     <p>Please note:</p>
                     <p class="align-left">Direct POST allows you to manually tokenize sensitive information with the <a href="../Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams">tokenize function</a>.</p>
-                    <p class="align-left">If you want to reduce PCI DSS requirements or increase your security, you may prefer <a href="../Integration-Guide/#hipay-hosted-fields-integration-guide">Hosted Fields</a>.</p>
+                    <p class="align-left">If you want to reduce PCI DSS requirements or increase your security, you may prefer <a href="../Integration-Guide/">Hosted Fields</a>.</p>
                 </div>
                 <div class="sectionFooter">
                     <button class="btn blue square btn-lg" onclick="window.location.assign('../Reference/');">JavaScript SDK Reference</button>
@@ -46,8 +46,8 @@ The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards
     </div>
 </div>
 
-[//section Hostedfields]: <> (### Hostedfields examples)
+[//section Hostedfields]: <> (### Hosted Fields examples)
 
-[//section Hostedfields]: <> (Hostedfields are fully customizable to match perfectly your style guides.)
+[//section Hostedfields]: <> (Hosted Fields are fully customizable to perfectly match your style guides.)
 
 [//section Hostedfields]: <> (Let's have a look at our [Demonstration page]() to see different payment form integrations.)
