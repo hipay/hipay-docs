@@ -1,4 +1,4 @@
-# Release notes
+# Release notes details
 
 
 ## v1.7.0

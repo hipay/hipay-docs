@@ -2,7 +2,7 @@
 
 ## “Sale” mode
 
-When making a purchase with the `sale` mode, the capture is automatically requested right after the authorization. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
+When making a purchase with the `sale` mode, the capture is automatically requested right after the authorization. *Please refer to our [requestNewOrder](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 If the payment fails, the customer is redirected to the error page and the status is defined as configured in the module configuration.
 
@@ -13,7 +13,7 @@ If the payment is successful, the customer is redirected to the success page. Th
 
 ## “Authorization” mode
 
-When making a purchase with the `Authorization` mode, the transaction will be on `waiting capture`. *Please refer to our [requestNewOrder](https://developer.hipay.com/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
+When making a purchase with the `Authorization` mode, the transaction will be on `waiting capture`. *Please refer to our [requestNewOrder](/doc-api/enterprise/gateway/#!/payments/requestNewOrder) API*.
 
 The customer is not charged directly: you have 7 days to "capture" the transaction and charge the customer. Otherwise, the order will be cancelled.
 
