@@ -200,7 +200,6 @@ Fields have a common set of options and some field-specific options. Some fields
 | uppercase  <br> <small>boolean `optional`</small><br><small>`only text fields`</small> | Automatically capitalizes all alphabetical cardholder characters.<br><br> default: `true`    |
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
-| defaultText  <br> <small>string `optional`</small><br><small>`only text fields`</small> | Prefills the text field with the value. <small>(Uses defaultFirstName and defaultLastName for cardHolder.)</small>    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
 
 #### Styles configuration
