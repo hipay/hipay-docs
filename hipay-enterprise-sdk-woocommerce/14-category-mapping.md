@@ -27,7 +27,7 @@ All the delivery methods available on your store are listed. For each of them, y
 This information is used to calculate an approximate delivery date.
 
 | Name               | Value |
-|:------------|:------------|:-----|
+|:------------|:------------|
 | Order preparation estimated time     |Expressed in working days|
 | Delivery estimated time              |Expressed in working days|
 | HiPay delivery mode              |- **store**: At the store <br /> - **carrier**: Delivery by carrier <br /> - **relaypoint**: Delivery in a pick-up location <br /> - **electronic** <br /> - **travel**
