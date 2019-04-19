@@ -1,25 +1,25 @@
-# Local payment methods configuration
+# Local payment method configuration
 
-Local payments include all payments other than bank cards.
+Local payments include all payments other than credit cards.
 
-## Activate Method 
+## Methods activation 
 
-To activate a payment method, refer to this [example](https://docs.woocommerce.com/document/cheque/#section-1) of the WooCommerce official documentation.
+To activate a payment method, please refer to this [example](https://docs.woocommerce.com/document/cheque/#section-1) from the WooCommerce official documentation.
 
-## Access to configuration
+## Configuration interface
 
-To configure your HiPay Enterprise plugin, click on "_WooCommerce -> Settings -> Payments_” in your Wordpress back office. Then click on the name of payment method you want to configure ("_HiPay Enterprise Bnppf-3xcb_" for example).
+To configure the HiPay Enterprise plugin, click on "_WooCommerce -> Settings -> Payments_" in your WordPress dashboard. Then click on the name of the payment method you want to configure ("_HiPay Enterprise Bnppf-3xcb_" for example).
 
 ![legend](images/plugin-configuration.png)
 
 ## Local payment method settings
 
 Configuration is done as for [credit cards](#global-plugin-and-credit-card-configuration-payment-methods-credit-card), 
-except for certain local payments: "currencies" and "countries" cannot be modified because they are imposed by the payment 
+except for certain local payments: "currencies" and "countries" cannot be modified because they are imposed by each payment 
 method. 
 
-You can also define the following elements for each payment method:
+You can also define the following element for each payment method.
 
    | Name          | Description | Value |
    |:--------------|:------------|:-----|
-   | Display name  |  Displayed on the Woocommerce checkout page | String  |
+   | Display name  |  Name displayed on the WooCommerce checkout page | String  |
