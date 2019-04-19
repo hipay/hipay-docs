@@ -41,7 +41,7 @@ Then click on "_Capture €XX via HiPay Enterprise Credit Card_".
 Once the capture is made, a line appears for each item, indicating "Captured with HiPay" or the
 quantities and amounts captured.
 The status of the order will evolve to:
-- **Partially captured** if you have not captured all of the items of the order,
+- **Partially captured** if you have not captured all the items of the order,
 - **Processing** if you have captured them all.
 
 "Partially captured" is a status added by the HiPay extension that allows you to easily identify
@@ -59,12 +59,12 @@ To make a refund:
 1. Go to: "_WooCommerce > Orders_".
 2. Select the order you wish to refund.
 3. Click on the grey Refund button.
-4. Specify the quantity of product(s) to be refunded in the text box(es) appearing for each item line. The refund amount will be automatically adjusted based on the products refunded. If inventory levels are not managed, you can also simply enter the Refund amount, without adjusting the product quantity. If the quantities of items are not set when issuing a refund, the order will not be marked as refunded and the email that is sent will say “partial refund.”
+4. Specify the quantity of product(s) to be refunded in the text box(es) appearing for each item line. The refund amount will be automatically adjusted based on the product(s) refunded. If inventory levels are not managed, you can also simply enter the Refund amount, without adjusting the product quantity. If the quantities of items are not set when issuing a refund, the order will not be marked as refunded and the email that is sent will say “partial refund.”
 5. Add refund notes, if desired.
 6. Click on "Refund $X via HiPay".
 
 The status of the order will evolve to:
-- **Partially refunded** if you have not refunded all of the items of the order,
+- **Partially refunded** if you have not refunded all the items of the order,
 - **Refunded** if you have refunded them all.
 
 "Partially refunded" is a status added by the HiPay extension that allows you to easily identify
