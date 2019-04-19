@@ -18,12 +18,12 @@ To use the HiPay Enterprise extension for WooCommerce, you must configure the no
 
 To do so, two methods are possible.
 
-### 1. The notification URL is sent by the CMS in the transaction (Recommended)
+### 1. The notification URL is sent by the CMS in the transaction request (Recommended)
 
 You must enable the option "_Send url Notification_" in the **HiPay Enterprise Credit Card** payment method 
-configuration panel and under the Payment Method tab. 
+configuration panel, under the Payment Method tab. 
 
-### 2. Configure the URL in the HiPay Enterprise back office
+### 2. Configure the URL in your HiPay Enterprise back office
 
 To do so, go to your HiPay Enterprise back office, then to the "_Integration_" tab, in the "_Notifications_" section.
 
