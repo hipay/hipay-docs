@@ -1,32 +1,32 @@
 # Custom data
 
-With this module you have the possibility of sending additional informations in the transaction that can then be viewed on HiPay's back office. In order to do this, you can use the the filter functionality from Wordpress.
-Custom data can be received and processed later in HiPay notifications.
+With this extension, you have the possibility of sending additional information with the transaction details that can then be viewed in your HiPay back office. To do so, you can use the filter functionality from WordPress.
+Custom data can be received through HiPay notifications and processed later.
 
-Please see the documentation on Devdocs: https://developer.wordpress.org/reference/functions/add_filter/
+For more information, please refer to the documentation on Devdocs: https://developer.wordpress.org/reference/functions/add_filter/.
 
-To add custom information with transactions, you need to create an handler for the filter "_hipay_wc_request_custom_data_" in a custom module or in your theme.
+To add custom data to transactions details, you must create a handler for the filter "_hipay_wc_request_custom_data_" in a custom module or in your theme.
 
 This can be done as follows:
 
     <?php
     /**
-     * HiPay Enterprise SDK WooCommerce
+     * HiPay Enterprise extension for WooCommerce
      *
-     * 2018 HiPay
+     * 2019 HiPay
      *
      * NOTICE OF LICENSE
      *
-     * @author    HiPay <support.tpp@hipay.com>
-     * @copyright 2018 HiPay
+     * @author    HiPay <https://support.hipay.com/>
+     * @copyright 2019 HiPay
      * @license   https://github.com/hipay/hipay-enterprise-sdk-woocommerce/blob/master/LICENSE.md
      */
     
     /**
-     * This is an example of how to add custom data to the gateway transaction
-     * You can add your own function/class, you just have to hook the 'hipay_wc_request_custom_data' filter
+     * This is an example of how to add custom data to the transaction gateway.
+     * You can add your own function/class, you just have to hook the 'hipay_wc_request_custom_data' filter.
      *
-     * If you want to use this example, copy/paste this file in your theme or custom plugin and requires it.
+     * If you want to use this example, copy/paste this file in your theme or custom plugin and require it.
      *
      */
     class Hipay_Custom_Data
@@ -40,7 +40,7 @@ This can be done as follows:
         }
     
         /**
-         * Return yours customs data in a json for gateway transaction request
+         * Returns your custom data in a JSON format for gateway transaction requests
          *
          * @param $customData
          * @param $order
@@ -49,7 +49,7 @@ This can be done as follows:
          */
         public function getCustomData($customData, $order, $params)
         {
-            // An example of adding custom data
+            // This is an example of how to add custom data.
             if ($order) {
                 $customData['my_field_custom_1'] = $order->id;
             }
