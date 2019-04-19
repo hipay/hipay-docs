@@ -28,8 +28,8 @@ This information is used to calculate an approximate delivery date.
 
 | Name               | Value |
 |:------------|:------------|
-| Order preparation estimated time     |Expressed in working days|
-| Delivery estimated time              |Expressed in working days|
+| Order preparation estimated time     |Expressed in days|
+| Delivery estimated time              |Expressed in days|
 | HiPay delivery mode              |- **store**: At the store <br /> - **carrier**: Delivery by carrier <br /> - **relaypoint**: Delivery in a pick-up location <br /> - **electronic** <br /> - **travel**
 | HiPay delivery method              |- **standard** <br /> - **express** <br /> - **Priority 24H** <br /> - **Priority 2H** <br /> - **Priority 1H** <br /> - **Instant**
 
