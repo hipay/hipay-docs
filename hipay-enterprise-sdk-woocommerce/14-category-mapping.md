@@ -1,6 +1,6 @@
 # Category and carrier mapping
 
-The customer's cart information can be sent with the transaction if you enabled the option in the global settings.
+The customer's cart information can be sent with the transaction details if you enabled the option in the global settings.
 This mapping is necessary to establish a correlation between your data and HiPay's.
 It is mandatory to do all the mappings to use the **Oney Facily Pay** payment method.
 
