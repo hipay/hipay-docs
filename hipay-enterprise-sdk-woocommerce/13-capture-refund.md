@@ -47,7 +47,7 @@ The status of the order will evolve to:
 "Partially captured" is a status added by the HiPay extension that allows you to easily identify
 orders partially captured.
 It is similar to WooCommerce's "On-Hold" status. Therefore, all the actions relating to a change of
-status will be performed when the order changes to be processed are complete.
+status will be performed when the order status changes from "Processing" to "Complete".
 
 ![legend](images/captured-item-step2.png)
 
