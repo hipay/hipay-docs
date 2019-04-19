@@ -7,7 +7,7 @@
 
 ## Credentials
 
-You need to generate *API credentials*  to send requests to the HiPay Enterprise platform.
+You need to generate *API credentials* to send requests to the HiPay Enterprise platform.
 
 To make sure that your credentials have the proper accessibility:
 
