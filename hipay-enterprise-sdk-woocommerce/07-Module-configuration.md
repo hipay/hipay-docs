@@ -25,7 +25,7 @@ It is comprised of the following components that you must set up first and forem
 #### Plugin mode
 
 This setting is very important as it allows you to define whether payments will be processed on the HiPay Test or Production platform.
-By default, the plugin is in Sandbox mode, which means that payments will not be actually charged.
+By default, the plugin is in Test mode, which means that payments will not be actually charged.
 
 We strongly advise you to run tests before launching your site in Production mode.
 
@@ -62,7 +62,7 @@ Public credentials are used as part of the JavaScript tokenization. These identi
 | **Username**                      | Your HiPay Enterprise production account API username      |
 | **Password**                      | Your HiPay Enterprise production account API password    |
 
-#### Sandbox configuration
+#### Test configuration
 
 This interface is similar to the Production configuration.
 
