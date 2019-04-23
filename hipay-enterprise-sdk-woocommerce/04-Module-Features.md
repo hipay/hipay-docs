@@ -8,9 +8,9 @@
 
 The plugin supports the following payment methods:
 
-| Country           | payment methods | 
+| Country           | Payment methods | 
 |-------------------|-----------------|
-| Worldwide         | Visa, MasterCard, Amex, BCMC, Maestro |
+| Worldwide         | Visa, Mastercard, Amex, Bancontact, Maestro|
 | Europe            | iDEAL, ING Home'Pay, PayPal, SEPA Direct Debit |
 | France            | Oney Facily Pay |
 | Switzerland       | PostFinance Card, PostFinance E-finance |

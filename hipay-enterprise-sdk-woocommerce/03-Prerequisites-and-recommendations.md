@@ -2,16 +2,16 @@
 
 ## Please note
 
-- Your HiPay Enterprise account must be configured before installing your Woocommerce plugin in the [HiPay Enterprise back office][hipay-fullservice-bo].
-- To use this plugin, you will need valid HiPay Enterprise credentials: please see below how to get them.
+- Your HiPay Enterprise account must be configured before installing the WooCommerce extension in the [HiPay Enterprise back office][hipay-fullservice-bo].
+- To use this extension, you will need valid HiPay Enterprise credentials: please see below how to get them.
 
 ## Credentials
 
-You need to generate *API credentials*  to send requests to the HiPay Enterprise platform. To do so, go to the "Integration" section of your HiPay Enterprise back office, then to "Security Settings".
+You need to generate *API credentials* to send requests to the HiPay Enterprise platform.
 
-To be sure that your credentials have the proper accessibility:
+To make sure that your credentials have the proper accessibility:
 
-- From the "Integration" section of your HiPay Enterprise back office, in "Security Settings", scroll down to "Api credentials".
+- From the "Integration" tab of your HiPay Enterprise back office, in "Security Settings", scroll down to "Api credentials".
 - Click on the edit icon next to the credentials you want to use.
 
 **Private credentials**
@@ -24,7 +24,7 @@ Order
 
 - Create a payment page,
 - Process an order through the API,
-- Get transaction informations,
+- Get transaction information.
 
 Maintenance
 
