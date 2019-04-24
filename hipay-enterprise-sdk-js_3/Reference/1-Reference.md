@@ -100,6 +100,7 @@ Directly call the tokenization API in order to update the token previously creat
 
 Please refer to the following documentation for parameters ([update token API reference](/doc-api/enterprise/token/)).
 
+Please read this [integration example](../cvc-forced/) of payment card with CVC forced. This example use updating token function.
 
 ### hipay.getDeviceFingerprint()
 
