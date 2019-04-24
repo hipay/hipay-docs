@@ -6,7 +6,7 @@ The purpose of this documentation is to explain the implementation of the *one-c
 
 In this demonstration, we use a front-end written in HTML/CSS with Javascript (jQuery) and backend server written in PHP. All examples written in this document are for reference only, you should not implement them in production.
 
-![Screenshot1](docs/capture1.jpg)
+![Screenshot1](images/capture1.jpg)
 
 ## Front-end
 
@@ -24,9 +24,9 @@ Each card is composed of an ```input``` radio button that includes token in its 
 
 The first registered card 4111********111 can only be used if the user enters the CVC associated with their card, the payment button is disabled if the CVC is not filled.
 
-![Screenshot1](docs/card1.jpg)
+![Screenshot1](images/card1.jpg)
 
-![Screenshot1](docs/cvc-updated.jpg)
+![Screenshot1](images/cvc-updated.jpg)
 
 
 This HTML code below corresponds to the above screenshot. A hidden _div_ markup named ```status-cvc-container``` contains a check image with its _span_ markup to indicated the cvc is updated.  
@@ -39,7 +39,7 @@ The ```PAY``` button is disabled until the user provides the CVC of the card. If
 
 The customer has the option to add a new card if needed. This forms in the exampled is generated with the *Hostedfields* feature presents in the HiPay JS SDK.
 
-![Screenshot-new-card](docs/new-card.jpg)
+![Screenshot-new-card](images/new-card.jpg)
 
 
 ### Implementation
@@ -291,4 +291,4 @@ This provided code is used in the back-end server. In this example code, we crea
 
 The server sent the response the forward URL of the transaction in the AJAX call, with the transaction number and the order ID. The ```windows.location``` function will redirect the customer to the final page. If we have a success page, the url will be ```https://FRONDEND_URL/?type=accept``` and ```https://FRONDEND_URL/?type=accept``` if failure.
 
-![Screenshot1](docs/accept.jpg)
+![Screenshot1](images/accept.jpg)
