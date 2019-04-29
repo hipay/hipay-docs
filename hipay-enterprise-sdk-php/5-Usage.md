@@ -26,12 +26,12 @@ $clientProvider = new \HiPay\Fullservice\HTTP\SimpleHTTPClient($config);
 $gatewayClient = new \HiPay\Fullservice\Gateway\Client\GatewayClient($clientProvider);
 ```
 
-To swith on Production mode, please init the configuration with:  **Configuration::API_ENV_PRODUCTION**
+To switch to Production mode, please init the configuration with:  **Configuration::API_ENV_PRODUCTION**
 
 #### Request New Order API (POST Order) 
 
-In this case, the payment page is hosted on your website, allowing you to have a unified, fully customized workflow. Please refer to the Request New Order API (POST Order) below for more information.
-Please note that if you want to execute transactions with credit or debit card payment products, you will need to tokenize card numbers beforehand by using the HiPay Enterprise Tokenization API
+In this case, the payment page is hosted on your website, allowing you to have a unified and fully customized workflow. Please refer to the Request New Order API (POST Order) below for more information.
+Please note that if you want to execute transactions with credit or debit card payment products, you will need to tokenize card numbers beforehand by using the HiPay Enterprise Tokenization API.
 
 To have the function of each attribute, please refer to the technical documentation of each API.
 
@@ -63,14 +63,14 @@ $orderRequest->custom_data = "{"shipping_description":"Flat rate","payment_code"
 $orderRequest->authentication_indicator = 0
 ```
 
-And then there is a provision several complementary objects to continue to inform the various informations required by the API order.
-   - CustomerShippingInfoRequest: Order related shipping informations  
-   - CustomerBillingInfoRequest: Order related billing informations
-   - CardTokenPaymentMethod: Data related to payment with token system
+There are several complementary objects to complete the information required by the API order:
+   - CustomerShippingInfoRequest: Order related to the shipping information.  
+   - CustomerBillingInfoRequest: Order related to the billing information.
+   - CardTokenPaymentMethod: Data related to payment with token system.
 
 ##### CardTokenPaymentMethod
 
-This parameter is specific to credit or debit card payment products.
+This parameter is specific to credit and debit card payment products.
 This is the token obtained from the HiPay Enterprise Secure Vault API when tokenizing a credit or debit card. To generate a token, please refer to the HiPay Enterprise Tokenization API documentation
 
 ```php   
@@ -84,7 +84,7 @@ $orderRequest->paymentMethod = $paymentMethod;
 
 ##### CustomerShippingInfoRequest and CustomerBillingInfoRequest
 
-These two objects make it possible to inform the information relating to the delivery and billing addresses.
+These two objects are related to the delivery and billing addresses.
 You can find the same type of information on both objects.
 
 ```php   
@@ -111,13 +111,13 @@ Once everything is completed you can start the transaction.
 $transaction = $gatewayClient->requestNewOrder($orderRequest);
 ```
 
-At the return of the API the transaction can have several different state.
+At the return of the API, the transaction can have one of the following status:
 - completed
 - pending
 - declined
 - error
 
-You must therefore perform a different treatment according to each status, and redirected the consumer on a corresponding page of your website.
+You must therefore perform a different treatment according to each status, and redirect the customer to the corresponding page of your website.
 
 ```php
     $forwardUrl = $transaction->getForwardUrl();
@@ -150,7 +150,7 @@ You must therefore perform a different treatment according to each status, and r
 HiPay Enterprise hosts your payment page on a secured site. With this option you can benefit from a single point of contact, adaptable payment pages, and the PCI-DSS standard. You can therefore outsource heavy security requirements that are related to payment acceptance.  
 
 Unlike the API order, you must not perform a tokenization.
-Some parameters are to be added but the webservice relies on the same type of operation.
+Some parameters need to be added but the webservice relies on the same type of operation.
 
 You must redirect the consumer to the URL forward provided in the webservice response.
 
@@ -181,7 +181,7 @@ $hpaymentRequest->language = "en_US"
 $hpaymentRequest->authentication_indicator = 0
 ```
 
-In addition to these parameters, you can enter information that is specific to the hpayment. To know:
+In addition to these parameters, you can enter specific information related to the hpayment. To know:
 ```php
 $hpaymentRequest->payment_product_list = "visa,mastercard,cb,maestro,american-express"
 $hpaymentRequest->payment_product_category_list = ""
@@ -200,11 +200,11 @@ $transaction = $gatewayClient->requestHostedPaymentPage($hpaymentRequest);
 $forwardUrl = $transaction->getForwardUrl();
 ```
 
-And now process a redirection to this payment page generated by Hipay.
+And then process a redirection to this payment page generated by Hipay.
 
 #### Process a maintenance operation with api **/maintenance**:
 
-Performs a maintenance operation on a given transaction.
+It performs a maintenance operation on a given transaction.
 Different operations are possible: 
 - capture
 - refund
@@ -212,7 +212,7 @@ Different operations are possible:
 - acceptChallenge
 - denyChallenge
 
-An example to process an capture on a transaction:
+An example to process a capture on a transaction:
 ```php
 
     $maintenanceRequest = new \HiPay\Fullservice\Gateway\Request\Maintenance\MaintenanceRequest();
@@ -229,17 +229,15 @@ An example to process an capture on a transaction:
         $maintenanceRequest
     );
 ```
-The object **maintenanceRequest** is not necessary, if you don't perform any operation with a basket.
+The object **maintenanceRequest** is not necessary if you don't perform any operation with a basket.
 
 ## How to make a signature verification
 
-In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure 
-transaction, the HiPay Enterprise platform can send your application a server-to-server notification.
+In order to inform you of events related to your payment system, such as a new transaction or a 3-D Secure transaction, the HiPay Enterprise platform can send a server-to-server notification to your application.
 
-It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection 
-made to your servers. This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.
+It is strongly recommended to use a signature mechanism to verify the contents of a request or redirection made to your servers. This prevents customers from tampering with the data in the data exchanges between your servers and our payment system.
 
-A unique signature is sent each time HiPay contacts any merchant’s URL, notification or redirection.
+A unique signature is sent each time HiPay contacts any seller’s URL, notification or redirection.
 
 The PHP SDK provides a method to verify the signature.
 To use it you just have to pass the passphrase and hash algorithm set up in your account.
