@@ -1,4 +1,4 @@
-# CVC-Forced
+# One-click payment + CVC
 
 The purpose of this documentation is to explain the implementation of the *one-click* feature with HiPay SDKs by giving the possibility to force the CVC of a card or add a new one in your payment page.
 
