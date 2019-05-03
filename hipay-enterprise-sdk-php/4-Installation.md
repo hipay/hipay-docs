@@ -22,3 +22,10 @@ $ composer require hipay/hipay-fullservice-sdk-php
 ```
 
 If no errors are displayed, the module is installed.
+
+## Autoloading
+
+For libraries that specify autoload information, Composer generates a vendor/autoload.php file. You just need to include this file to get autoloading for free.  
+`require __DIR__ . '/vendor/autoload.php';`
+
+For more information: https://getcomposer.org/doc/01-basic-usage.md#autoloading
