@@ -97,6 +97,8 @@ hipayInstance = HiPay({
     password: PASSWORD,
     environment: 'production',
     lang: 'en'
+    username: CREDENTIALS_PUBLIC_USERNAME,
+    password: CREDENTIALS_PUBLIC_PASSWORD,
   });
 
   var config = {
@@ -139,12 +141,13 @@ document.getElementById("ok-button-1").addEventListener("click", function() {
 });
 ```
 
-You can add a keyup event on the CVC input to force users entered 3 numbers for the validating. For that, we add a Regex and a maximum length to enabled or disabled the ```OK``` button.
+You can add a keyup event on the CVC input to force users entered 3 (VISA / Mastercard) or 4 (AMEX) digits for the validating. For that, we add a Regex and a maximum length retrieved from its ```maxlength``` attribute of the input to enabled or disabled the ```OK``` button.
 
 ```javascript
 $("#cvc-input-1").keyup(function() {
   var cvc = $("#cvc-input-1").val();
-  var okButtonEnabled = (cvc.length == 3 && /^\d+$/.test(cvc));
+  var maxLength = $("#cvc-input-1").attr("maxlength");
+  var okButtonEnabled = (cvc.length == maxLength && /^\d+$/.test(cvc));
   $("#ok-button-1").prop("disabled", !okButtonEnabled);
 })
 ```
