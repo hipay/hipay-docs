@@ -93,12 +93,10 @@ To use HiPay Javascript SDK, you have to create an HiPay object named _hipayInst
 *JavaScript code*
 ```javascript
 hipayInstance = HiPay({
-    username: USERNAME,
-    password: PASSWORD,
-    environment: 'production',
-    lang: 'en'
     username: CREDENTIALS_PUBLIC_USERNAME,
     password: CREDENTIALS_PUBLIC_PASSWORD,
+    environment: "production",
+    lang: "en"
   });
 
   var config = {
