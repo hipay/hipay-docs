@@ -14,31 +14,31 @@ This section describes how to install the **HiPay Marketplace cash-out integrati
 	
 3. Download and install Composer (if you haven't already done so): 
 
-	`$ curl -sS https://getcomposer.org/installer | php -- --filename=composer -- --install-dir=/usr/local/bin`
+	$ curl -sS https://getcomposer.org/installer | php -- --filename=composer -- --install-dir=/usr/local/bin
 	
 4. Download the project using Git:
 
-	`$ git clone https://github.com/hipay/hipay-wallet-cashout-mirakl-integration hipay_mirakl`
+	$ git clone https://github.com/hipay/hipay-wallet-cashout-mirakl-integration hipay_mirakl
 
-5. Go to the project directory: `cd hipay_mirakl`.
+5. Go to the project directory: `$ cd hipay_mirakl`.
 
 6. Install the project dependencies using Composer:
 
-	`$ composer install` 
+	$ composer install
 	
 	This step may take a few minutes to complete as the project and its dependencies are being downloaded and configured.
 
 7. (Optional) If you use the default log file (`/var/log/hipay.log`), run the following commands: 
         
-        `$ touch /var/log/hipay.log`
+        $ touch /var/log/hipay.log
 
-        `$ chmod 755 /var/log/hipay.log`
+        $ chmod 755 /var/log/hipay.log
 
 8. (Optional) If you want to enable updates from GUI, run the following commands: 
         
-        `$ chown -R < web_server_user >:< group_of_web_server_user > < path_to_your_install_dir > `
+        $ chown -R < web_server_user >:< group_of_web_server_user > < path_to_your_install_dir > 
 
-        `$ chmod 755 -R < path_to_your_install_dir >`
+        $ chmod 755 -R < path_to_your_install_dir >
 
 Please note: if you don't want to set these specific rights on your install folder, updates from GUI will be disabled. However, updates from command line will still be available.
 

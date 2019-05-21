@@ -761,8 +761,8 @@ Response in JSON format
 ```
 
 Response in HTTP POST format
-``` shell
-notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=0&fees=90&chargeback=0&rolling=0&other=2748.040&amount=0.000&currency=EUR
+```http
+notification_type=settlement&account=987654&reference=123456&sales=2839&refunds=0&fees=90&chargeback=0&rolling=0&other=2748.040&amount=0.000&amp;currency=EUR
 ```
 
 # SEPA Direct Debit (SDD)

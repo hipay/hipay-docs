@@ -186,7 +186,7 @@ account different from the authenticated one.
 
 ###Example of a cURL request 
 
-```curl
+```shell
 curl -v -X POST
 https://professional.hipay.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"
@@ -426,7 +426,7 @@ You may use the Account ID or the Account email login to select an account diffe
 
 ### Example of a cURL request 
 
-```curl
+```shell
 curl -v -X GET
 https://professional.hipay.com/api/identification.json
 -u "XX12xxab000b00ab0101010abcd0a0xx:abc0abcd1ee1ff6789abc2345fff0000"

@@ -8,7 +8,7 @@ Go to your document root directory.
 
 You can now install the module with the following command line:
 
-```
+```shell
 composer require hipay/hipay-fullservice-sdk-magento2
 ```
 
@@ -25,7 +25,7 @@ You can then go to your Magento Admin Panel.
 
 You can now update the module with the following command line:
 
-```
+```shell
 composer update hipay/hipay-fullservice-sdk-magento2
 ```
 

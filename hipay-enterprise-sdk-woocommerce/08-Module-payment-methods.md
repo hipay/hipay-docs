@@ -59,6 +59,6 @@ For each type of card, you can then define a different configuration.
 Local payments include all payments other than credit cards.
 In this block, you can find the link to all local payments settings interfaces.
 
-For more information, please refer to the section on [local payments](#local-payment-methods-configuration).
+For more information, please refer to the section on [local payments](#local-payment-method-configuration).
 
 

@@ -1,7 +1,7 @@
 # Payment methods configuration
 
 In your Magento Admin Portal, select:  
-```
+```nohighlight
 "Stores" => "Configuration" => "Sales" [Payment Methods]
 ```
 
