@@ -613,9 +613,10 @@ This stylesheet is automatically added in the `<head>` of your HTML page, but yo
 
 You can override necessary classes with your own CSS stylesheet to customize your forms.
 
+
 ## Reference translations file
 
-You can override all the default translations with the following keys.
+You can override default translations with the following keys.
 
 ```json
 {
