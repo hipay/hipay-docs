@@ -155,7 +155,7 @@ Please note that each type has required options.
 
 | Type | Description / [Fields] |
 |----------|------------|
-| carousel | Creates slideable carousel displaying available payment products |
+| carousel | Creates swipeable carousel displaying available payment products |
 | card | A credit card accepting multiple brands (mastercard, visa, american-express, maestro, bancontact). <br><br> required fields: [`cardHolder`,`cardNumber`,`expiryDate`,`cvc`]|
 | 3xcb | [] (redirection) |
 | 3xcb-no-fees | [] (redirection) |
@@ -222,8 +222,8 @@ You cannot use these options together.
 | fields  <br> <small>object `optional`</small> | Object with the fields to generate within your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
 | multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
-| brand  <br> <small>array `optional`</small> | Only for `card` type. List of accepted credit card brands. (ex: ['visa', 'mastercard']) |
-| payment_product  <br> <small>array `optional`</small> | Only for `carousel` type. The list of payment products to display in the carousel. Ex: ['card', 'sdd', 'paypal']|
+| brand  <br> <small>array `optional`</small> | Only for `card` type. Accepted credit card brands. (ex: ['visa', 'mastercard']) |
+| payment_product  <br> <small>array `optional`</small> | Only for `carousel` type. Payment products to display in the carousel. Ex: ['card', 'sdd', 'paypal']|
 | currency  <br> <small>string `optional`</small> | Only for `carousel` type. Base currency to filter carousel payments products by. This three-character currency code complies with ISO 4217. ('EUR', 'USD', 'GBP', ...) |
 | country  <br> <small>string `optional`</small> | Only for `carousel` type. The country code of the customer to filter carousel payments product by. This two-letter country code complies with ISO 3166-1 (alpha 2). |
 
@@ -240,7 +240,7 @@ Fields have a common set of options and some field-specific options. Some fields
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
-| defaultValue  <br> <small>boolean `optional`</small><br><small>`except card fields`</small> | Used to prefill a fields with a default value. |
+| defaultValue  <br> <small>boolean `optional`</small><br><small>`except card fields`</small> | Used to prefill a given field with a default value. |
 
 #### Styles configuration
 
