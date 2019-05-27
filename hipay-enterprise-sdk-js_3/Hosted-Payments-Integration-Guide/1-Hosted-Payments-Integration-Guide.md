@@ -137,7 +137,7 @@ Like Hosted Fields, you can also customize the internal styling of fields.
 ```
 
 
-Go to: [Create configuration](../Reference/1-Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options)
+Go to: [Create configuration](../Reference/#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options)
 
 
 #### Override default stylesheet
@@ -160,7 +160,7 @@ You can override the default CSS by adding your custom CSS file.
 }
 ```
 
-Go to: [Base stylesheet reference](../Reference/1-Reference/#hipay-enterprise-javascript-sdk-reference-base-stylesheet)
+Go to: [Base stylesheet reference](../Reference/#hipay-enterprise-javascript-sdk-reference-base-stylesheet)
 
 
 ## 5 - Interact with the Hosted Payments instance
@@ -179,7 +179,7 @@ Here is how to enable your submit button when your form is valid.
 </script>
 ```
 
-Go to: [instance.on(‘event’, callback)](../Reference/1-Reference/#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instanceonevent-callback)
+Go to: [instance.on(‘event’, callback)](../Reference/#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instanceonevent-callback)
 
 
 ## 6 - Get payment data
@@ -234,4 +234,4 @@ Here is a response from getPaymentData():
 
 ```
 
-Go to: [instance.getPaymentData()](../Reference/1-Reference/#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instancegetpaymentdata)
+Go to: [instance.getPaymentData()](../Reference/#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instancegetpaymentdata)
