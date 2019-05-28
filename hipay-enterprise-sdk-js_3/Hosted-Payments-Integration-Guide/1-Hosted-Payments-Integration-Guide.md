@@ -5,7 +5,7 @@ This guide will walk you through the creation of a fully integrated payment form
 
 You will see how to create your payment form, customize it, interact with it, and securely get `data` from it. These data will enable you to make a transaction using the [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
 
-The HiPay Hosted Payments feature is using internally the HiPay Hosted Fields.
+The HiPay Hosted Payments feature internally uses the HiPay Hosted Fields.
 
 Please follow these 6 steps to create your payment form with the HiPay Hosted Payments:
 
@@ -46,14 +46,14 @@ Go to: [HiPay Enterprise JavaScript SDK reference](../Reference/#hipay-enterpris
 
 ## 2 - Set up your HTML form
 
-To collect sensitive information securely, the HiPay Enterprise JavaScript SDK will generate components hosted by HiPay on your page. 
+In order to collect sensitive information in a secure way, the HiPay Enterprise JavaScript SDK will generate components hosted by HiPay on your page. 
 <br>
 With these components, sensitive information filled in by customers never hits your page or your web server.
 
 You can now integrate your HTML page. 
 
 
-You simply have to place a `div` with a unique `id` in your page. The form will be injected inside automatically.
+You just need to place a `div` with a unique `id` in your page. The form will be injected inside automatically.
 
 
 ```html
@@ -88,10 +88,10 @@ Go to: [hipay.create(type, options)](../Reference/#hipay-enterprise-javascript-s
 
 #### Override default configuration
 
-Hosted Payments forms uses default parameters for each payment product. You can override by adding custom configuration in the config object.
+Hosted Payments form uses default parameters for each payment product. You can override them by adding custom configuration in the config object.
 
 Here is an example of credit card and Sepa Direct Debit customization.
-Like Hosted Fields, you can also customize the internal styling of fields.
+Like Hosted Fields, you can also customize the internal styling of the fields.
 
 
 ```html
