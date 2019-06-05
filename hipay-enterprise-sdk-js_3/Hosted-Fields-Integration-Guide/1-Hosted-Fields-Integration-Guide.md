@@ -61,9 +61,8 @@ You simply have to place a `div` with a unique `id` in your page. The form will 
 
 ```html
 <form id="hipay-form">
-    <div id="hipay-hostedfields-form">
-        /* The whole form will be inserted here */
-    </div>
+    /* The whole form will be inserted here */
+    <div id="hipay-hostedfields-form"></div>
     
     <button type="submit" id="hipay-submit-button" disabled="true">
         PAY
@@ -80,25 +79,20 @@ You simply have to replace `ìnput` elements by `div` elements. These elements n
 ```html
 <form id="hipay-form">
     <label>Fullname</label>
-    <div class="hostedfield" id="hipay-card-holder">
-        /* Cardholder field will be inserted here */
-    </div>
+    /* Cardholder field will be inserted here */
+    <div class="hostedfield" id="hipay-card-holder"></div>
    
     <label>Card number</label>
-    <div class="hostedfield" id="hipay-card-number">
-        /* Card number field will be inserted here */
-    </div>
+    /* Card number field will be inserted here */
+    <div class="hostedfield" id="hipay-card-number"></div>
     
     <label>Expiry date</label>
-    <div class="hostedfield" id="hipay-expiry-date">
-        /* Expiry date field will be inserted here */
-    </div>
-    
+    /* Expiry date field will be inserted here */
+    <div class="hostedfield" id="hipay-expiry-date"></div>
     
     <label>CVC</label>
-    <div class="hostedfield" id="hipay-cvc">
-        /* CVC field will be inserted here */
-    </div>
+    /* CVC field will be inserted here */
+    <div class="hostedfield" id="hipay-cvc"></div>
     
     <button type="submit" id="hipay-submit-button" disabled="true">
         PAY
