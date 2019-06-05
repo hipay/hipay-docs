@@ -153,6 +153,8 @@ Please note that each type has required options.
 |----------|------------|
 | hosted-payments | Creates Hosted Payments instance with carousel and auto-generated payment form |
 
+##### Hosted Fields
+
 | Type | Description / [Fields] |
 |----------|------------|
 | carousel | Creates swipeable carousel displaying available payment products |
