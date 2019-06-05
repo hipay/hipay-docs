@@ -43,6 +43,7 @@ Create an instance of the HiPay JavaScript SDK using your HiPay public credentia
 | password <br> <small>string `required`</small>| Public HiPay password |
 | environment <br> <small>string `optional`</small> | Corresponds to the HiPay API environment you want to use. <br> Use `stage` to test your integration and use `production` to make real payments. <br><br> values: `stage`, `production` <br> default: `production` |
 | lang <br> <small>string `optional`</small> | Languages to translate placeholders or error messages in Hosted Fields. <br><br> values: `en`, `fr`, `es`, `it`, `de`, `cz`, `pl`, `pt`, `hu` <br> default: `fr` |
+| i18n <br> <small>object `optional`</small>| Override the default translations. <br> See the [Reference translations file](#hipay-enterprise-javascript-sdk-reference-reference-translations-file). |
 
 ## The HiPay instance
 
@@ -123,6 +124,21 @@ The create function is the entry point of **Hosted Fields** instances.
 var card = hipay.create(type, options);
 ```
 
+Create function is the entry point to create **Hosted Payments**, **Hosted Fields** and **Carousel** instances.
+
+```js
+var hostedPaymentInstance = hipay.create('hosted-payments', options);
+```
+```js
+var cardInstance = hipay.create('card', options);
+```
+This function creates an instance of the payment product specified by `type` (card here).
+
+```js
+var carouselInstance = hipay.create('carousel', options);
+```
+carousel is an Hosted Fields instance
+
 This function creates an instance of the payment product specified by `type`.
 
 #### Types
@@ -131,8 +147,17 @@ The type of payment product has to be instantiated as a string.
 
 Please note that each type has required options.
 
+##### Hosted Payments
+
 | Type | Description / [Fields] |
 |----------|------------|
+| hosted-payments | Creates Hosted Payments instance with carousel and auto-generated payment form |
+
+##### Hosted Fields
+
+| Type | Description / [Fields] |
+|----------|------------|
+| carousel | Creates swipeable carousel displaying available payment products |
 | card | A credit card accepting multiple brands (mastercard, visa, american-express, maestro, bancontact). <br><br> required fields: [`cardHolder`,`cardNumber`,`expiryDate`,`cvc`]|
 | 3xcb | [] (redirection) |
 | 3xcb-no-fees | [] (redirection) |
@@ -144,8 +169,8 @@ Please note that each type has required options.
 | bbva-bancomer | [`national_identification_number`] |
 | bcmc-mobile | [] (redirection) |
 | belfius | [] (redirection) |
-| bnpp-3xb | [] (redirection) |
-| bnpp-4xb | [] (redirection) |
+| bnpp-3xcb | [] (redirection) |
+| bnpp-4xcb | [] (redirection) |
 | boleto-bancario | [`national_identification_number`] |
 | bradesco | [`national_identification_number`] |
 | caixa | [`national_identification_number`] |
@@ -158,6 +183,7 @@ Please note that each type has required options.
 | itau | [`national_identification_number`] |
 | klarnainvoice | [] (redirection) |
 | multibanco | [] (redirection) |
+| mybank | [] (redirection) |
 | oxxo | [`national_identification_number`] |
 | paypal | [] (redirection) |
 | paysafecard | [] (redirection) |
@@ -166,13 +192,23 @@ Please note that each type has required options.
 | przelewy24 | [] (redirection) |
 | santander-cash | [`national_identification_number`] |
 | santander-home-banking | [`national_identification_number`] |
-| sdd | SEPA form <br><br> required fields: [`gender`, `firstname`, `lastname`, `iban`, `issuer_bank_id`] <br> optional fields: [`bank_name`] |
+| sdd | SEPA form <br><br> required fields: [`gender`, `firstname`, `lastname`, `iban`] <br> optional fields: [`bank_name`, `issuer_bank_id`] |
 | sisal | [] (redirection) |
 | sofort-uberweisung | [] (redirection) |
 | webmoney-transfer | [] (redirection) |
 | yandex | [] (redirection) |
 
 #### Options
+
+##### Hosted Payments
+
+| Option | Description |
+|----------|------------|
+| selector <br> <small>string `required`</small>| Unique div `id` to generate the carousel and form in. |
+| Hosted Fields type <br> <small>objects `optional`</small>| Override a specific form by adding object named with Hosted Fields type and configure it as if you create an Hosted Fields instance. <br> See options below for Hosted Fields config.|
+| styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
+
+##### Hosted Fields 
 
 There are two ways to create Hosted Fields configurations:
 
@@ -188,6 +224,10 @@ You cannot use these options together.
 | fields  <br> <small>object `optional`</small> | Object with the fields to generate within your form. Each field has its own configuration. <br> See the `Fields configuration` section below for more details. |
 | styles  <br> <small>object `optional`</small> | Object with your custom styling CSS properties. <br> See the `Styles configuration` section below for more details. |
 | multi_use  <br> <small>boolean `optional`</small> | Only for `card` type. This boolean activates the multi_use option to add the one-click payment feature. |
+| brand  <br> <small>array `optional`</small> | Only for `card` type. Accepted credit card brands. (ex: ['visa', 'mastercard']) |
+| payment_product  <br> <small>array `optional`</small> | Only for `carousel` type. Payment products to display in the carousel. Ex: ['card', 'sdd', 'paypal']|
+| currency  <br> <small>string `optional`</small> | Only for `carousel` type. Base currency to filter carousel payments products by. This three-character currency code complies with ISO 4217. ('EUR', 'USD', 'GBP', ...) |
+| country  <br> <small>string `optional`</small> | Only for `carousel` type. The country code of the customer to filter carousel payments product by. This two-letter country code complies with ISO 3166-1 (alpha 2). |
 
 #### Fields configuration
 
@@ -202,6 +242,7 @@ Fields have a common set of options and some field-specific options. Some fields
 | defaultFirstname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultLastname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | defaultLastname  <br> <small>string `optional`</small><br><small>`only cardHolder`</small> | Needs to be used together with `defaultFirstname`. Used to prefill the cardholder field by concatenating defaultFirstname and defaultLastname.    |
 | hideCardTypeLogo  <br> <small>boolean `optional`</small><br><small>`only cardNumber`</small> | Hides the detected credit card type logo. <br><br> default: `false`    |
+| defaultValue  <br> <small>boolean `optional`</small><br><small>`except card fields`</small> | Used to prefill a given field with a default value. |
 
 #### Styles configuration
 
@@ -223,44 +264,57 @@ For each of the above categories, the following properties are available.
 | properties | `color`, `fontSize`, `fontFamily`, `fontStyle`, `fontVariant`, `fontWeight`, `textDecoration`, `iconColor`, `placeholderColor`, `caretColor` |
 
 
-### Example 
+### Examples 
+
+
+#### Hosted Payments
+
+```html
+<div id="hosted-payments"></div>
+```
+
+```js
+var options = {
+    selector: 'hosted-payments',
+    carousel: {
+        currency: 'EUR'
+    },
+    card: {
+        multi_use: true
+    },
+    styles: {
+        base: {
+            color: "#000000"
+        }
+    }
+}
+```
+
+```js
+var hostedPaymentsInstance = hipay.create('hosted-payments', options);
+```
+
+#### Hosted Fields
 
 The following object provides a configuration example for a credit card form on your page.
 
-
 ```html
 <form>
-    <div id="custom-card-holder">
-        /* Cardholder will be injected here */
-    </div>
-    <div id="custom-card-number">
-        /* Card number will be injected here */
-    </div>
-    <div id="custom-expiry-date">
-        /* Expiry date will be injected here */
-    </div>
-    <div id="custom-cvc">
-        /* CVC will be injected here */
-    </div>
+    <div id="card"></div>
 </form>
 ```
 
 ```js
 var options = {
+    template: 'auto',
+    selector: 'card',
+    multi_use: true,
     fields: {
         cardHolder: {
-            selector: 'custom-card-holder',
             uppercase: true,
             placeholder: 'John Doe'
         },
-        cardNumber: {
-            selector: 'custom-card-number'
-        },
-        expiryDate: {
-            selector: 'custom-expiry-date'
-        },
         cvc: {
-            selector: 'custom-cvc',
             helpButton: true
         }
     },
@@ -278,14 +332,120 @@ var options = {
           color: '#D50000',
           caretColor: '#D50000'
         }
-    },
-    multi_use: true
+    }
 }
 ```
 
 ```js
-var card = hipay.create('card', options);
+var cardInstance = hipay.create('card', options);
 ```
+
+
+## Hosted payments instances
+
+Hosted payments instances are created by `hipay.create('hosted-payments', config)`.
+
+* [instance.on(‘event’, callback)](#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instanceonevent-callback)
+* [instance.getPaymentData()](#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instancegetpaymentdata)
+* [instance.destroy()](#hipay-enterprise-javascript-sdk-reference-hosted-payments-instances-instancedestroy)
+
+### instance.on('event', callback)
+
+The only way to interact with your Hosted Payments instance is by listening to `events`. The following events are emitted by the Hosted Payments instance.
+
+| Category | Description |
+|----------|------------|
+| paymentProductChange | Emitted when the payment product changes, i.e. when an item is clicked on the carousel.  <br><br> You can use this event to reset your submit button state. <br><br> Response: `"new_payment_product"` |
+| validityChange | Emitted when the payment product validity changes, i.e. when it goes from invalid to valid, and conversely, and when the error changes.  <br><br> You can use this event to enable your submit button when your form is valid. <br><br> This event is always emitted when the form is ready after a `paymentProductChange`. <br><br> Response: `{ payment_product: string, valid: boolean, error_code: 'ERROR_CODE if error', error: translated error }` |
+
+Example for an Hosted Payments instance:
+
+```js
+hostedPaymentsInstance.on('paymentProductChange', function(response){ 
+  /* Disable submit button */
+});
+
+hostedPaymentsInstance.on('validityChange', function(response){ 
+  if(!response.valid) {
+      /* Disable the submit button and display error */
+   } else {
+      /* Enable the submit button */
+   }
+});
+```
+
+### instance.getPaymentData()
+
+
+Use this function to get sensible data from the Hosted Payments form. To process the payment, send those data to [HiPay Order API](/doc-api/enterprise/gateway/#!/payments/requestNewOrder).
+
+```js
+hostedPaymentsInstance.getPaymentData().then(
+    function(result) {
+        /* Send result.datas to your server */
+    },
+    function(error) {
+        /* Display error message */
+    }
+);
+```
+
+When successful, this function returns an object with collected data.
+
+Example for a credit card:
+```json
+{ 
+    "payment_product": "visa",
+    "token": "f12bfab3b4fs5q6der7895a98ab76",
+    "request_id": "0",
+    "brand": "VISA",
+    "pan": "411111xxxxxx1111",
+    "card_holder": "JOHN DOE",
+    "card_expiry_month": "12",
+    "card_expiry_year": "2031",
+    "issuer": "ANY BANK",
+    "country": "US",
+    "card_type": "CREDIT",
+    "device_fingerprint": "..." 
+}
+```
+
+When failing, it returns an array containing all errors. Each error contains the field concerned, the error code and the translated message.
+
+Example: 
+
+```json
+[
+  {
+    "error": "Le numéro de la carte est invalide.",
+    "error_code": "ERROR_CARD_NUMBER_INVALID",
+    "field": "cardNumber"
+  },
+  {
+    "error": "La date d'expiration est invalide.",
+    "error_code": "ERROR_EXPIRY_DATE_INVALID",
+    "field": "expiryDate"
+  },
+  {
+    "error": "Le cryptogramme est manquant.",
+    "error_code": "ERROR_CARD_CVC_MISSING",
+    "field": "cvc"
+  }
+]
+```
+
+
+
+### instance.destroy()
+
+Use this function to `destroy` properly the Hosted Payments instance.
+ 
+It will remove active event listeners and clean the HTML container. 
+
+```js
+hostedPaymentsInstance.destroy();
+```
+
 
 ## Payment product instances
 
@@ -454,3 +614,108 @@ This stylesheet is automatically added in the `<head>` of your HTML page, but yo
 ```
 
 You can override necessary classes with your own CSS stylesheet to customize your forms.
+
+
+## Reference translations file
+
+You can override default translations with the following keys.
+
+```json
+{
+  "carousel-empty": "No available payment product",
+  "placeholder-cardHolder": "Firstname Lastname",
+  "placeholder-cardNumber": "1111 1111 1111 1111",
+  "placeholder-expiryDate": "05 / 24",
+  "placeholder-issuer_bank_id": "ABCDEFAA123",
+  "placeholder-iban": "GB00 AAAA 0000 0000 0000 00",
+  "placeholder-firstname": "Firstname",
+  "placeholder-lastname": "Lastname",
+  "placeholder-bank_name": "Bank name",
+  "placeholder-cpf": "111.222.333-44",
+  "placeholder-curp": "AABB801118MBSYAA11",
+  "placeholder-company": "Company",
+  "cvc-message": "The card verification code (CVC) is a 3 digits security code usually placed at the back of the credit card. For American Express cards, it is a 4 digits code at the front of the credit card.",
+  "ERROR_CARD_HOLDER_ALPHANUMERICAL": "Card holder should be alphanumerical.",
+  "ERROR_CARD_HOLDER_MAX_LENGTH": "Card holder maximum length is exceeded.",
+  "ERROR_CARD_HOLDER_MAX_DIGITS": "Card holder should not contain more than 8 digits.",
+  "ERROR_CARD_HOLDER_INVALID": "Card holder is invalid.",
+  "ERROR_CARD_NUMBER_INVALID": "Card number is invalid.",
+  "ERROR_CARD_BRAND_NOT_ALLOWED": "Card type is not allowed.",
+  "ERROR_EXPIRY_DATE_INVALID_FORMAT": "Expiry date format is invalid.",
+  "ERROR_EXPIRY_DATE_PAST_DATE": "Expiry date can't be in the past.",
+  "ERROR_EXPIRY_DATE_INVALID": "Expiry date is invalid.",
+  "ERROR_EXPIRY_MONTH_INVALID_FORMAT": "Expiry month format is invalid.",
+  "ERROR_EXPIRY_MONTH_LENGTH_MAX": "Expiry month maximum length is exceeded.",
+  "ERROR_EXPIRY_MONTH_INVALID": "Expiry month is invalid.",
+  "ERROR_EXPIRY_YEAR_INVALID_FORMAT": "Expiry year format is invalid.",
+  "ERROR_EXPIRY_YEAR_LENGTH_MAX": "Expiry year max length is exceeded.",
+  "ERROR_EXPIRY_YEAR_PAST_DATE": "Expiry year can't be in the past.",
+  "ERROR_EXPIRY_YEAR_INVALID": "Expiry year is invalid.",
+  "ERROR_CARD_CVC_FORMAT": "CVC format is invalid.",
+  "ERROR_CARD_CVC_MAX_LENGTH": "CVC max length is exceeded.",
+  "ERROR_CARD_CVC_INVALID": "CVC is invalid.",
+  "ERROR_CARD_HOLDER_MISSING": "Card holder is missing.",
+  "ERROR_CARD_NUMBER_MISSING": "Card number is missing.",
+  "ERROR_EXPIRY_DATE_MISSING": "Expiry date is missing.",
+  "ERROR_CARD_CVC_MISSING": "CVC is missing.",
+  "ERROR_CARD_TOKENIZATION": "An error occurred during tokenization.",
+  "ERROR_BIC_FORMAT": "BIC format is invalid.",
+  "ERROR_BIC_MAX_LENGTH": "BIC maximum length is exceeded.",
+  "ERROR_BIC_INVALID": "BIC is invalid.",
+  "ERROR_IBAN_FORMAT": "IBAN format is invalid.",
+  "ERROR_IBAN_NOT_ALPHANUMERICAL": "IBAN should be alphanumerical.",
+  "ERROR_IBAN_INVALID": "IBAN is invalid.",
+  "ERROR_IBAN_INVALID_COUNTRY_CODE": "IBAN country code is invalid.",
+  "ERROR_IBAN_MAX_LENGTH": "IBAN maximum length is exceeded.",
+  "label-cardHolder": "Fullname",
+  "label-cardNumber": "Card number",
+  "label-expiryDate": "Expiry date",
+  "label-cvc": "CVC",
+  "label-issuer_bank_id": "BIC",
+  "label-iban": "IBAN",
+  "label-firstname": "Firstname",
+  "label-lastname": "Lastname",
+  "label-bank_name": "Bank name",
+  "label-gender": "Gender",
+  "label-cpf": "CPF",
+  "label-curp": "CURP/CPN",
+  "label-gender-M": "Male",
+  "label-gender-F": "Female",
+  "label-gender-U": "Unknown",
+  "label-client_type": "Client type",
+  "label-client_type-B2B": "Business",
+  "label-client_type-B2C": "Individual",
+  "label-company": "Company",
+  "label-company_type": "Company type",
+  "label-company_type-SA": "SA",
+  "label-company_type-SAS": "SAS",
+  "label-company_type-SARL": "SARL",
+  "label-company_type-EURL": "EURL",
+  "label-company_type-SELARL": "SELARL",
+  "label-company_type-SASU": "SASU",
+  "label-company_type-SNC": "SNC",
+  "label-company_type-SCP": "SCP",
+  "label-company_type-EI": "EI",
+  "label-company_type-EIRL": "EIRL",
+  "ERROR_TEXT_FIELD_INVALID": "Text field is invalid.",
+  "ERROR_TEXT_FIELD_INVALID_CHARACTERS": "Text field contains invalid characters.",
+  "ERROR_TEXT_FIELD_MAX_LENGTH": "Text field maximum length is exceeded.",
+  "ERROR_TEXT_FIELD_MAX_DIGITS": "Text field should not contain more than 8 digits.",
+  "ERROR_CPF_INVALID": "CPF is invalid.",
+  "ERROR_CPF_NUMERICAL": "CPF should be numerical",
+  "ERROR_CPF_MAX_LENGTH": "CPF maximum length is exceeded.",
+  "ERROR_CURP_INVALID": "CURP is invalid.",
+  "ERROR_CURP_ALPHANUMERICAL": "CURP should be alphanumerical",
+  "ERROR_CURP_MAX_LENGTH": "CURP maximum length is exceeded.",
+  "payment-means-redirection": "You will be redirected to an external payment page in order to finalize the transaction.",
+  "ERROR_BANK_NAME_MISSING": "Bank name is missing.",
+  "ERROR_FIRSTNAME_MISSING": "Firstname is missing.",
+  "ERROR_LASTNAME_MISSING": "Lastname is missing.",
+  "ERROR_COMPANY_MISSING": "Company name is missing.",
+  "ERROR_IBAN_MISSING": "IBAN is missing.",
+  "ERROR_ISSUER_BANK_ID_MISSING": "BIC is missing.",
+  "ERROR_NATIONAL_IDENTIFICATION_NUMBER_MISSING": "National identification number is missing.",
+  "ERROR_OCCURED": "An error occured."
+}
+
+```
