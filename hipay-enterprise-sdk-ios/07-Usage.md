@@ -4,7 +4,7 @@ Basically, there are two ways to make payments:
 
 - The [Fastest integration](#usage-making-payments-fastest-integration), allowing you to accept payments in your iOS app very quickly. In this scenario, your customers are presented with a built-in native payment screen. Yet, you won't be able to do much customization of the payment workflow.
 
-- The [Advanced integration](#usage-making-payments-advanced-integration) using the *core wrapper*. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
+- The [Advanced integration](#usage-making-payments-advanced-integration) using the _core wrapper_. In this case, you build your own payment workflow and your own form. You can thus customize the payment experience to fit your needs. On the downside, you have to take care of building the whole user interface, creating and sending orders, etc.
 
 ## Fastest integration
 
@@ -143,7 +143,7 @@ class DemoViewController: UIViewController, HPFPaymentScreenViewControllerDelega
 ```
 
 **Implementation note**
-The *signature* parameter is required for security purposes in the HPFPaymentScreenViewController initialization. Please refer to the [Signature](#signature) section for details.
+The _signature_ parameter is required for security purposes in the HPFPaymentScreenViewController initialization. Please refer to the [Signature](#signature) section for details.
 
 This example will present the built-in payment screen to your users when the `payButtonTouched` method is called (you may add a button targeting this method upon a touch). Once the payment workflow finishes, the `HPFPaymentScreenViewControllerDelegate` protocol methods will be called.
 
@@ -165,3 +165,29 @@ Check out the `HPFPaymentPageRequest` class documentation for more information a
 ### Delegate methods
 
 You will likely need to modify the implementation of the `HPFPaymentScreenViewControllerDelegate` methods in order to end your check-out process, present a confirmation message to your users, etc.
+
+### Localization Errors
+
+In this integration mode, some popups can be shown when errors occured with a title and description.
+So if you want to customize the localization in the SDK or even add new languages, you can add _localizable.strings_ files in your XCode project. After that, you can use keys below to override existing values.
+
+Example :
+
+<code>
+HPF_ERROR_APPLE_PAY_MESSAGE = "We have a problem with Apple Pay";
+</code>
+
+| KEY                                           | VALUE                                                                                                                                        | CONDITION                                                                                                                 |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| HPF_CARD_STORED_TOUCHID_NOT_ACTIVATED_MESSAGE | Please check that Touch ID is activated                                                                                                      | - TouchID is not enabled to using card storage feature                                                                    |
+| HPF_ERROR_NETWORK_OTHER_MESSAGE               | Your request could not be completed.                                                                                                         | - Connection error or server error when receiving the transaction - Error while retrieving the list of available payments |
+| HPF_ALERT_TRANSACTION_LOADING_MESSAGE         | Your transaction is still being processed. Are you sure that you want to leave this screen?                                                  | - The user clicks on the "Cancel" button on the screen while sending a transaction                                        |
+| HPF_ERROR_APPLE_PAY_MESSAGE                   | Your request could not be completed.                                                                                                         | - Apple Pay Configuration Error - Payment Page Display Error - Apple Pay Token Token Failed                               |
+| HPF_CARD_SCAN_PERMISSION                      | To scan your payment card, allow camera permission.                                                                                          | - Camera was not allowed                                                                                                  |
+| HPF_CARD_SWITCH_TOUCHID_DESCRIPTION           | Would you like to activate Touch ID for securing future payments with this card? A fingerprint recognition will be required for further use. | - TouchID is not enabled to using card storage feature                                                                    |
+| HPF_TRANSACTION_ERROR_DECLINED_MESSAGE        | Please check your entries and try again.                                                                                                     | - Status of the received transaction is "_Declined_"                                                                      |
+| HPF_TRANSACTION_ERROR_DECLINED_RESET_MESSAGE  | Please use another payment method.                                                                                                           | - Second attempt failed with the same means of payment                                                                    |
+| HPF_TRANSACTION_ERROR_OTHER_MESSAGE           | An error occurred while processing your transaction.                                                                                         | - Status of the received transaction is "_Error_"                                                                         |
+| HPF_ERROR_HTTP_CLIENT_MESSAGE                 | Your request could not be completed.                                                                                                         | - 4xx Client HTTP Error - statusCode = HPFErrorCodeHTTPClient                                                             |
+| HPF_ERROR_NETWORK_UNAVAILABLE_MESSAGE         | No Internet connection is available.                                                                                                         | - Display after receiving the transaction - Network error statusCode = HPFErrorCodeHTTPNetworkUnavailable                 |
+| HPF_ERROR_NETWORK_OTHER_MESSAGE               | Your request could not be completed.                                                                                                         | - Error raised after receiving transaction - Other unhandled error                                                        |
