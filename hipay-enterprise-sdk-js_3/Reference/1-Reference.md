@@ -93,6 +93,7 @@ When successful, the tokenize function returns an object with the following fiel
 |`card_type`| Card type (if applicable, e.g.: “DEBIT”, “CREDIT”) |
 |`card_category`| Card category (if applicable, e.g.: “PLATINUM”) |
 |`payment_product`| HiPay Order API payment product code to pass to the order call |
+|`browser_info`| Browser information of the final user for DSP2 |
 
 In case of an error, the function returns an error code describing what went wrong.
 
