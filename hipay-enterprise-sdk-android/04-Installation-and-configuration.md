@@ -26,6 +26,7 @@ As of September 14, 2019, the issuer will decide if a payment is processed depen
 The accuracy of the information sent is key for making sure that your customers have a frictionless payment process. That’s why we provide you the possibility to add or override all the information related to the DSP2.
 
 We added 3 new variables in `PaymentPageRequest` object :
+
 - `merchant_risk_statement`
 - `previous_auth_info`
 - `account_info`
