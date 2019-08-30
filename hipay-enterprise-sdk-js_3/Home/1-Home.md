@@ -24,9 +24,9 @@ The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards
                         <span><i class="fa fa-check"></i>Automatic updates</span>
                     </div>
                 </div>
-                <div class="sectionButton">
-                    <a href="../Hosted-Fields-Integration-Guide/"><button class="btn blue square btn-md">Integration guide</button></a>
-                </div>
+            </div>
+            <div class="sectionButton">
+                <a href="../Hosted-Fields-Integration-Guide/"><button class="btn blue square btn-md">Integration guide</button></a>
             </div>
         </div>
         <div id="hostedpayments" class="col-md-5 blockFeature">
@@ -45,9 +45,9 @@ The HiPay Enterprise JavaScript SDK allows you to tokenize credit or debit cards
                         </div>
                     </div>
                 </div>
-                <div class="sectionButton">
-                    <a href="../Hosted-Payments-Integration-Guide/"><button class="btn blue square btn-md">Integration guide</button></a>
-                </div>
+            </div>
+            <div class="sectionButton">
+                <a href="../Hosted-Payments-Integration-Guide/"><button class="btn blue square btn-md">Integration guide</button></a>
             </div>
         </div>
     </div>
