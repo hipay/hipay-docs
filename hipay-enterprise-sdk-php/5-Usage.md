@@ -246,3 +246,111 @@ To use it you just have to pass the passphrase and hash algorithm set up in your
 $isValidSignature = Signature::isValidHttpSignature($passphrase, $hashAlgorithm);
 ```
 The content of the request comes from either the raw post data or the url parameters if it is a redirection.
+
+# PSD2 and Strong Customer Authentication
+
+Given the strong growth of the e-commerce in Europe, the Payment Services Directive (PSD2) redefines the security standards for online payments aiming to increase the security during the payment process, while fighting more actively against fraud attempts. For more details on the regulations, we invite you to read the [documentation provided by Hipay](https://developer.hipay.com/psd2-and-strong-customer-authentication-3-d-secure-2-compliance-and-guidance/).
+
+As of September 14, 2019, the issuer will decide if a payment is processed depending on the analysis of more than 150 data collected during the purchasing process. You can see all the new parameters on [our explorer API](https://developer.hipay.com/doc-api/enterprise/gateway/).
+
+Our PHP SDK allows you to feed all the information related to the PSD2.
+You will find all properties on the OrderRequest class and all classes in the **HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo** package.
+
+**The following classes are available:** 
+\HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\PreviousAuthInfo, \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatement, \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo and \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\RecurringInfo
+ 
+![](images/dsp2_data.png)
+
+You can easily feed the information, all the information is automatically converted into the correct format to hipay payment API.
+ 
+Here is an example with the feed information for PSD2.
+
+```php
+use \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Customer as CustomerInfo;
+use \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Purchase as PurchaseInfo;
+use \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Payment as PaymentInfo;
+use \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo\Shipping as ShippingInfo;
+
+$orderRequest = new \HiPay\Fullservice\Gateway\Request\Order\OrderRequest();
+$orderRequest->orderid = "ORDER #123456";
+$orderRequest->operation = "Sale";
+$orderRequest->payment_product = "visa"
+
+// Set Device Channel
+$orderRequest->device_channel = DeviceChannel::BROWSER;
+
+///////////////////////////////////////////////////////
+//////////                ACCOUNT INFO       //////////
+///////////////////////////////////////////////////////
+$accountInfo = new HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\AccountInfo();
+
+// Customer info
+$customerInfo = new CustomerInfo();
+$customerInfo->account_change = 20190814;
+$customerInfo->opening_account_date = 20190814;
+
+$accountInfo->customer = $customerInfo;
+
+// Purchase info
+$purchaseInfo = new PurchaseInfo();
+$purchaseInfo->count = 1;
+$purchaseInfo->card_stored_24h = 1;
+$purchaseInfo->payment_attempts_24h = 1;
+$purchaseInfo->payment_attempts_1y = 1;
+$accountInfo->purchase = $purchaseInfo;
+
+// Payment info
+$paymentInfo = new PaymentInfo();
+$paymentInfo->enrollment_date = 20190814;
+$accountInfo->payment = $paymentInfo;
+
+// Shipping info
+$shippingInfo = new ShippingInfo();
+$shippingInfo->name_indicator = NameIndicator::IDENTICAL;
+$accountInfo->shipping = $shippingInfo;
+
+///////////////////////////////////////////////////////
+//////////                BROWSER INFO       //////////
+///////////////////////////////////////////////////////
+
+$browserInfo = new \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\BrowserInfo();
+$browserInfo->ipaddr = 127.0.0.1
+$browserInfo->http_accept = isset($_SERVER['HTTP_ACCEPT']) ? $_SERVER['HTTP_ACCEPT'] : null;
+
+$browserInfo->javascript_enabled = true;
+$browserInfo->java_enabled = true;
+$browserInfo->language = “fr”
+$browserInfo->color_depth = 32;
+$browserInfo->screen_height = 1900;
+$browserInfo->screen_width = 1280;
+$browserInfo->timezone = -120;
+$browserInfo->http_user_agent = $orderRequest->browser_info = $browserInfo;
+
+///////////////////////////////////////////////////////
+//////////                PREVIOUS INFO      //////////
+///////////////////////////////////////////////////////
+
+$previousAuthInfo = new \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\PreviousAuthInfo();
+
+$previousAuthInfo->transaction_reference = “192993384884”
+$orderRequest->previous_auth_info = $previousAuthInfo;
+
+///////////////////////////////////////////////////////
+//////////    MERCHANT RISK INFO      //////////
+///////////////////////////////////////////////////////
+$merchantRiskStatement = new \HiPay\Fullservice\Gateway\Model\Request\ThreeDSTwo\MerchantRiskStatement();
+
+$merchantRiskStatement->email_delivery_address = “john . doe@hipay . com”;
+$merchantRiskStatement->delivery_time_frame = HiPay\Fullservice\Enum\ThreeDSTwo\DeliveryTimeFrame
+::ELECTRONIC_DELIVERY;
+
+$merchantRiskStatement->purchase_indicator = HiPay\Fullservice\Enum\ThreeDSTwo\PurchaseIndicator::MERCHANDISE_AVAILABLE;
+
+$merchantRiskStatement->reorder_indicator = \HiPay\Fullservice\Enum\ThreeDSTwo\ReorderIndicator
+::FIRST_TIME_ORDERED;
+
+$merchantRiskStatement->shipping_indicator = HiPay\Fullservice\Enum\ThreeDSTwo\ShippingIndicator
+::DIGITAL_GOODS;
+
+$orderRequest->merchant_risk_statement = $merchantRiskStatement;
+```
