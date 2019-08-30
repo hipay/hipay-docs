@@ -32,7 +32,7 @@ We added 3 new variables in `PaymentPageRequest` object :
 - `account_info`
 
 Each variables is a string type corresponding to a JSON Object. Your server send user informations to your Android application, so you just have to retrieve these JSON data and convert them in string format and set the specific variable.
-If you don’t set `account_info` variable, we automatically generate it with 3 fields (`name_indicator` / `enrollment_date` / `card_stored_24h`) inside for you because they are required.
+If you don’t set `account_info` variable, we automatically generate it with 3 fields (`name_indicator` / `enrollment_date` / `card_stored_24h`).
 
 # Configuration
 
