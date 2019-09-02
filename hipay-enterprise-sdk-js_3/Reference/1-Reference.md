@@ -51,6 +51,7 @@ Create an instance of the HiPay JavaScript SDK using your HiPay public credentia
 * [hipay.tokenize(params)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaytokenizeparams)
 * [hipay.updateToken(params)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipayupdatetokenparams)
 * [hipay.getDeviceFingerprint()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaygetdevicefingerprint)
+* [hipay.getBrowserInfo()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaygetbrowserinfo)
 * [hipay.injectBaseStylesheet()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipayinjectbasestylesheet)
 * [hipay.removeBaseStylesheet()](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipayremovebasestylesheet)
 * [hipay.create(type, options)](#hipay-enterprise-javascript-sdk-reference-the-hipay-instance-hipaycreatetype-options) *Recommended*
@@ -92,6 +93,7 @@ When successful, the tokenize function returns an object with the following fiel
 |`card_type`| Card type (if applicable, e.g.: “DEBIT”, “CREDIT”) |
 |`card_category`| Card category (if applicable, e.g.: “PLATINUM”) |
 |`payment_product`| HiPay Order API payment product code to pass to the order call |
+|`browser_info`| Browser information of the final user for DSP2 |
 
 In case of an error, the function returns an error code describing what went wrong.
 
@@ -106,6 +108,12 @@ Please read this [integration example](../cvc-forced/) of payment card with CVC 
 ### hipay.getDeviceFingerprint()
 
 Get the device fingerprint of the final user in order to send it to the HiPay API.
+
+### hipay.getBrowserInfo()
+
+Get the browser information of the final user in order to send it to the HiPay API. 
+
+For 3-D Secure purposes, you need to send this information when the device channel is "02 - Browser".
 
 ### hipay.injectBaseStylesheet()
 

@@ -271,7 +271,19 @@ Here is the response from getPaymentData():
     "issuer": "ANY BANK",
     "country": "US",
     "card_type": "CREDIT",
-    "device_fingerprint": "..." 
+    "device_fingerprint": "...",
+    "browser_info": {
+      "java_enabled": false,
+      "javascript_enabled": true,
+      "language": "fr-FR",
+      "color_depth": "24",
+      "screen_height": 900,
+      "screen_width": 1600,
+      "timezone": "-120",
+      "http_user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36",
+      "ipaddr": "",
+      "http_accept": ""
+    }
 }
 ```
 
