@@ -234,7 +234,7 @@ Here is a response from getPaymentData():
       "java_enabled": false,
       "javascript_enabled": true,
       "language": "fr-FR",
-      "color_depth": "24",
+      "color_depth": 24,
       "screen_height": 900,
       "screen_width": 1600,
       "timezone": "-120",
