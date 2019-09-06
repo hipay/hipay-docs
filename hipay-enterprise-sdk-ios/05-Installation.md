@@ -41,3 +41,23 @@ In order to use the SDK for physical payments through such a terminal, add these
 	pod 'HiPayFullservice/Datecs-POS'
 
 Note that [Git LFS](https://help.github.com/articles/installing-git-large-file-storage/) is needed to install the Datecs-POS pod.
+
+# PSD2 and Strong Customer Authentication
+
+Given the strong growth of the e-commerce in Europe, the Payment Services Directive (PSD2) redefines the security standards for online payments aiming to increase the security during the payment process, while fighting more actively against fraud attempts. For more details on the regulations, we invite you to read the [documentation provided by Hipay](https://developer.hipay.com/psd2-and-strong-customer-authentication-3-d-secure-2-compliance-and-guidance/)
+ 
+As of September 14, 2019, the issuer will decide if a payment is processed depending on the analysis of more than 150 data collected during the purchasing process. Thanks to our Android SDK we handle most of the data without you having to code anything. You can see all the new parameters on [our explorer API](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder).
+
+ 
+## Adding or overriding PSD2 data
+ 
+The accuracy of the information sent is key for making sure that your customers have a frictionless payment process. That’s why we provide you the possibility to add or override all the information related to the DSP2.
+
+We added 3 new variables in `HPFPaymentPageRequest` object :
+
+- `merchantRiskStatement`
+- `previousAuthInfo`
+- `accountInfo`
+
+Each variables is a string type corresponding to a JSON Object. Your server send user informations to your Android application, so you just have to retrieve these JSON data and convert them in string format and set the specific variable.
+If you don’t set `accountInfo` variable, we automatically generate the associated NSDictionary with 3 values (`name_indicator` / `enrollment_date` / `card_stored_24h`).

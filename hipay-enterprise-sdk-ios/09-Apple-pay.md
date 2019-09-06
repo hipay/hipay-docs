@@ -8,7 +8,7 @@ Apple Pay gives a secure and easy way to pay within apps and websites. Before st
 ### Merchant ID creation
 
 To use Apple Pay, you have to create an unique identifier, named **Merchant ID**.
-firstly, log in to your Apple developer account in certificate section at https://developer.apple.com/account/ios/certificate/. Choose **Merchant IDs** from the left menu in **Identifiers** section, then, enter the merchant description. The Identifier field has to be unique and begin with "merchant". It is recommended to use the reverse domain name like the following example : **merchant.com.yourcompany**. Then click on **Continue** button.
+firstly, log in to your Apple developer account in [identifiers section](https://developer.apple.com/account/resources/identifiers/add/merchant). Choose **Merchant IDs** from the left menu in **Identifiers** section, then, enter the merchant description. The Identifier field has to be unique and begin with "merchant". It is recommended to use the reverse domain name like the following example : **merchant.com.yourcompany**. Then click on **Continue** button.
 
 We recommend to use two merchant ID, one for the production environment and one for the staging environment.
 
@@ -44,7 +44,7 @@ Your new Apple Pay Payment Processing certificate can be found in the production
 
 ![create certificate](images/apple_pay_certificate_list.jpg)
 
-You can find more informations about certificate signing request creation here : https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f
+You can find more informations about certificate signing request creation [here](https://help.apple.com/developer-account/#/devb2e62b839?sub=devf31990e3f)
 
 ### Export the certificate
 
@@ -197,7 +197,7 @@ Then, we create an object of type **PKPaymentSummaryItem** which contains a desc
 To initialize the payment controller, you must create a request of the **PKPaymentRequest** class first. You can configure its attributes : `merchantIdentifier` , `countryCode`, `supportedNetworks`, `paymentSummaryItems` and many more.
 After the request creation, we present the **PKPaymentAuthorizationViewController** Apple Pay controller to the user with this request.
 
-More informations about request : https://developer.apple.com/library/archive/ApplePay_Guide/CreateRequest.html
+More informations about **PKPaymentRequest** [here](https://developer.apple.com/library/archive/ApplePay_Guide/CreateRequest.html)
 
 **Objective-C**
 ```objectivec
@@ -242,7 +242,7 @@ When the user authorizes a payment request, the **PassKit** framework creates a 
 
 This response can be serialized in JSON file and sent to the **apple-pay/token** endpoint with the **generateTokenWithApplePayToken: privateKeyPassword:andCompletionHandler** SecureVaultClient method. The return object of the method is a **HPFPaymentCardToken** token type. Then, We will be able to create a **Order** and complete the payment. To decrypt the Apple Pay token and retrieve payment informations, back office uses the private key of the certificate **Apple Pay Payment Processing**.
 
-More information about Apple Pay token : https://developer.apple.com/library/archive/documentation/PassKit/Reference/PaymentTokenJSON/PaymentTokenJSON.html
+More information about Apple Pay token [here](https://developer.apple.com/library/archive/documentation/PassKit/Reference/PaymentTokenJSON/PaymentTokenJSON.html)
 
 **Objective-C**
 
