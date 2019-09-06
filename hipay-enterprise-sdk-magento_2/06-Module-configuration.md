@@ -159,7 +159,7 @@ You can install this module in a classic way, then directly modify the file “T
  
 Be careful ! If there is an update of the data module, remember to save your data so that it is not overwritten.
 
-Finally, although we do our best to retieve all relevant data for you, we are not capable of getting the following data as it depends on the modules installed on your CMS or your workflow. 
+Finally, although we do our best to retrieve all relevant data for you, we are not capable of getting the following data as it depends on the modules installed on your CMS or your workflow. 
 
 ### Merchant risk statement
 
