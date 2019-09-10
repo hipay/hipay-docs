@@ -257,4 +257,165 @@ In order to get the complete list of statuses, please refer to the [HiPay Enterp
 You can make a refund on a transaction paid on payment terminal exactly like a e-commerce transaction.
 With the Token we can refund the customer without being in store.
 
+# Omnichannel SDK
 
+## Objective
+
+- Create a transaction from your cash software to HiPay thanks to the POS terminal
+
+- Display the amount on the POS terminal without write the amount on the keyboard
+
+- Easy integration in cash software
+
+## Diagram
+
+![Omnichannel flow](images/omnichannel_flow.jpg)
+
+1. The cash software send a request payment to the Omnichannel SDK
+2. SDK initialize the payment on the POS Terminal e.g the amount is displayed on the screen and the customer should process its payment.
+3. POS Terminal send the result payment to the HiPay SDK in its format
+4. Omnichannel SDK send the result to the cash software with a custom object.
+5. Transaction request is sent to HiPay's server
+6. Result of the transaction request
+
+## Requirements
+
+- iOS >= 9
+- POS terminal with Concert protocol version 3
+
+## Installation
+
+You have to use [CocoaPods](https://cocoapods.org/) to install the HiPay Omnichannel SDK for iOS.
+
+Add this line to your project's `Podfile`:
+
+	pod 'HiPayOmnichannel'
+
+Then, run the following command in the same directory as your `Podfile`:
+
+	$ pod install
+
+This will install the **.framework** file in your project
+
+## SDK
+
+### Initialization
+
+Firstly, to use the SDK, you have to  set the **Configuration** object .
+
+| Variable name |	Description |	Type |	Values |
+|---|---|---|---|---|
+| environment<b>*</b>  |	Environment in which the transaction is going to be created |	Enum | STAGE - PRODUCTION |
+| posNumber<b>*</b> | Terminal serial number | Integer 	| example : "110" | 
+| mid* | Acquirer contract number |	String | example : "12345678" 
+| ipAddress<b>*</b> | Terminal IP address |	String | example : "192.168.1.10" 
+| apiPublicUsername* | HiPay username used by authentication |	String | example : "123456789.stage-secure-gateway.hipay-tpp[.]com" |
+| apiPublicPassword<b>*</b> | HiPay password used by authentication | String | example :  "Test_AB1234578903bd5eg" |
+
+<b>*</b> Mandatory parameters
+
+
+```swift
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+
+        do {
+                    try Configuration.shared.setConfiguration(environment: .STAGE,
+                                                              posNumber: 123,
+                                                              mid: "mid",
+                                                              ipAddress: "192.168.1.1",
+                                                              apiPublicUsername: "username",
+                                                              apiPublicPassword: "password")
+                } catch ConfigurationError.invalidIPAddress {
+                    // Invalid IP Adress
+                } catch ConfigurationError.emptyMID {
+                    // Empty MID
+                } catch {
+                    // Others
+                }
+        }
+
+        return true
+    }
+```
+
+### Request payment
+
+For each payment, you have to create a **RequestPayment** object with theses variables below.
+
+| Variable name |	Description |	Type |	Values |
+|---|---|---|---|---|
+| transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
+| forceAuthorization | Whether the authorization should be forced or not. | Boolean | Default: False |
+| amount<b>*</b> | Amount of the transaction in the smaller unit of the currency | Float | example :  9.99 |	 
+| currency<b>*</b> | ISO 4217 three-digit currency code of the transactionString | String | example :  "EUR" | 	 
+| description |	Description of the transaction (512 characters maximum allowed | String | example : "Green T-shirt" 	 
+| orderIdentifier | Order number | String | example : "Order_12345"
+| cart | Basket object in JSON structure | Cart | - |
+| buyer | Buyer's information object (customerID, firstName, lastName, email) | Buyer | - |
+| vendor | Order seller's ID | String | example : "12345" |
+
+<b>*</b> Mandatory parameters
+
+```swift
+
+    @IBAction func payTapped(_ sender: Any) {
+      do {
+            try requestPayment = RequestPayment(transactionType: .Debit,
+                                                forceAuthorization: true,
+                                                amount: 9.99,
+                                                currency: "EUR",
+                                                descriptionRequest: "Green T-shirt",
+                                                orderIdentifier: "Order_12345",
+                                                cart: nil,
+                                                buyer: nil,
+                                                vendor: "12345")
+          } catch RequestPaymentError.descriptionTooLong {
+              // DescriptionTooLong
+          } catch RequestPaymentError.invalidTransactionType {
+              // invalid transaction type
+          } catch RequestPaymentError.invalidAmount {
+              // invalid amount
+          } catch RequestPaymentError.invalidCurrency {
+              // Invalid Currency
+          } catch {
+              // Others
+          }
+    }
+```
+
+When your **RequestPayment** is created, you execute it with the correspondant method like this :
+
+```swift
+    requestPayment.execute()
+```
+
+### Response payment
+
+After the processed transaction from HiPay server, you will receive a response from the Omnichannel SDK. Your class have to conform to the **RequestPaymentDelegate** delegate to receive this response and set the requestPayment delegate to your object class.
+
+```swift
+class ViewControlller: UIViewController, RequestPaymentDelegate {
+  // ...
+  requestPayment.delegate = self
+  // ...
+
+  // Mandatory function from RequestPaymentDelegate delegate
+  func requestDidEnd(_ response: ResponsePayment) {
+    // Handle the reponsePayment object
+  }
+}
+```
+
+This table from below describes the **ResponsePayment** object properties, all these properties are in read-only :
+
+| Variable name |	Description |	Type |	Values |
+|---|---|---|---|---|
+| paymentStatus	| Status received from the TPE regarding the payment. |	PaymentStatus 	| Success <br>Failure<br>Error |
+| errorDescription | Error description | String | "Authentication failed" |	 
+| errorCode |	Error code | String | "1002" |
+| amount | Amount of the transaction | Float | 9.99 |
+| currency | ISO 4217 three-digit currency code of the transaction | String 	| "EUR" |
+| orderIdentifier | Order number | String | "Order_12345" |
+| notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | False |
