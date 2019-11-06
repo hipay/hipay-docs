@@ -13,7 +13,7 @@
 
 The module supports the following payment methods:
 
- * **VISA, MasterCard, AMEX, BCMC, Maestro**
+ * **VISA, MasterCard, American Express, Bancontact, Maestro**
 
 **France**
 
@@ -23,7 +23,6 @@ The module supports the following payment methods:
 
  * **iDEAL**
  * **ING Home'Pay**
- * **Visa QIWI Wallet**
  * **PayPal**
  * **SEPA Direct Debit**
 
@@ -34,7 +33,7 @@ The module supports the following payment methods:
 
 **Belgium**
 
-  * **Belfius / Dexia Direct Net**
+  * **Belfius Direct Net**
 
 **Italy**
 
@@ -43,8 +42,7 @@ The module supports the following payment methods:
 **Germany**
 
  * **Giropay**
- * **Klarna Invoice**
- * **SOFORT Überweisung**
+ * **Klarna Sofortüberweisung**
 
 **Brazil and Mexico**
 
@@ -52,7 +50,6 @@ The module supports the following payment methods:
  * **Bradesco**
  * **Banco do Brasil**
  * **Santander HomeBanking**
- * **Aura**
  * **Caixa**
  * **OXXO**
  * **BBVA Bancomer**
@@ -61,7 +58,6 @@ The module supports the following payment methods:
 
 **Russia**
 
- * **Visa WebMoney Transfer**
  * **Yandex.Money**
 
  **Poland**
