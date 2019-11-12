@@ -1,7 +1,7 @@
 # Platform configuration
 
 Before using the HiPay Enterprise module for Magento 2, the following settings are required and must be configured.
-To do so, log in your [HiPay Enterprise back office](https://merchant.hipay-tpp.com).
+To do so, log in to your [HiPay Enterprise back office](https://merchant.hipay-tpp.com).
 
 ## Configure your secret passphrase
 
@@ -49,7 +49,7 @@ Don’t forget to replace {your-domain.com} with your own domain.
 
 ![legend](images/notification_url.png)
 
-## Customized notifications
+## Customize notifications
 
-If you choose to customize the fields send in the notification, be aware that *"operation"* field is mandatory. Refunds depends on it.
+If you choose to customize the fields sent in the notifications, please be aware that the *"operation"* field is mandatory. Refunds depend on it.
 
