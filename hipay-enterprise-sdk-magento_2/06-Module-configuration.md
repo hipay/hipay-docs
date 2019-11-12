@@ -3,7 +3,7 @@
 Before using the HiPay Enterprise module for Magento 2, the following settings are required and must be configured:
 
 1. Credentials configuration,
-2. Fraud emails configuration.
+2. Anti-fraud emails configuration.
 
 In your Magento Admin Panel, select:  
 ```nohighlight
@@ -20,7 +20,7 @@ Then, you need to enter your credentials, provided by HiPay.
 ### HiPay Enterprise credentials configuration  
 HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
 
-|Field|Description|
+|Field name|Description|
 |-----|-----|
 |Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 |Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
@@ -31,11 +31,11 @@ HiPay Enterprise API credentials are required to use the HiPay Enterprise module
 
 ![legend](images/credentials_conf.png)
 
-### HiPay Enterprise credentials Direct Post configuration
+### HiPay Enterprise credentials for Direct Post configuration
 
 Generated in your HiPay Enterprise back office ("Integration" => "Security Settings" => "Api credentials" => "Credentials accessibility": Public), these newly created HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
 
-|Field|Description|
+|Field name|Description|
 |-----|-----|
 |Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 |Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
@@ -44,11 +44,11 @@ Generated in your HiPay Enterprise back office ("Integration" => "Security Setti
 
 ![legend](images/credentials_js.png)
 
-### HiPay Enterprise credentials MO/TO configuration  
+### HiPay Enterprise credentials for MO/TO configuration  
 MO/TO API credentials are optional.  
 They are required only if you need to pay an order created in your Magento Admin Panel.
 
-|Field|Description|
+|Field name|Description|
 |-----|-----|
 |Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
 |Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
@@ -61,7 +61,7 @@ They are required only if you need to pay an order created in your Magento Admin
 
 ## Email templates
 
-Based on the screening results of the HiPay Fraud Protection Service, emails can be sent to final customers.
+Based on the screening results of HiPay Sentinel, our advanced anti-fraud solution, emails can be sent to end customers.
 There are 3 email templates:  
 
 *  **Fraudulent**: This email is sent to the customer if the payment is fraudulent.
@@ -70,24 +70,24 @@ There are 3 email templates:
 
 They all have the same configuration:
 
-|Field|Description|
+|Field name|Description|
 |-----|-----|
 |Enabled|Enables/Disables sending|
 |Payment Fraud Email Sender|Sets the email sender|
-|Payment Fraud Template|Sets the email template. You can **customize it** in your Magento 2 Admin Panel. To do so, go to *"Marketing" => "Communications" [Email Templates]*. Click on *"Add New Template"*, then load the HiPay email template you want and modify it.|
+|Payment Fraud Template|Sets the email template. You can **customize it** in your Magento 2 Admin Panel. To do so, go to *"Marketing" => "Communications" [Email Templates]*. Click on *"Add New Template"*, then upload the HiPay email template you want and modify it.|
 |Send Payment Fraud Email Copy To|Email addresses you want to add in copy|
-|Send Payment Fraud Email Copy Method|Selects email copy method (Cc or Bcc)|
+|Send Payment Fraud Email Copy Method|Selects the email copy method (Cc or Bcc)|
 
 ![legend](images/fraud_email_review.png)
 
 ### Other configurations
 
-|  Name    | Description|
+|  Field name    | Description|
 |----------|:-------------:|
 |  Device fingerprint    | Defines if a fingerprint is sent with the transaction ("YES" by default)
-| Url of Hipay's javascript  |Technical parameter not to be modified
+| Url of HiPay's JavaScript  |Technical parameter not to be modified
 | Send cart  | Activates  customer's cart items sending or not ("NO" by default)
-| Ean attribute | EAN is not a Magento attribute by default: you must define your custom attribute if you want to send it in the basket
+| EAN attribute | EAN is not a Magento attribute by default: you must define your custom attribute if you want to send it in the cart
 
 ### Customer's cart items configuration
 
