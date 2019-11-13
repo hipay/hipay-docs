@@ -10,7 +10,7 @@ The order is fully invoiced (but not fully captured in the HiPay Enterprise plat
 
 The first installment is always debited on the payment date in Capture mode or when you capture manually in Authorization mode.
 
-Then, with a Cron task (please see [Cron configuration and task information](#cron-configuration-and-task-information)), each installment is debited on its respective payment date.
+Then, with a Cron task (please see the [Cron configuration and task information](#cron-configuration-and-task-information) section), each installment is debited on its respective payment date.
 
 ## Split payment methods
 
@@ -40,7 +40,7 @@ Fill in the form:
 * *Period Frequency*: Number of billing periods that make up one billing cycle
 * *Period Max Cycles*: Number of billing cycles for the payment period
 
-E.g.: If you want to split the amount in 3 installments with 1 billing per month:
+For example, if you want to split the amount in 3 installments with 1 billing per month:
 * Period Unit: `month`
 * Period Frequency: `1`
 * Period Max Cycles: `3`
@@ -57,7 +57,7 @@ For general configuration, please refer to [Payment methods configuration](#paym
 
 Specific configuration:
 
-|Field|Description|
+|Field name|Description|
 |-----|----|
 |Split Payment Profile|Enables to select active split payment profiles, which will be displayed during checkout so that customers can choose one of them.|
 
