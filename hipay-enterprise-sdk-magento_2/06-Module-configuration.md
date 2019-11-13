@@ -144,7 +144,7 @@ to update your list if you change the configuration of your payment methods.
 
 Given the strong growth of the e-commerce in Europe, the second Payment Services Directive (PSD2) redefines the security standards for online payments, aiming to increase security during the payment process, while fighting more actively against fraud attempts. For more details on the regulations, we invite you to read our [guide on PSD2 compliance](https://developer.hipay.com/psd2-and-strong-customer-authentication-3-d-secure-2-compliance-and-guidance/).
 
-As from September 14, 2019, the issuer now decides if a payment is processed depending on the analysis of more than 150 data collected during purchasing. Thanks to our Magento 2 module, we handle most of the data without you having to develop anything. You can see all the new parameters on [our API explorer](https://developer.hipay.com/doc-api/enterprise/gateway/).
+As from September 14, 2019, the issuer now decides if a payment is processed depending on the analysis of more than 150 data collected during purchasing. Thanks to our Magento 2 module, we handle most of the data without you having to develop anything. Discover all the new parameters on [our API explorer](https://developer.hipay.com/doc-api/enterprise/gateway/).
 
 ## Adding or overriding PSD2 data
 
@@ -152,7 +152,7 @@ The accuracy of the information sent is key for making sure that your customers 
  
 You can either implement the plugin in your own modules or use the one that we provide. You can find this additional plugin in our [GitHub repository](https://github.com/hipay/hipay-fullservice-sdk-magento2-data). 
  
-You can install this plugin in a standard way, then directly modify the file “ThreeDSPlugin.php” and the method “afterMapRequest” to add your information.
+You can install this plugin in a standard way, then directly modify the “ThreeDSPlugin.php” file and the “afterMapRequest” method to add your information.
  
 Please note: If there is an update of this plugin, remember to save your information so that it is not overwritten.
 
@@ -162,12 +162,12 @@ Finally, although we do our best to retrieve all relevant data for you, we canno
 
 | Field name |  | Description |
 | --- | --- | --- |
-| **delivery_time_frame** |  | By default, we send “1 = Electronic delivery” if it is a downloadable or an intangible product.<br/><br/>Depending on your carrier and delivery methods, you can refine this data. <br/><br/>Possible values: <br/><br/>1 = Electronic delivery<br/>2 = Same day shipping<br/>3 = Overnight shipping<br/>4 = Two-day or more shipping |
-| **shipping_indicator** |  | We handle this field but you can ovveride the value for intangible products.<br/><br/>If the cart contains only intangible products, please provide:<br/><br/>5 = Digital goods<br/>6 = Travel and event tickets, no shipping<br/>7 = Other (gaming, digital services without shipping, e-media subscription) |
+| **delivery_time_frame** |  | By default, we send “1” (Electronic delivery) if it is a downloadable or an intangible product.<br/><br/>Depending on your carrier and delivery methods, you can refine this information. <br/><br/>Possible values: <br/><br/>1 = Electronic delivery<br/>2 = Same day shipping<br/>3 = Overnight shipping<br/>4 = Two-day or more shipping |
+| **shipping_indicator** |  | We handle this field but you can override the value for intangible products.<br/><br/>If the cart contains only intangible products, please provide:<br/><br/>5 = Digital goods<br/>6 = Travel and event tickets, no shipping<br/>7 = Other (gaming, digital services without shipping, e-media subscription) |
 | **pre_order_date** |  | **If you offer the possibility of pre-ordering,** you must retrieve the product availability date. | 
 | **gift_card** |  | **If you sell gift cards** |
 |  | **amount** | Collect the amount of gift cards purchased. |
 |  | **count** | Collect the count of gift cards purchased. |
 |  | **currency** | Collect the gift card currency. |
 
-If you want to see all the parameters you can override, please refer to the [SDK PHP Reference](https://developer.hipay.com/doc/hipay-enterprise-sdk-php/#psd2-and-strong-customer-authentication).
+To see all the parameters you can override, please refer to the [SDK PHP Reference](https://developer.hipay.com/doc/hipay-enterprise-sdk-php/#psd2-and-strong-customer-authentication).
