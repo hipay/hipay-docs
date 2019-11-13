@@ -38,7 +38,7 @@ All payment methods have a basic configuration like the native Magento 2 payment
 |-----|----|
 |Enabled|Enables/disables the payment method|
 |Title|Desired name of the payment method as displayed during checkout|
-|Payment Action|Authorization or Sale. See more configuration details below.|
+|Payment Action|Authorization or Sales. See more configuration details below.|
 |New Order Status|Order status to set when the order is created before payment. *Pending* by default.|
 |Order status when payment accepted|Order status to set when the transaction is successful. *Processing* by default.|
 |Order status when payment refused|Order status to set when the transaction fails. *On Hold* by default.|
@@ -46,7 +46,7 @@ All payment methods have a basic configuration like the native Magento 2 payment
 |HiPay status to validate order|By default, all orders are validated/invoiced upon notification when the *Capture* status  (118) is sent from the HiPay Enterprise platform (around 10 min. after capture is requested). You can change this pattern by selecting "Capture Requested". In this case, the order is validated/invoiced directly upon the *Capture Requested* (117) status.|
 |Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [Cron configuration and task information](#cron-configuration-and-task-information) section.|
 |Payment products|Allowed payment products. E.g.: Visa, Mastercard, SisalPay...|
-|Use 3D Secure|Enables 3-D Secure. See more configuration details below.|
+|Use 3D Secure|Enables/disables 3-D Secure. See more configuration details below.|
 |Rules 3D Secure|Configures custom rules to activate or not the 3-D Secure mode.|
 |Use Oneclick|Enables/disables One-click. See more configuration details below.|
 |Rules Oneclick|Configures rules to activate or not the One-click mode.|
@@ -147,7 +147,7 @@ If the authorization fails, the customer is redirected to an error page and the 
 
 If the authorization is successful, the customer is redirected to the success page and the status is defined as "_AUTHORIZED_".
 
-To capture the transaction, please see [Manual capture and refund](#manual-capture-and-refund).
+To capture the transaction, please refer to the [Manual capture and refund](#manual-capture-and-refund) section.
 
 ## One-click (only available for credit card payment methods)
 
