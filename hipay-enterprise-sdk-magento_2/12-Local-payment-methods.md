@@ -80,7 +80,7 @@ Example for the SisalPay method with a minimum configuration:
                  <!-- custom fields or override of hosted/Cc -->
                  <field id="css_url" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Custom CSS url</label>
-                    <comment>Important, HTTPS protocol is required</comment>
+                    <comment>Important, the HTTPS protocol is required</comment>
                 </field> 
                  <field id="template" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Template type</label>
@@ -239,7 +239,7 @@ Finally, enter a node in [checkout_index_index.xml](src/view/frontend/layout/che
 
 ```xml
 ...
-<!-- merge payment method renders here -->
+<!-- Merge payment method renders here -->
 <item name="children" xsi:type="array">
     <item name="hipay-payments" xsi:type="array">
         <item name="component" xsi:type="string">HiPay_FullserviceMagento/js/view/payment/hipay-methods</item>
