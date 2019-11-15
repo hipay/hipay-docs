@@ -11,10 +11,10 @@ You need to create a new PHP class in the `src/Model/Method` directory.
 This class must inherit [CcMethod](src/Model/CcMethod.php) or [HostedMethod](src/Model/HostedMethod.php).
 The minimum requirement is to enter a code for this method.
 
-Yet, if you need to customize payment features like 3-DS, you need to override the protected variables or public method.
+Yet, if you need to customize payment features like 3-D Secure, you need to override the protected variables or public method.
 All payment features are initially declared in abstract call [FullserviceMethod](src/Model/FullserviceMethod.php).
 
-Please see the example below with *Sisal* in `HOSTED` mode:  
+Please see the example below with *SisalPay* in `HOSTED` mode:  
 
 
 ```php
@@ -62,7 +62,7 @@ A list of segmented configuration files is available in the [src/etc/adminhtml/s
 Then, create your payment method configuration file and save it in `src/etc/adminhtml/system`.  
 Don't forget to enter your payment method code in the `id` attribute of `groups` tag and to change the `label` tag.
 
-Example for the Sisal method with a minimum configuration:
+Example for the SisalPay method with a minimum configuration:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -162,17 +162,17 @@ You need to put the method model created previously in `model` tag.
 The payment method class is used to map these specific payment method request attributes.  
 
 The `payment_products` tag is used to display payment methods in the payment form.  
-In our *Sisal* example, we restrict to `sisal` product code.  
+In our *SisalPay* example, we restrict to `sisal` product code.  
 `display_selector` is also disabled with a zero value.  
 
 If the local method needs custom configurations, you can put them here.  
-For example, Sisal does not allow a transaction over 1,000 euros.  
+For example, SisalPay does not allow a transaction over 1,000 euros.  
 Therefore, we have entered custom data in the `max_order_total` and `allowed_currencies` tags.
 
 #### Add a JavaScript client template
 
 Magento 2 provides you with a JavaScript templating engine based on knockout.js.
-To display a local payment method for this type of templates, you need to declare your payment method in the Renderer List in [hipay-methods.js](src/view/frontend/web/js/view/payment/hipay-methods.js).
+To display a local payment method for this type of templates, you need to declare your payment method in the rendererList in [hipay-methods.js](src/view/frontend/web/js/view/payment/hipay-methods.js).
 
 ```javascript
 define(
