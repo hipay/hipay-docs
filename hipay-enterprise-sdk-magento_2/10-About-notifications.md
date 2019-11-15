@@ -27,7 +27,7 @@ Otherwise, we just add a new order history record with notification information.
 #### AUTHORIZED AND PENDING (112) and PENDING PAYMENT (200) 
 
 - The transaction order **"Authorization"** status is created.
-- The transaction order is *pending*.
+- The transaction order is *Pending*.
 - The order status changes to `Pending Review`.
 - The invoice is not created.
 
@@ -122,6 +122,6 @@ Otherwise, if the validation status is set to `Capture requested`, please see th
 - *ACQUIRER NOT FOUND* (`151`)
 - *CARD HOLDER ENROLLMENT UNKNOWN* (`160`)
 - *RISK ACCEPTED* (`161`)  
-  - Transaction order is not created
-  - Order status *does not change*
-  - Notification details are added to order history
+  - The transaction order is not created.
+  - The order status *does not change*.
+  - Notification details are added to the order history.
