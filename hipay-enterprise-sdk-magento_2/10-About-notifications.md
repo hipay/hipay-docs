@@ -18,89 +18,87 @@ Otherwise, we just add a new order history record with notification information.
 
 #### BLOCKED (110) and DENIED (111)
 
-- Transaction order **"Denied"** status is created
-- Transaction order is closed
-- Invoice in *pending* status, if any, is cancelled
-- Order status changes to the status selected in configuration for the current payment method
+- The transaction order **"Denied"** status is created.
+- The transaction order is closed.
+- Any invoice in *Pending* status is cancelled.
+- The order status changes to the status selected in configuration for the current payment method.
 
 
 #### AUTHORIZED AND PENDING (112) and PENDING PAYMENT (200) 
 
-- Transaction order **"Authorization"** status is created
-- Transaction order is *pending*
-- Transaction order is not closed
-- Order status changes to `Pending Review`
-- Invoice is not created
+- The transaction order **"Authorization"** status is created.
+- The transaction order is *pending*.
+- The order status changes to `Pending Review`.
+- The invoice is not created.
 
 #### AUTHORIZATION REQUESTED (142)
-- Transaction order is not created
-- Order status changes to `Authorization Requested`
-- Notification details are added to order history
+- The transaction order is not created.
+- The order status changes to `Authorization Requested`.
+- Notification details are added to the order history.
 
 
 #### REFUSED (113), AUTHORIZATION_REFUSED (163), CAPTURE_REFUSED (163)  
 
-- Transaction order is *not created* 
-- Order is set to the status configured
-- If an invoice exists, it is cancelled
+- The transaction order is *not created*. 
+- The order is set to the configured status.
+- If an invoice exists, it is cancelled.
 
 #### CANCELLED (115)
 
-- Transaction order is *not created* 
-- Order is set to the status configured
-- If an invoice exists, it is cancelled
+- The transaction order is *not created*. 
+- The order is set to the configured status.
+- If an invoice exists, it is cancelled.
 
 #### EXPIRED (114)
 
-- Transaction order **"Void"** status is created if a parent transaction exists and is Authorization
-- Order is set to status `Processing` by Magento 2
+- The transaction order **"Void"** status is created if a parent transaction exists and is in status "Authorization".
+- The order is set to status `Processing` by Magento 2.
 
 
 #### AUTHORIZED (116)  
-- Transaction order **"Authorization"** status is created
-- Transaction order is open
-- Order status changes to `Authorized`
-- Invoice is not created
+- The transaction order **"Authorization"** status is created.
+- The order status changes to `Authorized`.
+- The invoice is not created.
 
 
 #### CAPTURE REQUESTED (117)  
 
 If the validation status is set to `Capture`:  
-- Transaction order is not created
-- Order status changes to `Capture requested`
-- Notification details are added to order history
+- the transaction order is not created,
+- the order status changes to `Capture requested`,
+- notification details are added to the order history.
 
-Otherwise, if the validation status is set to `Capture requested`, please see `Captured` Status related actions below.
+Otherwise, if the validation status is set to `Capture requested`, please see the `Captured` status related actions below.
 
 
 #### CAPTURED (118) and PARTIALLY CAPTURED (119)  
 
-- Transaction order **"Captured"** status is created
-- Transaction order is closed
-- Order status changes to `Processing` or `Partially captured`
-- Complete/partial invoice is created
-- In case of a split payment, a new transaction is saved.
+- The transaction order **"Captured"** status is created.
+- The transaction order is closed.
+- The order status changes to `Processing` or `Partially captured`.
+- A complete/partial invoice is created.
+- In case of a split payment, a new transaction is created.
 
 
 #### REFUND REQUESTED (124)  
 
-- Transaction order is not created  
-- Order status changes to `Refund requested`
-- Notification details are added to order history
+- The transaction order is not created.  
+- The order status changes to `Refund requested`.
+- Notification details are added to the order history.
 
 
 #### REFUNDED (125) and PARTIALLY REFUNDED (126)  
 
-  - Transaction order **"Captured"** status is created
-  - Transaction order is closed
-  - Order status changes to `Processing` or `Partially refunded`
-  - Complete/partial invoice is created
+  - The transaction order **"Captured"** status is created.
+  - The transaction order is closed.
+  - The order status changes to `Processing` or `Partially refunded`.
+  - A complete/partial invoice is created.
 
 #### REFUND REFUSED (117)  
 
-- Transaction order is not created  
-- Order status changes to `Refund refused`
-- Notification details are added to order history
+- The transaction order is not created.  
+- The order status changes to `Refund refused`.
+- Notification details are added to the order history.
 
 #### Other statuses
 - *CREATED* (`101`)
