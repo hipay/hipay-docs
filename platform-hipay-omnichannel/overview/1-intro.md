@@ -308,7 +308,7 @@ First of all, to use the SDK, you have to  set the **Configuration** object in y
 | ipAddress<b>*</b> | POS terminal IPV4 address |	String | e.g. "192.168.1.10" 
 | apiPublicUsername* | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
 | apiPublicPassword<b>*</b> | HiPay password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| debugMode | Enable debug mode (display all prints) |Bool | e.g. False
+| debug | Enable debug mode (display all prints) |Bool | e.g. False
 
 <b>*</b> Mandatory parameters
 
@@ -324,7 +324,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                                                     ipAddress: "192.168.1.1",
                                                     apiPublicUsername: "username",
                                                     apiPublicPassword: "password",
-                                                    debugMode: false)
+                                                    debug: false)
     } catch ConfigurationError.invalidIPAddress {
         // Invalid IP Adress
     } catch {
