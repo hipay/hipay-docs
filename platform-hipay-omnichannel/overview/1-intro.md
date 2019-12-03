@@ -364,9 +364,9 @@ For each payment, you have to create a **RequestPayment** object with theses var
                                             currency: .EUR,
                                             orderIdentifier: "order_12345",
                                             mid: "1234567",
-                                            cart: cart,
-                                            customer: customer,
-                                            customData: customData)
+                                            cart: nil,
+                                            customer: nil,
+                                            customData: nil)
 
         requestPayment.delegate = self
         requestPayment.execute() // Request execution
@@ -547,16 +547,17 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 ### Requirements
 
-- Android > 5.0 Lollipop (API 21) 
+- Android >= 5.0 Lollipop (API 21) 
 - POS terminal with Concert protocol version 3
+- Android Studio >= 3.5.2
 
 ### Installation
 
-You have to use [jCenter](https://bintray.com/hipayandroid) to install the HiPay Omnichannel SDK for Android.
+You have to use [jCenter](https://bintray.com/beta/#/hipayandroid/maven/hipay-omnichannel-concertv3?tab=overview) to install the HiPay Omnichannel SDK for Android.
 
 Add this line to your `Build.gradle` application file :
 
-	implementation 'com.hipay.fullservice:hipayomnichannel:1.0.0'
+    implementation 'com.hipay:hipay-omnichannel-concertv3:1.0.0'
 
 ### Initialization
 
@@ -566,9 +567,9 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 |---|---|---|---|---|
 | environment<b>*</b>  |	Environment in which the transaction is going to be created |	Enum | Stage<br>Production |
 | ipAddress<b>*</b> | POS terminal IP address |	String | e.g. "192.168.1.10" 
-| apiPublicUsername* | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
+| apiPublicUsername<b>*</b> | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
 | apiPublicPassword<b>*</b> | HiPay password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| timeout | Delay before request timeout (in second) in the POS terminal communication (Default 180 seconds) |	Unsigned Int | e.g. 60
+| debug | Enable debug mode (display all prints) | Bool | e.g. False
 
 <b>*</b> Mandatory parameters
 
@@ -576,20 +577,30 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 ```java
     import com.hipay.omnichannel.concertv3.sdk.*;
 
-    try {
-        Configuration.getInstance().setConfiguration(
-                Environment.STAGE,
-                "192.168.1.1",
-                "username",
-                "password");
-    } catch (IllegalArgumentException e) {
-        e.printStackTrace();
+    public class MainActivity extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            try {
+                Configuration.getInstance().setConfiguration(
+                        Environment.STAGE,
+                        "192.168.1.1",
+                        "username",
+                        "password",
+                        false);
+            } catch (InvalidIPAddressException e) {
+                // Handle InvalidIPAddressException
+            }
+        }
     }
 ```
 
 ### Request payment
 
-For each payment, you have to create a **RequestPayment** object with theses variables below.
+For each payment, you have to create a **RequestPayment** object with theses variables below. When your **RequestPayment** object is created, you execute it with the corresponding method ```execute(this)```. Your class has to conform to the **RequestPaymentDelegate** interface to receive a response.
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
@@ -610,61 +621,74 @@ For each payment, you have to create a **RequestPayment** object with theses var
 
     @Override
     public void onClick(View view) {
-
-        // Cart
-        Item item1 = new Item("A2343SSS",
-            ItemType.GOOD,
-            "Table",
-            2,
-            150.99f,
-            0.0f,
-            301.98f);
-        item1.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
-
-        Item item2 = new Item("B7762NN",
-                ItemType.GOOD,
-                "Chairs",
-                4,
-                79.49f,
-                0.0f,
-                317.96f
-        );
-        item2.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
-        item2.setProductDescription("A wooden chair");
-
-        ArrayList<Item> itemArrayList = new ArrayList<>();
-        itemArrayList.add(item1);
-        itemArrayList.add(item2);
-
-        Cart cart = new Cart(itemArrayList);
-
-        // Customer
-        Customer customer = new Customer("99", "John", "Doe", "john.doe@example.com");
-
-        // Custom Data
-        HashMap<String, Object> customData = new HashMap<>();
-        customData.put("foo1", "foo2");
-        customData.put("price", 12.30);
-        customData.put("event", 34);
-        customData.put("newCustomer", true);
-
-        RequestPayment request = new RequestPayment(
-                TransactionType.TRANSACTION_TYPE_DEBIT, // transactionType
-                9.99,         // amount
-                false,        // forceAuthorization
-                "order_1234", // orderIdentifier
-                "1234567",    // mid
-                cart,         // cart
-                customer,     // customer
-                customData    // customData
-        );
+        try {
+            RequestPayment requestPayment = new RequestPayment(TransactionType.TRANSACTION_TYPE_DEBIT,
+                    false,
+                    9.99f,
+                    Currency.EUR,
+                    "order_1234",
+                    "1234567",
+                    null,
+                    null,
+                    null
+            );
+            requestPayment.execute(this);
+        } catch (InvalidAmountException e) {
+            // Handle InvalidAmountException
+        } catch (InvalidMIDException e) {
+            // Handle InvalidMIDException
+        }
     }
 ```
 
-When your **RequestPayment** is created, you execute it with the corresponding method. Your class has to implements to the **RequestPaymentDelegate** delegate to receive the response.
+In this part, we will show you how to add more details about your request payment.
+You can add the cart of the transaction, creating an **Item** for each article ( [More informations about cart](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management) ).
 
 ```java
-requestPayment.execute(this)
+    Item item1 = new Item("A2343SSS",
+                ItemType.GOOD,
+                "Table",
+                2,
+                150.99f,
+                0.0f,
+                301.98f);
+    item1.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+
+    Item item2 = new Item("B7762NN",
+            ItemType.GOOD,
+            "Chairs",
+            4,
+            79.49f,
+            0.0f,
+            317.96f
+    );
+    item2.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+    item2.setProductDescription("A wooden chair");
+
+    ArrayList<Item> itemArrayList = new ArrayList<>();
+    itemArrayList.add(item1);
+    itemArrayList.add(item2);
+
+    Cart cart = new Cart(itemArrayList);
+```
+
+**Customer** parameter, you can set all personal information such as his email, first name, last name and an unique identifier.
+```java
+    Customer customer = new Customer("99", 
+                                    "John", 
+                                    "Doe", 
+                                    "john.doe@example.com"
+    );
+```
+
+In the **custom data** parameter, you can set all the values of you want to retrieve in HiPay's backoffice.
+
+```java
+    HashMap<String, Object> customData = new HashMap<>();
+    customData.put("foo1", "foo2");
+    customData.put("price", 12.30);
+    customData.put("event", 34);
+    customData.put("newCustomer", true);
 ```
 
 ### Response payment
@@ -689,6 +713,103 @@ The below table describes the **ResponsePayment** object properties, notice that
 | currency | ISO 4217 three-digit currency code | Enum | e.g. Currency.EUR | 
 | orderIdentifier | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
+
+### Payment example
+
+Here you have a complete example of the code needed to request a payment and handle its response.
+
+```java
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RequestPaymentDelegate {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        try {
+            Configuration.getInstance().setConfiguration(
+                    Environment.STAGE,
+                    "192.168.1.1",
+                    "username",
+                    "password",
+                    false);
+        } catch (InvalidIPAddressException e) {
+            // Handle InvalidIPAddressException
+        }
+    }
+
+
+    @Override
+    public void onClick(View view) {
+
+        // Cart
+        Item item1 = new Item("A2343SSS",
+                ItemType.GOOD,
+                "Table",
+                2,
+                150.99f,
+                0.0f,
+                301.98f);
+        item1.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+
+        Item item2 = new Item("B7762NN",
+                ItemType.GOOD,
+                "Chairs",
+                4,
+                79.49f,
+                0.0f,
+                317.96f
+        );
+        item2.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+        item2.setProductDescription("A wooden chair");
+
+        ArrayList<Item> itemArrayList = new ArrayList<>();
+        itemArrayList.add(item1);
+        itemArrayList.add(item2);
+
+        Cart cart = new Cart(itemArrayList);
+
+        // Customer
+        Customer customer = new Customer("99",
+                "John",
+                "Doe",
+                "john.doe@example.com"
+        );
+
+        // CustomData
+        HashMap<String, Object> customData = new HashMap<>();
+        customData.put("foo1", "foo2");
+        customData.put("price", 12.30);
+        customData.put("event", 34);
+        customData.put("newCustomer", true);
+
+        try {
+            RequestPayment requestPayment = new RequestPayment(TransactionType.TRANSACTION_TYPE_DEBIT,
+                    false,
+                    9.99f,
+                    Currency.EUR,
+                    "order_1234",
+                    "1234567",
+                    cart,
+                    customer,
+                    customData
+            );
+            requestPayment.execute(this);
+        } catch (InvalidAmountException e) {
+            // Handle InvalidAmountException
+        } catch (InvalidMIDException e) {
+            // Handle InvalidMIDException
+        }
+    }
+
+    @Override
+    public void onFinish(ResponsePayment responsePayment) {
+        // Handle response Payment
+    }
+}
+```
+
+
 
 ## Errors code
 
