@@ -587,7 +587,7 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
             try {
                 Configuration.getInstance().setConfiguration(
                         Environment.STAGE,
-                        "192.168.1.1",
+                        "192.168.1.2",
                         "username",
                         "password",
                         false);
@@ -607,7 +607,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
 | forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: False |
 | amount<b>*</b> | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	 
-| currency<b>*</b> | ISO 4217 three-digit currency code | Enum | e.g. ".EUR" for EUR | 
+| currency<b>*</b> | ISO 4217 three-digit currency code | Enum | e.g. ".EUR" for Euros | 
 | orderIdentifier | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | mid | Acquirer contract number |	String | e.g. "12345678" 
 | cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
@@ -719,6 +719,8 @@ The below table describes the **ResponsePayment** object properties, notice that
 Here you have a complete example of the code needed to request a payment and handle its response.
 
 ```java
+// All your imports
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RequestPaymentDelegate {
 
     @Override
@@ -729,7 +731,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             Configuration.getInstance().setConfiguration(
                     Environment.STAGE,
-                    "192.168.1.1",
+                    "192.168.1.2",
                     "username",
                     "password",
                     false);
