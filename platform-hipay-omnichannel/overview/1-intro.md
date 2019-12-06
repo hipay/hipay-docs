@@ -442,7 +442,14 @@ class ViewControlller: UIViewController, RequestPaymentDelegate {
 
   // Mandatory function from RequestPaymentDelegate delegate
   func requestDidEnd(_ response: ResponsePayment) {
-    // Handle the reponsePayment object
+        print(response)
+
+        if (response.paymentStatus == .Success) {
+            // Handle Success
+        }
+        else {
+            // Handle Failure
+        }
   }
 }
 ```
@@ -538,6 +545,13 @@ class ViewController: UIViewController, RequestPaymentDelegate {
     func requestDidEnd(_ response: ResponsePayment) {
         // Handle the reponsePayment object
         print(response)
+
+        if (response.paymentStatus == .Success) {
+            // Handle Success
+        }
+        else {
+            // Handle Failure
+        }
     }   
 }
 ```
