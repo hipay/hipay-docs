@@ -806,7 +806,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onFinish(ResponsePayment responsePayment) {
-        // Handle response Payment
+        if (responsePayment.getPaymentStatus() == PaymentStatus.SUCCESS) {
+            // Handle success response
+        }
+        else {
+            // Handle failed response
+        }
     }
 }
 ```
