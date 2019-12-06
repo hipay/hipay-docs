@@ -712,7 +712,12 @@ After the transaction has been processed through the HiPay's servers, you will r
 ```java
     @Override
     public void onFinish(ResponsePayment responsePayment) {
-        // Handle the responsePayment
+        if (responsePayment.getPaymentStatus() == PaymentStatus.SUCCESS) {
+            // Handle success response
+        }
+        else {
+            // Handle failed response
+        }
     }
 ```
 
