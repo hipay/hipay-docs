@@ -2,7 +2,7 @@
 
 In your Magento Admin Portal, select:  
 ```nohighlight
-"Stores" => "Configuration" => "Sales" [Payment Methods]
+“Stores” => “Configuration” => “Sales” [Payment Methods]
 ```
 
 You can then see all the HiPay Enterprise payment methods.
@@ -74,8 +74,8 @@ HOSTED configuration specific fields
 |Display hosted page in iFrame|By default, a hosted payment method redirects your customers to a hosted payment page, but in iFrame mode, this hosted page is displayed in an iFrame directly on your website.|
 |iFrame Width|Width of the iFrame (if the iFrame mode is enabled)|
 |iFrame Height|Height of the iFrame (if the iFrame mode is enabled)|
-|iFrame Style|*Style* attribute's value of the iFrame (if the iFrame mode is enabled)|
-|Wrapper iFrame Style|*Style* attribute's value of the iFrame wrapper (if the iFrame mode is enabled)|
+|iFrame Style|*Style* attribute’s value of the iFrame (if the iFrame mode is enabled)|
+|Wrapper iFrame Style|*Style* attribute’s value of the iFrame wrapper (if the iFrame mode is enabled)|
 
 ![legend](images/hosted_config.png)
 
@@ -85,7 +85,7 @@ API configuration specific field
 
 |Field name|Description|
 |-----|----|
-|Display card owner|Displays field form for card owner's full name|
+|Display card owner|Displays field form for card owner’s full name|
 
 ![legend](images/api_config.png)
 
@@ -129,29 +129,29 @@ Rules configuration follows the same process as Magento 2 price rules.
 
 ![legend](images/3dsecure_rules.png)
 
-## "Sales" mode (direct capture)
+## “Sales” mode (direct capture)
 
-When making a purchase with the "Sales" mode, the capture is automatically requested right after authorization. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the “Sales” mode, the capture is automatically requested right after authorization. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
-If the payment fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
+If the payment fails, the customer is redirected to an error page and the status is defined as “_CANCELED_”.
 
-If the payment is successful, the customer is redirected to the success page and the status is defined as "_CAPTURE REQUESTED_".
+If the payment is successful, the customer is redirected to the success page and the status is defined as “_CAPTURE REQUESTED_”.
 
-## "Authorization" mode
+## “Authorization” mode
 
-When making a purchase with the "Authorization" mode, the transaction status will be "_AUTHORIZED_" until you ask for the capture. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the “Authorization” mode, the transaction status will be “_AUTHORIZED_” until you ask for the capture. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
 
-Customers are not charged directly: you have 7 days to "capture" the order and charge the customer. Otherwise, the order is cancelled.
+Customers are not charged directly: you have 7 days to “capture” the order and charge the customer. Otherwise, the order is cancelled.
 
-If the authorization fails, the customer is redirected to an error page and the status is defined as "_CANCELED_".
+If the authorization fails, the customer is redirected to an error page and the status is defined as “_CANCELED_”.
 
-If the authorization is successful, the customer is redirected to the success page and the status is defined as "_AUTHORIZED_".
+If the authorization is successful, the customer is redirected to the success page and the status is defined as “_AUTHORIZED_”.
 
 To capture the transaction, please refer to the [Manual capture and refund](#manual-capture-and-refund) section.
 
 ## One-click (only available for credit card payment methods)
 
-If the One-click option is enabled, your system will create an "alias" for the credit card. Customers will thus be able to use a saved credit card for their second transaction and won't need to fill in all the payment data again.
+If the One-click option is enabled, your system will create an “alias” for the credit card. Customers will thus be able to use a saved credit card for their second transaction and won't need to fill in all the payment data again.
 
 ![legend](images/front_oneclick_selected.png)
 
