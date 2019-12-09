@@ -85,21 +85,21 @@ They all have the same configuration:
 |  Field name    | Description|
 |----------|:-------------:|
 |  Device fingerprint    | Defines if a fingerprint is sent with the transaction ("YES" by default)
-| URL of HiPay's JavaScript  |Technical parameter not to be modified
-| Send cart  | Activates  customer's cart items sending or not ("NO" by default)
+| URL of HiPay’s JavaScript  |Technical parameter not to be modified
+| Send cart  | Activates  customer’s cart items sending or not ("NO" by default)
 | EAN attribute | EAN is not a Magento attribute by default: you must define your custom attribute if you want to send it in the cart
 
-### Customer's cart items configuration
+### Customer’s cart items configuration
 
-This section addresses customer's cart items sending to the HiPay Enterprise back office during the transaction.
+This section addresses customer’s cart items sending to the HiPay Enterprise back office during the transaction.
 
 Enabling this option applies to all enabled payment methods on your site.
-The information of the customer's cart, containing the shipping method, the discounts and each product with the quantity, as well as the SKU and the tax, is sent with the transaction.
+The information of the customer’s cart, containing the shipping method, the discounts and each product with the quantity, as well as the SKU and the tax, is sent with the transaction.
 
 For **Oney Facily Pay**, sending this information is mandatory. This option is therefore ignored if the transactions
 are made with this payment method. 
 
-Oney's anti-fraud system requires additional configuration for the shipping method and product categories.
+Oney’s anti-fraud system requires additional configuration for the shipping method and product categories.
 The configuration is explained in the following paragraph.
 
 For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
@@ -109,7 +109,7 @@ Please note that **"Adjustment Fee"** or **"Adjustment Refund"** are not support
 #### Mapping categories and shipping methods
 
 To enable sending relevant information about categories and shipping methods, mapping
-is required between your data and HiPay's data.
+is required between your data and HiPay’s data.
 
 ##### Mapping categories
 
@@ -125,7 +125,7 @@ Go to the setup screen `HiPay Enterprise` => `Mapping Shipping method`.
 
 A list of all the delivery methods activated on the site is displayed.
 This mapping is necessary to indicate a match between your shipping methods and the shipping methods defined by HiPay.
-For each customer's order, depending on the chosen configuration, this information is sent as a supplement to the customer's cart.
+For each customer’s order, depending on the chosen configuration, this information is sent as a supplement to the customer’s cart.
 
 For each mapping, you have to fill out the following information:
 
@@ -144,7 +144,7 @@ to update your list if you change the configuration of your payment methods.
 
 Given the strong growth of the e-commerce in Europe, the second Payment Services Directive (PSD2) redefines the security standards for online payments, aiming to increase security during the payment process, while fighting more actively against fraud attempts. For more details on the regulations, we invite you to read our [guide on PSD2 compliance](https://developer.hipay.com/psd2-and-strong-customer-authentication-3-d-secure-2-compliance-and-guidance/).
 
-As from September 14, 2019, the issuer now decides if a payment is processed depending on the analysis of more than 150 data collected during purchasing. Thanks to our Magento 2 module, we handle most of the data without you having to develop anything. Discover all the new parameters on [our API explorer](https://developer.hipay.com/doc-api/enterprise/gateway/).
+As from September 14, 2019, the issuer will now decide if a payment is processed depending on the analysis of more than 150 data collected during purchasing. Thanks to our Magento 2 module, we handle most of the data without you having to develop anything. Discover all the new parameters on [our API explorer](https://developer.hipay.com/doc-api/enterprise/gateway/).
 
 ## Adding or overriding PSD2 data
 
@@ -152,7 +152,7 @@ The accuracy of the information sent is key for making sure that your customers 
  
 You can either implement the plugin in your own modules or use the one that we provide. You can find this additional plugin in our [GitHub repository](https://github.com/hipay/hipay-fullservice-sdk-magento2-data). 
  
-You can install this plugin in a standard way, then directly modify the “ThreeDSPlugin.php” file and the “afterMapRequest” method to add your information.
+You can install this plugin in a standard way, then directly modify the "ThreeDSPlugin.php" file and the "afterMapRequest" method to add your information.
  
 Please note: If there is an update of this plugin, remember to save your information so that it is not overwritten.
 
