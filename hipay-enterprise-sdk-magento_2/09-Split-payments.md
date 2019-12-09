@@ -31,7 +31,7 @@ In your Magento Admin Panel, select `HiPay Enterprise` => `Payment Profiles`.
 
 ![legend](images/payment_profiles_list.png)
 
-Click on *"Create New Payment Profile"*.
+Click on *“Create New Payment Profile”*.
 
 Fill in the form:
 
@@ -45,7 +45,7 @@ For example, if you want to split the amount in 3 installments with 1 billing pe
 * Period Frequency: `1`
 * Period Max Cycles: `3`
 
-Don't forget to save the information.
+Don’t forget to save the information.
 
 ![legend](images/new_payment_profile.png)
 
