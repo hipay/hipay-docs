@@ -18,7 +18,7 @@ Otherwise, we just add a new order history record with notification information.
 
 #### BLOCKED (110) and DENIED (111)
 
-- The transaction order **"Denied"** status is created.
+- The transaction order **“Denied”** status is created.
 - The transaction order is closed.
 - Any invoice in *Pending* status is cancelled.
 - The order status changes to the status selected in configuration for the current payment method.
@@ -26,7 +26,7 @@ Otherwise, we just add a new order history record with notification information.
 
 #### AUTHORIZED AND PENDING (112) and PENDING PAYMENT (200) 
 
-- The transaction order **"Authorization"** status is created.
+- The transaction order **“Authorization”** status is created.
 - The transaction order is *Pending*.
 - The order status changes to `Pending Review`.
 - The invoice is not created.
@@ -51,12 +51,12 @@ Otherwise, we just add a new order history record with notification information.
 
 #### EXPIRED (114)
 
-- The transaction order **"Void"** status is created if a parent transaction exists and is in status "Authorization".
+- The transaction order **"Void"** status is created if a parent transaction exists and is in status “Authorization”.
 - The order is set to status `Processing` by Magento 2.
 
 
 #### AUTHORIZED (116)  
-- The transaction order **"Authorization"** status is created.
+- The transaction order **“Authorization”** status is created.
 - The order status changes to `Authorized`.
 - The invoice is not created.
 
@@ -73,7 +73,7 @@ Otherwise, if the validation status is set to `Capture requested`, please see th
 
 #### CAPTURED (118) and PARTIALLY CAPTURED (119)  
 
-- The transaction order **"Captured"** status is created.
+- The transaction order **“Captured”** status is created.
 - The transaction order is closed.
 - The order status changes to `Processing` or `Partially captured`.
 - A complete/partial invoice is created.
@@ -89,7 +89,7 @@ Otherwise, if the validation status is set to `Capture requested`, please see th
 
 #### REFUNDED (125) and PARTIALLY REFUNDED (126)  
 
-  - The transaction order **"Captured"** status is created.
+  - The transaction order **“Captured”** status is created.
   - The transaction order is closed.
   - The order status changes to `Processing` or `Partially refunded`.
   - A complete/partial invoice is created.
