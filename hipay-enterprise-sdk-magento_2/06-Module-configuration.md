@@ -22,25 +22,25 @@ HiPay Enterprise API credentials are required to use the HiPay Enterprise module
 
 |Field name|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => “Security Settings” |
 
 ![legend](images/credentials_conf.png)
 
 ### HiPay Enterprise credentials for Direct Post configuration
 
-Generated in your HiPay Enterprise back office ("Integration" => "Security Settings" => "Api credentials" => "Credentials accessibility": Public), these newly created HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
+Generated in your HiPay Enterprise back office (“Integration” => “Security Settings” => “Api credentials” => “Credentials accessibility”: Public), these newly created HiPay Enterprise API credentials are required to use the HiPay Enterprise module for Magento 2.
 
 |Field name|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
 
 ![legend](images/credentials_js.png)
 
@@ -50,12 +50,12 @@ They are required only if you need to pay an order created in your Magento Admin
 
 |Field name|Description|
 |-----|-----|
-|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
-|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => "Security Settings" |
+|Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
 ![legend](images/credentials_moto.png)
 
@@ -74,7 +74,7 @@ They all have the same configuration:
 |-----|-----|
 |Enabled|Enables/disables sending|
 |Payment Fraud Email Sender|Sets the email sender|
-|Payment Fraud Template|Sets the email template. You can **customize it** in your Magento 2 Admin Panel. To do so, go to *"Marketing" => "Communications" [Email Templates]*. Click on *"Add New Template"*, then upload the HiPay email template you want and modify it.|
+|Payment Fraud Template|Sets the email template. You can **customize it** in your Magento 2 Admin Panel. To do so, go to *“Marketing” => “Communications” [Email Templates]*. Click on *“Add New Template”*, then upload the HiPay email template you want and modify it.|
 |Send Payment Fraud Email Copy To|Email addresses you want to add in copy|
 |Send Payment Fraud Email Copy Method|Selects the email copy method (Cc or Bcc)|
 
@@ -84,9 +84,9 @@ They all have the same configuration:
 
 |  Field name    | Description|
 |----------|:-------------:|
-|  Device fingerprint    | Defines if a fingerprint is sent with the transaction ("YES" by default)
+|  Device fingerprint    | Defines if a fingerprint is sent with the transaction (“YES” by default)
 | URL of HiPay’s JavaScript  |Technical parameter not to be modified
-| Send cart  | Activates  customer’s cart items sending or not ("NO" by default)
+| Send cart  | Activates  customer’s cart items sending or not (“NO” by default)
 | EAN attribute | EAN is not a Magento attribute by default: you must define your custom attribute if you want to send it in the cart
 
 ### Customer’s cart items configuration
@@ -104,7 +104,7 @@ The configuration is explained in the following paragraph.
 
 For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
 
-Please note that **"Adjustment Fee"** or **"Adjustment Refund"** are not supported with carts for refunds.
+Please note that **“Adjustment Fee"** or **“Adjustment Refund"** are not supported with carts for refunds.
 
 #### Mapping categories and shipping methods
 
@@ -129,8 +129,8 @@ For each customer’s order, depending on the chosen configuration, this informa
 
 For each mapping, you have to fill out the following information:
 
-   *   "Preparation delay": Estimated time for order preparation,
-   *   "Delivery delay": Estimated time for delivery.
+   *   “Preparation delay”: Estimated time for order preparation,
+   *   “Delivery delay”: Estimated time for delivery.
 
 From this information, an estimated delivery day is calculated and sent with the transaction.
 Non-working days are not taken into account in this calculation.
@@ -148,11 +148,11 @@ As from September 14, 2019, the issuer will now decide if a payment is processed
 
 ## Adding or overriding PSD2 data
 
-The accuracy of the information sent is key for making sure that your customers have a frictionless payment process. That’s why we give you the possibility to add or override PSD2 data, using a [plugin](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/plugins.html) on the "HiPay\FullserviceMagento\Model\Request\Order" class which can intercept the "mapRequest" method.
+The accuracy of the information sent is key for making sure that your customers have a frictionless payment process. That’s why we give you the possibility to add or override PSD2 data, using a [plugin](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/plugins.html) on the “HiPay\FullserviceMagento\Model\Request\Order” class which can intercept the “mapRequest” method.
  
 You can either implement the plugin in your own modules or use the one that we provide. You can find this additional plugin in our [GitHub repository](https://github.com/hipay/hipay-fullservice-sdk-magento2-data). 
  
-You can install this plugin in a standard way, then directly modify the "ThreeDSPlugin.php" file and the "afterMapRequest" method to add your information.
+You can install this plugin in a standard way, then directly modify the “ThreeDSPlugin.php” file and the “afterMapRequest” method to add your information.
  
 Please note: If there is an update of this plugin, remember to save your information so that it is not overwritten.
 
