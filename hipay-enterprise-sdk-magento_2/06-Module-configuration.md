@@ -27,7 +27,7 @@ HiPay Enterprise API credentials are required to use the HiPay Enterprise module
 |Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
-|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in "Integration" => “Security Settings” |
+|Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
 ![legend](images/credentials_conf.png)
 
@@ -38,9 +38,9 @@ Generated in your HiPay Enterprise back office (“Integration” => “Security
 |Field name|Description|
 |-----|-----|
 |Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
-|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
-|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
-|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
+|Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
 ![legend](images/credentials_js.png)
 
