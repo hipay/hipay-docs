@@ -51,5 +51,5 @@ Don’t forget to replace {your-domain.com} with your own domain.
 
 ## Customize notifications
 
-If you choose to customize the fields sent in the notifications, please be aware that the *"“operation”* field is mandatory. Refunds depend on it.
+If you choose to customize the fields sent in the notifications, please be aware that the *“operation”* field is mandatory. Refunds depend on it.
 
