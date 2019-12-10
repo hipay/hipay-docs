@@ -52,7 +52,7 @@ They are required only if you need to pay an order created in your Magento Admin
 |-----|-----|
 |Api username (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api password (production account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
-|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
+|Secret passphrase (production account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
@@ -104,7 +104,7 @@ The configuration is explained in the following paragraph.
 
 For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
 
-Please note that **“Adjustment Fee"** or **“Adjustment Refund"** are not supported with carts for refunds.
+Please note that **“Adjustment Fee”** or **“Adjustment Refund”** are not supported with carts for refunds.
 
 #### Mapping categories and shipping methods
 
