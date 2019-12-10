@@ -60,7 +60,7 @@ A list of segmented configuration files is available in the [src/etc/adminhtml/s
 
 
 Then, create your payment method configuration file and save it in `src/etc/adminhtml/system`.  
-Don't forget to enter your payment method code in the `id` attribute of `groups` tag and to change the `label` tag.
+Don’t forget to enter your payment method code in the `id` attribute of `groups` tag and to change the `label` tag.
 
 Example for the SisalPay method with a minimum configuration:
 
@@ -367,7 +367,7 @@ Change `id` in qiwi-wallet.xml. In this case, we do not need custom fields:
 </include>
 ```
 
-Don't forget to add your payment method in [payment.xml](src/etc/payment.xml) and include [qiwi-wallet.xml](src/etc/adminhtml/system/method/qiwi-wallet.xml) file in [system.xml](src/etc/adminhtml/system.xml).
+Don’t forget to add your payment method in [payment.xml](src/etc/payment.xml) and include [qiwi-wallet.xml](src/etc/adminhtml/system/method/qiwi-wallet.xml) file in [system.xml](src/etc/adminhtml/system.xml).
 
 
 #### Add JavaScript client template
