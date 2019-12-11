@@ -2,7 +2,7 @@
 
 During the payment workflow, the order status is updated only through HiPay Enterprise notifications.   
 The endpoint for notifications is `http://yourawesomewebsite.com/hipay/notify/index`.  
-It is protected by an encrypted passphrase: don't forget to enter it in your Magento Admin Panel ([Module configuration](#module-configuration)) and HiPay Enterprise back office ([Platform configuration](#platform-configuration)).  
+It is protected by an encrypted passphrase: don’t forget to enter it in your Magento Admin Panel ([Module configuration](#module-configuration)) and HiPay Enterprise back office ([Platform configuration](#platform-configuration)).  
 
 For more information, please see the process in the [Notify](https://github.com/hipay/hipay-fullservice-sdk-magento2/blob/master/Model/Notify.php) model.
 
@@ -51,7 +51,7 @@ Otherwise, we just add a new order history record with notification information.
 
 #### EXPIRED (114)
 
-- The transaction order **"Void"** status is created if a parent transaction exists and is in status “Authorization”.
+- The transaction order **“Void”** status is created if a parent transaction exists and is in status “Authorization”.
 - The order is set to status `Processing` by Magento 2.
 
 
