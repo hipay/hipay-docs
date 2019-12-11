@@ -33,14 +33,14 @@ In your Magento Admin Panel, select `HiPay Enterprise` => `Payment Profiles`.
 
 Click on *“Create New Payment Profile”*.
 
-Fill in the form:
+Then fill in the form.
 
 * *Name*: Public name for your payment profile
 * *Period Unit*: Unit for billing during the subscription period
 * *Period Frequency*: Number of billing periods that make up one billing cycle
 * *Period Max Cycles*: Number of billing cycles for the payment period
 
-For example, if you want to split the amount in 3 installments with 1 billing per month:
+For example, if you want to split the amount in 3 installments with 1 billing per month.
 * Period Unit: `month`
 * Period Frequency: `1`
 * Period Max Cycles: `3`
