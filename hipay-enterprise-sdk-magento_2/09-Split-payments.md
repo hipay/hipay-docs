@@ -40,7 +40,7 @@ Then fill in the form.
 * *Period Frequency*: Number of billing periods that make up one billing cycle
 * *Period Max Cycles*: Number of billing cycles for the payment period
 
-For example, if you want to split the amount in 3 installments with 1 billing per month.
+Here is an example if you want to split the amount in 3 installments with 1 billing per month.
 * Period Unit: `month`
 * Period Frequency: `1`
 * Period Max Cycles: `3`
@@ -59,7 +59,7 @@ Specific configuration:
 
 |Field name|Description|
 |-----|----|
-|Split Payment Profile|Enables to select active split payment profiles, which will be displayed during checkout so that customers can choose one of them.|
+|Split Payment Profile|Enables to select active split payment profiles, which will be displayed during checkout so that customers can choose one of them|
 
 ![legend](images/split_payment_config.png)
 
@@ -70,7 +70,7 @@ A split payment overview is available in your Magento Admin Panel in `HiPay Ente
 For each installment, you can edit, delete or pay it immediately.  
 You can also change the payment date or the amount to pay.
 
-**Be careful: if you are not sure what to do, please submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.**
+**Be careful: If you are not sure what to do, please submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.**
 
 ![legend](images/split_payment_list.png)
 
