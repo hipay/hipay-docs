@@ -18,7 +18,7 @@ In your di.xml, define the plugin with:
 Create a class CustomDataPlugin and implement a method:
 
      /**
-       *  Complete general getCustomData with HiPay's data
+       *  Complete general getCustomData with HiPay’s data
        *
        * @see \HiPay\FullserviceMagento\Helper\Data
        * @param \HiPay\FullserviceMagento\Model\Request\Order $subject
