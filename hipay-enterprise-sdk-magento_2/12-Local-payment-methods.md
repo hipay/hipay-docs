@@ -144,7 +144,7 @@ Finally, enter the payment method default configuration node in [config.xml](src
     <payment_action>Sale</payment_action>
     <order_status>pending</order_status>
     <iframe_mode>1</iframe_mode>
-    <payment_products>sisal</payment_products> <!-- Enter payment code value, see payment products collection in PHP SDK. -->
+    <payment_products>sisal</payment_products> <!-- Enter payment code value, see payment products collection in the PHP SDK. -->
     <payment_products_categories>realtime-banking</payment_products_categories>
     <display_selector>0</display_selector>
     <authentication_indicator>0</authentication_indicator> <!-- Enable/Disable 3-D Secure -->
@@ -328,7 +328,7 @@ Set `model` and `payment_method` values in config.xml.
     <title>Qiwi wallet</title>
     <payment_action>Sale</payment_action>
     <order_status>pending</order_status>
-    <payment_products>qiwi-wallet</payment_products> <!-- Enter the payment code value, see payment products collection in PHP SDK -->
+    <payment_products>qiwi-wallet</payment_products> <!-- Enter the payment code value, see payment products collection in the PHP SDK -->
     <payment_products_categories>ewallet</payment_products_categories>
     <authentication_indicator>0</authentication_indicator> <!-- Enable/Disable 3-D Secure -->
     <allowspecific>0</allowspecific>
