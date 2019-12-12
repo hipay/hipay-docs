@@ -589,27 +589,27 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 
 
 ```java
-    import com.hipay.omnichannel.concertv3.sdk.*;
+import com.hipay.omnichannel.concertv3.sdk.*;
 
-    public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-            try {
-                Configuration.getInstance().setConfiguration(
-                        Environment.STAGE,
-                        "192.168.1.2",
-                        "username",
-                        "password",
-                        false);
-            } catch (InvalidIPAddressException e) {
-                // Handle InvalidIPAddressException
-            }
+        try {
+            Configuration.getInstance().setConfiguration(
+                    Environment.STAGE,
+                    "192.168.1.2",
+                    "username",
+                    "password",
+                    false);
+        } catch (InvalidIPAddressException e) {
+            // Handle InvalidIPAddressException
         }
     }
+}
 ```
 
 ### Request payment
@@ -631,7 +631,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 <b>*</b> Mandatory parameters
 
 ```java
-    import com.hipay.omnichannel.concertv3.sdk.*;
+import com.hipay.omnichannel.concertv3.sdk.*;
 
     @Override
     public void onClick(View view) {
