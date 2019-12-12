@@ -563,7 +563,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 - Android >= 5.0 Lollipop (API 21) 
 - POS terminal with Concert protocol version 3
-- Android Studio >= 3.5.2
+- Android Studio >= 3.5.3
 
 ### Installation
 
@@ -589,8 +589,6 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 
 
 ```java
-import com.hipay.omnichannel.concertv3.sdk.*;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -631,8 +629,6 @@ For each payment, you have to create a **RequestPayment** object with theses var
 <b>*</b> Mandatory parameters
 
 ```java
-import com.hipay.omnichannel.concertv3.sdk.*;
-
     @Override
     public void onClick(View view) {
         try {
