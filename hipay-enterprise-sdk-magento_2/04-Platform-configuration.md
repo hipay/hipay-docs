@@ -20,7 +20,6 @@ In your HiPay Enterprise back office, click on the “_Integration_” tab, then
 >
 > When changing your IP addresses, make sure that all the new ones are configured for your account. If not, your server requests will be rejected.
 
-![legend](images/ip-restriction.png)
 
 ## Configure redirect URLs
 
