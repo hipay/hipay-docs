@@ -31,9 +31,11 @@ composer update hipay/hipay-fullservice-sdk-magento2
 
 Then, you must run these command lines:  
 
+```shell
 php bin/magento setup:static-content:deploy
 php bin/magento setup:upgrade
 php bin/magento cache:clean
+```
 
 If no errors are displayed, the module is updated.  
 You can then go to your Magento Admin Panel.

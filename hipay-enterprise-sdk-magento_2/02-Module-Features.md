@@ -1,19 +1,19 @@
 # Module features
 
+* Compliance with PSD2 requirements relating to Strong Customer Authentication
+* More than 30 payment methods available
 * 3-D Secure enabling/disabling
-* One-click option configuration with custom rules
-* Management of multiple cards per customer for one-click payment
-* iFrame integration, hosted page and custom card API
-* Mail management for transactions pending fraud validation ("challenged")
+* One-click payment option configuration with custom rules
+* Available integrations: Hosted Fields, Hosted Page and Hosted iFrame
+* Email management for challenged transactions pending validation to fight against fraud
 * Manual and automatic capture
 * Partial capture and refund
 * Payment in x installments without fees
-* Custom data management (easily send and view your data in your HiPay Enterprise back office)
-* Use order currency for transaction if your shop is multi-currency
+* Custom data management to easily send and view your data from your HiPay Enterprise back office
 
 The module supports the following payment methods:
 
- * **VISA, MasterCard, AMEX, BCMC, Maestro**
+ * **Visa, Mastercard, American Express, Bancontact, Maestro**
 
 **France**
 
@@ -23,50 +23,46 @@ The module supports the following payment methods:
 
  * **iDEAL**
  * **ING Home'Pay**
- * **Visa QIWI Wallet**
  * **PayPal**
  * **SEPA Direct Debit**
 
-**Switzerland**
-
- * **PostFinance Card**
- * **PostFinance E-finance**
-
 **Belgium**
 
-  * **Belfius / Dexia Direct Net**
+  * **Belfius Direct Net**
+  
+ **Brazil and Mexico**
+
+ * **Banamex**
+ * **Banco do Brasil**
+ * **BBVA Bancomer**
+ * **Bradesco**
+ * **Caixa**
+ * **Itaú**
+ * **OXXO**
+ * **Santander Cash**
+ * **Santander HomeBanking**
+
+**Germany**
+
+ * **Giropay**
+ * **Klarna Sofortüberweisung**
 
 **Italy**
 
   * **SisalPay**
 
-**Germany**
-
- * **Giropay**
- * **Klarna Invoice**
- * **SOFORT Überweisung**
-
-**Brazil and Mexico**
-
- * **Itaú**
- * **Bradesco**
- * **Banco do Brasil**
- * **Santander HomeBanking**
- * **Aura**
- * **Caixa**
- * **OXXO**
- * **BBVA Bancomer**
- * **Banamex**
- * **Santander Cash**
-
-**Russia**
-
- * **Visa WebMoney Transfer**
- * **Yandex.Money**
-
  **Poland**
  * **Przelewy24**
 
- ![magento connect](images/img-payment-methods.png)
+**Russia**
+ * **Yandex.Money**
+ 
+ **Switzerland**
+
+ * **PostFinance Card**
+ * **PostFinance E-finance**
+
+
+ ![magento connect](images/PaymentMethods.jpg)
 
 

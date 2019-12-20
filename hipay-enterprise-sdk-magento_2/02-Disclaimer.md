@@ -1,3 +1,3 @@
 # Disclaimer
 
-While every effort has been made to ensure the accuracy of the information contained in this publication, the information is supplied without representation or warranty of any kind, is subject to change without notice and does not represent a commitment on the part of HiPay. HiPay, therefore, assumes no responsibility and shall have no liability, consequential or otherwise, of any kind arising from this material or any part thereof, or any supplementary materials subsequently issued by HiPay.
+This publication is non-binding and subject to change at any time without notice by HiPay. While every effort has been made to ensure the accuracy of the information contained herein, it is provided without warranty of any kind from HiPay. Therefore, HiPay assumes no responsibility and shall have no liability, consequential or otherwise, arising from this material. 
