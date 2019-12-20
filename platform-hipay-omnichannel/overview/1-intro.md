@@ -345,7 +345,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | **forceAuthorization*** | Whether the authorization should be forced or not. | Boolean | Default: False |
 | **amount*** | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	
 | **currency*** | ISO 4217 three-digit currency code | Enum | e.g. ".EUR" | 
-| orderIdentifier | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | mid | Acquirer contract number (maximum length of 7 characters)|	String | e.g. "12345678" 
 | cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
@@ -362,7 +362,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
                                             forceAuthorization: true,
                                             amount: 9.99,
                                             currency: .EUR,
-                                            orderIdentifier: "order_12345",
+                                            orderID: "order_12345",
                                             mid: "1234567",
                                             cart: nil,
                                             customer: nil,
@@ -463,7 +463,7 @@ The below table describes the **ResponsePayment** object properties, notice that
 | errorCode |	Error code | String | e.g. : "1003" |
 | amount | Amount of the transaction | Float | e.g. : 9.99 |
 | currency| ISO 4217 three-digit currency code | Enum | e.g. .EUR | 
-| orderIdentifier | Order number | String | e.g. : "order_12345" |
+| orderID | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
 
 ### Payment example
@@ -493,7 +493,9 @@ class ViewController: UIViewController, RequestPaymentDelegate {
                             taxRate: 0.0,
                             totalAmount: 301.98)
         table.productCategory = .HomeAppliances
-        
+        table.europeanArticleNumbering = "4711892728946"
+        table.discount = 20.50
+
         var chair = Item(productReference: "B7762NN",
                             type: .Good,
                             name: "Chair",
@@ -503,7 +505,9 @@ class ViewController: UIViewController, RequestPaymentDelegate {
                             totalAmount: 317.96)
         chair.productCategory = .HomeAppliances
         chair.productDescription = "A wooden chair"
-        
+        chair.europeanArticleNumbering = "4713716322385"
+        chair.discount = 20.50
+
         cart.items.append(table)
         cart.items.append(chair)
         
@@ -525,7 +529,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
                                                 forceAuthorization: true,
                                                 amount: 9.99,
                                                 currency: .EUR,
-                                                orderIdentifier: "order_12345",
+                                                orderID: "order_12345",
                                                 mid: "1234567",
                                                 cart: cart,
                                                 customer: customer,
