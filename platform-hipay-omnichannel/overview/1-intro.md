@@ -390,21 +390,21 @@ You can add the cart of the transaction, creating an **Item** for each article (
     /// Cart
     var cart = Cart()    
     var table = Item(productReference: "A2343SSS",
-                        type: .Good,
-                        name: "Table",
-                        quantity: 2,
-                        unitPrice: 150.99,
-                        taxRate: 0.0,
-                        totalAmount: 301.98)
+                     type: .Good,
+                     name: "Table",
+                     quantity: 2,
+                     unitPrice: 150.99,
+                     taxRate: 0.0,
+                     totalAmount: 301.98)
     table.productCategory = .HomeAppliances
     
     var chair = Item(productReference: "B7762NN",
-                        type: .Good,
-                        name: "Chair",
-                        quantity: 4,
-                        unitPrice: 79.49,
-                        taxRate: 0.0,
-                        totalAmount: 317.96)
+                     type: .Good,
+                     name: "Chair",
+                     quantity: 4,
+                     unitPrice: 79.49,
+                     taxRate: 0.0,
+                     totalAmount: 317.96)
     chair.productCategory = .HomeAppliances
     chair.productDescription = "A wooden chair"
     
@@ -488,23 +488,23 @@ class ViewController: UIViewController, RequestPaymentDelegate {
         /// Cart
         var cart = Cart()
         var table = Item(productReference: "A2343SSS",
-                            type: .Good,
-                            name: "Table",
-                            quantity: 2,
-                            unitPrice: 150.99,
-                            taxRate: 0.0,
-                            totalAmount: 301.98)
+                         type: .Good,
+                         name: "Table",
+                         quantity: 2,
+                         unitPrice: 150.99,
+                         taxRate: 0.0,
+                         otalAmount: 301.98)
         table.productCategory = .HomeAppliances
         table.europeanArticleNumbering = "4711892728946"
         table.discount = 20.50
 
         var chair = Item(productReference: "B7762NN",
-                            type: .Good,
-                            name: "Chair",
-                            quantity: 4,
-                            unitPrice: 79.49,
-                            taxRate: 0.0,
-                            totalAmount: 317.96)
+                         type: .Good,
+                         name: "Chair",
+                         quantity: 4,
+                         unitPrice: 79.49,
+                         taxRate: 0.0,
+                         totalAmount: 317.96)
         chair.productCategory = .HomeAppliances
         chair.productDescription = "A wooden chair"
         chair.europeanArticleNumbering = "4713716322385"
