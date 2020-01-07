@@ -307,9 +307,9 @@ First of all, to use the SDK, you have to  set the **Configuration** object in y
 | **ipAddress*** | Terminal IPv4 address |	String | e.g. "192.168.1.10" 
 | **apiUsername*** | Public HiPay API username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
 | **apiPassword*** | Public HiPay API password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| environment  | Environment in which the transaction is going to be created |	Enum | Default: Production<br>Stage |
+| environment  | Environment in which the transaction is going to be created |	Enum | <u>Default</u> : Production<br>Stage |
 | authorizationThreshold | When the amount is above the threshold, the authorization is mandatory | Float | e.g. 100.00 |
-| debug | Enable debug mode (display all prints) | Bool | Default: False
+| debug | Enable debug mode (display all prints) | Bool | <u>Default</u> : False
 
 <b>*</b> Mandatory parameters
 
@@ -361,15 +361,14 @@ For each payment, you have to create a **RequestPayment** object with theses var
 @IBAction func payTapped(_ sender: Any) {
 
   do {
-        let requestPayment = try RequestPayment(transactionType: .Debit,
-                                            forceAuthorization: true,
-                                            amount: 9.99,
-                                            currency: .EUR,
-                                            orderID: "order_12345",
-                                            mid: "1234567",
-                                            cart: nil,
-                                            customer: nil,
-                                            customData: nil)
+        let requestPayment = try RequestPayment(amount: 9.99,
+                                                transactionType: .Debit,
+                                                forceAuthorization: false,
+                                                currency: .EUR,
+                                                orderId: "order_12345",
+                                                cart: nil,
+                                                customer: nil,
+                                                customData: nil)
 
         requestPayment.delegate = self
         requestPayment.execute() // Request execution
@@ -465,8 +464,8 @@ The below table describes the **ResponsePayment** object properties, notice that
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
 | amount | Amount of the transaction | Float | e.g. : 9.99 |
-| currency| ISO 4217 alpha currency code | Enum | e.g. .EUR | 
-| orderID | Order number | String | e.g. : "order_12345" |
+| currency| ISO 4217 alpha currency code | Enum | e.g. : .EUR | 
+| orderId | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
 
 ### Payment example
@@ -528,18 +527,17 @@ class ViewController: UIViewController, RequestPaymentDelegate {
         customData["newCustomer"] = true
         
         do {
-            let requestPayment = try RequestPayment(transactionType: .Debit,
-                                                forceAuthorization: true,
-                                                amount: 9.99,
-                                                currency: .EUR,
-                                                orderID: "order_12345",
-                                                mid: "1234567",
-                                                cart: cart,
-                                                customer: customer,
-                                                customData: customData)
+            let requestPayment = try RequestPayment(amount: 9.99,
+                                                    transactionType: .Debit,
+                                                    forceAuthorization: true,
+                                                    currency: .EUR,
+                                                    orderId: "order_12345",
+                                                    cart: cart,
+                                                    customer: customer,
+                                                    customData: customData)
 
-              requestPayment.delegate = self
-              requestPayment.execute() // Request execution
+            requestPayment.delegate = self
+            requestPayment.execute() // Request execution
         } catch RequestPaymentError.invalidAmount {
             // handle invalid amount
         } catch RequestPaymentError.invalidMID {
