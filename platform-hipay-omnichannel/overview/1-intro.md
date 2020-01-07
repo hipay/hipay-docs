@@ -280,7 +280,7 @@ The main goal is to have an easy to integrate SDK, that allows you to create a t
 ### Requirements
 
 - iOS >= 9
-- XCode >= 11.2.1
+- XCode >= 11.3
 - Cocoapods
 - POS terminal with Concert protocol version 3
 
@@ -304,11 +304,12 @@ First of all, to use the SDK, you have to  set the **Configuration** object in y
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| environment<b>*</b>  |	Environment in which the transaction is going to be created |	Enum | Stage<br>Production |
-| ipAddress<b>*</b> | POS terminal IPV4 address |	String | e.g. "192.168.1.10" 
-| apiPublicUsername* | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
-| apiPublicPassword<b>*</b> | HiPay password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| debug | Enable debug mode (display all prints) |Bool | e.g. False
+| **ipAddress*** | Terminal IPv4 address |	String | e.g. "192.168.1.10" 
+| **apiUsername*** | Public HiPay API username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
+| **apiPassword*** | Public HiPay API password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
+| environment  | Environment in which the transaction is going to be created |	Enum | Default: Production<br>Stage |
+| authorizationThreshold | When the amount is above the threshold, the authorization is mandatory | Float | e.g. 100.00 |
+| debug | Enable debug mode (display all prints) | Bool | Default: False
 
 <b>*</b> Mandatory parameters
 
@@ -320,11 +321,13 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     // Override point for customization after application launch.
 
     do {
-        try Configuration.shared.setConfiguration(environment: .Stage,
-                                                    ipAddress: "192.168.1.1",
-                                                    apiPublicUsername: "username",
-                                                    apiPublicPassword: "password",
-                                                    debug: false)
+        try Configuration.shared.setConfiguration(ipAddress: "192.168.1.1",
+                                                  apiUsername: "username",
+                                                  apiPassword: "password",
+                                                  environment: .Production,
+                                                  authorizationThreshold: 10.0,
+                                                  debug: false)
+                                                    
     } catch ConfigurationError.invalidIPAddress {
         // Invalid IP Adress
     } catch {
@@ -341,18 +344,18 @@ For each payment, you have to create a **RequestPayment** object with theses var
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| **transactionType*** | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
-| **forceAuthorization*** | Whether the authorization should be forced or not. | Boolean | Default: False |
-| **amount*** | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	
-| **currency*** | ISO 4217 three-digit currency code | Enum | e.g. ".EUR" | 
-| orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
-| mid | Acquirer contract number (maximum length of 7 characters)|	String | e.g. "12345678" 
-| cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
+| **amount*** | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |
+| transactionType | Type of transaction to be processed | Enum | <u>Default</u> : Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
+| forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : False |
+| currency | ISO 4217 alpha currency code | Enum | <u>Default</u> : .EUR | 
+| orderId | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| cart** | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
 | customData | Custom data (only value type Bool / Int / Float / String are accepted) | Dictionary | - |
 
 <b>*</b> Mandatory parameters
 
+<b>**</b> If the basket content is not correctly fulfilled or doesn’t match the total amount of the order, the order will be created with an empty basket.
 
 ```swift
 @IBAction func payTapped(_ sender: Any) {
@@ -462,7 +465,7 @@ The below table describes the **ResponsePayment** object properties, notice that
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
 | amount | Amount of the transaction | Float | e.g. : 9.99 |
-| currency| ISO 4217 three-digit currency code | Enum | e.g. .EUR | 
+| currency| ISO 4217 alpha currency code | Enum | e.g. .EUR | 
 | orderID | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
 
@@ -623,8 +626,8 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
 | forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: False |
 | amount<b>*</b> | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	 
-| currency<b>*</b> | ISO 4217 three-digit currency code | Enum | e.g. ".EUR" for Euros | 
-| orderIdentifier | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| currency<b>*</b> | ISO 4217 alpha currency code | Enum | e.g. ".EUR" for Euros | 
+| orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | mid | Acquirer contract number |	String | e.g. "12345678" 
 | cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
@@ -729,8 +732,8 @@ The below table describes the **ResponsePayment** object properties, notice that
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
 | amount | Amount of the transaction | Float | e.g. : 9.99 |
-| currency | ISO 4217 three-digit currency code | Enum | e.g. Currency.EUR | 
-| orderIdentifier | Order number | String | e.g. : "order_12345" |
+| currency | ISO 4217 alpha currency code | Enum | e.g. Currency.EUR | 
+| orderID | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
 
 ### Payment example
