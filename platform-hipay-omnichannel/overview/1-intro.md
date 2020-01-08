@@ -374,8 +374,6 @@ For each payment, you have to create a **RequestPayment** object with theses var
         requestPayment.execute() // Request execution
       } catch RequestPaymentError.invalidAmount {
           // handle invalid amount
-      } catch RequestPaymentError.invalidMID {
-          // handle invalid MID
       } catch {
           // Others
       }
@@ -540,8 +538,6 @@ class ViewController: UIViewController, RequestPaymentDelegate {
             requestPayment.execute() // Request execution
         } catch RequestPaymentError.invalidAmount {
             // handle invalid amount
-        } catch RequestPaymentError.invalidMID {
-            // handle invalid MID
         } catch {
             // Others
         }
