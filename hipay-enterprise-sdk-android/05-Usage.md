@@ -133,3 +133,35 @@ Check out the `PaymentPageRequest` class documentation for more information abou
 ### Callback method
 
 You will likely need to modify the implementation of the `onActivityResult(int, int, Intent)` method in order to end your check-out process, present a confirmation message to your users, etc.
+
+### Localization Errors
+
+In this integration mode, some popups can be shown when errors occured with a title and description. So if you want to customize the localization in the SDK, you can override keys in yours `strings.xml` files in your project.
+
+<u>Example</u> :
+<xml>
+
+    <string name="alert_transaction_loading_title">Override string</string>
+
+</xml>
+
+| KEY                                           | VALUE                                                                                                                                        | CONDITION                                                                                                                      |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| error_title_default | An error occurred||
+| error_title_connection | Network error ||
+| error_body_payment_products | No paiment product found||
+| error_body_default | Your request could not be completed | |
+| error_body_bcmc_app_not_found | Bancontact app could not be found||
+| alert_deleting_payment_card_title|Deleting payment card||
+| alert_deleting_payment_card_body| Are you sure that you want to delete this payment card?||
+| transaction_error_declined_title  | Transaction declined||
+| transaction_error_declined | Please check your entries and try again||
+| transaction_error_declined_reset| Please use another payment method||
+| transaction_error_other|An error occurred while processing your transaction||
+| alert_transaction_loading_title| Transaction in progress||
+| alert_transaction_loading_body| Your transaction is still being processed. Are you sure that you want to leave the screen?||
+| alert_transaction_loading_yes| Quit||
+| alert_transaction_loading_no| Resume||
+| button_ok|OK||
+| button_cancel|Cancel||
+| button_retry|Retry||
