@@ -147,15 +147,19 @@ In this integration mode, some popups can be shown when errors occured with a ti
 
 | KEY                                           | VALUE                                                                                                                                        | CONDITION                                                                                                                      |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| error_title_default | An error occurred||
-| error_title_connection | Network error | No available Internet connection |
-| error_body_payment_products | No payment product found| Fetching product payment list from HiPay is empty |
-| error_body_default | Your request could not be completed | - HTTP API Error |
-| error_body_bcmc_app_not_found | Bancontact app could not be found| Unable to find Bancontact application on the device user|
+| alert_error_default_title | An error occurred| - API Error 400 <br>- Unknown API Error |
+| alert_error_default_body | Your request could not be completed | - API Error 400 <br>- Unknown API Error |
+| alert_error_connection_title | Network error | No available Internet connection |
+| alert_error_connection_body | Your request could not be completed | No available Internet connection |
+| alert_error_bcmc_app_not_found_title | An error occurred | Unable to find Bancontact application on the device user|
+| alert_error_bcmc_app_not_found_body | Bancontact app could not be found| Unable to find Bancontact application on the device user|
 | alert_deleting_payment_card_title|Deleting payment card| The user want to delete its card from device storage|
 | alert_deleting_payment_card_body| Are you sure that you want to delete this payment card?| The user want to delete its card from device storage|
-| transaction_error_declined_title | Transaction declined| Status of the received transaction is "Declined"|
-| transaction_error_declined | Please check your entries and try again| Status of the received transaction is "Declined" or "Error"|
-| transaction_error_other|An error occurred while processing your transaction| Status of the received transaction is "Error"  |
+| alert_transaction_declined_title | Transaction declined| Status of the received transaction is "Declined"|
+| alert_transaction_declined_body | Please check your entries and try again| Status of the received transaction is "Declined"|
+| alert_transaction_error_title | Transaction declined| Status of the received transaction is "Error"|
+| alert_transaction_error_other_body|An error occurred while processing your transaction| Status of the received transaction is "Error"  |
+| alert_error_payment_products_title | An error occurred | Fetching product payment list from HiPay is empty |
+| alert_error_payment_products_body | No payment product found| Fetching product payment list from HiPay is empty |
 | alert_transaction_loading_title| Transaction in progress| The user wants to quit the payment screen while the transaction is processed|
 | alert_transaction_loading_body| Your transaction is still being processed. Are you sure that you want to leave the screen?|The user wants to quit the payment screen while the transaction is processed|
