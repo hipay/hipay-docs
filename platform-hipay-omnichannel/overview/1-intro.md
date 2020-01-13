@@ -286,17 +286,17 @@ The main goal is to have an easy to integrate SDK, that allows you to create a t
 
 ### Installation
 
-You have to use [CocoaPods](https://cocoapods.org/) to install the HiPay Omnichannel SDK for iOS.
+You have to use [CocoaPods](https://cocoapods.org/) to install the HiPay Omnichannel SDK for iOS. CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects.
 
 Add this line to your project's `Podfile`:
 
 	pod 'HiPayOmnichannelConcertV3'
 
-Then, run the following command in the same directory as your `Podfile`:
+Then, run the following command in the same directory as your `Podfile`.
 
 	pod install
 
-This will install the **.framework** file in your project
+Open the Xcode workspace instead of the project file.
 
 ### Initialization
 
@@ -328,7 +328,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                                                   authorizationThreshold: 10.0,
                                                   debug: false)
                                                     
-    } catch ConfigurationError.invalidIPAddress {
+    } catch ConfigurationError.invalidIpAddress {
         // Invalid IP Adress
     } catch {
         // Others
@@ -604,8 +604,8 @@ public class MainActivity extends AppCompatActivity {
                     "username",
                     "password",
                     false);
-        } catch (InvalidIPAddressException e) {
-            // Handle InvalidIPAddressException
+        } catch (invalidIpAddressException e) {
+            // Handle invalidIpAddressException
         }
     }
 }
@@ -751,8 +751,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     "username",
                     "password",
                     false);
-        } catch (InvalidIPAddressException e) {
-            // Handle InvalidIPAddressException
+        } catch (invalidIpAddressException e) {
+            // Handle invalidIpAddressException
         }
     }
 
