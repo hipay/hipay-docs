@@ -14,7 +14,7 @@ This process only occurs when a notification is received.
 When a status is in process, a Magento payment transaction is created.  
 Otherwise, we just add a new order history record with notification information.  
 
-### Actions according to statuses:
+### Actions according to statuses
 
 #### BLOCKED (110) and DENIED (111)
 
