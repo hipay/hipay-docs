@@ -102,7 +102,7 @@ are made with this payment method.
 Oney’s anti-fraud system requires additional configuration for the shipping method and product categories.
 The configuration is explained in the following paragraph.
 
-For questions relating to installation and configuration, please don’t hesitate to visit our Support Center ([*https://support.hipay.com/hc/en-us*](https://support.hipay.com/hc/en-us)) or submit a request ([*https://support.hipay.com/hc/en-us/requests/new*](https://support.hipay.com/hc/en-us/requests/new)) to our Support team.
+For questions relating to installation and configuration, please don’t hesitate to visit our [Support Center](https://support.hipay.com/hc/en-us) or [submit a request](https://support.hipay.com/hc/en-us/requests/new) to our Support team.
 
 Please note that **“Adjustment Fee”** or **“Adjustment Refund”** are not supported with carts for refunds.
 
