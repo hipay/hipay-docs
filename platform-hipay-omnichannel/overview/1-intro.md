@@ -308,7 +308,7 @@ First of all, to use the SDK, you have to  set the **Configuration** object in y
 | **apiUsername*** | Public HiPay API username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
 | **apiPassword*** | Public HiPay API password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
 | environment  | Environment in which the transaction is going to be created |	Enum | <u>Default</u> : Production<br>Stage |
-| authorizationThreshold | When the amount is above the threshold, the authorization is mandatory | Float | e.g. 100.00 |
+| authorizationThreshold | When the amount is above this threshold, the authorization is set to true value | Float | e.g. 100.00 |
 | debug | Enable debug mode (display all prints) | Bool | <u>Default</u> : False
 
 <b>*</b> Mandatory parameters
@@ -330,6 +330,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                                                     
     } catch ConfigurationError.invalidIpAddress {
         // Invalid IP Adress
+    } catch ConfigurationError.invalidUsernamePasswordAPI { 
+        // Invalid API password or API Username
     } catch {
         // Others
     }
