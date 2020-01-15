@@ -28,5 +28,5 @@ Please note: It only works for total refunds (not partial).
 
 <div class="alert alert-warning">
 	<i class="fa fa-warning"></i>
-	For notifications to work as expected, please refer to this <a href="#platform-configuration-customized-notifications">section.</a>
+	For notifications to work as expected, please refer to this <a href="https://developer.hipay.com/doc/hipay-enterprise-sdk-magento_2/#platform-configuration-customize-notifications">section.</a>
 </div>
