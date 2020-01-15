@@ -41,6 +41,7 @@ Then fill in the form.
 * *Period Max Cycles*: Number of billing cycles for the payment period
 
 Here is an example if you want to split the amount in 3 installments with 1 billing per month.
+
 * Period Unit: `month`
 * Period Frequency: `1`
 * Period Max Cycles: `3`
