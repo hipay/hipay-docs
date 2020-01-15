@@ -3,7 +3,7 @@
 It is possible to send additional information in the transaction that can then be viewed in the HiPay back office.
 To do so, you can use the functionality of Magento 2 which relies on the notion of plugin.
 
-Please refer to the Magento PHP Developer Guide: http://devdocs.magento.com/guides/v2.0/extension-dev-guide/plugins.html.
+Please refer to the [Magento PHP Developer Guide](http://devdocs.magento.com/guides/v2.0/extension-dev-guide/plugins.html).
 
 To add custom information to transactions, you need to create a plugin in your custom module.
 This plugin must observe _HiPay\FullserviceMagento\Model\Request\Order_
