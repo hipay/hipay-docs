@@ -131,7 +131,7 @@ Rules configuration follows the same process as Magento 2 price rules.
 
 ## “Sales” mode (direct capture)
 
-When making a purchase with the “Sales” mode, the capture is automatically requested right after authorization. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the “Sales” mode, the capture is automatically requested right after authorization. Please refer to [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder).
 
 If the payment fails, the customer is redirected to an error page and the status is defined as “_CANCELED_”.
 
@@ -139,7 +139,7 @@ If the payment is successful, the customer is redirected to the success page and
 
 ## “Authorization” mode
 
-When making a purchase with the “Authorization” mode, the transaction status will be “_AUTHORIZED_” until you ask for the capture. Please refer to /doc-api/enterprise/gateway/#!/payments/requestNewOrder (Response Content Type – Parameters – operation).
+When making a purchase with the “Authorization” mode, the transaction status will be “_AUTHORIZED_” until you ask for the capture. Please refer to  [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder)
 
 Customers are not charged directly: you have 7 days to “capture” the order and charge the customer. Otherwise, the order is cancelled.
 
