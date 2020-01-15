@@ -63,6 +63,3 @@ The module supports the following payment methods:
  * **PostFinance E-finance**
 
 
- ![magento connect](images/PaymentMethods.jpg)
-
-
