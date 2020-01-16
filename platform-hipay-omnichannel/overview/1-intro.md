@@ -354,7 +354,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| **amount*** | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |
+| **amount*** | Total order amount, calculated as the sum of purchased items, plus shipping fees (if present), plus tax fees (if present). | Float | e.g. 9.99 |
 | transactionType | Type of transaction to be processed | Enum | <u>Default</u> : Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
 | forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : false |
 | currency | ISO 4217 alpha currency code | Enum | <u>Default</u> : .EUR | 
@@ -371,7 +371,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 @IBAction func payTapped(_ sender: Any) {
 
   do {
-        let requestPayment = try RequestPayment(amount: 9.99,
+        let requestPayment = try RequestPayment(amount: 98.80,
                                                 transactionType: .Debit,
                                                 forceAuthorization: false,
                                                 currency: .EUR,
@@ -474,7 +474,7 @@ The below table describes the **ResponsePayment** object properties, notice that
 | paymentStatus	| Status received from the TPE regarding the payment. |	Enum 	| Success <br>Failure |
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
-| amount | Amount of the transaction | Float | e.g. : 9.99 |
+| amount | Amount of the transaction | Float | e.g. : 98.80 |
 | currency| ISO 4217 alpha currency code | Enum | e.g. : .EUR | 
 | orderId | Order number | String | e.g. : "order_12345" |
 | notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. false |
@@ -631,7 +631,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 |---|---|---|---|---|
 | transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
 | forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: false |
-| amount<b>*</b> | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	 
+| amount<b>*</b> | Total order amount, calculated as the sum of purchased items, plus shipping fees (if present), plus tax fees (if present). | Float | e.g. 9.99 |	 
 | currency<b>*</b> | ISO 4217 alpha currency code | Enum | e.g. ".EUR" for Euros | 
 | orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | mid | Acquirer contract number |	String | e.g. "12345678" 
