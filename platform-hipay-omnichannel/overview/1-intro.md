@@ -396,26 +396,29 @@ You can add the cart of the transaction, creating an **Item** for each article (
 
 ```swift
     /// Cart
-    var cart = Cart()    
+    var cart = Cart()
     var table = Item(productReference: "A2343SSS",
                      type: .Good,
                      name: "Table",
                      quantity: 2,
-                     unitPrice: 150.99,
+                     unitPrice: 30.50,
                      taxRate: 0.0,
-                     totalAmount: 301.98)
+                     totalAmount: 58.00)
+    table.discount = 3.00
     table.productCategory = .HomeAppliances
-    
+    table.europeanArticleNumbering = "4711892728946"
+
     var chair = Item(productReference: "B7762NN",
                      type: .Good,
                      name: "Chair",
                      quantity: 4,
-                     unitPrice: 79.49,
+                     unitPrice: 10.20,
                      taxRate: 0.0,
-                     totalAmount: 317.96)
+                     totalAmount: 40.80)
     chair.productCategory = .HomeAppliances
     chair.productDescription = "A wooden chair"
-    
+    chair.europeanArticleNumbering = "4713716322385"
+
     cart.items.append(table)
     cart.items.append(chair)
 ```
