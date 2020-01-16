@@ -309,7 +309,7 @@ First of all, to use the SDK, you have to  set the **Configuration** object in y
 | **apiPassword*** | Public HiPay API password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
 | environment  | Environment in which the transaction is going to be created |	Enum | <u>Default</u> : Production<br>Stage |
 | authorizationThreshold | When the amount is above this threshold, the authorization is set to true value | Float | e.g. 100.00 |
-| debug | Enable debug mode (display all prints) | Bool | <u>Default</u> : False
+| debug | Enable debug mode (display all prints) | Bool | <u>Default</u> : false
 
 <b>*</b> Mandatory parameters
 
@@ -348,7 +348,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 |---|---|---|---|---|
 | **amount*** | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |
 | transactionType | Type of transaction to be processed | Enum | <u>Default</u> : Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
-| forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : False |
+| forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : false |
 | currency | ISO 4217 alpha currency code | Enum | <u>Default</u> : .EUR | 
 | orderId | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | cart** | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
@@ -466,7 +466,7 @@ The below table describes the **ResponsePayment** object properties, notice that
 | amount | Amount of the transaction | Float | e.g. : 9.99 |
 | currency| ISO 4217 alpha currency code | Enum | e.g. : .EUR | 
 | orderId | Order number | String | e.g. : "order_12345" |
-| notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
+| notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. false |
 
 ### Payment example
 
@@ -586,7 +586,7 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 | ipAddress<b>*</b> | POS terminal IP address |	String | e.g. "192.168.1.10" 
 | apiPublicUsername<b>*</b> | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
 | apiPublicPassword<b>*</b> | HiPay password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| debug | Enable debug mode (display all prints) | Bool | e.g. False
+| debug | Enable debug mode (display all prints) | Bool | e.g. false
 
 <b>*</b> Mandatory parameters
 
@@ -620,7 +620,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
 | transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
-| forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: False |
+| forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: false |
 | amount<b>*</b> | Amount of the transaction in the smaller unit of the currency | Float | e.g. 9.99 |	 
 | currency<b>*</b> | ISO 4217 alpha currency code | Enum | e.g. ".EUR" for Euros | 
 | orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
