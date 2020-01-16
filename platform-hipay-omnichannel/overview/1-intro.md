@@ -288,6 +288,14 @@ The main goal is to have an easy to integrate SDK, that allows you to create a t
 
 You have to use [CocoaPods](https://cocoapods.org/) to install the HiPay Omnichannel SDK for iOS. CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects.
 
+CocoaPods is built with Ruby and it will be installable with the default Ruby available on macOS. Install it with this command if you haven't done before :
+
+    sudo gem install cocoapods
+
+Then, execute this command at the root of your project to initialize the required files : 
+
+    pod init
+
 Add this line to your project's `Podfile`:
 
 	pod 'HiPayOmnichannelConcertV3'
@@ -296,7 +304,7 @@ Then, run the following command in the same directory as your `Podfile`.
 
 	pod install
 
-Open the Xcode workspace instead of the project file.
+Open the Xcode workspace (<i>yourApp.xcworkspace</i>) instead of the project file.
 
 ### Initialization
 
