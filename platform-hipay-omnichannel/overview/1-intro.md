@@ -491,24 +491,23 @@ class ViewController: UIViewController, RequestPaymentDelegate {
                          type: .Good,
                          name: "Table",
                          quantity: 2,
-                         unitPrice: 150.99,
+                         unitPrice: 30.50,
                          taxRate: 0.0,
-                         otalAmount: 301.98)
+                         totalAmount: 58.00)
+        table.discount = 3.00
         table.productCategory = .HomeAppliances
         table.europeanArticleNumbering = "4711892728946"
-        table.discount = 20.50
 
         var chair = Item(productReference: "B7762NN",
                          type: .Good,
                          name: "Chair",
                          quantity: 4,
-                         unitPrice: 79.49,
+                         unitPrice: 10.20,
                          taxRate: 0.0,
-                         totalAmount: 317.96)
+                         totalAmount: 40.80)
         chair.productCategory = .HomeAppliances
         chair.productDescription = "A wooden chair"
         chair.europeanArticleNumbering = "4713716322385"
-        chair.discount = 20.50
 
         cart.items.append(table)
         cart.items.append(chair)
@@ -527,7 +526,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
         customData["newCustomer"] = true
         
         do {
-            let requestPayment = try RequestPayment(amount: 9.99,
+            let requestPayment = try RequestPayment(amount: 98.80,
                                                     transactionType: .Debit,
                                                     forceAuthorization: true,
                                                     currency: .EUR,
