@@ -358,7 +358,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | transactionType | Type of transaction to be processed | Enum | <u>Default</u> : Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
 | forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : false |
 | currency | ISO 4217 alpha currency code | Enum | <u>Default</u> : .EUR | 
-| orderId | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| orderId | Order number of your request payment. If you don't set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | cart** | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
 | customData | Custom data (only value type Bool / Int / Float / String are accepted) | Dictionary | - |
@@ -633,7 +633,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
 | forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: false |
 | amount<b>*</b> | Total order amount, calculated as the sum of purchased items, plus shipping fees (if present), plus tax fees (if present). | Float | e.g. 9.99 |	 
 | currency<b>*</b> | ISO 4217 alpha currency code | Enum | e.g. ".EUR" for Euros | 
-| orderID | Order number of your request payment. If you not set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| orderID | Order number of your request payment. If you don't set an identifier, we will generated it for you | String | e.g. "Order_12345"
 | mid | Acquirer contract number |	String | e.g. "12345678" 
 | cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
