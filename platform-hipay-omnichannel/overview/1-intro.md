@@ -471,7 +471,7 @@ The below table describes the **ResponsePayment** object properties, notice that
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| paymentStatus	| Status received from the TPE regarding the payment. |	Enum 	| Success <br>Failure |
+| paymentStatus	| Status received from the terminal regarding the payment. |	Enum 	| Success <br>Failure |
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
 | amount | Amount of the transaction | Float | e.g. : 98.80 |
@@ -580,8 +580,6 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 ### Installation
 
-You have to use [jCenter](https://bintray.com/beta/#/hipayandroid/maven/hipay-omnichannel-concertv3?tab=overview) to install the HiPay Omnichannel SDK for Android.
-
 Add this line to your `Build.gradle` application file :
 
     implementation 'com.hipay:hipay-omnichannel-concertv3:1.0.0'
@@ -592,11 +590,12 @@ First of all, to use the SDK, you have to  set the **Configuration** object. An 
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| environment<b>*</b>  |	Environment in which the transaction is going to be created |	Enum | Stage<br>Production |
-| ipAddress<b>*</b> | POS terminal IP address |	String | e.g. "192.168.1.10" 
-| apiPublicUsername<b>*</b> | HiPay username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
-| apiPublicPassword<b>*</b> | HiPay password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
-| debug | Enable debug mode (display all prints) | Bool | e.g. false
+| **ipAddress*** | Terminal IPv4 address |	String | e.g. "192.168.1.10" 
+| **apiUsername*** | Public HiPay API username used by authentication |	String | e.g. "123456789.stage-secure-gateway.hipay-tpp[.]com" |
+| **apiPassword*** | Public HiPay API password used by authentication | String | e.g.  "Test_AB1234578903bd5eg" |
+| environment  | Environment in which the transaction is going to be created |	Enum | <u>Default</u> : Production<br>Stage |
+| authorizationThreshold | When the amount is above this threshold, the authorization is set to true value | Float | e.g. 100.00 |
+| debug | Enable debug mode (display all prints) | Bool | <u>Default</u> : false
 
 <b>*</b> Mandatory parameters
 
@@ -611,13 +610,16 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             Configuration.getInstance().setConfiguration(
-                    Environment.STAGE,
-                    "192.168.1.2",
+                    "192.168.1.1",
                     "username",
                     "password",
-                    false);
+                    Environment.STAGE,
+                    10.0f,
+                    false);                    
         } catch (invalidIpAddressException e) {
             // Handle invalidIpAddressException
+        } catch (InvalidUsernamePasswordAPIException e) {
+            // Handle InvalidUsernamePasswordAPIException
         }
     }
 }
@@ -629,15 +631,14 @@ For each payment, you have to create a **RequestPayment** object with theses var
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| transactionType* | Type of transaction to be processed | Enum | Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
-| forceAuthorization* | Whether the authorization should be forced or not. | Boolean | Default: false |
-| amount<b>*</b> | Total order amount, calculated as the sum of purchased items, plus shipping fees (if present), plus tax fees (if present). | Float | e.g. 9.99 |	 
-| currency<b>*</b> | ISO 4217 alpha currency code | Enum | e.g. ".EUR" for Euros | 
-| orderID | Order number of your request payment. If you don't set an identifier, we will generated it for you | String | e.g. "Order_12345"
-| mid | Acquirer contract number |	String | e.g. "12345678" 
-| cart | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
+| **amount*** | Total order amount, calculated as the sum of purchased items, plus shipping fees (if present), plus tax fees (if present). | Float | e.g. 9.99 |
+| transactionType | Type of transaction to be processed | Enum | <u>Default</u> : Debit<br>Credit<br>Cancellation<br>Duplicata<br>Authorization |
+| forceAuthorization | Whether the authorization should be forced or not. Overwrite the authorizationThreshold parameter to enable authorization | Boolean | <u>Default</u> : false |
+| currency | ISO 4217 alpha currency code | Enum | <u>Default</u> : .EUR | 
+| orderId | Order number of your request payment. If you don't set an identifier, we will generated it for you | String | e.g. "Order_12345"
+| cart** | Cart object ([More informations](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management)) | Cart | - |
 | customer | Customer's information object (id, firstName, lastName, email) | Customer | - |
-| customData | Custom data | Dictionary | - |
+| customData | Custom data (only value type Bool / Int / Float / String are accepted) | Dictionary | - |
 
 <b>*</b> Mandatory parameters
 
@@ -645,21 +646,19 @@ For each payment, you have to create a **RequestPayment** object with theses var
     @Override
     public void onClick(View view) {
         try {
-            RequestPayment requestPayment = new RequestPayment(TransactionType.TRANSACTION_TYPE_DEBIT,
+            RequestPayment requestPayment = new RequestPayment(
+                    98.80f,
+                    TransactionType.TRANSACTION_TYPE_DEBIT,
                     false,
-                    9.99f,
                     Currency.EUR,
                     "order_1234",
-                    "1234567",
                     null,
                     null,
-                    null
-            );
+                    null);
+
             requestPayment.execute(this);
         } catch (InvalidAmountException e) {
             // Handle InvalidAmountException
-        } catch (InvalidMIDException e) {
-            // Handle InvalidMIDException
         }
     }
 ```
@@ -668,29 +667,32 @@ In this part, we will show you how to add more details about your request paymen
 You can add the cart of the transaction, creating an **Item** for each article ( [More informations about cart](https://support.hipay.com/hc/fr/articles/115001660469-Payment-Gateway-Shopping-cart-management) ).
 
 ```java
-    Item item1 = new Item("A2343SSS",
+    Item table = new Item("A2343SSS",
                 ItemType.GOOD,
                 "Table",
                 2,
-                150.99f,
+                30.50f,
                 0.0f,
-                301.98f);
-    item1.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+                58.00f);
+    table.setDiscount(3.00f);
+    table.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+    table.setEuropeanArticleNumbering("4711892728946");
 
-    Item item2 = new Item("B7762NN",
+    Item chair = new Item("B7762NN",
             ItemType.GOOD,
-            "Chairs",
+            "Chair",
             4,
-            79.49f,
+            10.20f,
             0.0f,
-            317.96f
+            40.80f
     );
-    item2.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
-    item2.setProductDescription("A wooden chair");
+    chair.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+    chair.setProductDescription("A wooden chair");
+    chair.setEuropeanArticleNumbering("4713716322385");
 
     ArrayList<Item> itemArrayList = new ArrayList<>();
-    itemArrayList.add(item1);
-    itemArrayList.add(item2);
+    itemArrayList.add(table);
+    itemArrayList.add(chair);
 
     Cart cart = new Cart(itemArrayList);
 ```
@@ -734,13 +736,13 @@ The below table describes the **ResponsePayment** object properties, notice that
 
 | Variable name |	Description |	Type |	Values |
 |---|---|---|---|---|
-| paymentStatus	| Status received from the TPE regarding the payment. |	Enum 	| Success <br>Failure |
+| paymentStatus	| Status received from the terminal regarding the payment. |	Enum 	| Success <br>Failure |
 | errorDescription | Error description | String | e.g. : "The network is unavailable" |	 
 | errorCode |	Error code | String | e.g. : "1003" |
-| amount | Amount of the transaction | Float | e.g. : 9.99 |
-| currency | ISO 4217 alpha currency code | Enum | e.g. Currency.EUR | 
-| orderID | Order number | String | e.g. : "order_12345" |
-| notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. False |
+| amount | Amount of the transaction | Float | e.g. : 98.80 |
+| currency| ISO 4217 alpha currency code | Enum | e.g. : .EUR | 
+| orderId | Order number | String | e.g. : "order_12345" |
+| notificationHipaySent | Indicates whether Hipay has been notified of the transaction | Boolean | e.g. false |
 
 ### Payment example
 
@@ -748,7 +750,6 @@ Here you have a complete example of the code needed to request a payment and han
 
 ```java
 // All your imports
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RequestPaymentDelegate {
 
     @Override
@@ -758,13 +759,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         try {
             Configuration.getInstance().setConfiguration(
-                    Environment.STAGE,
-                    "192.168.1.2",
+                    "192.168.1.1",
                     "username",
                     "password",
-                    false);
-        } catch (invalidIpAddressException e) {
+                    Environment.STAGE,
+                    10.0f,
+                    false);                    
+        } catch (InvalidIpAddressException e) {
             // Handle invalidIpAddressException
+        } catch (InvalidUsernamePasswordAPIException e) {
+            // Handle InvalidUsernamePasswordAPIException
         }
     }
 
@@ -773,37 +777,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         // Cart
-        Item item1 = new Item("A2343SSS",
+        Item table = new Item("A2343SSS",
                 ItemType.GOOD,
                 "Table",
                 2,
-                150.99f,
+                30.50f,
                 0.0f,
-                301.98f);
-        item1.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+                58.00f);
+        table.setDiscount(3.00f);
+        table.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+        table.setEuropeanArticleNumbering("4711892728946");
 
-        Item item2 = new Item("B7762NN",
+        Item chair = new Item("B7762NN",
                 ItemType.GOOD,
-                "Chairs",
+                "Chair",
                 4,
-                79.49f,
+                10.20f,
                 0.0f,
-                317.96f
+                40.80f
         );
-        item2.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
-        item2.setProductDescription("A wooden chair");
+        chair.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
+        chair.setProductDescription("A wooden chair");
+        chair.setEuropeanArticleNumbering("4713716322385");
 
         ArrayList<Item> itemArrayList = new ArrayList<>();
-        itemArrayList.add(item1);
-        itemArrayList.add(item2);
+        itemArrayList.add(table);
+        itemArrayList.add(chair);
 
         Cart cart = new Cart(itemArrayList);
 
         // Customer
         Customer customer = new Customer("99",
-                "John",
-                "Doe",
-                "john.doe@example.com"
+                                        "John",
+                                        "Doe",
+                                        "john.doe@example.com"
         );
 
         // CustomData
@@ -827,8 +834,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             requestPayment.execute(this);
         } catch (InvalidAmountException e) {
             // Handle InvalidAmountException
-        } catch (InvalidMIDException e) {
-            // Handle InvalidMIDException
         }
     }
 
