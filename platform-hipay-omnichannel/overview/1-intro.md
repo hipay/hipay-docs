@@ -651,7 +651,7 @@ For each payment, you have to create a **RequestPayment** object with theses var
                     TransactionType.TRANSACTION_TYPE_DEBIT,
                     false,
                     Currency.EUR,
-                    "order_1234",
+                    "order_12345",
                     null,
                     null,
                     null);
@@ -823,9 +823,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             RequestPayment requestPayment = new RequestPayment(TransactionType.TRANSACTION_TYPE_DEBIT,
                     false,
-                    9.99f,
+                    98.80f,
                     Currency.EUR,
-                    "order_1234",
+                    "order_12345",
                     "1234567",
                     cart,
                     customer,
