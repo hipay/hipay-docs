@@ -616,8 +616,8 @@ public class MainActivity extends AppCompatActivity {
                     Environment.STAGE,
                     10.0f,
                     false);                    
-        } catch (invalidIpAddressException e) {
-            // Handle invalidIpAddressException
+        } catch (InvalidIpAddressException e) {
+            // Handle InvalidIpAddressException
         } catch (InvalidUsernamePasswordAPIException e) {
             // Handle InvalidUsernamePasswordAPIException
         }
