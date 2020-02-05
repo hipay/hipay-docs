@@ -12,8 +12,6 @@ Stores => Configuration => Sales [HiPay Enterprise]
 
 Then, you need to enter your credentials, provided by HiPay.
 
-![legend](images/enterprise_configuration.png)
-
 
 ## Credentials
 
