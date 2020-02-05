@@ -51,10 +51,12 @@ The module supports the following payment methods:
 
   * **SisalPay**
 
- **Poland**
+**Poland**
+ 
  * **Przelewy24**
 
 **Russia**
+ 
  * **Yandex.Money**
  
  **Switzerland**
