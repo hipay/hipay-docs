@@ -404,7 +404,7 @@ You can add the cart of the transaction, creating an **Item** for each article (
                      unitPrice: 30.50,
                      taxRate: 0.0,
                      totalAmount: 58.00)
-    table.discount = 3.00
+    table.discount = -3.00
     table.productCategory = .HomeAppliances
     table.europeanArticleNumbering = "4711892728946"
 
@@ -505,7 +505,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
                          unitPrice: 30.50,
                          taxRate: 0.0,
                          totalAmount: 58.00)
-        table.discount = 3.00
+        table.discount = -3.00
         table.productCategory = .HomeAppliances
         table.europeanArticleNumbering = "4711892728946"
 
@@ -674,7 +674,7 @@ You can add the cart of the transaction, creating an **Item** for each article (
                 30.50f,
                 0.0f,
                 58.00f);
-    table.setDiscount(3.00f);
+    table.setDiscount(-3.00f);
     table.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
     table.setEuropeanArticleNumbering("4711892728946");
 
@@ -784,7 +784,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 30.50f,
                 0.0f,
                 58.00f);
-        table.setDiscount(3.00f);
+        table.setDiscount(-3.00f);
         table.setProductCategory(ItemProductCategory.HOME_APPLIANCES);
         table.setEuropeanArticleNumbering("4711892728946");
 
