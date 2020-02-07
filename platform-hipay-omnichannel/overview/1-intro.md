@@ -580,6 +580,17 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 ### Installation
 
+Add this line to your `Build.gradle` Projet file :
+
+    allprojects {
+        repositories {
+            //...
+            maven {
+                url "https://artifactory.hipay.com/repository/maven-public/"
+            }
+        }
+    }
+
 Add this line to your `Build.gradle` application file :
 
     implementation 'com.hipay:hipay-omnichannel-concertv3:1.0.0'
@@ -821,12 +832,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         customData.put("newCustomer", true);
 
         try {
-            RequestPayment requestPayment = new RequestPayment(TransactionType.TRANSACTION_TYPE_DEBIT,
-                    false,
+            RequestPayment requestPayment = new RequestPayment(
                     98.80f,
+                    TransactionType.TRANSACTION_TYPE_DEBIT,
+                    false,
                     Currency.EUR,
                     "order_12345",
-                    "1234567",
                     cart,
                     customer,
                     customData
