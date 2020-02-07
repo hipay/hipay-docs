@@ -580,7 +580,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 ### Installation
 
-Our library is stored on HiPay.com. So you have to add these lines to your `Build.gradle` Projet file :
+HiPay's Android Omnichannel SDK is hosted on HiPay.com. In order to install it, you have to add these lines to your `Build.gradle` Projet file :
 
     allprojects {
         repositories {
@@ -593,7 +593,10 @@ Our library is stored on HiPay.com. So you have to add these lines to your `Buil
 
 Add this line to your `Build.gradle` application file :
 
-    implementation 'com.hipay:hipay-omnichannel-concertv3:1.0.0'
+    dependencies {
+        //...
+        implementation 'com.hipay:hipay-omnichannel-concertv3:1.0.0'
+    }
 
 ### Initialization
 
