@@ -580,7 +580,7 @@ class ViewController: UIViewController, RequestPaymentDelegate {
 
 ### Installation
 
-Add this line to your `Build.gradle` Projet file :
+Our library is stored on Nexus Repository on HiPay.com. So you have to add these lines to your `Build.gradle` Projet file :
 
     allprojects {
         repositories {
