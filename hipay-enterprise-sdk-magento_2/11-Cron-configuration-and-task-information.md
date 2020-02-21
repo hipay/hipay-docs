@@ -3,6 +3,7 @@
 ## Configuration
 
 Several HiPay Enterprise features require at least one cron job, which schedules activities to occur in the future.  
+
 A partial list of these activities follows:
 - clear pending orders,
 - pay installments for split payments.
