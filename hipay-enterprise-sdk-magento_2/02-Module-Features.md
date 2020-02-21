@@ -30,6 +30,7 @@ The module supports the following payment methods:
 
   * **Belfius Direct Net**
   
+  
  **Brazil and Mexico**
 
  * **Banamex**
