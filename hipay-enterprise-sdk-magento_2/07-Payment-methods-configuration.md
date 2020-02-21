@@ -28,7 +28,7 @@ For this type of payment method, your website needs to be PCI compliant.
 A *Hosted Fields* payment method will embed a payment form directly on your website but the form fields are hosted by HiPay.  
 For this type of payment method, PCI compliance is not required.
 
-More information about [Hosted Fields](https://hipay.com/en/hosted-fields-2)
+More information about [Hosted Fields](https://hipay.com/en/hosted-fields-2).
 
 ## General configuration
 
@@ -38,7 +38,7 @@ All payment methods have a basic configuration like the native Magento 2 payment
 |-----|----|
 |Enabled|Enables/disables the payment method|
 |Title|Desired name of the payment method as displayed during checkout|
-|Payment Action|Authorization or Sales. See more configuration details below.|
+|Payment Action|Authorization or Sale. See more configuration details below.|
 |New Order Status|Order status to set when the order is created before payment. *Pending* by default.|
 |Order status when payment accepted|Order status to set when the transaction is successful. *Processing* by default.|
 |Order status when payment refused|Order status to set when the transaction fails. *On Hold* by default.|
@@ -47,9 +47,9 @@ All payment methods have a basic configuration like the native Magento 2 payment
 |Cancel pending order|Cancels orders pending because the customer did not validate the payment. For more information, please refer to the [Cron configuration and task information](#cron-configuration-and-task-information) section.|
 |Payment products|Allowed payment products. E.g.: Visa, Mastercard, SisalPay...|
 |Use 3D Secure|Enables/disables 3-D Secure. See more configuration details below.|
-|Rules 3D Secure|Configures custom rules to activate or not the 3-D Secure mode.|
+|Rules 3D Secure|Configures custom rules to activate or not the 3-D Secure mode|
 |Use Oneclick|Enables/disables One-click. See more configuration details below.|
-|Rules Oneclick|Configures rules to activate or not the One-click mode.|
+|Rules Oneclick|Configures rules to activate or not the One-click mode|
 |Payment from Applicable Countries|Limit allowed countries|
 |Payment from Specific Countries|Select allowed countries|
 |Minimum Order Total| Minimum order total amount to activate the payment method|
@@ -129,9 +129,9 @@ Rules configuration follows the same process as Magento 2 price rules.
 
 ![legend](images/3dsecure_rules.png)
 
-## “Sales” mode (direct capture)
+## “Sale” mode (direct capture)
 
-When making a purchase with the “Sales” mode, the capture is automatically requested right after authorization. Please refer to [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder).
+When making a purchase with the “Sale” mode, the capture is automatically requested right after authorization. Please refer to [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder).
 
 If the payment fails, the customer is redirected to an error page and the status is defined as “_CANCELED_”.
 
@@ -139,7 +139,7 @@ If the payment is successful, the customer is redirected to the success page and
 
 ## “Authorization” mode
 
-When making a purchase with the “Authorization” mode, the transaction status will be “_AUTHORIZED_” until you ask for the capture. Please refer to  [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder)
+When making a purchase with the “Authorization” mode, the transaction status will be “_AUTHORIZED_” until you ask for the capture. Please refer to  [Response Content Type – Parameters – operation](https://developer.hipay.com/doc-api/enterprise/gateway/#/payments/requestNewOrder).
 
 Customers are not charged directly: you have 7 days to “capture” the order and charge the customer. Otherwise, the order is cancelled.
 
