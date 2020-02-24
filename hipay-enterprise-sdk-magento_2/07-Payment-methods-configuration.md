@@ -7,7 +7,6 @@ In your Magento Admin Portal, select:
 
 You can then see all the HiPay Enterprise payment methods.
 
-![legend](images/PaymentIntegration.png)
 
 Before describing the configuration fields for each payment method, please note the difference between the *HOSTED* and *API* modes.
 
