@@ -27,7 +27,6 @@ HiPay Enterprise API credentials are required to use the HiPay Enterprise module
 |Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration" => “Security Settings” |
 |Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
-![legend](images/credentials_conf.png)
 
 ### HiPay Enterprise credentials for Direct Post configuration
 
@@ -40,7 +39,6 @@ Generated in your HiPay Enterprise back office (“Integration” => “Security
 |Api username (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
-![legend](images/credentials_js.png)
 
 ### HiPay Enterprise credentials for MO/TO configuration  
 MO/TO API credentials are optional.  
@@ -55,7 +53,6 @@ They are required only if you need to pay an order created in your Magento Admin
 |Api password (test account)|Retrieve it from your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 |Secret passphrase (test account)|Enter the same value as in your HiPay Enterprise back office (https://merchant.hipay-tpp.com) in “Integration” => “Security Settings” |
 
-![legend](images/credentials_moto.png)
 
 ## Email templates
 
