@@ -34,7 +34,7 @@ Yet, **these are not used** by the HiPay Enterprise module for Magento 2 as it s
 
 Also, check the “_Feedback Parameters_” box and apply changes.
 
-![legend](images/redirect_pages.png)
+![legend](images/redirect_url.png)
 
 ## Configure the notification URL
 
