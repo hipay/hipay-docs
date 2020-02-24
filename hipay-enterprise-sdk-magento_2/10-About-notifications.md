@@ -64,9 +64,9 @@ Otherwise, we just add a new order history record with notification information.
 #### CAPTURE REQUESTED (117)  
 
 If the validation status is set to `Capture`:  
-- the transaction order is not created,
-- the order status changes to `Capture requested`,
-- notification details are added to the order history.
+- The transaction order is not created.
+- The order status changes to `Capture requested`.
+- Notification details are added to the order history.
 
 Otherwise, if the validation status is set to `Capture requested`, please see the `Captured` status related actions below.
 

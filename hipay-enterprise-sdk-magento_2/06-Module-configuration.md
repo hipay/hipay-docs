@@ -104,9 +104,9 @@ For questions relating to installation and configuration, please don’t hesitat
 
 Please note that **“Adjustment Fee”** or **“Adjustment Refund”** are not supported with carts for refunds.
 
-#### Mapping categories and shipping methods
+#### Mapping categories and shipping method
 
-To enable sending relevant information about categories and shipping methods, mapping
+To enable sending relevant information about the categories and shipping method, mapping
 is required between your data and HiPay’s data.
 
 ##### Mapping categories
@@ -117,18 +117,18 @@ Only the top level categories are displayed and must be mapped. If the mapping i
 
 ![](images/mapping_categories.png)
 
-##### Mapping shipping methods
+##### Mapping shipping method
 
 Go to the setup screen `HiPay Enterprise` => `Mapping Shipping method`.
 
-A list of all the delivery methods activated on the site is displayed.
+A list of all the shipping methods activated on the site is displayed.
 This mapping is necessary to indicate a match between your shipping methods and the shipping methods defined by HiPay.
 For each customer’s order, depending on the chosen configuration, this information is sent as a supplement to the customer’s cart.
 
 For each mapping, you have to fill out the following information:
 
-   *   “Preparation delay”: Estimated time for order preparation,
-   *   “Delivery delay”: Estimated time for delivery.
+   *   “Order preparation delay”: Estimated time for order preparation,
+   *   “Delivery time estimated”: Estimated time for delivery.
 
 From this information, an estimated delivery day is calculated and sent with the transaction.
 Non-working days are not taken into account in this calculation.
@@ -164,8 +164,8 @@ Finally, although we do our best to retrieve all relevant data for you, we canno
 | **shipping_indicator** |  | We handle this field but you can override the value for intangible products.<br/><br/>If the cart contains only intangible products, please provide:<br/><br/>5 = Digital goods<br/>6 = Travel and event tickets, no shipping<br/>7 = Other (gaming, digital services without shipping, e-media subscription) |
 | **pre_order_date** |  | **If you offer the possibility of pre-ordering,** you must retrieve the product availability date. | 
 | **gift_card** |  | **If you sell gift cards** |
-|  | **amount** | Collect the amount of gift cards purchased. |
-|  | **count** | Collect the count of gift cards purchased. |
-|  | **currency** | Collect the gift card currency. |
+|  | **amount** | Collect the amount of gift cards purchased |
+|  | **count** | Collect the count of gift cards purchased |
+|  | **currency** | Collect the gift card currency |
 
 To see all the parameters you can override, please refer to the [SDK PHP Reference](https://developer.hipay.com/doc/hipay-enterprise-sdk-php/#psd2-and-strong-customer-authentication).
