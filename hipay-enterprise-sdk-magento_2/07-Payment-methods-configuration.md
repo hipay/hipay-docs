@@ -108,7 +108,6 @@ Those parameters allow you to override default CSS properties in hosted form fie
 
 To override the default template, please refer to the Magento 2 documentation ([doc.](https://devdocs.magento.com/guides/v2.3/frontend-dev-guide/templates/template-override.html)) and the HiPay Enterprise JavaScript SDK reference ([doc.](/doc/hipay-enterprise-sdk-js_3/#hipay-enterprise-javascript-sdk)).
 
-![legend](images/hf_form.png)
 
 # More configuration details
 
@@ -151,10 +150,6 @@ To capture the transaction, please refer to the [Manual capture and refund](#man
 ## One-click (only available for credit card payment methods)
 
 If the One-click option is enabled, your system will create an “alias” for the credit card. Customers will thus be able to use a saved credit card for their second transaction and won’t need to fill in all the payment data again.
-
-![legend](images/front_oneclick_selected.png)
-
-![legend](images/front_oneclick_not_selected.png)
 
 Customers can delete their saved credit cards from their account.  
 
