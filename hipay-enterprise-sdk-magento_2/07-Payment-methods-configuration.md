@@ -57,10 +57,6 @@ All payment methods have a basic configuration like the native Magento 2 payment
 |Debug|Enables/disables the debug mode (which logs queries)|
 |Environment|Stage or Production. In Stage mode, the test API endpoint and your test credentials are used.|
 
-![legend](images/general_config_1.png)
-
-![legend](images/general_config_2.png)
-
 ## HOSTED mode configuration
 
 HOSTED configuration specific fields
