@@ -877,7 +877,28 @@ Should an error occur, here is a list of all the possible related codes and desc
 | 1003 | The network is unavailable |
 | 1004 | POS terminal Not Connected |
 | 1005 | Parsing transaction status failed |
-| 1006 | Cancelled transaction (REASON) |
+| 1006 | Cancelled transaction ([Reasons](/platform-hipay-omnichannel/overview/?branch=omnicanal#omnichannel-sdk-errors-code-reasons)) |
 | 1007 | Parsing received frame failed |
 | 1008 | Parsing created frame from POS terminal failed |
 | 1009 | Unknown MID|
+
+### Reasons
+
+The reason might be empty
+
+| Description |
+|---|
+| Unknown |
+| Authorized transaction |
+| Call phonie |
+| Forcing |
+| Refused |
+| Prohibited |
+| Abandon |
+| Not completed |
+| Time-out entered |
+| Error message format |
+| Error selection |
+| Abandon Operator |
+| Type of action requested unknown |
+| Unsupported currency |
